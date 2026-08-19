@@ -26,7 +26,7 @@ export const MENU = [
   {
     label: 'Carrière',
     to: '/offres-demploi/',
-    img: 'meet',
+    img: 'duo',
     blurb: 'Une équipe passionnée, innovante et résolument tournée vers l’avenir.',
     items: [
       { to: '/offres-demploi/', label: "Offres d'emploi" },

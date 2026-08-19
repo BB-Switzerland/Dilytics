@@ -52,7 +52,7 @@ const perks = [
             vers l'avenir, qui valorise ses collaborateurs autant que ses clients.
           </p>
         </div>
-        <div class="shot opic" v-rv:6="'zoom'"><img :src="img('meet')" alt="L'équipe Dilytics" /></div>
+        <div class="shot opic" v-rv:6="'zoom'"><img :src="img('duo')" alt="L'équipe Dilytics au travail" /></div>
       </div>
     </section>
 

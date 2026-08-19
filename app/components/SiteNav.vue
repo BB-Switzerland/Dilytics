@@ -19,6 +19,12 @@ const stuck = computed(() => scroll.y > 10)
 const gone = computed(
   () => scroll.y > 340 && scroll.dir === 1 && !open.value && !drawer.value,
 )
+// The home hero is a dark photograph. While the bar still sits on it — before
+// the frosted background fades in — the wordmark and the links go light, or
+// they would be ink on navy.
+const over = computed(
+  () => route.path === '/' && !stuck.value && !open.value && !drawer.value,
+)
 
 /* sliding underline under the open trigger */
 const bar = ref(null)
@@ -69,7 +75,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <header class="nv" :class="{ stuck: stuck || open, dr: drawer, gone }" @mouseleave="hide">
+  <header class="nv" :class="{ stuck: stuck || open, dr: drawer, gone, over }" @mouseleave="hide">
     <div class="bar band-lead">
       <NuxtLink to="/" class="brand" aria-label="Dilytics, accueil"><Logo /></NuxtLink>
 
@@ -157,6 +163,15 @@ onBeforeUnmount(() => {
 .nv { position: fixed; inset: 0 0 auto; z-index: 100;
   transition: transform .55s var(--e) }
 .nv.gone { transform: translateY(-102%) }
+
+/* over the dark hero */
+.nv.over .brand { color: var(--paper) }
+.nv.over .tg { color: rgba(244, 242, 238, .74) }
+.nv.over .tg:hover, .nv.over .tg.on { color: var(--paper) }
+.nv.over .tel { color: var(--paper) }
+.nv.over .tel:hover { color: var(--red) }
+.nv.over .bg i { background: var(--paper) }
+.nv.over .bg { border-color: rgba(244, 242, 238, .34) }
 .nv::before {
   content: ''; position: absolute; inset: 0; background: rgba(246, 245, 242, .9);
   backdrop-filter: blur(22px) saturate(1.8); -webkit-backdrop-filter: blur(22px) saturate(1.8);

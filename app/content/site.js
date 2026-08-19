@@ -139,6 +139,6 @@ export const ARTICLES = [
     title: 'Comment bien choisir sa fiduciaire ?',
     excerpt: 'Les critères à examiner avant de confier sa comptabilité à un cabinet.',
     date: '28 mars 2023',
-    img: 'meet',
+    img: 'domicil',
   },
 ]
