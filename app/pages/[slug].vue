@@ -42,7 +42,7 @@ const cross = computed(() => {
 })
 
 useHead(() => ({
-  title: `${heading.value} — Dilytics, fiduciaire à Genève`,
+  title: `${heading.value} · Dilytics, fiduciaire à Genève`,
   meta: [{ name: 'description', content: tagline.value.slice(0, 155) }],
 }))
 
@@ -50,7 +50,7 @@ const openFaq = ref(0)
 
 /* ---------------------------------------------------------------- the guide
    A long explanation is not a grid of cards. It is an article, and an article
-   is read one column at a time — so the sections run down a single measure and
+   is read one column at a time, so the sections run down a single measure and
    a rail on the left says, at every moment, which one you are in. */
 const doc = ref(null)
 const here = ref(0)
@@ -232,7 +232,7 @@ function jump(i) {
 .guide { padding-block: clamp(30px, 4vw, 70px) clamp(40px, 5vw, 84px) }
 /* No `align-items: start` here: it would shrink the rail to its own content
    height, leaving the sticky block no distance to travel. The rail has to span
-   the whole row — the height of the article — for sticky to mean anything. */
+   the whole row, the height of the article, for sticky to mean anything. */
 .gwrap { max-width: 1140px; margin-inline: auto; padding-inline: var(--pad);
   display: grid; grid-template-columns: 232px minmax(0, 1fr);
   gap: clamp(36px, 6vw, 96px) }
@@ -282,7 +282,7 @@ function jump(i) {
 .lst li:last-child { border-bottom: 1px solid rgba(0, 25, 52, .1) }
 .lk { width: 20px; height: 20px; color: var(--red); margin-top: 2px }
 
-/* faq — the same two-column band as the coverage list above, so the page keeps
+/* faq: the same two-column band as the coverage list above, so the page keeps
    one rhythm instead of dropping to a narrow centred column */
 .fwrap { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
   gap: clamp(24px, 4vw, 76px); align-items: start }

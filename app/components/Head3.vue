@@ -49,7 +49,7 @@ onBeforeUnmount(() => ctx?.revert())
 <style scoped>
 .ln { display: block; overflow: hidden; padding-bottom: .09em; margin-bottom: -.09em }
 .ln > i { display: block; font-style: normal; will-change: transform }
-/* only until the engine arms — see .mo in main.css */
+/* only until the engine arms; see .mo in main.css */
 :global(.mo) .ln > i { transform: translateY(104%) }
 .ac { color: var(--red) }
 @media (prefers-reduced-motion: reduce) { :global(.mo) .ln > i { transform: none } }

@@ -6,7 +6,7 @@ import { reactive } from 'vue'
 // The site's motion engine.
 //
 // Lenis owns the scroll position, the GSAP ticker drives Lenis, and
-// ScrollTrigger is updated from Lenis — one clock, so a scrubbed animation can
+// ScrollTrigger is updated from Lenis: one clock, so a scrubbed animation can
 // never drift away from the page under it.
 //
 // Nothing here hides content for good: every entrance is a `from` tween, so an
@@ -39,7 +39,7 @@ const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
 
 // Wrap every visual line of a heading in its own clipping box, so the lines can
 // rise out from under each other. Returns null when the element holds markup we
-// would destroy — the caller then falls back to a whole-block reveal.
+// would destroy; the caller then falls back to a whole-block reveal.
 function splitLines(el) {
   if (el.querySelector('*') || !el.textContent.trim()) return null
 
@@ -194,7 +194,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     })
   }
 
-  // A card that leans under the cursor. Small angles only — past about three
+  // A card that leans under the cursor. Small angles only: past about three
   // degrees it stops reading as depth and starts reading as a gimmick.
   function tilt(el) {
     if (window.matchMedia('(hover: none)').matches) return null

@@ -23,7 +23,7 @@ export const CATEGORIES = [
     facts: [
       { v: 'Inclus', k: 'Frais de notaire, aux tarifs que nous avons négociés' },
       { v: 'Zéro', k: "Frais avant la création : nous ne facturons qu'à la réussite" },
-      { v: 'Aucun', k: 'Frais caché — nous respectons les devis envoyés' },
+      { v: 'Aucun', k: 'Frais caché : nous respectons les devis envoyés' },
     ],
     aside: {
       t: 'Pas de prestataire externe',

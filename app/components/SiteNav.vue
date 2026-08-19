@@ -13,14 +13,14 @@ const panel = computed(() => MENU.find((m) => m.label === open.value) || null)
 const panelIndex = computed(() => MENU.findIndex((m) => m.label === open.value))
 
 // The bar frosts over as soon as the page moves, and steps out of the way while
-// the reader is going down — it comes straight back on the first upward flick.
+// the reader is going down; it comes straight back on the first upward flick.
 const { scroll } = useMotion()
 const stuck = computed(() => scroll.y > 10)
 const gone = computed(
   () => scroll.y > 340 && scroll.dir === 1 && !open.value && !drawer.value,
 )
-// The home hero is a dark photograph. While the bar still sits on it — before
-// the frosted background fades in — the wordmark and the links go light, or
+// The home hero is a dark photograph. While the bar still sits on it, before
+// the frosted background fades in, the wordmark and the links go light, or
 // they would be ink on navy.
 const over = computed(
   () => route.path === '/' && !stuck.value && !open.value && !drawer.value,

@@ -35,27 +35,27 @@ export const TEAM = [
   {
     img: 'p_laureano',
     name: 'Laureano Rodrigues',
-    role: 'Membre de direction et partner — CEO',
+    role: 'Membre de direction et partner, CEO',
     quote:
       "Avec l'expérience que j'ai développée en management et dans la gestion de sociétés fiduciaires, j'ai très vite constaté que l'importance n'était pas accordée aux projets des clients, et c'est frustrant. Avec Dilytics, je souhaite aller au-delà du simple appui comptable : avec mon équipe, je propose un service orienté sur des solutions concrètes et adaptées aux attentes des entreprises d'aujourd'hui.",
-    diploma: 'BBA — Bachelor Business Administration · Conseiller IAF',
+    diploma: 'BBA, Bachelor Business Administration · Conseiller IAF',
     langs: 'Français · Anglais · Allemand · Portugais · Espagnol',
     linkedin: 'https://ch.linkedin.com/in/laureano-rodrigues',
   },
   {
     img: 'p_nervan',
     name: 'Nervan Omerovic',
-    role: 'Membre de direction et partner — COO et digitalisation',
+    role: 'Membre de direction et partner, COO et digitalisation',
     quote:
       "Avec l'expérience que j'ai développée en comptabilité dans un grand cabinet, j'ai rejoint Dilytics pour aller au-delà du simple appui comptable traditionnel. J'allie rigueur comptable et innovation, notamment grâce à l'automatisation et à l'intelligence artificielle, pour construire des solutions simples et efficaces tout en contribuant à la digitalisation des processus.",
-    diploma: 'BBA — Bachelor Business Administration',
+    diploma: 'BBA, Bachelor Business Administration',
     langs: 'Français · Anglais · Bosniaque',
     linkedin: 'https://www.linkedin.com/in/nomerovic/',
   },
   {
     img: 'p_walid',
     name: 'Walid Berkaoui',
-    role: 'Expert-comptable FR — responsable de mandats PME',
+    role: 'Expert-comptable FR, responsable de mandats PME',
     quote:
       "J'ai accompagné de nombreux dirigeants dans la structuration, la gestion et la croissance de leur entreprise, notamment au sein d'un grand cabinet international. Chez Dilytics, mon objectif est d'être un véritable partenaire stratégique, en accompagnant chaque client avec rigueur, écoute et une vision à long terme, de la création à la transmission de son entreprise.",
     diploma: 'Master en comptabilité et de gestion',
@@ -68,7 +68,7 @@ export const TEAM = [
     role: 'Responsable de mandats PME',
     quote:
       "Je suis comptable pour les PME que Dilytics accompagne. Je souhaite mobiliser mon pragmatisme et ma minutie pour fournir un accompagnement sur mesure qui répond à tous les défis de la gestion d'entreprise. Je m'identifie parfaitement dans la philosophie de Dilytics, qui consiste à valoriser le capital humain et la formation continue.",
-    diploma: 'BBA — Bachelor Business Administration',
+    diploma: 'BBA, Bachelor Business Administration',
     langs: 'Portugais · Français · Anglais · Espagnol',
     linkedin: 'https://ch.linkedin.com/in/henriquesantos1989',
   },

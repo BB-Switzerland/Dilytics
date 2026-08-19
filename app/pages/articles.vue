@@ -2,7 +2,7 @@
 import { ARTICLES } from '~/content/site'
 import { img } from '~/utils/img'
 
-useHead({ title: 'Articles — Dilytics, fiduciaire à Genève' })
+useHead({ title: 'Articles · Dilytics, fiduciaire à Genève' })
 
 const lead = ARTICLES[0]
 const rest = ARTICLES.slice(1)

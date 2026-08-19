@@ -1,7 +1,7 @@
 <script setup>
 // An endless band of what the cabinet actually does. It runs on its own, but
 // the scroll bends it: flick down and it races ahead, scroll back up and it
-// turns around. That reaction is the whole point — it makes the page feel like
+// turns around. That reaction is the whole point: it makes the page feel like
 // one physical object rather than a stack of boxes.
 const props = defineProps({
   items: { type: Array, required: true },

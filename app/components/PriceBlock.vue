@@ -2,7 +2,7 @@
 import { CONTACT } from '~/content/site'
 
 // One band, two cards. The price sits on white; what stands beside it depends
-// on the service — the free-offer when there is one, otherwise the key figures.
+// on the service: the free-offer when there is one, otherwise the key figures.
 // A price card alone across the full width left half the band empty.
 const props = defineProps({
   price: { type: Object, required: true },
@@ -115,7 +115,7 @@ useGsap(({ gsap }) => {
 .ph { font-size: 1.02rem; font-weight: 760; letter-spacing: -.03em }
 .ph:hover { color: var(--red) }
 
-/* the free offer, on red — a different register from the price */
+/* the free offer, on red, a different register from the price */
 .gift { background: var(--red); color: #fff; justify-content: space-between }
 .gl { margin: 0; font-size: .74rem; font-weight: 700; letter-spacing: .12em;
   text-transform: uppercase; color: rgba(255, 255, 255, .72) }
@@ -125,7 +125,7 @@ useGsap(({ gsap }) => {
   color: rgba(255, 255, 255, .84); flex: 1 }
 .gift .cta { align-self: flex-start }
 
-/* the key figures, on navy — stands in when the service has no free-offer */
+/* the key figures, on navy, stands in when the service has no free-offer */
 .keys { background: var(--ink); color: var(--paper) }
 .kt { margin: 0 0 clamp(16px, 1.8vw, 24px); font-size: clamp(1.15rem, 1.5vw, 1.4rem);
   font-weight: 760; letter-spacing: -.028em; line-height: 1.15 }

@@ -15,7 +15,7 @@ const points = [
         <div class="shot big"><img :src="img('desk')" alt="Comptabilité numérique sur bexio" v-px="20" /></div>
         <div class="surf badge">
           <p class="fig-l k">Partenaire privilégié</p>
-          <p class="v">Or — bexio</p>
+          <p class="v">Or, bexio</p>
         </div>
       </div>
 

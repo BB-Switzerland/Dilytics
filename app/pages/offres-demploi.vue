@@ -2,9 +2,9 @@
 import { CONTACT } from '~/content/site'
 import { img } from '~/utils/img'
 
-useHead({ title: "Offres d'emploi — Dilytics, fiduciaire à Genève" })
+useHead({ title: "Offres d'emploi · Dilytics, fiduciaire à Genève" })
 
-// PLACEHOLDER — sample postings, for the design only. The live site currently
+// PLACEHOLDER: sample postings, for the design only. The live site currently
 // shows no open position. Replace with real openings before going live, or
 // empty the array: the page falls back to its own "no position" state.
 const offers = [
@@ -74,7 +74,7 @@ const perks = [
             </div>
             <span class="xs">{{ o.p }}</span>
             <span class="xs">{{ o.l }}</span>
-            <a :href="`mailto:${CONTACT.mail}?subject=${encodeURIComponent('Candidature — ' + o.t)}`" class="cta cta-line cta-sm">
+            <a :href="`mailto:${CONTACT.mail}?subject=${encodeURIComponent('Candidature : ' + o.t)}`" class="cta cta-line cta-sm">
               <span>Postuler</span><Ar />
             </a>
           </li>

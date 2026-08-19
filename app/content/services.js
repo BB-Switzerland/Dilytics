@@ -2,7 +2,7 @@
 // so a new page is a new object rather than a new file.
 //
 // Every lede, fact, question and answer below is taken from the cabinet's own
-// published pages. Where the site gives no figure, none is invented — a fact
+// published pages. Where the site gives no figure, none is invented. A fact
 // that cannot be sourced simply does not appear.
 
 export const GROUPS = {
@@ -36,7 +36,7 @@ export const SERVICES = [
       },
       {
         q: 'Le nom de mon entreprise est-il libre ?',
-        a: "Il doit être unique, ne pas être déjà utilisé par une entreprise inscrite en Suisse, et contenir obligatoirement votre nom de famille — par exemple « Consulting NOM ».",
+        a: "Il doit être unique, ne pas être déjà utilisé par une entreprise inscrite en Suisse, et contenir obligatoirement votre nom de famille, par exemple « Consulting NOM ».",
       },
     ],
     related: [
@@ -468,7 +468,7 @@ export const SERVICES = [
       },
       {
         q: 'Pourquoi la fiscalité suisse est-elle si complexe ?',
-        a: "Le système fiscal se subdivise en trois niveaux — fédéral, cantonal et communal — et les impôts cantonaux et communaux peuvent grandement varier d'un lieu à l'autre.",
+        a: "Le système fiscal se subdivise en trois niveaux (fédéral, cantonal et communal) et les impôts cantonaux et communaux peuvent grandement varier d'un lieu à l'autre.",
       },
     ],
     related: [
@@ -592,7 +592,7 @@ export const SERVICES = [
     faq: [
       {
         q: 'Comment sont calculés les impôts fonciers ?',
-        a: "Ce sont des impôts locaux prélevés sur la propriété immobilière, basés sur la valeur locative du bien — calculée par les autorités fiscales selon sa taille et sa situation géographique. Les taux varient selon les cantons et les communes.",
+        a: "Ce sont des impôts locaux prélevés sur la propriété immobilière, basés sur la valeur locative du bien, calculée par les autorités fiscales selon sa taille et sa situation géographique. Les taux varient selon les cantons et les communes.",
       },
       {
         q: 'Quand les gains en capital sont-ils exonérés ?',
@@ -600,7 +600,7 @@ export const SERVICES = [
       },
       {
         q: 'Que puis-je déduire de mes revenus locatifs ?',
-        a: "Les frais de location — gestion, maintenance, assurance — se déduisent du revenu locatif brut pour déterminer le revenu locatif net imposable.",
+        a: "Les frais de location (gestion, maintenance, assurance) se déduisent du revenu locatif brut pour déterminer le revenu locatif net imposable.",
       },
     ],
     related: [

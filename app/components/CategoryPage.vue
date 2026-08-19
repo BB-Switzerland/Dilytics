@@ -23,7 +23,7 @@ const rows = computed(() =>
 const others = computed(() => CATEGORIES.filter((x) => x.key !== props.group))
 
 useHead(() => ({
-  title: `${c.value.title} — Dilytics, fiduciaire à Genève`,
+  title: `${c.value.title} · Dilytics, fiduciaire à Genève`,
   meta: [{ name: 'description', content: c.value.lede.slice(0, 155) }],
 }))
 </script>

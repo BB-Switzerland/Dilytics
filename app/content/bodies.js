@@ -1,5 +1,5 @@
-// Page content for each service. Three named benefits first — the cabinet's own
-// recurring device — then explanatory sections with real titles. No numbering:
+// Page content for each service. Three named benefits first, the cabinet's own
+// recurring device, then explanatory sections with real titles. No numbering:
 // these are not sequences, and a reader should know what a block is about from
 // its heading alone.
 //
@@ -23,7 +23,7 @@ export const BODY = {
       {
         t: "Le nom et le lieu d'établissement",
         p: [
-          "Il est d'abord nécessaire de choisir un nom pour votre entreprise. Il doit être unique, ne pas être déjà utilisé par une autre entreprise enregistrée en Suisse, et il doit absolument contenir votre nom de famille — par exemple « Consulting NOM ».",
+          "Il est d'abord nécessaire de choisir un nom pour votre entreprise. Il doit être unique, ne pas être déjà utilisé par une autre entreprise enregistrée en Suisse, et il doit absolument contenir votre nom de famille, par exemple « Consulting NOM ».",
           "Une fois le nom et le lieu d'établissement arrêtés, vous pouvez vous inscrire au registre du commerce cantonal.",
         ],
       },
@@ -203,7 +203,7 @@ export const BODY = {
         t: "L'analytique comme force de vente",
         p: [
           "La comptabilité analytique consiste à suivre et à analyser les coûts et les dépenses d'une entreprise de manière détaillée. Cela permet de mieux comprendre comment l'entreprise utilise ses ressources et de prendre des décisions éclairées en matière de planification et de budgétisation.",
-          "Elle aide à identifier les domaines où des économies peuvent être réalisées, et à mieux comprendre la rentabilité des différents produits ou services proposés — ce qui éclaire ensuite les décisions de tarification et de marketing.",
+          "Elle aide à identifier les domaines où des économies peuvent être réalisées, et à mieux comprendre la rentabilité des différents produits ou services proposés, ce qui éclaire ensuite les décisions de tarification et de marketing.",
         ],
       },
       {
@@ -722,7 +722,7 @@ export const BODY = {
         t: 'Les impôts sur les gains en capital',
         p: [
           "Les gains réalisés sur la vente de biens immobiliers en Suisse y sont soumis. Les taux varient selon la durée de possession et la résidence fiscale du vendeur : les non-résidents sont soumis à une retenue à la source sur le montant de la vente.",
-          "Les gains sur les biens détenus depuis plus de cinq ans sont exempts d'impôt en Suisse. Les coûts liés à la vente — frais de courtage, d'avocat, de notaire — peuvent par ailleurs être déduits de la base d'imposition.",
+          "Les gains sur les biens détenus depuis plus de cinq ans sont exempts d'impôt en Suisse. Les coûts liés à la vente (frais de courtage, d'avocat, de notaire) peuvent par ailleurs être déduits de la base d'imposition.",
         ],
       },
       {

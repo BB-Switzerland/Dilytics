@@ -6,7 +6,7 @@ const root = ref(null)
 const m = useMotion()
 let ctx = null
 
-// Published figures only — the same ones the About page carries.
+// Published figures only, the same ones the About page carries.
 const strip = [
   { v: '+312', l: 'Sociétés accompagnées depuis 1999' },
   { v: '21', l: "Secteurs d'activité couverts par nos mandats" },
@@ -93,7 +93,7 @@ onBeforeUnmount(() => ctx?.revert())
 <style scoped>
 .hero {
   position: relative; isolation: isolate; overflow: hidden;
-  /* svh, not vh: on a phone `vh` is the LARGE viewport — the height the page
+  /* svh, not vh: on a phone `vh` is the LARGE viewport: the height the page
      gets once the address bar has slid away. Sizing to it means the bar covers
      the bottom of the hero for as long as it is showing. svh is the small
      viewport, bar included, so the whole hero is visible at every moment.
@@ -140,7 +140,7 @@ onBeforeUnmount(() => ctx?.revert())
 .sv { font-size: clamp(1.6rem, 2.6vw, 2.5rem); color: var(--paper) }
 .sl { font-size: .85rem; line-height: 1.4; color: rgba(244, 242, 238, .74) }
 
-/* held back only until the opening timeline takes over — see .mo in main.css */
+/* held back only until the opening timeline takes over; see .mo in main.css */
 :global(.mo) .kick,
 :global(.mo) .ld,
 :global(.mo) .acts,
@@ -158,7 +158,7 @@ onBeforeUnmount(() => ctx?.revert())
   .sl { font-size: .72rem }
 }
 @media (max-width: 520px) {
-  /* the three figures stay side by side — stacked they cost 100px of height
+  /* the three figures stay side by side; stacked they cost 100px of height
      the small screens do not have */
   .strip { gap: 10px }
   .sv { font-size: 1.25rem }

@@ -13,7 +13,7 @@ defineProps({ kind: { type: String, default: 'decompte' } })
       <span class="uim">2e trimestre</span>
     </div>
     <dl class="uirows">
-      <div><dt>Chiffre d'affaires</dt><dd>184 200.—</dd></div>
+      <div><dt>Chiffre d'affaires</dt><dd>184 200.-</dd></div>
       <div><dt>TVA due, 8,1 %</dt><dd>14 920.20</dd></div>
       <div><dt>Impôt préalable</dt><dd>−4 380.55</dd></div>
     </dl>
@@ -27,7 +27,7 @@ defineProps({ kind: { type: String, default: 'decompte' } })
       <span class="uim">Mars</span>
     </div>
     <dl class="uirows">
-      <div><dt>Salaire brut</dt><dd>7 400.—</dd></div>
+      <div><dt>Salaire brut</dt><dd>7 400.-</dd></div>
       <div><dt>AVS, AI, APG</dt><dd>−392.20</dd></div>
       <div><dt>LPP</dt><dd>−318.50</dd></div>
       <div><dt>Assurance chômage</dt><dd>−81.40</dd></div>

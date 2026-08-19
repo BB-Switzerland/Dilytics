@@ -2,10 +2,10 @@
 import { TEAM, CONTACT } from '~/content/site'
 import { img } from '~/utils/img'
 
-useHead({ title: 'À propos — Dilytics, fiduciaire à Genève' })
+useHead({ title: 'À propos · Dilytics, fiduciaire à Genève' })
 
 // This page is a story, not a catalogue. It deliberately drops the layout the
-// rest of the site uses — headline left, photograph right, then a grid — for a
+// rest of the site uses (headline left, photograph right, then a grid) for a
 // wide opening, two eras side by side, and the team in their own words.
 
 // The identity figures, with the cabinet's own explanations.
@@ -47,7 +47,7 @@ const values = [
 <template>
   <article>
     <!-- opening: the headline runs the full measure, the photograph runs edge
-         to edge underneath it — the inverse of every other page -->
+         to edge underneath it, the inverse of every other page -->
     <section class="op">
       <div class="band-lead">
         <nav class="crumb">
@@ -190,7 +190,7 @@ const values = [
   gap: clamp(20px, 3vw, 60px); margin-top: clamp(28px, 3.4vw, 52px);
   padding-bottom: clamp(34px, 4vw, 66px) }
 
-/* the photograph runs the full width of the window. 2:1, not 21:8 — the
+/* the photograph runs the full width of the window. 2:1, not 21:8: the
    reception shot needs its height to keep the armchairs whole. */
 .bleed { margin: 0; width: 100vw; margin-left: calc(50% - 50vw);
   aspect-ratio: 2 / 1; overflow: hidden; background: var(--sand) }

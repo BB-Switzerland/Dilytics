@@ -4,7 +4,7 @@ import { CONTACT } from '~/content/site'
 // The page says what the cabinet does and why it matters, but never what
 // happens once you call. Named stages rather than 01/02/03: a number tells you
 // nothing, "l'entretien" tells you exactly where you are. Every line below is
-// the cabinet's own published wording — no service level is invented here.
+// the cabinet's own published wording; no service level is invented here.
 const steps = [
   {
     k: "L'entretien",
@@ -38,7 +38,7 @@ useGsap(({ gsap }) => {
     scrub: 0.5,
   }
   // The red line draws through the stages, and each one comes up out of grey as
-  // the line reaches it — the progression is the animation, not decoration.
+  // the line reaches it: the progression is the animation, not decoration.
   gsap.fromTo('.fill', { scaleX: 0 }, { scaleX: 1, ease: 'none', scrollTrigger: track })
   gsap.fromTo('.st', { opacity: 0.3 }, { opacity: 1, ease: 'none', stagger: 0.6, scrollTrigger: track })
 }, root)

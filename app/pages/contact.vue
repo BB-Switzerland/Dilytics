@@ -2,7 +2,7 @@
 import { CONTACT } from '~/content/site'
 import { img } from '~/utils/img'
 
-useHead({ title: 'Contact — Dilytics, fiduciaire à Genève' })
+useHead({ title: 'Contact · Dilytics, fiduciaire à Genève' })
 
 const blank = () => ({ name: '', mail: '', phone: '', subject: '', msg: '' })
 const form = ref(blank())
