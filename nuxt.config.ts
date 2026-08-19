@@ -9,7 +9,11 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'theme-color', content: '#f6f5f2' },
       ],
-      link: [{ rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
+      link: [
+        { rel: 'icon', href: '/favicon.ico', sizes: '48x48' },
+        { rel: 'icon', href: '/favicon.png', type: 'image/png', sizes: '512x512' },
+        { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+      ],
       script: [
         {
           // Holds the first screen back for the fraction of a second the motion
