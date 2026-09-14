@@ -98,7 +98,7 @@ const values = [
 
         <div class="eras" v-stagger>
           <article v-for="e in eras" :key="e.y">
-            <span class="ey">{{ e.y }}</span>
+            <span class="ey fig">{{ e.y }}</span>
             <h3 class="d3">{{ e.t }}</h3>
             <p v-for="(par, j) in e.p" :key="j" class="prose">{{ par }}</p>
           </article>
@@ -229,7 +229,7 @@ const values = [
 .hhd { max-width: 46ch; margin-bottom: clamp(30px, 3.6vw, 56px) }
 .hhd .body { color: rgba(244, 242, 238, .68); margin-top: 14px }
 .eras { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(24px, 4vw, 80px) }
-.ey { display: block; font-size: .78rem; font-weight: 700; letter-spacing: .12em; color: var(--red) }
+.ey { display: block; font-size: clamp(1.8rem, 2.6vw, 2.5rem); color: var(--red) }
 .eras h3 { margin: 14px 0 16px }
 .prose { margin: 0 0 1em; font-size: 1rem; line-height: 1.68; color: rgba(244, 242, 238, .74) }
 .prose:last-child { margin-bottom: 0 }

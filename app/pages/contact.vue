@@ -1,6 +1,7 @@
 <script setup>
 import { CONTACT } from '~/content/site'
 import { img } from '~/utils/img'
+import { mailDraft } from '~/utils/mailto'
 
 useHead({ title: 'Contact · Dilytics, fiduciaire à Genève' })
 
@@ -11,7 +12,10 @@ const valid = computed(() => form.value.name && form.value.mail.includes('@') &&
 const subjects = ['Comptabilité', 'Fiscalité des entreprises', 'Salaires et RH', "Création d'entreprise", 'Impôts des particuliers', 'Autre sujet']
 
 function submit() {
-  if (valid.value) sent.value = true
+  if (!valid.value) return
+  const f = form.value
+  window.location.href = mailDraft({ ...f, subject: `${f.subject || 'Demande de contact'} · ${f.name}` })
+  sent.value = true
 }
 </script>
 
@@ -69,24 +73,27 @@ function submit() {
           </form>
 
           <div v-else class="done">
-            <h2 class="d3">Message envoyé.</h2>
-            <p class="body">Merci {{ form.name }}. Notre équipe répond à tous les messages. Nous vous écrirons à l'adresse {{ form.mail }}.</p>
+            <h2 class="d3">Votre message est prêt.</h2>
+            <p class="body">
+              Votre messagerie s'est ouverte avec le message adressé à {{ CONTACT.mail }} : il ne
+              reste qu'à l'envoyer. Si rien ne s'est ouvert, écrivez-nous directement à cette adresse.
+            </p>
             <button class="lnk" @click="sent = false; form = blank()">Écrire un autre message<Ar /></button>
           </div>
         </div>
 
         <aside class="side" v-rv:8="'up'">
           <div class="blk">
-            <h2 class="idx">Nous appeler</h2>
+            <h2 class="t2">Nous appeler</h2>
             <a :href="CONTACT.phoneHref" class="big">{{ CONTACT.phone }}</a>
             <p class="sm">{{ CONTACT.hours }}</p>
           </div>
           <div class="blk">
-            <h2 class="idx">Nous écrire</h2>
+            <h2 class="t2">Nous écrire</h2>
             <a :href="`mailto:${CONTACT.mail}`" class="lnk">{{ CONTACT.mail }}<Ar /></a>
           </div>
           <div class="blk">
-            <h2 class="idx">Nous rendre visite</h2>
+            <h2 class="t2">Nous rendre visite</h2>
             <p class="sm">{{ CONTACT.street }}<br />{{ CONTACT.city }}</p>
             <p class="xs">À moins de dix minutes du centre-ville, accessible par le Léman Express et de nombreux bus.</p>
           </div>
@@ -128,7 +135,7 @@ button[disabled] { opacity: .38; pointer-events: none }
 
 .side { display: flex; flex-direction: column; gap: 12px }
 .blk { background: var(--sand); border-radius: var(--r); padding: 22px }
-.blk .idx { margin-bottom: 12px }
+.blk .t2 { margin-bottom: 10px }
 .blk p { margin-top: 8px }
 .big { font-size: clamp(1.25rem, 1.7vw, 1.5rem); font-weight: 790; letter-spacing: -.035em; color: var(--red) }
 

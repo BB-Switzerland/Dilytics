@@ -24,7 +24,6 @@ onMounted(() => {
     tl.from('.bg', { clipPath: 'inset(100% 0 0 0)', duration: 1.6 }, 0)
       .from('.bg img', { scale: 1.32, duration: 2 }, 0)
       .from('.scrim', { opacity: 0, duration: 1.4 }, 0.2)
-      .from('.kick', { y: 20, opacity: 0, duration: 0.9 }, 0.3)
       .from('.ld', { y: 30, opacity: 0, duration: 1 }, 0.72)
       .from('.acts > *', { y: 26, opacity: 0, duration: 0.9, stagger: 0.08 }, 0.84)
       .from('.strip li', { y: 30, opacity: 0, duration: 1, stagger: 0.09 }, 1)
@@ -57,8 +56,6 @@ onBeforeUnmount(() => ctx?.revert())
     <PhotoNote id="meet" at="hero" :frame="false" />
 
     <div class="inner wrap">
-      <p class="kick">Dilytics · Fiduciaire à Genève</p>
-
       <Head3
         :lines="['Le partenaire stratégique', 'des dirigeants.']"
         cls="d1 hh"
@@ -122,8 +119,6 @@ onBeforeUnmount(() => ctx?.revert())
 
 .inner, .foot { width: 100%; align-self: stretch }
 .inner { flex: 1; display: flex; flex-direction: column; justify-content: center }
-.kick { font-size: .8rem; font-weight: 620; letter-spacing: .11em; text-transform: uppercase;
-  color: rgba(244, 242, 238, .72); margin: 0 0 clamp(18px, 2vw, 30px) }
 /* no measure: the two lines are set by hand and only wrap on a phone */
 .hh { font-size: clamp(2.35rem, 5.3vw, 5rem); letter-spacing: -.042em; max-width: none }
 .ld { margin-top: clamp(16px, 1.8vw, 26px); max-width: 56ch; line-height: 1.55;
@@ -144,7 +139,6 @@ onBeforeUnmount(() => ctx?.revert())
 .sl { font-size: .85rem; line-height: 1.4; color: rgba(244, 242, 238, .74) }
 
 /* held back only until the opening timeline takes over; see .mo in main.css */
-:global(.mo) .kick,
 :global(.mo) .ld,
 :global(.mo) .acts,
 :global(.mo) .strip li { opacity: 0 }
@@ -168,7 +162,7 @@ onBeforeUnmount(() => ctx?.revert())
   .sl { font-size: .67rem; line-height: 1.3 }
 }
 @media (prefers-reduced-motion: reduce) {
-  :global(.mo) .kick, :global(.mo) .ld, :global(.mo) .acts, :global(.mo) .strip li { opacity: 1 }
+  :global(.mo) .ld, :global(.mo) .acts, :global(.mo) .strip li { opacity: 1 }
   :global(.mo) .bg { clip-path: none }
 }
 </style>

@@ -1,6 +1,6 @@
 <script setup>
 import { MENU } from '~/content/nav'
-import { CONTACT } from '~/content/site'
+import { CONTACT, LEGAL } from '~/content/site'
 import { img } from '~/utils/img'
 </script>
 
@@ -23,11 +23,11 @@ import { img } from '~/utils/img'
 
         <nav class="cols">
           <div v-for="m in MENU" :key="m.label">
-            <h2 class="idx">{{ m.label }}</h2>
+            <h2 class="ch">{{ m.label }}</h2>
             <NuxtLink v-for="it in m.items" :key="it.to" :to="it.to">{{ it.label }}</NuxtLink>
           </div>
           <div>
-            <h2 class="idx">Contact</h2>
+            <h2 class="ch">Contact</h2>
             <NuxtLink to="/contact">Nous écrire</NuxtLink>
             <a :href="CONTACT.booking" target="_blank" rel="noopener">Prendre rendez-vous</a>
             <a :href="CONTACT.phoneHref">{{ CONTACT.phone }}</a>
@@ -39,10 +39,9 @@ import { img } from '~/utils/img'
       <Ax />
       <div class="bot">
         <span class="xs">© 2026 Dilytics · Genève</span>
-        <div class="lg2">
-          <button class="on">FR</button><span class="xs">/</span><button>EN</button>
-        </div>
-        <span class="xs">Mentions légales · Protection des données</span>
+        <nav class="legal" aria-label="Informations légales">
+          <a v-for="l in LEGAL" :key="l.href" :href="l.href" target="_blank" rel="noopener" class="xs">{{ l.label }}</a>
+        </nav>
       </div>
     </div>
   </footer>
@@ -59,15 +58,15 @@ import { img } from '~/utils/img'
 
 .cols { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 26px) }
 .cols > div { display: flex; flex-direction: column; align-items: flex-start; gap: 9px }
-.cols .idx { margin-bottom: 6px }
+.cols .ch { margin: 0 0 6px; font-size: .9rem; font-weight: 700; letter-spacing: -.015em; color: var(--ink) }
 .cols a { font-size: .855rem; color: var(--muted); transition: color .3s var(--e), transform .35s var(--e) }
 .cols a:hover { color: var(--red); transform: translateX(3px) }
 
 .bot { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap;
   padding-block: 22px clamp(24px, 3vw, 40px) }
-.lg2 { display: flex; align-items: center; gap: 7px }
-.lg2 button { font-size: .78rem; font-weight: 640; color: var(--faint); transition: color .3s }
-.lg2 button:hover, .lg2 .on { color: var(--ink) }
+.legal { display: flex; flex-wrap: wrap; gap: 8px 22px }
+.legal a { transition: color .3s var(--e) }
+.legal a:hover { color: var(--red) }
 
 @media (max-width: 1000px) { .top { grid-template-columns: 1fr } .cols { grid-template-columns: repeat(3, 1fr) } }
 @media (max-width: 620px) { .cols { grid-template-columns: repeat(2, 1fr) } }

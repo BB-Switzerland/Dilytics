@@ -1,5 +1,6 @@
 <script setup>
 import { CONTACT } from '~/content/site'
+import { mailDraft } from '~/utils/mailto'
 
 const blank = () => ({ name: '', mail: '', phone: '', msg: '' })
 const form = ref(blank())
@@ -9,7 +10,9 @@ const valid = computed(
 )
 
 function submit() {
-  if (valid.value) sent.value = true
+  if (!valid.value) return
+  window.location.href = mailDraft({ ...form.value, subject: `Question · ${form.value.name.trim()}` })
+  sent.value = true
 }
 </script>
 
@@ -55,17 +58,13 @@ function submit() {
           <button type="submit" class="cta cta-red" :disabled="!valid">
             <span>Envoyer</span><Ar />
           </button>
-          <p class="xs mini">
-            Vos données restent au cabinet. Nous ne les transmettons à personne et ne vous
-            inscrivons à aucune liste sans votre accord.
-          </p>
         </form>
 
         <div v-else class="done">
           <p class="fig ok">Merci</p>
           <p class="body">
-            Message reçu, {{ form.name.split(' ')[0] }}. Nous revenons vers vous à
-            {{ form.mail }} dans les vingt-quatre heures ouvrables.
+            Votre messagerie s'est ouverte avec le message adressé à {{ CONTACT.mail }} : il ne
+            reste qu'à l'envoyer.
           </p>
           <button class="lnk" @click="sent = false; form = blank()">
             Écrire un autre message<Ar />
@@ -99,7 +98,6 @@ function submit() {
 .fld textarea:focus + label, .fld textarea:not(:placeholder-shown) + label {
   top: 7px; font-size: .7rem; color: var(--red); font-weight: 640 }
 button[disabled] { opacity: .38; pointer-events: none }
-.mini { margin-top: 14px; max-width: 52ch }
 
 .done { padding: 8px 0 }
 .ok { font-size: clamp(1.8rem, 2.4vw, 2.4rem); color: var(--red) }

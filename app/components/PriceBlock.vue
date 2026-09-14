@@ -65,7 +65,6 @@ useGsap(({ gsap }) => {
         </div>
 
         <div v-if="aside === 'offer'" class="card gift" v-rv:8="'up'" v-tilt>
-          <p class="gl">Offert</p>
           <h2 class="gt">{{ offer.t }}</h2>
           <p class="gd">{{ offer.d }}</p>
           <NuxtLink to="/contact" class="cta cta-light" v-mag><span>{{ offer.cta }}</span><Ar /></NuxtLink>
@@ -117,9 +116,7 @@ useGsap(({ gsap }) => {
 
 /* the free offer, on red, a different register from the price */
 .gift { background: var(--red); color: #fff; justify-content: space-between }
-.gl { margin: 0; font-size: .74rem; font-weight: 700; letter-spacing: .12em;
-  text-transform: uppercase; color: rgba(255, 255, 255, .72) }
-.gt { margin: 14px 0 0; font-size: clamp(1.3rem, 1.9vw, 1.85rem); font-weight: 800;
+.gt { margin: 0; font-size: clamp(1.3rem, 1.9vw, 1.85rem); font-weight: 800;
   letter-spacing: -.03em; line-height: 1.12 }
 .gd { margin: 14px 0 clamp(22px, 2.4vw, 32px); font-size: .93rem; line-height: 1.55;
   color: rgba(255, 255, 255, .84); flex: 1 }

@@ -23,10 +23,9 @@ const b = computed(() => BODY[s.value.slug] || null)
 const tagline = computed(() => b.value?.tagline || PITCH[s.value.slug] || s.value.lede)
 const secs = computed(() => b.value?.sections || [])
 
-// Two visual breaks inside the reading column, placed so no run of prose goes
-// on for more than a couple of sections without something to look at.
+// A photograph breaks the reading column after the first section, on guides
+// long enough to need something to look at.
 const picAfter = computed(() => (secs.value.length > 2 ? 0 : -1))
-const toolAfter = computed(() => (secs.value.length > 4 ? 3 : -1))
 
 const cross = computed(() => {
   const out = [...s.value.related]
@@ -130,7 +129,7 @@ function jump(i) {
         <aside class="rail">
           <div class="stick">
             <p class="rt">Sommaire</p>
-            <nav>
+            <nav aria-label="Sommaire">
               <a v-for="(sec, i) in secs" :key="sec.t" :href="`#sec-${i}`"
                 :class="{ on: here === i }" @click.prevent="jump(i)">{{ sec.t }}</a>
             </nav>
@@ -154,11 +153,6 @@ function jump(i) {
                 <img :src="img(parent.img)" :alt="parent.nav" v-px="18" />
                 <PhotoNote :id="parent.img" />
               </div>
-            </figure>
-
-            <figure v-else-if="i === toolAfter" class="brk tool" v-rv="'up'">
-              <UiCard kind="echeance" />
-              <figcaption class="xs">Vos échéances, tenues et rappelées par nos soins.</figcaption>
             </figure>
           </template>
         </div>
@@ -243,8 +237,7 @@ function jump(i) {
 .rail { align-self: stretch; height: 100% }
 
 .stick { position: sticky; top: calc(var(--nav-h) + 34px) }
-.rt { margin: 0 0 16px; font-size: .74rem; font-weight: 700; letter-spacing: .1em;
-  text-transform: uppercase; color: var(--faint) }
+.rt { margin: 0 0 12px; font-size: .9rem; font-weight: 700; letter-spacing: -.015em; color: var(--ink) }
 .rail nav { display: flex; flex-direction: column; align-items: flex-start; gap: 2px }
 .rail a { position: relative; padding: 7px 0; font-size: .88rem; line-height: 1.35;
   font-weight: 560; color: var(--faint); transition: color .35s var(--e) }
@@ -268,11 +261,9 @@ function jump(i) {
   color: rgba(0, 25, 52, .8) }
 .p:last-child { margin-bottom: 0 }
 
-/* the two things to look at, set as figures rather than dropped in a sidebar */
+/* the photograph, set as a figure rather than dropped in a sidebar */
 .brk { margin: 0 0 clamp(10px, 1.4vw, 18px) }
 .fpic { aspect-ratio: 16 / 9; border-radius: var(--r-lg) }
-.tool { background: var(--sand); border-radius: var(--r-lg); padding: clamp(20px, 2.2vw, 30px) }
-.tool figcaption { margin-top: 14px }
 
 /* list */
 .tint { background: var(--sand); padding-block: clamp(44px, 5vw, 88px) }

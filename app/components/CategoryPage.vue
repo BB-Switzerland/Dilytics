@@ -10,7 +10,7 @@ const props = defineProps({ group: { type: String, required: true } })
 const c = computed(() => CAT_BY_KEY[props.group])
 const services = computed(() => byGroup(props.group))
 
-// Rows for the shared numbered list: the one-line pitch reads better here than
+// Rows for the shared list: the one-line pitch reads better here than
 // the full lede, which belongs on the detail page.
 const rows = computed(() =>
   services.value.map((s) => ({
@@ -87,11 +87,7 @@ useHead(() => ({
       <div class="band-lead cov">
         <div class="cov-l">
           <h2 class="d3" v-rv="'mask'">{{ c.promise }}</h2>
-          <p class="sm cov-note" v-rv:8="'up'">
-            Le périmètre est écrit dans le devis. Vous savez ce qui est inclus, ce qui ne
-            l'est pas, et à quel prix.
-          </p>
-          <NuxtLink to="/contact" class="lnk cl" v-rv:12="'up'">Demander un devis<Ar /></NuxtLink>
+          <NuxtLink to="/contact" class="lnk cl" v-rv:8="'up'">Demander un devis<Ar /></NuxtLink>
         </div>
 
         <ul class="cov-r">
@@ -179,8 +175,7 @@ useHead(() => ({
 /* coverage */
 .cov { display: grid; grid-template-columns: minmax(0, .74fr) minmax(0, 1.26fr);
   gap: clamp(24px, 4vw, 76px); align-items: start }
-.cov-note { margin-top: 14px; max-width: 30ch }
-.cl { margin-top: 16px; color: var(--red) }
+.cl { margin-top: 20px; color: var(--red) }
 .cov-r { list-style: none; margin: 0; padding: 0 }
 .cov-r li { display: grid; grid-template-columns: 22px 1fr; gap: 14px; align-items: start;
   padding: 16px 0; border-top: 1px solid var(--hair);

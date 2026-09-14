@@ -7,9 +7,8 @@ export const CONTACT = {
   building: 'Lancy Small City, aile 1',
   map: 'https://www.google.com/maps/place//data=!4m2!3m1!1s0x478c6ffddc2a1a31:0x788c84a4fdfefdce',
   hours: 'Lundi au vendredi, 9h – 12h et 13h – 18h',
-  // the Microsoft Bookings page of the free fifteen-minute call, as linked from
-  // the cabinet's current home page
-  booking: 'https://outlook.office365.com/owa/calendar/ExpertDilytics@dilytics.ch/bookings/s/mKN6P3dcd06611BNeWF7nA2',
+  // the cabinet's Microsoft Bookings page, as sent by Dilytics
+  booking: 'https://outlook.office365.com/owa/calendar/ExpertDilytics@dilytics.ch/bookings/',
   since: 1999,
 }
 
@@ -19,9 +18,11 @@ export const SOCIAL = [
   { label: 'Facebook', href: 'https://www.facebook.com/people/Dilytics-Fiduciaire-%C3%A0-Gen%C3%A8ve/100086762722430/' },
 ]
 
+// Both pages still live on the current dilytics.ch; they have to be carried
+// over before the new site takes the domain.
 export const LEGAL = [
-  { label: 'Conditions générales de vente', to: '/conditions-generales-de-vente/' },
-  { label: 'Protection des données', to: '/declaration-sur-la-protection-des-donnees/' },
+  { label: 'Conditions générales de vente', href: 'https://dilytics.ch/conditions-generales-de-vente/' },
+  { label: 'Protection des données', href: 'https://dilytics.ch/declaration-sur-la-protection-des-donnees/' },
 ]
 
 // Proof for the home page. Dilytics asked for satisfaction first, and for

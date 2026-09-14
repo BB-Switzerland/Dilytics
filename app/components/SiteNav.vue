@@ -97,7 +97,7 @@ onBeforeUnmount(() => {
         </NuxtLink>
         <NuxtLink to="/contact" class="tg flat" @mouseenter="hide">Contact</NuxtLink>
         <span class="mark" :class="{ on: mark.on }"
-          :style="{ transform: `translateX(${mark.x}px)`, width: `${mark.w}px` }" />
+          :style="{ transform: `translateX(${mark.x}px) scaleX(${mark.w})` }" />
       </nav>
 
       <div class="end">
@@ -191,9 +191,11 @@ onBeforeUnmount(() => {
 }
 .tg:hover, .tg.on { color: var(--ink) }
 .flat.router-link-active { color: var(--red) }
+/* one pixel wide, scaled to the trigger: the slide and the resize both run on
+   the compositor instead of re-laying out the bar every frame */
 .mark {
-  position: absolute; left: 0; bottom: 0; height: 2px; background: var(--red);
-  opacity: 0; transition: transform .5s var(--e), width .5s var(--e), opacity .3s var(--e);
+  position: absolute; left: 0; bottom: 0; width: 1px; height: 2px; background: var(--red);
+  transform-origin: 0 50%; opacity: 0; transition: transform .5s var(--e), opacity .3s var(--e);
 }
 .mark.on { opacity: 1 }
 

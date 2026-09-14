@@ -63,7 +63,6 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
 .body{font-size:clamp(1.02rem,1.1vw,1.16rem);line-height:1.6;color:var(--muted);max-width:58ch;margin:0}
 .sm{font-size:.9rem;line-height:1.56;color:var(--muted);margin:0}
 .xs{font-size:.79rem;line-height:1.45;color:var(--faint);margin:0}
-.idx{font-size:.755rem;font-weight:660;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin:0}
 .red{color:var(--red)}
 .fig{font-weight:770;font-stretch:76%;letter-spacing:-.035em;line-height:.86;
   font-variant-numeric:tabular-nums lining-nums}

@@ -46,7 +46,7 @@ const perks = [
       <nav class="crumb"><NuxtLink to="/">Accueil</NuxtLink><span>·</span><span class="cur">Carrière</span></nav>
       <div class="og">
         <div>
-          <Head3 :lines="['Rejoindre', 'une équipe qui', 'ne change pas.']" :accent="2" />
+          <Head3 :lines="['Rejoignez Dilytics', 'et donnez un élan', 'à votre carrière.']" :accent="2" />
           <p class="body ld" v-rv:22="'up'">
             Chez Dilytics, nous sommes une équipe passionnée, innovante et résolument tournée
             vers l'avenir, qui valorise ses collaborateurs autant que ses clients.
@@ -61,9 +61,9 @@ const perks = [
         <h2 class="d2 hd" v-rv="'up'">Postes ouverts.</h2>
 
         <p v-if="!offers.length" class="body none" v-rv:6="'up'">
-          Aucun poste n'est ouvert actuellement. Si vous êtes passionné·e et prêt·e à relever des
-          défis au sein d'une entreprise qui valorise ses collaborateurs, écrivez-nous : nous
-          gardons les candidatures spontanées.
+          Aucun poste n'est ouvert actuellement. Si vous êtes passionné·e, prêt·e à relever des
+          défis et souhaitez faire carrière au sein d'une entreprise qui valorise ses
+          collaborateurs, écrivez-nous.
         </p>
 
         <ul v-else class="of">
@@ -96,7 +96,7 @@ const perks = [
 
     <SiteCta
       :title="['Candidature', 'spontanée ?']"
-      text="Envoyez-nous votre dossier même si aucun poste ne correspond. Nous les lisons tous."
+      text="Si vous êtes passionné·e, prêt·e à relever des défis et souhaitez faire carrière au sein d'une entreprise qui valorise ses collaborateurs, écrivez-nous."
       :action="{ label: 'Nous écrire', to: '/contact' }"
     />
   </article>
