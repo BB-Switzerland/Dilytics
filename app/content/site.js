@@ -30,7 +30,6 @@ export const LEGAL = [
 // to send, shown as a marked slot until then; `text` is a figure the counter
 // cannot count up to, such as a decimal rating.
 export const STATS = [
-  { n: 100, prefix: '', suffix: ' %', label: 'de retours positifs de nos clients' },
   // Google Business Profile, as sent by Dilytics
   { text: '4,6 / 5', label: 'de note moyenne, sur 66 avis Google' },
   { n: 21, prefix: '', suffix: '', label: "secteurs d'activité, de la restauration à la gestion de fortune" },
@@ -54,7 +53,7 @@ export const REVIEW_SLOTS = 2
 // Third-party marks the cabinet can point to.
 export const DISTINCTIONS = [
   { v: 'Platine', t: 'Partenaire du logiciel bexio', img: 'bexio_platine', alt: 'Badge bexio Partenaire Platine' },
-  { v: 'Swiss Label', t: 'Obtenu en novembre 2022', img: 'swiss_label', alt: 'Logo Swiss Made du Swiss Label' },
+  { v: 'Swiss Made', t: 'Label Swiss Made', img: 'swiss_label', alt: 'Label Swiss Made' },
   { v: '1+ pour tous', t: "Label de l'État de Genève en faveur de l'emploi", img: 'label_1plus', alt: 'Label 1+ pour tous, Employeur responsable 2025, République et canton de Genève' },
 ]
 

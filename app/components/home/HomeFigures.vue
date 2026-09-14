@@ -50,6 +50,8 @@ blockquote { margin: 0; max-width: 30ch }
   gap: clamp(22px, 2.8vw, 44px); align-content: center }
 .nums li { display: flex; flex-direction: column; gap: 12px; padding-top: 18px;
   border-top: 1px solid rgba(244, 242, 238, .22) }
+/* an odd count leaves the last figure alone on its row: it takes the full width */
+.nums li:nth-child(odd):last-child { grid-column: 1 / -1 }
 .n { font-size: clamp(2.3rem, 3.4vw, 3.8rem); color: var(--paper) }
 .l { margin: 0; font-size: .78rem; line-height: 1.35; color: rgba(244, 242, 238, .5); max-width: 20ch }
 
