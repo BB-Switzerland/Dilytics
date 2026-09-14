@@ -10,14 +10,15 @@ const family = (key) => ({
   items: cols(key),
 })
 
+// Businesses first: the order Dilytics asked for, see services.js.
 export const MENU = [
-  {
-    ...family('crea'),
-    blurb: "Dilytics effectue toutes les démarches administratives pour concrétiser votre projet d'entreprise.",
-  },
   {
     ...family('entreprises'),
     blurb: 'Nos services pour entreprises vous libèrent de vos obligations fiscales et administratives.',
+  },
+  {
+    ...family('crea'),
+    blurb: "Dilytics effectue toutes les démarches administratives pour concrétiser votre projet d'entreprise.",
   },
   {
     ...family('particuliers'),

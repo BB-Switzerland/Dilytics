@@ -29,7 +29,7 @@ const items = computed(() =>
           class="card surf surf-h"
           v-rv:[i*5]="'up'"
         >
-          <div class="shot pic"><img :src="img(s.img)" :alt="s.title" /></div>
+          <div class="shot pic"><img :src="img(s.img)" alt="" /><PhotoNote :id="s.img" compact /></div>
           <div class="in">
             <h3 class="t1">{{ s.title }}</h3>
             <p class="sm">{{ s.pitch }}</p>

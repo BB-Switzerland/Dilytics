@@ -5,14 +5,13 @@ const props = defineProps({
 })
 
 const el = ref(null)
-const shown = ref(0)
-const m = useMotion()
-
-onMounted(() => {
-  if (m.reduce || !m.gsap) shown.value = props.to
-})
+// The server renders the real figure, so a crawler, a link preview or a visitor
+// without JavaScript never reads "0". It is only zeroed once the tween that
+// counts it back up is in hand.
+const shown = ref(props.to)
 
 useGsap(({ gsap }) => {
+  shown.value = 0
   const box = { n: 0 }
   gsap.to(box, {
     n: props.to,

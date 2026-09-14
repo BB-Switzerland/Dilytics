@@ -52,7 +52,7 @@ const perks = [
             vers l'avenir, qui valorise ses collaborateurs autant que ses clients.
           </p>
         </div>
-        <div class="shot opic" v-rv:6="'zoom'"><img :src="img('duo')" alt="L'équipe Dilytics au travail" /></div>
+        <div class="shot opic" v-rv:6="'zoom'"><img :src="img('duo')" alt="" /><PhotoNote id="duo" /></div>
       </div>
     </section>
 
@@ -94,7 +94,11 @@ const perks = [
       </div>
     </section>
 
-    <SiteCta :title="['Candidature', 'spontanée ?']" text="Envoyez-nous votre dossier même si aucun poste ne correspond. Nous les lisons tous." />
+    <SiteCta
+      :title="['Candidature', 'spontanée ?']"
+      text="Envoyez-nous votre dossier même si aucun poste ne correspond. Nous les lisons tous."
+      :action="{ label: 'Nous écrire', to: '/contact' }"
+    />
   </article>
 </template>
 

@@ -1,5 +1,6 @@
 <script setup>
 import { TEAM, CONTACT } from '~/content/site'
+import { EXPECTED } from '~/content/photos'
 import { img } from '~/utils/img'
 
 useHead({ title: 'À propos · Dilytics, fiduciaire à Genève' })
@@ -155,17 +156,33 @@ const values = [
       </div>
     </section>
 
-    <!-- the partnership, on its own band -->
+    <!-- the offices: Dilytics wants them shown for real, and until the pictures
+         exist each slot says exactly what it should show -->
+    <section class="loc">
+      <div class="band-lead">
+        <header class="lhd">
+          <h2 class="d2" v-rv="'mask'">Nos locaux</h2>
+          <p class="body" v-rv:8="'up'">{{ CONTACT.building }}, {{ CONTACT.street }}, {{ CONTACT.city }}.</p>
+        </header>
+        <ul class="lgrid" v-stagger>
+          <li v-for="e in EXPECTED" :key="e.id">
+            <Pending photo label="Photo réelle à fournir" :hint="e.brief" />
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- the partnership, on its own band, carried by bexio's own badge -->
     <section class="bex">
       <div class="band-lead bwrap">
+        <img :src="img('bexio_platine')" alt="Badge bexio Partenaire Platine" class="bxb" v-rv="'up'" />
         <div>
-          <p class="bl" v-rv="'up'">Partenaire privilégié Or</p>
-          <h2 class="d3 bt" v-rv:6="'up'">bexio</h2>
+          <h2 class="d3 bt" v-rv:6="'up'">Partenaire Platine bexio</h2>
+          <p class="body bd" v-rv:12="'up'">
+            Dilytics est partenaire Platine du logiciel bexio. Nos spécialistes sont
+            habilités à intégrer cette solution et à former votre personnel à son utilisation.
+          </p>
         </div>
-        <p class="body bd" v-rv:12="'up'">
-          Dilytics est un partenaire privilégié Or du logiciel bexio. Nos spécialistes sont
-          habilités à intégrer cette solution et à former votre personnel à son utilisation.
-        </p>
       </div>
     </section>
 
@@ -250,18 +267,25 @@ const values = [
 .li:hover { color: var(--red) }
 .jobs { margin-top: clamp(28px, 3.4vw, 46px); color: var(--red) }
 
+/* ------------------------------------------------------------- offices */
+.loc { padding-block: clamp(48px, 6vw, 100px) }
+.lhd { display: flex; align-items: baseline; justify-content: space-between; gap: 12px 32px;
+  flex-wrap: wrap; margin-bottom: clamp(24px, 3vw, 44px) }
+.lgrid { list-style: none; margin: 0; padding: 0; display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(14px, 1.6vw, 24px) }
+
 /* ------------------------------------------------------------- partner */
 .bex { padding-block: clamp(40px, 5vw, 80px) }
-.bwrap { display: grid; grid-template-columns: minmax(0, .6fr) minmax(0, 1.4fr);
+.bwrap { display: grid; grid-template-columns: auto minmax(0, 1fr);
   gap: clamp(22px, 4vw, 72px); align-items: center;
   padding-block: clamp(26px, 3vw, 44px); border-block: 1px solid var(--line) }
-.bl { margin: 0; font-size: .76rem; font-weight: 700; letter-spacing: .12em;
-  text-transform: uppercase; color: var(--red) }
-.bt { margin-top: 8px; letter-spacing: -.04em }
+.bxb { width: auto; height: clamp(120px, 11vw, 168px) }
+.bt { margin: 0 0 12px }
 .bd { max-width: 60ch }
 
 @media (max-width: 1000px) {
-  .intro, .eras, .pwrap, .thd, .bwrap { grid-template-columns: 1fr; gap: 20px }
+  .intro, .eras, .pwrap, .thd, .bwrap, .lgrid { grid-template-columns: 1fr; gap: 20px }
+  .bxb { height: 104px }
   .pstick { position: static }
   .bleed { aspect-ratio: 3 / 2 }
   .marks li { grid-template-columns: 1fr; gap: 12px }

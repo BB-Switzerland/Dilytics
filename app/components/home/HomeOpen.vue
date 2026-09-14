@@ -6,10 +6,11 @@ const root = ref(null)
 const m = useMotion()
 let ctx = null
 
-// Published figures only, the same ones the About page carries.
+// Figures confirmed by Dilytics. The years are counted from the founding, so
+// the strip never needs editing at the turn of a year.
 const strip = [
-  { v: '+312', l: 'Sociétés accompagnées depuis 1999' },
-  { v: '21', l: "Secteurs d'activité couverts par nos mandats" },
+  { v: `${new Date().getFullYear() - CONTACT.since} ans`, l: "D'expérience en finance et comptabilité" },
+  { v: '+80', l: 'Sociétés créées avec Dilytics' },
   { v: '15 min', l: 'Entretien de découverte, gratuit' },
 ]
 
@@ -50,15 +51,16 @@ onBeforeUnmount(() => ctx?.revert())
 <template>
   <section ref="root" class="hero">
     <div class="bg">
-      <img :src="img('meet')" alt="L'équipe Dilytics en réunion dans ses bureaux à Genève" />
+      <img :src="img('meet')" alt="" />
     </div>
     <div class="scrim" aria-hidden="true" />
+    <PhotoNote id="meet" at="hero" :frame="false" />
 
     <div class="inner wrap">
       <p class="kick">Dilytics · Fiduciaire à Genève</p>
 
       <Head3
-        :lines="['La fiduciaire qui', 'vous rend du temps.']"
+        :lines="['Le partenaire stratégique', 'des dirigeants.']"
         cls="d1 hh"
         :accent="1"
         :delay="0.38"
@@ -122,7 +124,8 @@ onBeforeUnmount(() => ctx?.revert())
 .inner { flex: 1; display: flex; flex-direction: column; justify-content: center }
 .kick { font-size: .8rem; font-weight: 620; letter-spacing: .11em; text-transform: uppercase;
   color: rgba(244, 242, 238, .72); margin: 0 0 clamp(18px, 2vw, 30px) }
-.hh { font-size: clamp(2.35rem, 5.3vw, 5rem); letter-spacing: -.042em; max-width: 15ch }
+/* no measure: the two lines are set by hand and only wrap on a phone */
+.hh { font-size: clamp(2.35rem, 5.3vw, 5rem); letter-spacing: -.042em; max-width: none }
 .ld { margin-top: clamp(16px, 1.8vw, 26px); max-width: 56ch; line-height: 1.55;
   color: rgba(244, 242, 238, .9) }
 .acts { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 28px;

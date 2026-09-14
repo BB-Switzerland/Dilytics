@@ -48,7 +48,7 @@ export const CATEGORIES = [
     ],
     facts: [
       { v: '1999', k: 'La comptabilité est notre cœur de métier depuis' },
-      { v: 'Or', k: 'Partenaire privilégié du logiciel bexio' },
+      { v: 'Platine', k: 'Partenaire du logiciel bexio' },
       { v: '21', k: "Secteurs d'activité, de la restauration à la gestion de fortune" },
     ],
     aside: {

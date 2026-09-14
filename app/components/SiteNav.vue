@@ -102,7 +102,7 @@ onBeforeUnmount(() => {
 
       <div class="end">
         <a :href="CONTACT.phoneHref" class="tel">{{ CONTACT.phone }}</a>
-        <NuxtLink to="/contact" class="cta cta-red cta-sm"><span>Rendez-vous</span><Ar /></NuxtLink>
+        <a :href="CONTACT.booking" target="_blank" rel="noopener" class="cta cta-red cta-sm"><span>Rendez-vous</span><Ar /></a>
         <button class="bg" :aria-expanded="drawer" aria-label="Menu" @click="drawer = !drawer"><i /><i /></button>
       </div>
     </div>
@@ -127,7 +127,7 @@ onBeforeUnmount(() => {
         </ul>
 
         <div class="zone aside">
-          <div class="shot pic"><img :src="img(panel.img)" :alt="panel.label" /></div>
+          <div class="shot pic"><img :src="img(panel.img)" alt="" /><PhotoNote :id="panel.img" compact /></div>
           <p class="xs">Une question avant de choisir ?</p>
           <a :href="CONTACT.phoneHref" class="ph">{{ CONTACT.phone }}</a>
         </div>
@@ -153,7 +153,9 @@ onBeforeUnmount(() => {
       <NuxtLink to="/contact" class="gt" @click="shut">Contact</NuxtLink>
       <div class="df">
         <a :href="CONTACT.phoneHref" class="d2 dt">{{ CONTACT.phone }}</a>
-        <NuxtLink to="/contact" class="cta cta-red" @click="shut"><span>Prendre rendez-vous</span><Ar /></NuxtLink>
+        <a :href="CONTACT.booking" target="_blank" rel="noopener" class="cta cta-red" @click="shut">
+          <span>Prendre rendez-vous</span><Ar />
+        </a>
       </div>
     </div>
   </div>

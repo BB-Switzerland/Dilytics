@@ -8,7 +8,7 @@ const blank = () => ({ name: '', mail: '', phone: '', subject: '', msg: '' })
 const form = ref(blank())
 const sent = ref(false)
 const valid = computed(() => form.value.name && form.value.mail.includes('@') && form.value.msg.length > 8)
-const subjects = ["Création d'entreprise", 'Comptabilité', 'Fiscalité des entreprises', 'Impôts des particuliers', 'Salaires et RH', 'Autre sujet']
+const subjects = ['Comptabilité', 'Fiscalité des entreprises', 'Salaires et RH', "Création d'entreprise", 'Impôts des particuliers', 'Autre sujet']
 
 function submit() {
   if (valid.value) sent.value = true
@@ -27,7 +27,10 @@ function submit() {
             Vous pouvez également nous joindre par téléphone, du lundi au vendredi.
           </p>
         </div>
-        <div class="shot opic" v-rv:6="'zoom'"><img :src="img('geneve')" alt="Le cabinet Dilytics à Genève" /></div>
+        <div class="shot opic" v-rv:6="'zoom'">
+          <img :src="img('geneve')" alt="Vue aérienne de Genève et du Jet d'eau" />
+          <PhotoNote id="geneve" />
+        </div>
       </div>
     </section>
 

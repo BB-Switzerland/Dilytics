@@ -12,20 +12,23 @@ import { img } from '~/utils/img'
             J'ai très vite constaté que l'importance n'était pas accordée
             <span class="red">aux projets des clients.</span>
           </blockquote>
-          <figcaption class="who">
-            <div class="shot av"><img :src="img(TEAM[0].img)" :alt="TEAM[0].name" /></div>
+          <div class="who">
+            <div class="shot av"><img :src="img(TEAM[0].img)" alt="" /></div>
             <div>
               <span class="t2">{{ TEAM[0].name }}</span>
               <span class="xs">{{ TEAM[0].role }}</span>
             </div>
-          </figcaption>
+          </div>
           <NuxtLink to="/a-propos" class="cta cta-light"><span>Découvrir le cabinet</span><Ar /></NuxtLink>
         </div>
 
         <ul class="nums">
-          <li v-for="(s, i) in STATS" :key="s.label" v-rv:[i*6]="'up'">
-            <span class="fig n">{{ s.prefix }}<Counter :to="s.n" />{{ s.suffix }}</span>
-            <p class="l">{{ s.label }}</p>
+          <li v-for="(s, i) in STATS" :key="i" v-rv:[i*6]="'up'">
+            <Pending v-if="s.pending" dark :label="s.pending" :hint="s.hint" />
+            <template v-else>
+              <span class="fig n">{{ s.prefix }}<Counter :to="s.n" />{{ s.suffix }}</span>
+              <p class="l">{{ s.label }}</p>
+            </template>
           </li>
         </ul>
       </div>

@@ -5,6 +5,9 @@ import { img } from '~/utils/img'
 defineProps({
   title: { type: Array, default: () => ['Parlons de', 'votre situation.'] },
   text: { type: String, default: "Réservez un entretien de quinze minutes, gratuit, par téléphone ou en visioconférence. Vous saurez si notre fiduciaire peut vous aider." },
+  // the red button opens the booking calendar, unless a page needs another
+  // action: { label, to }
+  action: { type: Object, default: null },
 })
 </script>
 
@@ -18,7 +21,10 @@ defineProps({
         <a :href="CONTACT.phoneHref" class="phone d2" v-rv:20="'up'">{{ CONTACT.phone }}</a>
 
         <div class="acts" v-rv:26="'up'">
-          <NuxtLink to="/contact" class="cta cta-red"><span>Prendre rendez-vous</span><Ar /></NuxtLink>
+          <NuxtLink v-if="action" :to="action.to" class="cta cta-red"><span>{{ action.label }}</span><Ar /></NuxtLink>
+          <a v-else :href="CONTACT.booking" target="_blank" rel="noopener" class="cta cta-red">
+            <span>Réserver un entretien</span><Ar />
+          </a>
           <a :href="`mailto:${CONTACT.mail}`" class="cta cta-line"><span>{{ CONTACT.mail }}</span></a>
         </div>
 
@@ -29,7 +35,7 @@ defineProps({
       </div>
 
       <div class="right" v-rv:6="'zoom'">
-        <div class="shot pic"><img :src="img('cta')" v-px="18" alt="Le cabinet Dilytics à Genève" /></div>
+        <div class="shot pic"><img :src="img('cta')" v-px="18" alt="" /><PhotoNote id="cta" /></div>
       </div>
     </div>
   </section>

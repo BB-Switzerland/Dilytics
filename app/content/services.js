@@ -11,7 +11,7 @@ export const GROUPS = {
   particuliers: { label: 'Particuliers', short: 'Particuliers', img: 'part' },
 }
 
-export const SERVICES = [
+const ENTRIES = [
   /* ------------------------------------------------------ création */
   {
     slug: '/creation-de-raison-individuelle/',
@@ -612,5 +612,32 @@ export const SERVICES = [
   },
 ]
 
-export const BY_SLUG = Object.fromEntries(SERVICES.map((s) => [s.slug, s]))
+// Commercial order. Dilytics wants its high-value, business-facing prestations
+// seen first, so the menu, the family pages, the footer and the ticker all read
+// in this order: businesses, then company creation, then private clients.
+// Private tax returns come last while the cabinet decides whether they stay on
+// this site or move to Altigest.
+const ORDER = [
+  '/comptabilite-geneve-experts-fiduciaire/',
+  '/payroll-et-administration-rh/',
+  '/tva-suisse/',
+  '/audit-des-comptes/',
+  '/controle-restreint/',
+  '/mandat-de-gerant-et-administrateur-en-suisse/',
+  '/domiciliation-a-geneve/',
+  '/gestion-de-ppe/',
+  '/creer-une-sarl-en-suisse-facile/',
+  '/creation-de-societe-anonyme/',
+  '/creation-de-raison-individuelle/',
+  '/conseil-fiscal/',
+  '/fiscalite-immobiliere/',
+  '/declaration-de-succession/',
+  '/prevoyance-3eme-pilier-geneve/',
+  '/gestion-administrative/',
+  '/particuliers-impot-a-la-source/',
+  '/declaration-dimpots/',
+]
+
+export const BY_SLUG = Object.fromEntries(ENTRIES.map((s) => [s.slug, s]))
+export const SERVICES = ORDER.map((slug) => BY_SLUG[slug])
 export const byGroup = (key) => SERVICES.filter((s) => s.group === key)

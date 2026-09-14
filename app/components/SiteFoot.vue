@@ -1,6 +1,7 @@
 <script setup>
 import { MENU } from '~/content/nav'
 import { CONTACT } from '~/content/site'
+import { img } from '~/utils/img'
 </script>
 
 <template>
@@ -17,6 +18,7 @@ import { CONTACT } from '~/content/site'
           <address class="xs ad">
             {{ CONTACT.street }}<br />{{ CONTACT.city }}<br />{{ CONTACT.hours }}
           </address>
+          <img :src="img('bexio_platine')" alt="Badge bexio Partenaire Platine" class="bxf" loading="lazy" />
         </div>
 
         <nav class="cols">
@@ -27,7 +29,7 @@ import { CONTACT } from '~/content/site'
           <div>
             <h2 class="idx">Contact</h2>
             <NuxtLink to="/contact">Nous écrire</NuxtLink>
-            <NuxtLink to="/contact">Prendre rendez-vous</NuxtLink>
+            <a :href="CONTACT.booking" target="_blank" rel="noopener">Prendre rendez-vous</a>
             <a :href="CONTACT.phoneHref">{{ CONTACT.phone }}</a>
             <a :href="`mailto:${CONTACT.mail}`">{{ CONTACT.mail }}</a>
           </div>
@@ -53,6 +55,7 @@ import { CONTACT } from '~/content/site'
 .lg { width: 122px; display: block; color: var(--ink); margin-bottom: 20px }
 .brand .sm { max-width: 34ch }
 .ad { font-style: normal; margin-top: 18px }
+.bxf { width: auto; height: 64px; margin-top: 24px }
 
 .cols { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 26px) }
 .cols > div { display: flex; flex-direction: column; align-items: flex-start; gap: 9px }

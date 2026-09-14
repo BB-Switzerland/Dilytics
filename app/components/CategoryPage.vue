@@ -45,13 +45,16 @@ useHead(() => ({
             <p class="pitch" v-rv:8="'up'">{{ c.pitch }}</p>
             <p class="body ld" v-rv:14="'up'">{{ c.lede }}</p>
             <div class="acts" v-rv:20="'up'">
-              <NuxtLink to="/contact" class="cta cta-ink"><span>Parler à un expert</span><Ar /></NuxtLink>
+              <a :href="CONTACT.booking" target="_blank" rel="noopener" class="cta cta-ink">
+                <span>Réserver un entretien</span><Ar />
+              </a>
               <a :href="CONTACT.phoneHref" class="lnk tel">{{ CONTACT.phone }}<Ar /></a>
             </div>
           </div>
 
           <div class="shot opic" v-rv:6="'zoom'">
             <img :src="img(c.img)" :alt="c.title" v-px="20" />
+            <PhotoNote :id="c.img" />
           </div>
         </div>
 
@@ -107,7 +110,8 @@ useHead(() => ({
     <section class="band">
       <div class="band-lead note">
         <div class="shot npic" v-rv="'zoom'">
-          <img :src="img('meet')" alt="Entretien au cabinet Dilytics" v-px="16" />
+          <img :src="img('meet')" alt="" v-px="16" />
+          <PhotoNote id="meet" />
         </div>
         <div class="ntxt">
           <h2 class="d3" v-rv="'mask'">{{ c.aside.t }}</h2>
@@ -129,7 +133,7 @@ useHead(() => ({
         <div class="others">
           <NuxtLink v-for="(o, i) in others" :key="o.key" :to="o.slug" class="oc surf surf-h"
             v-rv:[i*6]="'up'">
-            <div class="shot opic2"><img :src="img(o.img)" :alt="o.title" /></div>
+            <div class="shot opic2"><img :src="img(o.img)" alt="" /><PhotoNote :id="o.img" compact /></div>
             <div class="oin">
               <h3 class="t1">{{ o.title }}</h3>
               <p class="sm">{{ o.pitch }}</p>

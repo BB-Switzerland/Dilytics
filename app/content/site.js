@@ -7,7 +7,9 @@ export const CONTACT = {
   building: 'Lancy Small City, aile 1',
   map: 'https://www.google.com/maps/place//data=!4m2!3m1!1s0x478c6ffddc2a1a31:0x788c84a4fdfefdce',
   hours: 'Lundi au vendredi, 9h – 12h et 13h – 18h',
-  booking: 'https://outlook.office365.com/owa/calendar/ExpertDilytics@dilytics.ch/bookings/',
+  // the Microsoft Bookings page of the free fifteen-minute call, as linked from
+  // the cabinet's current home page
+  booking: 'https://outlook.office365.com/owa/calendar/ExpertDilytics@dilytics.ch/bookings/s/mKN6P3dcd06611BNeWF7nA2',
   since: 1999,
 }
 
@@ -22,15 +24,39 @@ export const LEGAL = [
   { label: 'Protection des données', to: '/declaration-sur-la-protection-des-donnees/' },
 ]
 
-// The cabinet's own published figures. Nothing here is estimated.
+// Proof for the home page. Dilytics asked for satisfaction first, and for
+// lasting facts rather than service volumes, which date quickly: the number of
+// tax returns is gone. An entry with `pending` is a figure the cabinet still has
+// to send; it shows as a marked slot until then.
 export const STATS = [
-  { n: 23, prefix: '', suffix: '', label: 'années d\'expérience en finance et comptabilité' },
-  { n: 312, prefix: '+', suffix: '', label: 'sociétés accompagnées depuis 1999' },
-  { n: 630, prefix: '+', suffix: '', label: 'déclarations d\'impôts effectuées depuis 2019' },
-  { n: 21, prefix: '+', suffix: '', label: 'entreprises créées depuis janvier 2022' },
+  { n: 100, prefix: '', suffix: ' %', label: 'de retours positifs de nos clients' },
+  { pending: 'Note des avis clients à fournir', hint: "Par exemple la note moyenne Google et le nombre d'avis." },
+  { n: 21, prefix: '', suffix: '', label: "secteurs d'activité, de la restauration à la gestion de fortune" },
+  { n: 6, prefix: '', suffix: '', label: 'langues parlées au cabinet' },
 ]
 
-// The five profiles, with the words each of them signs on the About page.
+// What clients say, in their words and under their name. One testimonial is
+// published today; the empty slots stay on the page, marked, until Dilytics
+// sends the ones it wants to show.
+export const REVIEWS = [
+  {
+    quote:
+      "Monsieur Laureano Rodrigues a démontré sa capacité à sortir des sentiers battus. Nous lui avons fait confiance pour nous aider à la création de notre société et avons particulièrement apprécié : son écoute, sa réactivité et son efficacité. C'est une personne très humaine qui saura vous accompagner avec succès !",
+    name: 'Nicola Balestrini',
+    role: 'Co-fondateur et associé',
+    company: 'Auxanõ Team Sàrl, Genève',
+  },
+]
+export const REVIEW_SLOTS = 2
+
+// Third-party marks the cabinet can point to.
+export const DISTINCTIONS = [
+  { v: 'Platine', t: 'Partenaire du logiciel bexio', img: 'bexio_platine', alt: 'Badge bexio Partenaire Platine' },
+  { v: 'Swiss Label', t: 'Obtenu en novembre 2022' },
+  { v: '1+ pour tous', t: "Label de l'État de Genève en faveur de l'emploi" },
+]
+
+// The four profiles, with the words each of them signs on the About page.
 export const TEAM = [
   {
     img: 'p_laureano',
@@ -55,10 +81,10 @@ export const TEAM = [
   {
     img: 'p_walid',
     name: 'Walid Berkaoui',
-    role: 'Expert-comptable FR, responsable de mandats PME',
+    role: 'Expert-comptable diplômé, responsable de mandats PME',
     quote:
       "J'ai accompagné de nombreux dirigeants dans la structuration, la gestion et la croissance de leur entreprise, notamment au sein d'un grand cabinet international. Chez Dilytics, mon objectif est d'être un véritable partenaire stratégique, en accompagnant chaque client avec rigueur, écoute et une vision à long terme, de la création à la transmission de son entreprise.",
-    diploma: 'Master en comptabilité et de gestion',
+    diploma: "DEC (Diplôme d'Expert-Comptable)",
     langs: 'Français · Anglais · Arabe',
     linkedin: 'https://www.linkedin.com/in/walid-berkaoui-438455110/',
   },
@@ -71,16 +97,6 @@ export const TEAM = [
     diploma: 'BBA, Bachelor Business Administration',
     langs: 'Portugais · Français · Anglais · Espagnol',
     linkedin: 'https://ch.linkedin.com/in/henriquesantos1989',
-  },
-  {
-    img: 'p_florentina',
-    name: 'Florentina Kamberi',
-    role: 'Auditrice',
-    quote:
-      "Au cours de mes expériences en audit, j'ai développé une approche rigoureuse et analytique, tout en gardant une attention particulière aux besoins des clients. Chez Dilytics, j'accompagne les entreprises avec méthode, précision et réactivité afin de garantir un suivi fiable et une relation de confiance.",
-    diploma: 'Bachelor appliqué en sciences, économie et finance',
-    langs: 'Albanais · Allemand · Anglais · Français',
-    linkedin: 'https://www.linkedin.com/in/florentina-kamberi/',
   },
 ]
 

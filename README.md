@@ -35,7 +35,15 @@ npm run generate  # export statique
 
 Une nouvelle prestation est un objet dans `app/content/services.js`, pas un
 nouveau fichier : la page, le menu, le maillage interne et le pied de page en
-découlent.
+découlent. L'ordre d'affichage se règle dans la liste `ORDER` du même fichier.
+
+## Photos à fournir
+
+Tant que les vraies photos de l'équipe et des locaux ne sont pas là, chaque image
+de stock porte une note rouge sur le site, et la liste complète se trouve sur
+`/photos-a-fournir` (page non référencée). Tout part de `app/content/photos.js` :
+passer `NOTES` à `false` retire toutes les notes d'un coup. Les contenus encore
+attendus (avis clients, note des avis) sont marqués de la même façon.
 
 ## Animations
 

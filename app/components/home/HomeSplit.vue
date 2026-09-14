@@ -1,10 +1,25 @@
 <script setup>
 import { img } from '~/utils/img'
 
+// What sets the cabinet apart from a classic fiduciary, each point in its own
+// published words: the About page, the team's statements, the family pages.
 const points = [
-  { t: 'bexio, intégré et enseigné', d: "Nos spécialistes sont habilités à intégrer la solution et à former votre personnel à son utilisation." },
-  { t: 'Comptabilité analytique', d: "Le passage au numérique nous permet de vous proposer des outils de comptabilité analytique et de contrôle des coûts." },
-  { t: 'Des outils qui simplifient', d: "Nous mettons en place des outils qui simplifient votre quotidien." },
+  {
+    t: 'Des interlocuteurs qui prennent le temps',
+    d: 'Nos conseillers prennent le temps de comprendre votre situation afin de vous proposer des solutions personnalisées.',
+  },
+  {
+    t: 'Un esprit entrepreneurial',
+    d: 'Nous réunissons des experts passés par différents secteurs, capables de proposer des solutions innovantes à une clientèle exigeante.',
+  },
+  {
+    t: "L'automatisation au service du conseil",
+    d: "Partenaire Platine de bexio, nous allions rigueur comptable et innovation, notamment grâce à l'automatisation et à l'intelligence artificielle.",
+  },
+  {
+    t: 'Une fiduciaire 360',
+    d: 'Comptabilité, fiscalité, salaires, révision, création : si vous avez des demandes particulières, nos prestations sont entièrement personnalisables.',
+  },
 ]
 </script>
 
@@ -12,18 +27,21 @@ const points = [
   <section class="band split">
     <div class="g">
       <div class="art" v-rv="'up'">
-        <div class="shot big"><img :src="img('desk')" alt="Comptabilité numérique sur bexio" v-px="20" /></div>
+        <div class="shot big">
+          <img :src="img('desk')" alt="" v-px="20" />
+          <PhotoNote id="desk" at="tl" />
+        </div>
         <div class="surf badge">
-          <p class="fig-l k">Partenaire privilégié</p>
-          <p class="v">Or, bexio</p>
+          <img :src="img('bexio_platine')" alt="Badge bexio Partenaire Platine" class="bx" />
+          <p class="fig-l k">Partenaire<br />bexio</p>
         </div>
       </div>
 
       <div class="txt">
-        <h2 class="d2" v-rv="'mask'">La saisie est<br />automatisée. Le<br />conseil, jamais.</h2>
+        <h2 class="d2" v-rv="'mask'">Ce qui nous distingue d'une fiduciaire classique.</h2>
         <p class="body ld" v-rv:8="'up'">
-          Le passage au numérique nous permet de mieux accompagner nos clients, et de garder
-          le temps là où il change quelque chose : lire vos chiffres et vous dire quoi en faire.
+          Les fiduciaires classiques n'accompagnent pas leurs clients dans les problématiques du
+          quotidien. Dilytics ne commet pas cette erreur.
         </p>
 
         <ul class="pts">
@@ -45,9 +63,10 @@ const points = [
 .art { position: relative }
 .big { border-radius: 0 var(--r-lg) var(--r-lg) 0; aspect-ratio: 4 / 2.9 }
 .badge { position: absolute; bottom: clamp(18px, 2.4vw, 34px); right: clamp(18px, 2.2vw, 34px);
-  padding: 14px 20px }
-.badge .k { margin-bottom: 5px }
-.badge .v { margin: 0; font-size: 1.15rem; font-weight: 780; letter-spacing: -.03em }
+  display: flex; align-items: center; gap: 14px; padding: 12px 20px 12px 12px }
+/* bexio's own badge, cropped to its edges; the card gives it the breathing room */
+.bx { width: auto; height: clamp(62px, 5.6vw, 84px) }
+.badge .k { margin: 0; line-height: 1.3 }
 
 .ld { margin-top: 18px }
 .pts { list-style: none; margin: clamp(26px, 2.8vw, 38px) 0 0; padding: 0 }

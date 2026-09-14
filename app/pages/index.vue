@@ -9,13 +9,14 @@ const ticker = SERVICES.map((s) => s.nav)
 <template>
   <div>
     <HomeOpen />
-    <HomeProof />
     <Marquee :items="ticker" />
     <HomeDemand />
+    <HomeBenefits />
     <HomeStatement />
     <HomeSplit />
     <HomeStart />
     <HomeFigures />
+    <HomeReviews />
     <HomeJournal />
     <SiteCta />
   </div>

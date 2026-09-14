@@ -96,15 +96,16 @@ function jump(i) {
             <p class="tag" v-rv:8="'up'">{{ tagline }}</p>
             <p class="body ld" v-rv:12="'up'">{{ b ? b.intro : s.lede }}</p>
             <div class="acts" v-rv:18="'up'">
-              <NuxtLink to="/contact" class="cta cta-ink" v-mag><span>Nous contacter</span><Ar /></NuxtLink>
-              <a :href="CONTACT.booking" target="_blank" rel="noopener" class="lnk tel">
-                Prendre rendez-vous<Ar />
+              <a :href="CONTACT.booking" target="_blank" rel="noopener" class="cta cta-ink" v-mag>
+                <span>Réserver un entretien</span><Ar />
               </a>
+              <NuxtLink to="/contact" class="lnk tel">Nous écrire<Ar /></NuxtLink>
             </div>
           </div>
 
           <div class="shot hpic" v-rv:6="'zoom'">
             <img :src="img(s.img)" :alt="heading" v-px="16" />
+            <PhotoNote :id="s.img" />
           </div>
         </div>
       </div>
@@ -149,7 +150,10 @@ function jump(i) {
             </section>
 
             <figure v-if="i === picAfter" class="brk" v-rv="'zoom'">
-              <div class="shot fpic"><img :src="img(parent.img)" :alt="parent.nav" v-px="18" /></div>
+              <div class="shot fpic">
+                <img :src="img(parent.img)" :alt="parent.nav" v-px="18" />
+                <PhotoNote :id="parent.img" />
+              </div>
             </figure>
 
             <figure v-else-if="i === toolAfter" class="brk tool" v-rv="'up'">
