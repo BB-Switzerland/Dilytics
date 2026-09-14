@@ -16,7 +16,7 @@ const rest = ARTICLES.slice(1)
 
       <div class="g">
         <NuxtLink to="/articles" class="lead" v-rv="'up'">
-          <div class="shot lp"><img :src="img(lead.img)" alt="" v-px="18" /><PhotoNote :id="lead.img" article /></div>
+          <div class="shot lp"><img :src="img(lead.img)" alt="" v-px="18" /></div>
           <div class="lt">
             <p class="cat">{{ lead.kicker }}</p>
             <h3 class="d3">{{ lead.title }}</h3>
@@ -27,7 +27,7 @@ const rest = ARTICLES.slice(1)
 
         <div class="side">
           <NuxtLink v-for="(a, i) in rest" :key="a.slug" to="/articles" class="row" v-rv:[8+i*7]="'up'">
-            <div class="shot rp"><img :src="img(a.img)" alt="" v-px="12" /><PhotoNote :id="a.img" article compact /></div>
+            <div class="shot rp"><img :src="img(a.img)" alt="" v-px="12" /></div>
             <div>
               <p class="cat">{{ a.kicker }}</p>
               <h3 class="t2">{{ a.title }}</h3>

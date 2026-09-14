@@ -27,10 +27,7 @@ function submit() {
             Vous pouvez également nous joindre par téléphone, du lundi au vendredi.
           </p>
         </div>
-        <div class="shot opic" v-rv:6="'zoom'">
-          <img :src="img('geneve')" alt="Vue aérienne de Genève et du Jet d'eau" />
-          <PhotoNote id="geneve" />
-        </div>
+        <div class="shot opic" v-rv:6="'zoom'"><img :src="img('geneve')" alt="Vue aérienne de Genève et du Jet d'eau" /></div>
       </div>
     </section>
 

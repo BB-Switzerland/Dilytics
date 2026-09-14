@@ -27,10 +27,7 @@ const points = [
   <section class="band split">
     <div class="g">
       <div class="art" v-rv="'up'">
-        <div class="shot big">
-          <img :src="img('desk')" alt="" v-px="20" />
-          <PhotoNote id="desk" at="tl" />
-        </div>
+        <div class="shot big"><img :src="img('desk')" alt="" v-px="20" /></div>
         <div class="surf badge">
           <img :src="img('bexio_platine')" alt="Badge bexio Partenaire Platine" class="bx" />
           <p class="fig-l k">Partenaire<br />bexio</p>

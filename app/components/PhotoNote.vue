@@ -1,6 +1,7 @@
 <!-- A visible marker on a stock picture that a real photograph must replace.
-     Driven by content/photos.js, and renders nothing once NOTES is off. The
-     parent must be positioned, which every `.shot` already is. -->
+     Driven by content/photos.js: it renders nothing for a picture that is not
+     listed there, and nothing at all once NOTES is off. The parent must be
+     positioned, which every `.shot` already is. -->
 <script setup>
 import { NOTES, PHOTOS } from '~/content/photos'
 
@@ -8,28 +9,20 @@ const props = defineProps({
   id: { type: String, required: true },
   // a small thumbnail: the label alone, without the brief
   compact: { type: Boolean, default: false },
-  // an article illustration, taken from the published article, not shot
-  article: { type: Boolean, default: false },
-  // 'bl' bottom left, 'tl' top left, 'hero' top right under the navigation
+  // 'bl' bottom left, 'hero' top right under the navigation
   at: { type: String, default: 'bl' },
   frame: { type: Boolean, default: true },
 })
 
 const entry = computed(() => (NOTES ? PHOTOS[props.id] : null))
-const label = computed(() =>
-  props.compact ? 'À remplacer' : props.article ? 'Image à remplacer' : 'Photo réelle à fournir',
-)
-const brief = computed(() =>
-  props.article ? "Reprendre l'image de l'article publié sur dilytics.ch." : entry.value?.brief,
-)
 </script>
 
 <template>
   <template v-if="entry">
     <span v-if="frame" class="pnf" aria-hidden="true" />
     <span class="pn" :class="[at, { c: compact }]">
-      <strong>{{ label }}</strong>
-      <span v-if="!compact">{{ brief }}</span>
+      <strong>{{ compact ? 'À remplacer' : 'Photo réelle à fournir' }}</strong>
+      <span v-if="!compact">{{ entry.brief }}</span>
     </span>
   </template>
 </template>
@@ -43,7 +36,6 @@ const brief = computed(() =>
   letter-spacing: 0; text-align: left; pointer-events: none;
   box-shadow: 0 12px 26px -14px rgba(0, 25, 52, .55) }
 .pn strong { font-size: .8rem; font-weight: 720 }
-.pn.tl { top: 14px; bottom: auto }
 .pn.hero { top: calc(var(--nav-h) + 18px); right: var(--pad); left: auto; bottom: auto }
 .pn.c { left: 6px; bottom: 6px; padding: 4px 7px; max-width: calc(100% - 12px) }
 .pn.c strong { font-size: .66rem }

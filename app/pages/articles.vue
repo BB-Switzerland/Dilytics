@@ -23,7 +23,7 @@ const topics = ['TVA', "Cr√©ation d'entreprise", 'Start-up', 'bexio', 'Fiscalit√
       </div>
 
       <NuxtLink to="/articles" class="lead" v-rv:12="'up'">
-        <div class="shot lp"><img :src="img(lead.img)" alt="" /><PhotoNote :id="lead.img" article /></div>
+        <div class="shot lp"><img :src="img(lead.img)" alt="" /></div>
         <div class="lt">
           <span class="idx">{{ lead.kicker }}</span>
           <h2 class="d3">{{ lead.title }}</h2>
@@ -40,7 +40,7 @@ const topics = ['TVA', "Cr√©ation d'entreprise", 'Start-up', 'bexio', 'Fiscalit√
         </ul>
         <div class="grid">
           <NuxtLink v-for="(a, i) in rest" :key="a.slug" to="/articles" class="a" v-rv:[i*8]="'up'">
-            <div class="shot pic"><img :src="img(a.img)" alt="" /><PhotoNote :id="a.img" article /></div>
+            <div class="shot pic"><img :src="img(a.img)" alt="" /></div>
             <span class="idx">{{ a.kicker }}</span>
             <h3 class="t1">{{ a.title }}</h3>
             <p class="sm">{{ a.excerpt }}</p>

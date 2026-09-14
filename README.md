@@ -39,9 +39,11 @@ découlent. L'ordre d'affichage se règle dans la liste `ORDER` du même fichier
 
 ## Photos à fournir
 
-Tant que les vraies photos de l'équipe et des locaux ne sont pas là, chaque image
-de stock porte une note rouge sur le site, et la liste complète se trouve sur
-`/photos-a-fournir` (page non référencée). Tout part de `app/content/photos.js` :
+Dilytics a demandé des photos réelles de l'équipe, des locaux et du lieu de
+travail. Tant qu'elles ne sont pas là, chaque image générique qui en tient lieu
+porte une note rouge sur le site, et la liste complète se trouve sur
+`/photos-a-fournir` (page non référencée). Les gros plans, vues de Genève et
+illustrations d'articles ne sont pas concernés. Tout part de `app/content/photos.js` :
 passer `NOTES` à `false` retire toutes les notes d'un coup. Les contenus encore
 attendus (avis clients, note des avis) sont marqués de la même façon.
 

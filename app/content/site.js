@@ -52,7 +52,7 @@ export const REVIEW_SLOTS = 2
 // Third-party marks the cabinet can point to.
 export const DISTINCTIONS = [
   { v: 'Platine', t: 'Partenaire du logiciel bexio', img: 'bexio_platine', alt: 'Badge bexio Partenaire Platine' },
-  { v: 'Swiss Label', t: 'Obtenu en novembre 2022' },
+  { v: 'Swiss Label', t: 'Obtenu en novembre 2022', img: 'swiss_label', alt: 'Logo Swiss Made du Swiss Label' },
   { v: '1+ pour tous', t: "Label de l'État de Genève en faveur de l'emploi" },
 ]
 

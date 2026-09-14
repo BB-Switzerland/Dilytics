@@ -18,13 +18,8 @@ const groups = [
   },
   {
     t: 'Pages prestations',
-    d: "Chaque image apparaît en haut de sa page et dans les cartes « Avez-vous besoin d'un autre service ? ». Une même série de photos peut servir à plusieurs prestations.",
+    d: "Chaque image apparaît en haut de sa page et dans les cartes « Avez-vous besoin d'un autre service ? ». Une même séance photo peut couvrir les cinq.",
     items: list.filter((p) => p.prio === 2),
-  },
-  {
-    t: 'Articles',
-    d: "Pas de séance photo ici : il suffit de reprendre l'image de chaque article publié.",
-    items: list.filter((p) => p.prio === 3),
   },
 ]
 const total = list.length + EXPECTED.length
@@ -36,8 +31,9 @@ const total = list.length + EXPECTED.length
       <h1 class="d1">Photos à fournir</h1>
       <p class="body ld">
         {{ total }} emplacements attendent une photo réelle de l'équipe, des locaux ou de
-        l'environnement de travail. Sur le site, chacun porte une note rouge qui rappelle ce qu'il
-        faut montrer. Cette page n'est pas référencée.
+        l'environnement de travail, comme Dilytics l'a demandé. Sur le site, chacun porte une note
+        rouge qui rappelle ce qu'il faut montrer. Les autres images (gros plans, vues de Genève,
+        illustrations d'articles) ne sont pas concernées. Cette page n'est pas référencée.
       </p>
     </section>
 
