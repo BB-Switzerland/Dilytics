@@ -27,10 +27,12 @@ export const LEGAL = [
 // Proof for the home page. Dilytics asked for satisfaction first, and for
 // lasting facts rather than service volumes, which date quickly: the number of
 // tax returns is gone. An entry with `pending` is a figure the cabinet still has
-// to send; it shows as a marked slot until then.
+// to send, shown as a marked slot until then; `text` is a figure the counter
+// cannot count up to, such as a decimal rating.
 export const STATS = [
   { n: 100, prefix: '', suffix: ' %', label: 'de retours positifs de nos clients' },
-  { pending: 'Note des avis clients à fournir', hint: "Par exemple la note moyenne Google et le nombre d'avis." },
+  // Google Business Profile, as sent by Dilytics
+  { text: '4,6 / 5', label: 'de note moyenne, sur 66 avis Google' },
   { n: 21, prefix: '', suffix: '', label: "secteurs d'activité, de la restauration à la gestion de fortune" },
   { n: 6, prefix: '', suffix: '', label: 'langues parlées au cabinet' },
 ]

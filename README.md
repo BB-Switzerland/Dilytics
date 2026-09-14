@@ -45,7 +45,7 @@ porte une note rouge sur le site, et la liste complète se trouve sur
 `/photos-a-fournir` (page non référencée). Les gros plans, vues de Genève et
 illustrations d'articles ne sont pas concernés. Tout part de `app/content/photos.js` :
 passer `NOTES` à `false` retire toutes les notes d'un coup. Les contenus encore
-attendus (avis clients, note des avis) sont marqués de la même façon.
+attendus (avis clients) sont marqués de la même façon.
 
 ## Animations
 

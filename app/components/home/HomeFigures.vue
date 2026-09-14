@@ -26,7 +26,8 @@ import { img } from '~/utils/img'
           <li v-for="(s, i) in STATS" :key="i" v-rv:[i*6]="'up'">
             <Pending v-if="s.pending" dark :label="s.pending" :hint="s.hint" />
             <template v-else>
-              <span class="fig n">{{ s.prefix }}<Counter :to="s.n" />{{ s.suffix }}</span>
+              <span v-if="s.text" class="fig n">{{ s.text }}</span>
+              <span v-else class="fig n">{{ s.prefix }}<Counter :to="s.n" />{{ s.suffix }}</span>
               <p class="l">{{ s.label }}</p>
             </template>
           </li>
