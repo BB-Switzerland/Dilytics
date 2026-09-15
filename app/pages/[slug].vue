@@ -161,7 +161,7 @@ function jump(i) {
 
     <!-- what the engagement covers, when the service publishes a list -->
     <section v-if="b?.list" class="tint">
-      <div class="band-lead lwrap">
+      <div class="band-lead lwrap" :class="{ rich: b.list.items[0]?.t }">
         <h2 class="d2 lhd" v-rv="'mask'">{{ b.list.t }}</h2>
         <ul class="lst" v-stagger>
           <!-- an item is a plain line, or a named part with its description -->
@@ -282,6 +282,15 @@ function jump(i) {
 .lk { width: 20px; height: 20px; color: var(--red); margin-top: 2px }
 .lit { display: block; font-weight: 700; letter-spacing: -.015em }
 .lid { display: block; margin-top: 5px; font-size: .92em; line-height: 1.55; color: var(--muted); max-width: 62ch }
+/* named parts with a description: one column of them runs far down the page,
+   so they sit three abreast under the heading instead */
+.lwrap.rich { grid-template-columns: minmax(0, 1fr); gap: clamp(20px, 2.4vw, 36px) }
+.rich .lhd { max-width: none }
+.rich .lst { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: clamp(22px, 3vw, 52px) }
+.rich .lst li { padding: 18px 0 22px }
+.rich .lst li:last-child { border-bottom: 0 }
+@media (max-width: 1000px) { .rich .lst { grid-template-columns: repeat(2, minmax(0, 1fr)) } }
+@media (max-width: 620px) { .rich .lst { grid-template-columns: minmax(0, 1fr) } }
 
 /* faq: the same two-column band as the coverage list above, so the page keeps
    one rhythm instead of dropping to a narrow centred column */
