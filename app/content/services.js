@@ -113,6 +113,48 @@ const ENTRIES = [
   },
 
   /* --------------------------------------------------- entreprises */
+  // A new service: its text is the one Dilytics wrote for this page
+  // (September 2026), not a page of the current site.
+  {
+    slug: '/cfo-externalise/',
+    group: 'entreprises',
+    nav: 'CFO externalisé',
+    title: 'CFO externalisé',
+    lede: "Un CFO externalisé est un directeur financier qui exerce la direction financière d'une entreprise en temps partagé, sans en être salarié. Il pilote la trésorerie, les budgets, le reporting et l'analyse de rentabilité, et accompagne le dirigeant dans ses décisions.",
+    img: 'meet',
+    faq: [
+      {
+        q: "Qu'est-ce qu'un CFO externalisé ?",
+        a: "Un CFO externalisé est un directeur financier qui exerce la direction financière d'une entreprise en temps partagé, sans en être salarié. Il pilote la trésorerie, les budgets, le reporting et l'analyse de rentabilité, puis accompagne le dirigeant dans ses décisions. Une PME accède ainsi à une expertise de direction financière adaptée à ses besoins, sans créer un poste à temps plein.",
+      },
+      {
+        q: 'Pourquoi externaliser sa direction financière ?',
+        a: "Pour disposer d'une expertise financière de haut niveau sans créer un poste à temps plein. L'externalisation donne accès à une équipe pluridisciplinaire, finance, comptabilité et fiscalité, pour un coût proportionnel au périmètre confié. La mise en route prend quelques semaines, et le périmètre s'élargit au rythme de l'entreprise.",
+      },
+      {
+        q: 'Quelle différence entre un chief financial officer et une fiduciaire ?',
+        a: "Une fiduciaire produit et fiabilise les chiffres : comptabilité, TVA, salaires, bouclement, fiscalité. Un CFO les analyse et les projette dans l'avenir : prévisions de trésorerie, budgets, marges, aide à la décision. Les deux fonctions sont complémentaires. Chez Dilytics, elles sont assurées par la même équipe, sur les mêmes données.",
+      },
+      {
+        q: 'Quand faire appel à un directeur financier externalisé ?',
+        a: "Le plus souvent lors d'un changement d'échelle : croissance qui mobilise de la trésorerie, structuration de l'organisation, projet d'investissement, demande de financement, ou volonté de professionnaliser le pilotage financier. Le besoin apparaît généralement bien avant qu'un poste de directeur financier à temps plein soit justifiable.",
+      },
+      {
+        q: 'Combien coûte un directeur administratif et financier externalisé en Suisse ?',
+        a: "Le tarif dépend du périmètre confié, de la fréquence des points de pilotage et de la complexité de l'entreprise, notamment du nombre d'entités ou d'activités à analyser. Le coût reste proportionnel au besoin, là où un directeur financier interne représente une charge fixe complète. Le périmètre est défini après un premier échange.",
+      },
+      {
+        q: "Comment améliorer le pilotage financier d'une PME ?",
+        a: "En quatre étapes : structurer les données via une comptabilité analytique adaptée à l'activité, choisir un nombre restreint d'indicateurs décisionnels, mettre en place une prévision de trésorerie glissante et un budget suivi chaque mois, puis instaurer un point de pilotage régulier qui se conclut par des décisions plutôt que par un rapport.",
+      },
+    ],
+    related: [
+      '/comptabilite-geneve-experts-fiduciaire/',
+      '/tva-suisse/',
+      '/payroll-et-administration-rh/',
+      '/conseil-fiscal/',
+    ],
+  },
   {
     slug: '/comptabilite-geneve-experts-fiduciaire/',
     group: 'entreprises',
@@ -616,8 +658,10 @@ const ENTRIES = [
 // seen first, so the menu, the family pages, the footer and the ticker all read
 // in this order: businesses, then company creation, then private clients.
 // Private tax returns come last while the cabinet decides whether they stay on
-// this site or move to Altigest.
+// this site or move to Altigest. The outsourced CFO, its highest-value service,
+// leads the business list.
 const ORDER = [
+  '/cfo-externalise/',
   '/comptabilite-geneve-experts-fiduciaire/',
   '/payroll-et-administration-rh/',
   '/tva-suisse/',

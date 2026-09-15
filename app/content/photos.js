@@ -20,7 +20,7 @@ export const PHOTOS = {
   meet: {
     prio: 1,
     brief: "L'équipe au complet dans les locaux, en discussion. Format très large, personnes dans la moitié droite : le titre se pose à gauche.",
-    where: ['Accueil, image de fond du haut de page', "Pages Entreprises, Création d'entreprise et Particuliers, bloc rendez-vous"],
+    where: ['Accueil, image de fond du haut de page', "Pages Entreprises, Création d'entreprise et Particuliers, bloc rendez-vous", 'Page CFO externalisé, haut de page'],
   },
   cta: {
     prio: 1,

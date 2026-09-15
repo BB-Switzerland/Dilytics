@@ -182,6 +182,78 @@ export const BODY = {
   },
 
   /* -------------------------------------------------------- entreprises */
+  // From the text Dilytics wrote for this new page (September 2026), verbatim.
+  // Its hero figures and photo captions have no slot in the service template
+  // and are left out; the three benefits summarise its own sentences.
+  '/cfo-externalise/': {
+    tagline: 'Une direction financière pour éclairer vos décisions.',
+    intro:
+      "Vos chiffres contiennent déjà l'essentiel. Nous les transformons en visibilité sur votre trésorerie, vos marges et vos prochains mois, pour que chaque décision importante s'appuie sur des données claires.",
+    benefits: [
+      { ico: 'clock', t: 'Anticiper votre trésorerie', d: 'Nous projetons votre trésorerie sur douze mois et anticipons vos besoins de financement.' },
+      { ico: 'chart', t: 'Piloter vos marges', d: 'Nous calculons votre marge réelle par client, mandat ou activité.' },
+      { ico: 'talk', t: 'Décider, accompagné', d: 'Des points de pilotage réguliers transforment vos données financières en recommandations concrètes et directement exploitables.' },
+    ],
+    sections: [
+      {
+        t: 'Une vision financière claire pour piloter et développer votre PME',
+        p: [
+          "Une direction financière vous apporte une lecture claire et régulière de votre situation et de sa trajectoire. Vous disposez ainsi de la visibilité nécessaire pour anticiper les prochaines étapes et prendre vos décisions au bon moment.",
+          "En anticipant votre trésorerie et vos besoins de financement, en suivant votre rentabilité, vos marges et vos indicateurs clés, vous disposez d'une vision plus claire pour mesurer l'impact de vos projets et piloter le développement de votre entreprise.",
+          'Des chiffres qui ne décrivent plus seulement le passé, mais éclairent les mois à venir.',
+        ],
+      },
+      {
+        t: 'Direction financière externalisée pour PME',
+        p: [
+          "Un CFO externalisé est un directeur financier qui exerce la direction financière d'une entreprise en temps partagé, sans en être salarié. Il pilote la trésorerie, les budgets, le reporting et l'analyse de rentabilité, et accompagne le dirigeant dans ses décisions.",
+          "Vous accédez à cette expertise selon les besoins de votre entreprise, avec un accompagnement qui évolue à mesure que votre activité se développe.",
+        ],
+      },
+      {
+        t: 'Des données financières au service de vos décisions',
+        p: [
+          "Un directeur financier externalisé se juge à la qualité des décisions qu'il permet de prendre. Nous chiffrons l'impact d'un recrutement, modélisons un investissement, préparons les projections nécessaires à un financement et anticipons les effets de votre croissance sur votre trésorerie et vos ressources.",
+          "L'objectif est de vous permettre d'engager votre entreprise avec une vision financière claire. Des points de pilotage réguliers transforment vos données financières en recommandations concrètes et directement exploitables.",
+        ],
+      },
+    ],
+    list: {
+      t: "L'accompagnement",
+      items: [
+        {
+          t: 'Gestion et prévision de trésorerie',
+          d: "Nous projetons votre trésorerie sur douze mois et anticipons vos besoins de financement. Vous engagez vos dépenses au bon moment et sécurisez un financement avant qu'il ne devienne urgent.",
+        },
+        {
+          t: 'Budget prévisionnel et forecast',
+          d: "Nous construisons un budget mensualisé par activité et suivons l'écart avec le réel. Vous corrigez votre trajectoire en cours d'année, au lieu de la constater au bouclement.",
+        },
+        {
+          t: 'Reporting et tableaux de bord financiers',
+          d: 'Nous réunissons vos indicateurs décisionnels dans un tableau de bord lisible en quelques minutes. Vous savez chaque mois si votre entreprise tient sa trajectoire.',
+        },
+        {
+          t: 'Rentabilité et analyse des marges',
+          d: 'Nous mettons en place une comptabilité analytique et calculons votre marge réelle par client, mandat ou activité. Vous savez quoi développer, quoi retarifer et quoi arrêter.',
+        },
+        {
+          t: 'Contrôle de gestion externalisé',
+          d: 'Nous analysons votre structure de coûts et suivons vos postes de charges dans le temps. Vous agissez sur les bons postes, sans fragiliser votre production ni vos équipes.',
+        },
+        {
+          t: 'Financement et investissements',
+          d: "Nous préparons vos dossiers de financement et modélisons chaque scénario d'investissement avant décision. Vous présentez un dossier solide et financez vos projets dans de bonnes conditions.",
+        },
+      ],
+    },
+    // its own closing call: the first exchange lasts thirty minutes here
+    cta: {
+      title: ['Donnez à vos décisions', 'la visibilité financière', "qu'elles méritent."],
+      text: 'En trente minutes, nous faisons le point sur vos objectifs financiers et sur la manière dont une direction financière externalisée peut soutenir votre développement.',
+    },
+  },
+
   '/comptabilite-geneve-experts-fiduciaire/': {
     tagline: 'Solutions comptables digitales, experts humains.',
     intro:

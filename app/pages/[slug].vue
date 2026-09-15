@@ -164,8 +164,11 @@ function jump(i) {
       <div class="band-lead lwrap">
         <h2 class="d2 lhd" v-rv="'mask'">{{ b.list.t }}</h2>
         <ul class="lst" v-stagger>
-          <li v-for="it in b.list.items" :key="it">
-            <span class="lk"><Ico name="check" /></span>{{ it }}
+          <!-- an item is a plain line, or a named part with its description -->
+          <li v-for="it in b.list.items" :key="it.t || it">
+            <span class="lk"><Ico name="check" /></span>
+            <span v-if="it.t"><span class="lit">{{ it.t }}</span><span class="lid">{{ it.d }}</span></span>
+            <span v-else>{{ it }}</span>
           </li>
         </ul>
       </div>
@@ -196,7 +199,8 @@ function jump(i) {
 
     <CrossSell :slugs="cross" />
     <AskBlock />
-    <SiteCta />
+    <!-- a service may word its own closing call, as the CFO page does -->
+    <SiteCta v-bind="b?.cta || {}" />
   </article>
 </template>
 
@@ -276,6 +280,8 @@ function jump(i) {
   font-size: clamp(1rem, 1.14vw, 1.1rem); line-height: 1.45 }
 .lst li:last-child { border-bottom: 1px solid rgba(0, 25, 52, .1) }
 .lk { width: 20px; height: 20px; color: var(--red); margin-top: 2px }
+.lit { display: block; font-weight: 700; letter-spacing: -.015em }
+.lid { display: block; margin-top: 5px; font-size: .92em; line-height: 1.55; color: var(--muted); max-width: 62ch }
 
 /* faq: the same two-column band as the coverage list above, so the page keeps
    one rhythm instead of dropping to a narrow centred column */

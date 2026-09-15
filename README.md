@@ -27,7 +27,7 @@ npm run generate  # export statique
 
 | Dossier | Contenu |
 |---|---|
-| `app/pages` | Les routes. `[slug].vue` rend les 18 pages de prestation. |
+| `app/pages` | Les routes. `[slug].vue` rend les 19 pages de prestation. |
 | `app/content` | Tout le contenu éditorial : prestations, textes, tarifs, coordonnées. |
 | `app/components` | Composants partagés, `home/` pour les sections d'accueil. |
 | `app/plugins` | `motion.client.js`, le moteur d'animation (Lenis, GSAP, directives). |

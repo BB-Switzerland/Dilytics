@@ -1,8 +1,9 @@
 <script setup>
 // Business-facing prestations first, as Dilytics asked: private tax returns
 // are no longer pushed from the home page. Descriptions are the cabinet's own,
-// from its home page and its cross-sell lines.
+// from its home page, its cross-sell lines and the text it wrote for the CFO page.
 const rows = [
+  { t: 'CFO externalisé', d: 'Une direction financière pour éclairer vos décisions.', to: '/cfo-externalise/' },
   { t: 'Comptabilité', d: 'Notre équipe de spécialistes est disponible pour effectuer un suivi, complet ou partiel, de votre comptabilité.', to: '/comptabilite-geneve-experts-fiduciaire/' },
   { t: 'Payroll et administration RH', d: 'Déléguez-nous la gestion de vos salaires et optimisez votre temps dans la gestion de votre équipe.', to: '/payroll-et-administration-rh/' },
   { t: 'TVA', d: "Notre équipe d'experts s'occupe de vos décomptes TVA et de vos déclarations fiscales.", to: '/tva-suisse/' },

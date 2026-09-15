@@ -6,6 +6,7 @@ export const PITCH = {
   '/creation-de-raison-individuelle/': "Obtenez votre statut d'indépendant en Suisse.",
   '/creer-une-sarl-en-suisse-facile/': 'Entreprenez avec sérénité grâce à votre Sàrl.',
   '/creation-de-societe-anonyme/': 'Concrétisez un projet ambitieux avec votre SA.',
+  '/cfo-externalise/': 'Une direction financière pour éclairer vos décisions.',
   '/comptabilite-geneve-experts-fiduciaire/':
     'Nous traitons la comptabilité de votre entreprise ou de votre activité indépendante.',
   '/domiciliation-a-geneve/':
@@ -32,6 +33,7 @@ export const PITCH = {
 // The full, unambiguous page heading where the short editorial title is not
 // explicit enough for someone arriving from a search.
 export const H1 = {
+  '/cfo-externalise/': 'CFO externalisé à Genève',
   '/creation-de-raison-individuelle/': 'Création de raison individuelle',
   '/creer-une-sarl-en-suisse-facile/': 'Création de Sàrl',
   '/creation-de-societe-anonyme/': 'Création de société anonyme',
