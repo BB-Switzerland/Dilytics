@@ -297,8 +297,8 @@ function jump(i) {
 .fwrap { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
   gap: clamp(24px, 4vw, 76px); align-items: start }
 .fhd { position: sticky; top: calc(var(--nav-h) + 34px) }
-.fhd .d2 { max-width: 12ch; margin-bottom: 18px }
-.fhd .sm { max-width: 30ch; margin-bottom: 14px }
+.fhd .d2 { margin-bottom: 18px }
+.fhd .sm { max-width: 46ch; margin-bottom: 14px }
 .fph { font-size: 1.05rem; font-weight: 760; letter-spacing: -.03em; color: var(--red) }
 .faq { display: grid; gap: 10px }
 .q { padding: 0 clamp(18px, 2vw, 26px) }
