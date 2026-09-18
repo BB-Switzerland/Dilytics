@@ -2,9 +2,8 @@
   <section class="say">
     <div class="hold">
       <p class="s" v-lit>
-        Une fiduciaire ne devrait pas se contenter de constater.
-        La nôtre <span class="red">anticipe vos défis à venir</span>,
-        au lieu de commenter ceux qui sont passés.
+        Nos conseillers <span class="red">anticipent toujours vos défis à venir</span>
+        et proposent des solutions concrètes, adaptées aux entreprises d'aujourd'hui.
       </p>
     </div>
   </section>

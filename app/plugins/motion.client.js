@@ -345,7 +345,8 @@ export default defineNuxtPlugin((nuxtApp) => {
           ease: 'power3.out',
         })
       }
-      const off = () => gsap.to(el, { x: 0, y: 0, duration: 0.9, ease: 'elastic.out(1, .45)' })
+      // settles back without overshooting: a bounce makes a button feel fussy
+      const off = () => gsap.to(el, { x: 0, y: 0, duration: 0.9, ease: 'power3.out' })
       el.addEventListener('mousemove', move)
       el.addEventListener('mouseleave', off)
       el.__magOff = () => {

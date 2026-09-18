@@ -44,7 +44,7 @@ defineProps({
 <style scoped>
 .cn { padding-block: clamp(54px, 6.5vw, 116px); background: var(--ink); color: var(--paper) }
 .cn :deep(.body), .cn .sm { color: rgba(244, 242, 238, .62) }
-.cn .xs { color: rgba(244, 242, 238, .4) }
+.cn .xs { color: rgba(244, 242, 238, .56) }
 /* minmax(0, …): without it a grid item's automatic minimum is its content's
    min-content width, and the image column can squeeze the text column down to
    one word per line. */

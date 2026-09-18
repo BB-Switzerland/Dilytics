@@ -155,7 +155,7 @@ useHead(() => ({
 .og { display: grid; grid-template-columns: minmax(0, .96fr) minmax(0, 1.04fr);
   gap: clamp(26px, 4vw, 80px); align-items: center }
 .pitch { margin: 18px 0 0; font-size: clamp(1.08rem, 1.4vw, 1.32rem); font-weight: 660;
-  letter-spacing: -.022em; line-height: 1.28; color: var(--red); max-width: 34ch }
+  letter-spacing: -.022em; line-height: 1.3; color: var(--red); max-width: 34ch }
 .ld { margin-top: 16px; max-width: 46ch }
 .acts { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 24px; margin-top: 28px }
 .tel { font-size: .95rem }

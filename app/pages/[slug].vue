@@ -214,7 +214,7 @@ function jump(i) {
 .hg { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .96fr);
   gap: clamp(26px, 4.4vw, 88px); align-items: center }
 .tag { margin: 18px 0 0; font-size: clamp(1.18rem, 1.62vw, 1.55rem); font-weight: 680;
-  letter-spacing: -.026em; line-height: 1.24; color: var(--red); max-width: 30ch }
+  letter-spacing: -.026em; line-height: 1.3; color: var(--red); max-width: 30ch }
 .ld { margin-top: 16px; max-width: 52ch }
 .acts { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 24px; margin-top: 28px }
 .tel:hover { color: var(--red) }

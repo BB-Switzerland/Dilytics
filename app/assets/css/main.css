@@ -15,7 +15,9 @@
   --sand-2:#e2e0d9;
   --white:#fff;
   --muted:rgba(0,25,52,.62);
-  --faint:rgba(0,25,52,.42);
+  /* the small print (dates, crumbs, notes) reads at WCAG AA, 4.5:1, on paper
+     and on sand: it is set apart by its size, not by a paler grey */
+  --faint:rgba(0,25,52,.62);
   --line:rgba(0,25,52,.13);
   --hair:rgba(0,25,52,.08);
 
@@ -104,12 +106,8 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
 
 /* ---------------------------------------------------- surfaces */
 .shot{position:relative;overflow:hidden;background:var(--sand);border-radius:var(--r)}
-.shot img{width:100%;height:100%;object-fit:cover;transition:transform 1.3s var(--e)}
-.shot:hover img{transform:scale(1.04)}
-/* a parallaxed image is driven frame by frame, so it opts out of the hover
-   scale and of the transition that would lag behind the scroll */
-.shot img[data-px]{transition:none}
-.shot:hover img[data-px]{transform:none}
+/* pictures stay still under the pointer: a zoom on hover says nothing */
+.shot img{width:100%;height:100%;object-fit:cover}
 
 /* Section architecture. The rule is full-bleed while content is inset, so the
    page reads as one structure rather than a stack of slabs. */
@@ -130,7 +128,7 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
   box-shadow:0 30px 60px -28px rgba(0,25,52,.34),0 3px 10px -4px rgba(0,25,52,.12)}
 .navy-panel{background:var(--ink);color:var(--paper);border-radius:var(--r-xl)}
 .navy-panel .body,.navy-panel .sm{color:rgba(244,242,238,.66)}
-.navy-panel .xs{color:rgba(244,242,238,.44)}
+.navy-panel .xs{color:rgba(244,242,238,.56)}
 
 /* ---------------------------------------------------- motion
    GSAP owns every entrance; the rules below only cover the two things a

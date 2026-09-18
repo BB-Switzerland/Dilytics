@@ -30,10 +30,10 @@ const items = [
   <section class="band">
     <div class="band-lead">
       <header class="hd">
-        <h2 class="d2" v-rv="'mask'">Un partenaire stratégique,<br />pas un simple appui comptable.</h2>
+        <h2 class="d2" v-rv="'mask'">De la création à la transmission<br />de votre entreprise.</h2>
         <p class="body" v-rv:8="'up'">
-          Nous voulons être un véritable partenaire stratégique pour les dirigeants, de la
-          création à la transmission de leur entreprise. Voici ce que cela change concrètement.
+          Nous voulons être un véritable partenaire stratégique pour les dirigeants.
+          Voici ce que cela change concrètement.
         </p>
       </header>
 

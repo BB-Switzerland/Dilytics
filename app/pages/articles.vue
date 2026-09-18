@@ -23,7 +23,6 @@ const rest = ARTICLES.slice(1)
       <NuxtLink to="/articles" class="lead" v-rv:12="'up'">
         <div class="shot lp"><img :src="img(lead.img)" alt="" /></div>
         <div class="lt">
-          <span class="cat">{{ lead.kicker }}</span>
           <h2 class="d3">{{ lead.title }}</h2>
           <p class="body">{{ lead.excerpt }}</p>
           <span class="xs mt">{{ lead.date }}</span>
@@ -36,7 +35,6 @@ const rest = ARTICLES.slice(1)
         <div class="grid">
           <NuxtLink v-for="(a, i) in rest" :key="a.slug" to="/articles" class="a" v-rv:[i*8]="'up'">
             <div class="shot pic"><img :src="img(a.img)" alt="" /></div>
-            <span class="cat">{{ a.kicker }}</span>
             <h3 class="t1">{{ a.title }}</h3>
             <p class="sm">{{ a.excerpt }}</p>
             <span class="xs mt">{{ a.date }}</span>
@@ -59,16 +57,14 @@ const rest = ARTICLES.slice(1)
 
 .lead { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(20px, 3vw, 48px); align-items: center }
 .lp { aspect-ratio: 16 / 10 }
-.lt .d3 { margin: 12px 0 14px; transition: color .3s }
+.lt .d3 { margin: 0 0 14px; transition: color .3s }
 .lead:hover .d3 { color: var(--red) }
 .mt { display: block; margin-top: 16px }
-/* the article's subject, set like the home page's journal */
-.cat { font-size: .78rem; font-weight: 660; color: var(--red) }
 
 .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 30px) }
 .a { display: flex; flex-direction: column }
 .pic { aspect-ratio: 16 / 10; margin-bottom: 16px }
-.a .t1 { margin: 9px 0 9px; transition: color .3s }
+.a .t1 { margin: 0 0 9px; transition: color .3s }
 .a:hover .t1 { color: var(--red) }
 .a p { max-width: 38ch }
 

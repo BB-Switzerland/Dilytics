@@ -2,27 +2,23 @@
 import { CONTACT } from '~/content/site'
 
 // The page says what the cabinet does and why it matters, but never what
-// happens once you call. Named stages rather than 01/02/03: a number tells you
-// nothing, "l'entretien" tells you exactly where you are. Every line below is
-// the cabinet's own published wording; no service level is invented here.
+// happens once you call. Each stage is named by its heading alone, with no
+// number and no label above it. Every line below is the cabinet's own
+// published wording; no service level is invented here.
 const steps = [
   {
-    k: "L'entretien",
     t: 'Quinze minutes, gratuites',
     d: "Par téléphone ou en visioconférence. Vous nous dites où vous en êtes, nous vous disons si nous pouvons vous aider.",
   },
   {
-    k: "L'écoute",
     t: 'Un conseiller qui prend le temps',
     d: "Nos conseillers prennent le temps de comprendre votre situation avant de proposer quoi que ce soit.",
   },
   {
-    k: 'La solution',
     t: 'Adaptée à votre domaine',
     d: "Chaque dossier est unique. Nos conseils s'adaptent à votre activité et à votre situation, pas l'inverse.",
   },
   {
-    k: 'La suite',
     t: 'Nous anticipons vos défis',
     d: 'Un accompagnement qui va au-delà de la simple assistance et qui anticipe vos défis à venir.',
   },
@@ -58,8 +54,7 @@ useGsap(({ gsap }) => {
       <div class="track">
         <div class="line"><span class="fill" /></div>
         <ol>
-          <li v-for="s in steps" :key="s.k" class="st">
-            <p class="k">{{ s.k }}</p>
+          <li v-for="s in steps" :key="s.t" class="st">
             <h3 class="t1">{{ s.t }}</h3>
             <p class="sm">{{ s.d }}</p>
           </li>
@@ -87,8 +82,6 @@ useGsap(({ gsap }) => {
 .track ol { list-style: none; margin: 0; padding: 0;
   display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(20px, 3vw, 54px) }
 .st { display: flex; flex-direction: column }
-.k { margin: 0 0 12px; font-size: .8rem; font-weight: 700; letter-spacing: -.012em;
-  color: var(--red) }
 .st h3 { margin-bottom: 9px; max-width: 18ch }
 .st .sm { max-width: 34ch }
 

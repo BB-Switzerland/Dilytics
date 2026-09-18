@@ -152,14 +152,14 @@ onBeforeUnmount(() => ctx?.revert())
   .ld { font-size: .97rem; max-width: 44ch }
   .strip { gap: 14px }
   .sv { font-size: 1.5rem }
-  .sl { font-size: .72rem }
+  .sl { font-size: .75rem }
 }
 @media (max-width: 520px) {
   /* the three figures stay side by side; stacked they cost 100px of height
      the small screens do not have */
   .strip { gap: 10px }
   .sv { font-size: 1.25rem }
-  .sl { font-size: .67rem; line-height: 1.3 }
+  .sl { font-size: .75rem; line-height: 1.3 }
 }
 @media (prefers-reduced-motion: reduce) {
   :global(.mo) .ld, :global(.mo) .acts, :global(.mo) .strip li { opacity: 1 }

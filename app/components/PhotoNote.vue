@@ -32,11 +32,12 @@ const entry = computed(() => (NOTES ? PHOTOS[props.id] : null))
   border: 2px dashed var(--red); border-radius: 8px }
 .pn { position: absolute; z-index: 4; left: 14px; bottom: 14px; max-width: min(340px, calc(100% - 28px));
   display: flex; flex-direction: column; gap: 3px; padding: 9px 12px 10px; border-radius: 6px;
-  background: var(--red); color: #fff; font-size: .74rem; font-weight: 500; line-height: 1.35;
+  background: var(--red); color: #fff; font-size: .75rem; font-weight: 500; line-height: 1.35;
   letter-spacing: 0; text-align: left; pointer-events: none;
   box-shadow: 0 12px 26px -14px rgba(0, 25, 52, .55) }
 .pn strong { font-size: .8rem; font-weight: 720 }
-.pn.hero { top: calc(var(--nav-h) + 18px); right: var(--pad); left: auto; bottom: auto }
+/* on the dark hero photograph an ink shadow reads as a glow: none there */
+.pn.hero { top: calc(var(--nav-h) + 18px); right: var(--pad); left: auto; bottom: auto; box-shadow: none }
 .pn.c { left: 6px; bottom: 6px; padding: 4px 7px; max-width: calc(100% - 12px) }
-.pn.c strong { font-size: .66rem }
+.pn.c strong { font-size: .75rem }
 </style>
