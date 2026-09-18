@@ -1,0 +1,46 @@
+/* What WordPress and bb-theme add to a page that the Nuxt site does not have.
+   Hand-written, unlike base.css and components.css. */
+
+/* Logged in, WordPress's admin bar sits at the top of the window: the fixed
+   navigation, its progress line and the mobile drawer start below it.
+   Visitors never have it. */
+body.admin-bar .nv, body.admin-bar .bar.v-scroll-bar { top: 32px }
+body.admin-bar .drw { top: calc(var(--nav-h) + 32px) }
+@media (max-width: 782px) {
+  body.admin-bar .nv, body.admin-bar .bar.v-scroll-bar { top: 46px }
+  body.admin-bar .drw { top: calc(var(--nav-h) + 46px) }
+}
+
+/* Beaver Builder gives every column min-height: 1px. The header layout holds
+   only fixed elements, so that pixel was the whole header's height in the
+   flow, and every page started 1px lower than on Nuxt. */
+.fl-builder-content[data-type="header"] .fl-col { min-height: 0 }
+
+/* Beaver Builder's script appends "(opens in new tab)" to links opening a new
+   tab, for screen readers. Kept, but out of the flow: inside a flex button
+   (.cta, gap: 10px) it counted as one more item and widened the button. */
+.fl-new-tab-notice.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+/* Beaver Builder outlines every link, button and field on :focus, so a mouse
+   click leaves a ring. The Nuxt site shows one only on :focus-visible (the
+   keyboard): 2px red, 3px away, from base.css. Both restored here. */
+:where(.fl-builder-content, .fl-page) :is(a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])):focus:not(:focus-visible) {
+  outline: none;
+}
+:where(.fl-builder-content, .fl-page) :is(a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])):focus-visible {
+  outline-offset: 3px;
+}
+
+/* bb-theme's skip link: hidden until focused, as the theme's own sheet did */
+.fl-screen-reader-text {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+.fl-screen-reader-text:focus {
+  width: auto; height: auto; margin: 0; clip: auto; overflow: visible; z-index: 200;
+  top: 8px; left: 8px; padding: 10px 16px; border-radius: 8px;
+  background: var(--ink); color: var(--paper); font-size: .85rem; font-weight: 640;
+}

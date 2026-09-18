@@ -1,0 +1,2662 @@
+{
+ "site": {
+  "CONTACT": {
+   "phone": "+41 22 525 40 80",
+   "phoneHref": "tel:+41225254080",
+   "mail": "contact@dilytics.ch",
+   "street": "Chemin Louis-Hubert 2, 6e étage",
+   "city": "1213 Petit-Lancy, Genève",
+   "building": "Lancy Small City, aile 1",
+   "map": "https://www.google.com/maps/place//data=!4m2!3m1!1s0x478c6ffddc2a1a31:0x788c84a4fdfefdce",
+   "hours": "Lundi au vendredi, 9h – 12h et 13h – 18h",
+   "booking": "https://outlook.office365.com/owa/calendar/ExpertDilytics@dilytics.ch/bookings/",
+   "since": 1999
+  },
+  "SOCIAL": [
+   {
+    "label": "LinkedIn",
+    "href": "https://www.linkedin.com/company/dilytics-gen%C3%A8ve/"
+   },
+   {
+    "label": "Instagram",
+    "href": "https://www.instagram.com/dilytics.ch/"
+   },
+   {
+    "label": "Facebook",
+    "href": "https://www.facebook.com/people/Dilytics-Fiduciaire-%C3%A0-Gen%C3%A8ve/100086762722430/"
+   }
+  ],
+  "LEGAL": [
+   {
+    "label": "Conditions générales de vente",
+    "href": "https://dilytics.ch/conditions-generales-de-vente/"
+   },
+   {
+    "label": "Protection des données",
+    "href": "https://dilytics.ch/declaration-sur-la-protection-des-donnees/"
+   }
+  ],
+  "STATS": [
+   {
+    "text": "4,6 / 5",
+    "label": "de note moyenne, sur 66 avis Google"
+   },
+   {
+    "n": 21,
+    "prefix": "",
+    "suffix": "",
+    "label": "secteurs d'activité, de la restauration à la gestion de fortune"
+   },
+   {
+    "n": 6,
+    "prefix": "",
+    "suffix": "",
+    "label": "langues parlées au cabinet"
+   }
+  ],
+  "REVIEWS": [
+   {
+    "quote": "Monsieur Laureano Rodrigues a démontré sa capacité à sortir des sentiers battus. Nous lui avons fait confiance pour nous aider à la création de notre société et avons particulièrement apprécié : son écoute, sa réactivité et son efficacité. C'est une personne très humaine qui saura vous accompagner avec succès !",
+    "name": "Nicola Balestrini",
+    "role": "Co-fondateur et associé",
+    "company": "Auxanõ Team Sàrl, Genève"
+   }
+  ],
+  "REVIEW_SLOTS": 2,
+  "DISTINCTIONS": [
+   {
+    "v": "Platine",
+    "t": "Partenaire du logiciel bexio",
+    "img": "bexio_platine",
+    "alt": "Badge bexio Partenaire Platine"
+   },
+   {
+    "v": "Swiss Made",
+    "t": "Label Swiss Made",
+    "img": "swiss_label",
+    "alt": "Label Swiss Made"
+   },
+   {
+    "v": "1+ pour tous",
+    "t": "Label de l'État de Genève en faveur de l'emploi",
+    "img": "label_1plus",
+    "alt": "Label 1+ pour tous, Employeur responsable 2025, République et canton de Genève"
+   }
+  ],
+  "TEAM": [
+   {
+    "img": "p_laureano",
+    "name": "Laureano Rodrigues",
+    "role": "Membre de direction et partner, CEO",
+    "quote": "Avec l'expérience que j'ai développée en management et dans la gestion de sociétés fiduciaires, j'ai très vite constaté que l'importance n'était pas accordée aux projets des clients, et c'est frustrant. Avec Dilytics, je souhaite aller au-delà du simple appui comptable : avec mon équipe, je propose un service orienté sur des solutions concrètes et adaptées aux attentes des entreprises d'aujourd'hui.",
+    "diploma": "BBA, Bachelor Business Administration · Conseiller IAF",
+    "langs": "Français · Anglais · Allemand · Portugais · Espagnol",
+    "linkedin": "https://ch.linkedin.com/in/laureano-rodrigues"
+   },
+   {
+    "img": "p_nervan",
+    "name": "Nervan Omerovic",
+    "role": "Membre de direction et partner, COO et digitalisation",
+    "quote": "Avec l'expérience que j'ai développée en comptabilité dans un grand cabinet, j'ai rejoint Dilytics pour aller au-delà du simple appui comptable traditionnel. J'allie rigueur comptable et innovation, notamment grâce à l'automatisation et à l'intelligence artificielle, pour construire des solutions simples et efficaces tout en contribuant à la digitalisation des processus.",
+    "diploma": "BBA, Bachelor Business Administration",
+    "langs": "Français · Anglais · Bosniaque",
+    "linkedin": "https://www.linkedin.com/in/nomerovic/"
+   },
+   {
+    "img": "p_walid",
+    "name": "Walid Berkaoui",
+    "role": "Expert-comptable diplômé, responsable de mandats PME",
+    "quote": "J'ai accompagné de nombreux dirigeants dans la structuration, la gestion et la croissance de leur entreprise, notamment au sein d'un grand cabinet international. Chez Dilytics, mon objectif est d'être un véritable partenaire stratégique, en accompagnant chaque client avec rigueur, écoute et une vision à long terme, de la création à la transmission de son entreprise.",
+    "diploma": "DEC (Diplôme d'Expert-Comptable)",
+    "langs": "Français · Anglais · Arabe",
+    "linkedin": "https://www.linkedin.com/in/walid-berkaoui-438455110/"
+   },
+   {
+    "img": "p_henrique",
+    "name": "Henrique Santos",
+    "role": "Responsable de mandats PME",
+    "quote": "Je suis comptable pour les PME que Dilytics accompagne. Je souhaite mobiliser mon pragmatisme et ma minutie pour fournir un accompagnement sur mesure qui répond à tous les défis de la gestion d'entreprise. Je m'identifie parfaitement dans la philosophie de Dilytics, qui consiste à valoriser le capital humain et la formation continue.",
+    "diploma": "BBA, Bachelor Business Administration",
+    "langs": "Portugais · Français · Anglais · Espagnol",
+    "linkedin": "https://ch.linkedin.com/in/henriquesantos1989"
+   }
+  ],
+  "ARTICLES": [
+   {
+    "slug": "reforme-tva-2025-en-suisse-preparez-votre-entreprise",
+    "kicker": "TVA",
+    "title": "Réforme TVA 2025 en Suisse : préparez votre entreprise",
+    "excerpt": "Ce que la réforme de la TVA change pour les entreprises suisses, et comment s’y préparer.",
+    "date": "29 novembre 2024",
+    "img": "crop_screen"
+   },
+   {
+    "slug": "creer-sa-start-up-en-suisse-guide-complet-pour-les-entrepreneurs",
+    "kicker": "Création",
+    "title": "Créer sa start-up en Suisse : guide complet pour les entrepreneurs",
+    "excerpt": "Les étapes de la création d’une start-up en Suisse, du choix de la forme juridique à l’inscription.",
+    "date": "1er novembre 2024",
+    "img": "crop_hands"
+   },
+   {
+    "slug": "bexio-et-dilytics-duo-gagnant-pour-une-gestion-financiere-efficace",
+    "kicker": "Outils",
+    "title": "Bexio et Dilytics : duo gagnant pour une gestion financière efficace",
+    "excerpt": "Comment le logiciel bexio s’intègre à l’accompagnement comptable du cabinet.",
+    "date": "30 septembre 2024",
+    "img": "desk"
+   },
+   {
+    "slug": "paradis-fiscaux-brisons-les-mythes",
+    "kicker": "Fiscalité",
+    "title": "Paradis fiscaux : brisons les mythes",
+    "excerpt": "Ce que recouvrent réellement les notions de paradis fiscal et d’optimisation.",
+    "date": "9 septembre 2024",
+    "img": "geneve"
+   },
+   {
+    "slug": "fiscalite-numerique-gagnez-en-efficacite-et-securite",
+    "kicker": "Fiscalité",
+    "title": "Fiscalité numérique : gagnez en efficacité et sécurité",
+    "excerpt": "La dématérialisation des obligations fiscales et ce qu’elle change au quotidien.",
+    "date": "15 juillet 2024",
+    "img": "revision"
+   },
+   {
+    "slug": "determinez-la-rentabilite-de-votre-entreprise-guide-complet",
+    "kicker": "Gestion",
+    "title": "Déterminez la rentabilité de votre entreprise : guide complet",
+    "excerpt": "Les indicateurs qui disent si une activité est rentable, et comment les lire.",
+    "date": "12 juillet 2024",
+    "img": "audit"
+   },
+   {
+    "slug": "comment-bien-choisir-sa-fiduciaire",
+    "kicker": "Fiduciaire",
+    "title": "Comment bien choisir sa fiduciaire ?",
+    "excerpt": "Les critères à examiner avant de confier sa comptabilité à un cabinet.",
+    "date": "28 mars 2023",
+    "img": "domicil"
+   }
+  ]
+ },
+ "groups": {
+  "crea": {
+   "label": "Création d'entreprise",
+   "short": "Création",
+   "img": "crea"
+  },
+  "entreprises": {
+   "label": "Entreprises",
+   "short": "Entreprises",
+   "img": "entr"
+  },
+  "particuliers": {
+   "label": "Particuliers",
+   "short": "Particuliers",
+   "img": "part"
+  }
+ },
+ "services": [
+  {
+   "slug": "/cfo-externalise/",
+   "group": "entreprises",
+   "nav": "CFO externalisé",
+   "title": "CFO externalisé",
+   "lede": "Un CFO externalisé est un directeur financier qui exerce la direction financière d'une entreprise en temps partagé, sans en être salarié. Il pilote la trésorerie, les budgets, le reporting et l'analyse de rentabilité, et accompagne le dirigeant dans ses décisions.",
+   "img": "meet",
+   "faq": [
+    {
+     "q": "Qu'est-ce qu'un CFO externalisé ?",
+     "a": "Un CFO externalisé est un directeur financier qui exerce la direction financière d'une entreprise en temps partagé, sans en être salarié. Il pilote la trésorerie, les budgets, le reporting et l'analyse de rentabilité, puis accompagne le dirigeant dans ses décisions. Une PME accède ainsi à une expertise de direction financière adaptée à ses besoins, sans créer un poste à temps plein."
+    },
+    {
+     "q": "Pourquoi externaliser sa direction financière ?",
+     "a": "Pour disposer d'une expertise financière de haut niveau sans créer un poste à temps plein. L'externalisation donne accès à une équipe pluridisciplinaire, finance, comptabilité et fiscalité, pour un coût proportionnel au périmètre confié. La mise en route prend quelques semaines, et le périmètre s'élargit au rythme de l'entreprise."
+    },
+    {
+     "q": "Quelle différence entre un chief financial officer et une fiduciaire ?",
+     "a": "Une fiduciaire produit et fiabilise les chiffres : comptabilité, TVA, salaires, bouclement, fiscalité. Un CFO les analyse et les projette dans l'avenir : prévisions de trésorerie, budgets, marges, aide à la décision. Les deux fonctions sont complémentaires. Chez Dilytics, elles sont assurées par la même équipe, sur les mêmes données."
+    },
+    {
+     "q": "Quand faire appel à un directeur financier externalisé ?",
+     "a": "Le plus souvent lors d'un changement d'échelle : croissance qui mobilise de la trésorerie, structuration de l'organisation, projet d'investissement, demande de financement, ou volonté de professionnaliser le pilotage financier. Le besoin apparaît généralement bien avant qu'un poste de directeur financier à temps plein soit justifiable."
+    },
+    {
+     "q": "Combien coûte un directeur administratif et financier externalisé en Suisse ?",
+     "a": "Le tarif dépend du périmètre confié, de la fréquence des points de pilotage et de la complexité de l'entreprise, notamment du nombre d'entités ou d'activités à analyser. Le coût reste proportionnel au besoin, là où un directeur financier interne représente une charge fixe complète. Le périmètre est défini après un premier échange."
+    },
+    {
+     "q": "Comment améliorer le pilotage financier d'une PME ?",
+     "a": "En quatre étapes : structurer les données via une comptabilité analytique adaptée à l'activité, choisir un nombre restreint d'indicateurs décisionnels, mettre en place une prévision de trésorerie glissante et un budget suivi chaque mois, puis instaurer un point de pilotage régulier qui se conclut par des décisions plutôt que par un rapport."
+    }
+   ],
+   "related": [
+    "/comptabilite-geneve-experts-fiduciaire/",
+    "/tva-suisse/",
+    "/payroll-et-administration-rh/",
+    "/conseil-fiscal/"
+   ]
+  },
+  {
+   "slug": "/comptabilite-geneve-experts-fiduciaire/",
+   "group": "entreprises",
+   "nav": "Comptabilité",
+   "title": "Comptabilité",
+   "lede": "Notre équipe prend en charge la comptabilité de votre entreprise ou de votre activité d'indépendant. La comptabilité est notre cœur de métier depuis 1999.",
+   "img": "compta",
+   "facts": [
+    {
+     "k": "Norme appliquée",
+     "v": "Code des obligations"
+    },
+    {
+     "k": "Délégation",
+     "v": "Totale ou partielle"
+    },
+    {
+     "k": "Analyse de vos comptes",
+     "v": "Offerte"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Puis-je ne déléguer qu’une partie de ma comptabilité ?",
+     "a": "Oui. Vous avez la possibilité de déléguer complètement ou partiellement vos tâches comptables : nos conseillers s'adaptent à vos besoins."
+    },
+    {
+     "q": "Puis-je suivre mes écritures moi-même ?",
+     "a": "Oui. Vous avez l'opportunité de suivre en temps réel les écritures comptables de votre entreprise."
+    },
+    {
+     "q": "Le montant du devis peut-il évoluer en cours de mandat ?",
+     "a": "Nous respectons le montant des devis que nous vous envoyons."
+    }
+   ],
+   "related": [
+    "/tva-suisse/",
+    "/payroll-et-administration-rh/",
+    "/audit-des-comptes/",
+    "/mandat-de-gerant-et-administrateur-en-suisse/"
+   ]
+  },
+  {
+   "slug": "/payroll-et-administration-rh/",
+   "group": "entreprises",
+   "nav": "Payroll et administration RH",
+   "title": "Payroll et administration RH",
+   "lede": "Gérer des salaires peut vous faire perdre du temps et de l'argent. Nos spécialistes s'adaptent aux exigences de vos caisses, au droit du travail et aux conventions collectives de votre secteur.",
+   "img": "payroll",
+   "facts": [
+    {
+     "k": "Facturation",
+     "v": "Par employé et par mois"
+    },
+    {
+     "k": "Périmètre",
+     "v": "Les tâches de votre choix"
+    },
+    {
+     "k": "Cadre appliqué",
+     "v": "Droit du travail et CCT"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Quelles tâches puis-je vous déléguer ?",
+     "a": "La déclaration annuelle des salaires, la rédaction des contrats de travail, l'élaboration des fiches de paie, l'inscription aux assurances sociales, la déclaration des accidents et des maladies, ainsi que les démarches obligatoires en cas d'embauche ou de licenciement."
+    },
+    {
+     "q": "Est-ce que je garde la main sur ma politique salariale ?",
+     "a": "Oui. Vous gardez la main sur votre politique salariale, vos recrutements et vos licenciements."
+    },
+    {
+     "q": "Pourquoi ne pas gérer les salaires en interne ?",
+     "a": "Le domaine demande de la rigueur et des connaissances solides en comptabilité et en droit du travail. Toute erreur dans la déclaration annuelle des salaires peut jouer en votre défaveur et mettre en péril la santé financière de votre société."
+    }
+   ],
+   "related": [
+    "/comptabilite-geneve-experts-fiduciaire/",
+    "/tva-suisse/",
+    "/conseil-fiscal/",
+    "/audit-des-comptes/"
+   ]
+  },
+  {
+   "slug": "/tva-suisse/",
+   "group": "entreprises",
+   "nav": "TVA",
+   "title": "TVA",
+   "lede": "Notre équipe d'experts établit vos décomptes TVA et vous inscrit auprès des autorités de taxation. Une omission ou une erreur peut ouvrir la porte à des risques financiers.",
+   "img": "tva",
+   "facts": [
+    {
+     "k": "Taux normal",
+     "v": "8,1 %"
+    },
+    {
+     "k": "Taux réduit",
+     "v": "2,6 %"
+    },
+    {
+     "k": "Assujettissement",
+     "v": "Dès 100'000.– de CA"
+    }
+   ],
+   "faq": [
+    {
+     "q": "À partir de quand suis-je assujetti ?",
+     "a": "Toute société qui dépasse un chiffre d'affaires annuel de 100 000 francs est assujettie, entreprises individuelles comprises. Le seuil est de 150 000 francs pour les associations à but non lucratif."
+    },
+    {
+     "q": "Quel est le délai pour m’annoncer ?",
+     "a": "L'annonce est obligatoire dès que vos projections indiquent que vous atteindrez 100 000 francs de chiffre d'affaires dans l'année fiscale en cours. Une fois ce chiffre atteint, vous avez 30 jours pour obtenir votre numéro d'immatriculation auprès de l'Administration fédérale des contributions."
+    },
+    {
+     "q": "L’assujettissement volontaire a-t-il un intérêt ?",
+     "a": "Si vous venez de commencer votre activité et n'avez pas encore atteint le seuil, il peut constituer une bonne stratégie fiscale : cette démarche proactive vous permet de récupérer la taxe sur les produits et services achetés lors du lancement de vos activités."
+    }
+   ],
+   "related": [
+    "/comptabilite-geneve-experts-fiduciaire/",
+    "/payroll-et-administration-rh/",
+    "/audit-des-comptes/",
+    "/mandat-de-gerant-et-administrateur-en-suisse/"
+   ]
+  },
+  {
+   "slug": "/audit-des-comptes/",
+   "group": "entreprises",
+   "nav": "Audit des comptes",
+   "title": "Audit des comptes",
+   "lede": "Dilytics propose un service d'audit des comptes adapté aux besoins des PME et des jeunes entreprises en phase de croissance.",
+   "img": "audit",
+   "facts": [
+    {
+     "k": "Contrôle restreint",
+     "v": "Dès 10 employés"
+    },
+    {
+     "k": "Contrôle ordinaire",
+     "v": "2 critères sur 3"
+    },
+    {
+     "k": "Organe de révision",
+     "v": "Réviseurs agréés externes"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Mon entreprise doit-elle passer un audit ?",
+     "a": "Le contrôle restreint s'applique à toutes les entreprises qui comptent au minimum 10 employés. Il peut également être mis en place si un ou plusieurs associés en font la demande."
+    },
+    {
+     "q": "Quand le contrôle ordinaire est-il obligatoire ?",
+     "a": "Si deux des trois critères suivants sont remplis : un effectif de plus de 250 employés, un bilan d'au moins 20 millions de francs, ou un chiffre d'affaires annuel d'au moins 40 millions."
+    },
+    {
+     "q": "Que couvre votre mission ?",
+     "a": "Révision et contrôle des comptes, vérification des procédures de contrôle interne, conseils et propositions d'amélioration, et sur demande d'autres prestations comme la comptabilité analytique ou l'analyse de rentabilité."
+    }
+   ],
+   "related": [
+    "/controle-restreint/",
+    "/tva-suisse/",
+    "/comptabilite-geneve-experts-fiduciaire/",
+    "/conseil-fiscal/"
+   ]
+  },
+  {
+   "slug": "/controle-restreint/",
+   "group": "entreprises",
+   "nav": "Contrôle restreint",
+   "title": "Contrôle restreint",
+   "lede": "Votre entreprise doit effectuer un contrôle restreint ? Il s'agit d'une mission d'examen limitée, effectuée par un réviseur agréé, qui donne une opinion sur vos comptes annuels.",
+   "img": "revision",
+   "facts": [
+    {
+     "k": "Réviseur",
+     "v": "Agréé ASR"
+    },
+    {
+     "k": "Portée",
+     "v": "Examen limité"
+    },
+    {
+     "k": "Obligation",
+     "v": "Dès 10 employés à plein temps"
+    }
+   ],
+   "faq": [
+    {
+     "q": "En quoi diffère-t-il du contrôle ordinaire ?",
+     "a": "Le contrôle ordinaire implique une évaluation approfondie des systèmes et des processus de l'entreprise, des tests substantifs et des procédures de vérification étendues. Le contrôle restreint se limite à la vérification des états financiers et à une attestation de garantie destinée aux parties prenantes."
+    },
+    {
+     "q": "Qui peut l’effectuer ?",
+     "a": "Un réviseur agréé ASR. Il analyse les comptes annuels de manière limitée et fournit une opinion sur la conformité des états financiers aux principes comptables suisses."
+    },
+    {
+     "q": "Quand devient-il obligatoire ?",
+     "a": "En cas de difficulté financière, ou dès l'engagement de plus de 10 employés à plein temps. Il est par ailleurs exigé en cas d'opting-in."
+    }
+   ],
+   "related": [
+    "/audit-des-comptes/",
+    "/comptabilite-geneve-experts-fiduciaire/",
+    "/tva-suisse/",
+    "/conseil-fiscal/"
+   ]
+  },
+  {
+   "slug": "/mandat-de-gerant-et-administrateur-en-suisse/",
+   "group": "entreprises",
+   "nav": "Mandat de gérant",
+   "title": "Mandat de gérant et d'administrateur",
+   "lede": "Une personne de notre direction peut être nommée gérant ou administrateur de votre société en Suisse, que vous habitiez ici ou ailleurs.",
+   "img": "mandat",
+   "facts": [
+    {
+     "k": "Rôle",
+     "v": "Gérant ou administrateur"
+    },
+    {
+     "k": "Exigence légale",
+     "v": "Un résident suisse au RC"
+    },
+    {
+     "k": "Formes concernées",
+     "v": "Sàrl et SA"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Pourquoi nommer un gérant résidant en Suisse ?",
+     "a": "Au moins un administrateur ou un directeur vivant en Suisse doit être mentionné au registre du commerce. Son rôle est de représenter la société auprès des autorités du pays."
+    },
+    {
+     "q": "Que fait le gérant au-delà de la représentation ?",
+     "a": "Nos experts vous font profiter de leur expérience d'administrateurs de sociétés : problématiques fiscales, communication avec les instituts bancaires et les administrations, élaboration de budgets et de business plans, mise en place de logiciels de gestion et de comptabilité analytique, conseil ou direction financière."
+    },
+    {
+     "q": "Est-ce réservé aux dirigeants établis à l’étranger ?",
+     "a": "Non. Le service est également utile aux membres de la direction soucieux d'écouter les conseils d'un expert avant de prendre des décisions financières et juridiques pour l'entreprise."
+    }
+   ],
+   "related": [
+    "/comptabilite-geneve-experts-fiduciaire/",
+    "/tva-suisse/",
+    "/payroll-et-administration-rh/",
+    "/audit-des-comptes/"
+   ]
+  },
+  {
+   "slug": "/domiciliation-a-geneve/",
+   "group": "entreprises",
+   "nav": "Domiciliation",
+   "title": "Domiciliation à Genève",
+   "lede": "Grâce à une adresse fiscale de confiance dans le canton de Genève, vous pourrez rapidement démarrer vos activités en Suisse. C'est l'alternative au paiement d'un loyer.",
+   "img": "domicil",
+   "facts": [
+    {
+     "k": "Adresse",
+     "v": "Petit-Lancy, Genève"
+    },
+    {
+     "k": "Courrier scanné",
+     "v": "Sans frais"
+    },
+    {
+     "k": "Inscription au RC",
+     "v": "Domiciliation obligatoire"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Pourquoi une domiciliation est-elle nécessaire ?",
+     "a": "Pour s'inscrire au registre du commerce, votre société doit disposer d'une adresse professionnelle en Suisse. La domiciliation est donc obligatoire."
+    },
+    {
+     "q": "Comment vais-je recevoir mon courrier ?",
+     "a": "Par courriel, ou vous venez le chercher à notre bureau, sans frais supplémentaires. Nous scannons votre courrier gratuitement."
+    },
+    {
+     "q": "Pourquoi Lancy plutôt qu’ailleurs ?",
+     "a": "La commune est située à proximité immédiate de Genève et bien desservie par les transports publics. Elle offre un environnement favorable aux entreprises et une fiscalité avantageuse, avec des taux d'imposition compétitifs."
+    }
+   ],
+   "related": [
+    "/comptabilite-geneve-experts-fiduciaire/",
+    "/payroll-et-administration-rh/",
+    "/tva-suisse/",
+    "/mandat-de-gerant-et-administrateur-en-suisse/"
+   ]
+  },
+  {
+   "slug": "/gestion-de-ppe/",
+   "group": "entreprises",
+   "nav": "Gestion de PPE",
+   "title": "Gestion de PPE",
+   "lede": "Notre équipe réalise toutes les démarches administratives et fiscales nécessaires à la bonne gestion de votre propriété par étage.",
+   "img": "ppe",
+   "facts": [
+    {
+     "k": "Gestion financière",
+     "v": "Charges, budget, états financiers"
+    },
+    {
+     "k": "Analyse et devis",
+     "v": "Gratuits"
+    },
+    {
+     "k": "Dossiers copropriétaires",
+     "v": "Confidentiels"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Que couvre la gestion financière ?",
+     "a": "La collecte des frais de copropriété, la gestion des dépenses, la budgétisation et la préparation des états financiers."
+    },
+    {
+     "q": "L’analyse est-elle payante ?",
+     "a": "Non. Si vous souhaitez nous transmettre la gestion financière de votre PPE, nous procédons à l'analyse et au devis gratuitement avec vous."
+    },
+    {
+     "q": "Intervenez-vous en cas de conflit ?",
+     "a": "Notre gamme de services comprend la gestion financière, la maintenance de la propriété et la résolution des conflits en cas de besoin, avec un regard impartial."
+    }
+   ],
+   "related": [
+    "/fiscalite-immobiliere/",
+    "/conseil-fiscal/",
+    "/comptabilite-geneve-experts-fiduciaire/",
+    "/declaration-dimpots/"
+   ]
+  },
+  {
+   "slug": "/creer-une-sarl-en-suisse-facile/",
+   "group": "crea",
+   "nav": "Création de Sàrl",
+   "title": "Société à responsabilité limitée",
+   "lede": "La société à responsabilité limitée vous permet de développer vos activités, d'embaucher du personnel et d'obtenir des financements. En Suisse, elle reste meilleur marché que la société anonyme.",
+   "img": "sarl",
+   "facts": [
+    {
+     "k": "Responsabilité",
+     "v": "Limitée aux apports"
+    },
+    {
+     "k": "Frais de notaire",
+     "v": "Inclus dans le prix"
+    },
+    {
+     "k": "Registre du commerce",
+     "v": "Inclus dans le prix"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Pourquoi une Sàrl plutôt qu’une raison individuelle ?",
+     "a": "Les associés d'une Sàrl ont une responsabilité limitée au montant de leurs apports respectifs. En cas de faillite, ils ne sont pas personnellement responsables des dettes de la société : l'entrepreneur peut rebondir sans que son patrimoine personnel soit directement touché."
+    },
+    {
+     "q": "Y a-t-il des frais en plus du tarif annoncé ?",
+     "a": "Non. Dilytics propose un tarif toutes charges comprises et s'occupe de toute la procédure de création sans facturer de prestation supplémentaire. Nous n'avons pas d'intermédiaires et fonctionnons avec nos propres conseillers."
+    },
+    {
+     "q": "Est-il facile de revendre une Sàrl ?",
+     "a": "Plus facile qu'une entreprise individuelle : les parts sociales peuvent être cédées à un tiers, alors que la transmission d'une raison individuelle suppose un contrat de vente portant sur l'ensemble des actifs et passifs."
+    }
+   ],
+   "related": [
+    "/creation-de-raison-individuelle/",
+    "/creation-de-societe-anonyme/",
+    "/mandat-de-gerant-et-administrateur-en-suisse/",
+    "/domiciliation-a-geneve/"
+   ]
+  },
+  {
+   "slug": "/creation-de-societe-anonyme/",
+   "group": "crea",
+   "nav": "Création de SA",
+   "title": "Société anonyme",
+   "lede": "La société anonyme vous permet d'obtenir des financements et de développer une entreprise avec des objectifs de croissance ambitieux.",
+   "img": "sa",
+   "facts": [
+    {
+     "k": "Financement",
+     "v": "Actions et obligations"
+    },
+    {
+     "k": "Transfert de propriété",
+     "v": "Sans publication au RC"
+    },
+    {
+     "k": "Frais de notaire",
+     "v": "Inclus dans le prix"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Quel est l’avantage de la SA sur la Sàrl ?",
+     "a": "La SA lève des fonds plus facilement : elle peut émettre des actions et des obligations, ce qui est particulièrement utile pour financer des projets à grande échelle ou procéder à des acquisitions. La Sàrl ne peut lever des fonds que par emprunt ou par contribution en capital de ses associés."
+    },
+    {
+     "q": "Comment se transmettent les actions ?",
+     "a": "Les actions peuvent être vendues ou transférées sans l'accord des autres actionnaires et sans publication officielle au registre du commerce. Dans une Sàrl, il faut souvent l'accord des autres associés et le passage chez un notaire."
+    },
+    {
+     "q": "Faut-il commencer directement par une SA ?",
+     "a": "La SA demande un investissement initial plus important. En cas de budget restreint, il peut être pertinent de démarrer avec une Sàrl : la forme la plus appropriée dépend des besoins de l'entreprise et de ses objectifs à long terme."
+    }
+   ],
+   "related": [
+    "/creation-de-raison-individuelle/",
+    "/creer-une-sarl-en-suisse-facile/",
+    "/mandat-de-gerant-et-administrateur-en-suisse/",
+    "/domiciliation-a-geneve/"
+   ]
+  },
+  {
+   "slug": "/creation-de-raison-individuelle/",
+   "group": "crea",
+   "nav": "Création de RI",
+   "title": "Raison individuelle",
+   "lede": "Une raison individuelle est une entreprise exploitée par une seule personne, qui obtient le statut d'indépendant à l'égard des entités publiques et privées. C'est la façon la plus simple et la moins coûteuse d'être son propre patron.",
+   "img": "ri",
+   "facts": [
+    {
+     "k": "Capital minimum",
+     "v": "Aucun"
+    },
+    {
+     "k": "Responsabilité",
+     "v": "Illimitée"
+    },
+    {
+     "k": "Comptabilité complète",
+     "v": "Dès 500'000.– de CA"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Dois-je m'inscrire au registre du commerce ?",
+     "a": "L'inscription est obligatoire pour toute entreprise individuelle qui dépasse un certain chiffre d'affaires. Dilytics peut s'en occuper, en ligne ou en personne, auprès du registre du commerce du canton de votre choix."
+    },
+    {
+     "q": "Quelle est la différence de responsabilité avec une Sàrl ?",
+     "a": "En raison individuelle, votre responsabilité est illimitée : vous pouvez être tenu personnellement responsable des dettes de l'entreprise en cas de faillite ou de difficultés financières. Une Sàrl ou une SA est une entité juridique distincte de ses propriétaires, qui ne répondent des dettes qu'à hauteur de leur investissement initial."
+    },
+    {
+     "q": "Le nom de mon entreprise est-il libre ?",
+     "a": "Il doit être unique, ne pas être déjà utilisé par une entreprise inscrite en Suisse, et contenir obligatoirement votre nom de famille, par exemple « Consulting NOM »."
+    }
+   ],
+   "related": [
+    "/creer-une-sarl-en-suisse-facile/",
+    "/creation-de-societe-anonyme/",
+    "/conseil-fiscal/"
+   ]
+  },
+  {
+   "slug": "/conseil-fiscal/",
+   "group": "particuliers",
+   "nav": "Conseil fiscal",
+   "title": "Conseil fiscal",
+   "lede": "Nos comptables-fiscalistes étudient votre situation et vous proposent des actions d'optimisation fiscale. Experts depuis 1999, notre cabinet est spécialisé dans l'imposition des personnes physiques et des entreprises.",
+   "img": "conseilfisc",
+   "facts": [
+    {
+     "k": "Expertise depuis",
+     "v": "1999"
+    },
+    {
+     "k": "Périmètre",
+     "v": "Personnes physiques et entreprises"
+    },
+    {
+     "k": "Niveaux d'imposition",
+     "v": "Fédéral, cantonal, communal"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Sur quoi porte le conseil ?",
+     "a": "Sur l'imposition des personnes physiques et des entreprises. Nos fiscalistes évaluent les impacts que certains éléments peuvent avoir sur vos impôts et vous proposent les meilleurs plans d'action pour préserver vos finances."
+    },
+    {
+     "q": "Pouvez-vous répondre à l’administration à ma place ?",
+     "a": "Oui. Nos fiscalistes se chargent de répondre aux demandes à votre place, afin d'éviter la taxation d'office."
+    },
+    {
+     "q": "Pourquoi la fiscalité suisse est-elle si complexe ?",
+     "a": "Le système fiscal se subdivise en trois niveaux (fédéral, cantonal et communal) et les impôts cantonaux et communaux peuvent grandement varier d'un lieu à l'autre."
+    }
+   ],
+   "related": [
+    "/declaration-dimpots/",
+    "/particuliers-impot-a-la-source/",
+    "/comptabilite-geneve-experts-fiduciaire/",
+    "/prevoyance-3eme-pilier-geneve/"
+   ]
+  },
+  {
+   "slug": "/fiscalite-immobiliere/",
+   "group": "particuliers",
+   "nav": "Fiscalité immobilière",
+   "title": "Fiscalité immobilière",
+   "lede": "Les réglementations fiscales suisses pèsent sur les investissements immobiliers, les ventes de biens et les revenus locatifs. Notre équipe vous accompagne dans vos obligations fiscales.",
+   "img": "immo",
+   "facts": [
+    {
+     "k": "Gains en capital",
+     "v": "Exonérés après 5 ans"
+    },
+    {
+     "k": "Impôts fonciers",
+     "v": "Assis sur la valeur locative"
+    },
+    {
+     "k": "Revenus locatifs",
+     "v": "Frais déductibles"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Comment sont calculés les impôts fonciers ?",
+     "a": "Ce sont des impôts locaux prélevés sur la propriété immobilière, basés sur la valeur locative du bien, calculée par les autorités fiscales selon sa taille et sa situation géographique. Les taux varient selon les cantons et les communes."
+    },
+    {
+     "q": "Quand les gains en capital sont-ils exonérés ?",
+     "a": "Les gains en capital sur les biens immobiliers détenus depuis plus de cinq ans sont exempts d'impôt en Suisse. Les frais de courtage, d'avocat et de notaire liés à la vente peuvent par ailleurs être déduits de la base d'imposition."
+    },
+    {
+     "q": "Que puis-je déduire de mes revenus locatifs ?",
+     "a": "Les frais de location (gestion, maintenance, assurance) se déduisent du revenu locatif brut pour déterminer le revenu locatif net imposable."
+    }
+   ],
+   "related": [
+    "/gestion-de-ppe/",
+    "/comptabilite-geneve-experts-fiduciaire/",
+    "/conseil-fiscal/",
+    "/declaration-dimpots/"
+   ]
+  },
+  {
+   "slug": "/declaration-de-succession/",
+   "group": "particuliers",
+   "nav": "Déclaration de succession",
+   "title": "Déclaration de succession",
+   "lede": "La gestion d'une succession est une obligation qui doit s'effectuer dans un contexte délicat pour la famille. Notre équipe vous accompagne dans toutes les étapes administratives et fiscales.",
+   "img": "succession",
+   "facts": [
+    {
+     "k": "Conjoint et enfants",
+     "v": "50 % au conjoint"
+    },
+    {
+     "k": "Sans descendants directs",
+     "v": "75 % au conjoint"
+    },
+    {
+     "k": "Interlocuteur",
+     "v": "Administration fiscale cantonale"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Que se passe-t-il en l’absence de testament ?",
+     "a": "Le droit suisse des successions s'applique : le conjoint survivant a droit à 50 % de la succession en concurrence avec les descendants directs, à 75 % s'il n'y a pas de descendants directs mais qu'un parent ou un frère ou une sœur est encore en vie, et à 100 % des actifs et des passifs dans les autres situations."
+    },
+    {
+     "q": "Quels sont mes droits en tant qu’héritier ?",
+     "a": "Vous pouvez accepter la succession avec ou sans bénéfice d'inventaire, la faire liquider officiellement en mandatant une fiduciaire, ou en demander la répudiation."
+    },
+    {
+     "q": "Quels documents faut-il réunir ?",
+     "a": "Le certificat de décès, le certificat d'héritier, l'inventaire des biens à transmettre et le code pour la déclaration fiscale feue. Avec ces pièces, nous établissons la déclaration auprès de l'Administration fiscale cantonale et clôturons les obligations fiscales de la personne décédée."
+    }
+   ],
+   "related": [
+    "/conseil-fiscal/",
+    "/declaration-dimpots/",
+    "/gestion-administrative/",
+    "/comptabilite-geneve-experts-fiduciaire/"
+   ]
+  },
+  {
+   "slug": "/prevoyance-3eme-pilier-geneve/",
+   "group": "particuliers",
+   "nav": "Prévoyance 3e pilier",
+   "title": "Prévoyance et 3e pilier",
+   "lede": "Nos experts vous aident à choisir le meilleur plan d'épargne pour votre retraite et vos projets d'investissement, et à faire baisser votre pression fiscale.",
+   "img": "pilier3",
+   "facts": [
+    {
+     "k": "Déduction pilier 3a",
+     "v": "Jusqu'à 6 883.– par an"
+    },
+    {
+     "k": "Indépendant sans caisse",
+     "v": "Jusqu'à 34 416.–"
+    },
+    {
+     "k": "Notre accompagnement",
+     "v": "Gratuit"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Combien puis-je déduire avec un pilier 3a ?",
+     "a": "Jusqu'à 6 883 francs par an. Ce montant peut aller jusqu'à 34 416 francs si vous êtes indépendant et non affilié à une caisse de pension."
+    },
+    {
+     "q": "Quelle différence entre le 3a et le 3b ?",
+     "a": "Le pilier 3a permet d'épargner un montant déductible des impôts, retirable au départ à la retraite ou lors de certains événements comme l'achat d'une résidence principale. Le pilier 3b n'a pas de limite de versement et peut être retiré à tout moment, mais il n'est pas déductible."
+    },
+    {
+     "q": "Pourquoi passer par une fiduciaire indépendante ?",
+     "a": "Pour comparer toutes les options qui existent en Suisse, trouver le plan d'épargne le mieux adapté à votre situation, bénéficier de conseils fiscaux personnalisés et accéder à des simulations fiscales avant de décider."
+    }
+   ],
+   "related": [
+    "/declaration-dimpots/",
+    "/particuliers-impot-a-la-source/",
+    "/conseil-fiscal/",
+    "/gestion-administrative/"
+   ]
+  },
+  {
+   "slug": "/gestion-administrative/",
+   "group": "particuliers",
+   "nav": "Gestion administrative",
+   "title": "Gestion administrative",
+   "lede": "Nos experts vous aident dans toutes vos tâches administratives, sur une base ponctuelle ou régulière : assurances, paiements de factures, gestion du courrier.",
+   "img": "admin",
+   "facts": [
+    {
+     "k": "Formule",
+     "v": "Ponctuelle ou régulière"
+    },
+    {
+     "k": "Suivi régulier",
+     "v": "Abonnement mensuel"
+    },
+    {
+     "k": "Réactivité",
+     "v": "Moins de 24 h ouvrables"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Quelles démarches prenez-vous en charge ?",
+     "a": "Rédaction de courriers, démarches auprès des assurances, demande de remboursement de frais médicaux, changement et demande de statut de résidence, contestation et renégociation de poursuites, état des lieux de votre résidence, ouverture de comptes bancaires, gestion des factures et résiliation de contrats."
+    },
+    {
+     "q": "Puis-je vous confier une seule démarche ?",
+     "a": "Oui. Pour une aide ponctuelle, il suffit de nous soumettre votre demande et nous la réglons dans les plus brefs délais. Un suivi régulier est aussi possible, sous forme d'abonnement mensuel."
+    },
+    {
+     "q": "Sous quel délai répondez-vous ?",
+     "a": "Nous répondons à vos demandes en moins de 24 heures les jours ouvrables. Chaque document est vérifié par deux experts de notre équipe."
+    }
+   ],
+   "related": [
+    "/conseil-fiscal/",
+    "/declaration-dimpots/",
+    "/particuliers-impot-a-la-source/",
+    "/prevoyance-3eme-pilier-geneve/"
+   ]
+  },
+  {
+   "slug": "/particuliers-impot-a-la-source/",
+   "group": "particuliers",
+   "nav": "Impôt à la source",
+   "title": "Impôt à la source",
+   "lede": "Vous êtes frontalier ou titulaire d'un permis B ? Le montant prélevé à la source ne tient pas compte de certaines déductions auxquelles vous avez droit. Nous effectuons la demande de rectification.",
+   "img": "source",
+   "facts": [
+    {
+     "k": "Concernés",
+     "v": "Frontaliers et permis B"
+    },
+    {
+     "k": "Démarche",
+     "v": "Demande de rectification"
+    },
+    {
+     "k": "Vérification",
+     "v": "Deux comptables-fiscalistes"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Qui est soumis à l’impôt à la source ?",
+     "a": "Les résidents temporaires et les travailleurs frontaliers, notamment les titulaires d'un permis B."
+    },
+    {
+     "q": "Pourquoi demander une rectification ?",
+     "a": "Le montant prélevé ne prend pas en compte certaines déductions auxquelles vous avez droit. Grâce à cette démarche, il est probable que vous récupériez l'argent payé en trop."
+    },
+    {
+     "q": "Que dois-je fournir ?",
+     "a": "Vos documents justificatifs, tels que vos certificats de salaire et vos attestations d'assurance maladie. Nous nous occupons du reste."
+    }
+   ],
+   "related": [
+    "/declaration-dimpots/",
+    "/conseil-fiscal/",
+    "/comptabilite-geneve-experts-fiduciaire/",
+    "/gestion-administrative/"
+   ]
+  },
+  {
+   "slug": "/declaration-dimpots/",
+   "group": "particuliers",
+   "nav": "Déclaration d'impôts",
+   "title": "Déclaration d'impôts",
+   "lede": "Notre équipe réalise votre déclaration de revenus auprès de l'Administration fiscale cantonale, quelle que soit votre situation professionnelle et personnelle.",
+   "img": "impots",
+   "facts": [
+    {
+     "k": "Échéance ordinaire",
+     "v": "Fin mars"
+    },
+    {
+     "k": "Vérification",
+     "v": "Deux comptables-fiscalistes"
+    },
+    {
+     "k": "Prolongation",
+     "v": "Demandée par nos soins"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Quel est le délai pour déclarer ?",
+     "a": "L'échéance est habituellement fixée au dernier jour du mois de mars de l'année qui suit la période fiscale. Une prolongation peut être demandée, et notre équipe peut s'en charger pour vous."
+    },
+    {
+     "q": "Quels documents dois-je vous transmettre ?",
+     "a": "Les documents liés aux revenus et vos extraits bancaires, vos frais d'assurance maladie et accidents, ainsi que vos justificatifs liés à une pension ou à des enfants à charge."
+    },
+    {
+     "q": "Qui relit ma déclaration ?",
+     "a": "Chaque déclaration est vérifiée par deux comptables-fiscalistes, et votre dossier est traité en toute confidentialité."
+    }
+   ],
+   "related": [
+    "/particuliers-impot-a-la-source/",
+    "/conseil-fiscal/",
+    "/comptabilite-geneve-experts-fiduciaire/",
+    "/gestion-administrative/"
+   ]
+  }
+ ],
+ "pitch": {
+  "/creation-de-raison-individuelle/": "Obtenez votre statut d'indépendant en Suisse.",
+  "/creer-une-sarl-en-suisse-facile/": "Entreprenez avec sérénité grâce à votre Sàrl.",
+  "/creation-de-societe-anonyme/": "Concrétisez un projet ambitieux avec votre SA.",
+  "/cfo-externalise/": "Une direction financière pour éclairer vos décisions.",
+  "/comptabilite-geneve-experts-fiduciaire/": "Nous traitons la comptabilité de votre entreprise ou de votre activité indépendante.",
+  "/domiciliation-a-geneve/": "Obtenez une adresse fiscale à Genève pour vous inscrire au registre du commerce.",
+  "/payroll-et-administration-rh/": "Nous administrons les salaires de votre équipe.",
+  "/tva-suisse/": "Nos fiscalistes s'occupent de vos décomptes TVA et de vos déclarations.",
+  "/mandat-de-gerant-et-administrateur-en-suisse/": "Dirigez votre société en Suisse depuis l'étranger.",
+  "/audit-des-comptes/": "Respectez vos obligations fiscales grâce à un contrôle de vos comptes.",
+  "/controle-restreint/": "Confiez votre contrôle restreint à une équipe rigoureuse.",
+  "/gestion-de-ppe/": "Confiez la gestion de votre PPE à notre équipe.",
+  "/declaration-dimpots/": "Faites baisser le montant de vos impôts grâce à nos experts.",
+  "/particuliers-impot-a-la-source/": "Bénéficiez d'une rectification de votre impôt à la source.",
+  "/conseil-fiscal/": "Obtenez des conseils personnalisés pour réduire votre charge fiscale.",
+  "/declaration-de-succession/": "Notre équipe s'occupe de toutes les étapes vis-à-vis de la déclaration de succession en Suisse.",
+  "/prevoyance-3eme-pilier-geneve/": "Obtenez le meilleur plan d'épargne pour votre retraite.",
+  "/gestion-administrative/": "Nous vous libérons de vos tâches administratives, sur une base ponctuelle ou régulière.",
+  "/fiscalite-immobiliere/": "Un accompagnement fiscal dans vos projets immobiliers."
+ },
+ "h1": {
+  "/cfo-externalise/": "CFO externalisé à Genève",
+  "/creation-de-raison-individuelle/": "Création de raison individuelle",
+  "/creer-une-sarl-en-suisse-facile/": "Création de Sàrl",
+  "/creation-de-societe-anonyme/": "Création de société anonyme",
+  "/payroll-et-administration-rh/": "Payroll et administration RH",
+  "/particuliers-impot-a-la-source/": "Impôt à la source",
+  "/comptabilite-geneve-experts-fiduciaire/": "Comptabilité",
+  "/domiciliation-a-geneve/": "Domiciliation à Genève",
+  "/mandat-de-gerant-et-administrateur-en-suisse/": "Mandat de gérant et d'administrateur",
+  "/prevoyance-3eme-pilier-geneve/": "Prévoyance et 3e pilier"
+ },
+ "price": {
+  "/creation-de-raison-individuelle/": {
+   "lead": "Création de RI à partir de",
+   "amount": "990",
+   "unit": "CHF",
+   "terms": "Toutes taxes comprises",
+   "detail": "N'hésitez pas à nous contacter si vous avez pour projet de créer votre raison individuelle. Dilytics s'adapte à votre situation professionnelle et personnelle.",
+   "cta": "Créer ma RI"
+  },
+  "/creer-une-sarl-en-suisse-facile/": {
+   "lead": "Créer une Sàrl en Suisse, au meilleur prix, en ligne ou sur place",
+   "amount": "2'600",
+   "unit": "CHF",
+   "terms": "Frais de notaire et registre du commerce inclus, hors TVA",
+   "detail": "N'hésitez pas à nous contacter si vous avez pour projet de créer votre Sàrl. Dilytics s'adapte à votre situation professionnelle et personnelle.",
+   "cta": "Créer ma Sàrl"
+  },
+  "/creation-de-societe-anonyme/": {
+   "lead": "Création de SA, frais de notaire et de registre inclus",
+   "amount": "3'000",
+   "unit": "CHF",
+   "terms": "Frais de notaire et registre du commerce inclus, hors TVA",
+   "detail": "N'hésitez pas à nous contacter si vous avez pour projet de créer votre société anonyme. Dilytics s'adapte à votre situation professionnelle et personnelle.",
+   "cta": "Créer ma société anonyme"
+  },
+  "/comptabilite-geneve-experts-fiduciaire/": {
+   "lead": "Service de comptabilité à partir de",
+   "amount": "100",
+   "unit": "CHF",
+   "per": "par mois",
+   "terms": "Toutes taxes comprises",
+   "detail": "N'hésitez pas à demander un devis si vous êtes intéressé par un service de comptabilité. Dilytics s'adapte à votre domaine d'activité et à vos exigences.",
+   "cta": "Me faire accompagner"
+  },
+  "/domiciliation-a-geneve/": {
+   "lead": "Domiciliation à Genève à partir de",
+   "amount": "100",
+   "unit": "CHF",
+   "per": "par mois",
+   "terms": "Courrier scanné sans frais supplémentaires",
+   "detail": "N'hésitez pas à demander un devis si vous avez pour projet de domicilier votre entreprise à Genève. Dilytics s'adapte à votre situation et à vos activités.",
+   "cta": "Domicilier ma société"
+  },
+  "/payroll-et-administration-rh/": {
+   "lead": "Payroll et administration RH d'un employé à partir de",
+   "amount": "35",
+   "unit": "CHF",
+   "per": "par employé et par mois",
+   "detail": "N'hésitez pas à demander un devis si vous êtes intéressé par un service de payroll et d'administration RH. Nos spécialistes s'adaptent à la taille et aux activités de votre équipe.",
+   "cta": "Obtenir un devis"
+  },
+  "/mandat-de-gerant-et-administrateur-en-suisse/": {
+   "lead": "Mandat de gérant ou d'administrateur à partir de",
+   "amount": "400",
+   "unit": "CHF",
+   "per": "par mois",
+   "terms": "Selon les exigences de votre société",
+   "detail": "N'hésitez pas à demander un devis si vous souhaitez mandater un gérant ou un administrateur en Suisse. Dilytics s'adapte aux exigences de votre société.",
+   "cta": "Obtenir un devis"
+  }
+ },
+ "bodies": {
+  "/creation-de-raison-individuelle/": {
+   "tagline": "Obtenez rapidement le statut d'indépendant en Suisse.",
+   "intro": "Une raison individuelle est une entreprise individuelle exploitée par une seule personne, qui obtient le statut d'indépendant à l'égard des entités publiques et privées. Elle est soumise à des exigences légales et fiscales, mais peut être une option attrayante pour qui souhaite travailler de manière indépendante et être son propre patron à moindre coût.",
+   "benefits": [
+    {
+     "ico": "coin",
+     "t": "Une forme simple",
+     "d": "La création d'une raison individuelle est une procédure relativement simple et peu coûteuse."
+    },
+    {
+     "ico": "shield",
+     "t": "Des obligations personnelles",
+     "d": "Votre responsabilité est illimitée : c'est le point à peser avant toute autre considération."
+    },
+    {
+     "ico": "talk",
+     "t": "Un conseil avant de choisir",
+     "d": "Dilytics est là pour vous aider à faire votre choix. Prenez rendez-vous gratuitement."
+    }
+   ],
+   "sections": [
+    {
+     "t": "Le nom et le lieu d'établissement",
+     "p": [
+      "Il est d'abord nécessaire de choisir un nom pour votre entreprise. Il doit être unique, ne pas être déjà utilisé par une autre entreprise enregistrée en Suisse, et il doit absolument contenir votre nom de famille, par exemple « Consulting NOM ».",
+      "Une fois le nom et le lieu d'établissement arrêtés, vous pouvez vous inscrire au registre du commerce cantonal."
+     ]
+    },
+    {
+     "t": "Inscription au registre du commerce",
+     "p": [
+      "Cette inscription est obligatoire pour toutes les entreprises individuelles dépassant un certain chiffre d'affaires.",
+      "Dilytics peut s'occuper de votre inscription, en ligne ou en personne, auprès du registre du commerce du canton de votre choix."
+     ]
+    },
+    {
+     "t": "Déclaration d'activité et statut d'indépendant",
+     "p": [
+      "En tant que propriétaire d'une raison individuelle, vous devez remplir une déclaration d'activité auprès de l'administration fiscale cantonale.",
+      "Cette déclaration précise le type d'activité que vous souhaitez exercer, le lieu d'établissement de votre entreprise, ainsi que d'autres informations importantes."
+     ]
+    },
+    {
+     "t": "Vos obligations fiscales",
+     "p": [
+      "Les raisons individuelles sont soumises à des obligations fiscales en Suisse. Vous devez vous enregistrer auprès de l'administration fiscale cantonale pour obtenir un numéro d'identification fiscale.",
+      "Vous serez ensuite responsable de payer des impôts sur le revenu que vous percevrez sur les bénéfices de votre entreprise, ainsi que de la TVA si vous dépassez un certain seuil de chiffre d'affaires."
+     ]
+    },
+    {
+     "t": "La comptabilité à tenir",
+     "p": [
+      "Vous devez tenir des registres comptables précis, d'autant plus si votre chiffre d'affaires annuel dépasse les 500 000 francs. Cela inclut la tenue d'un journal de caisse, la facturation de vos clients, la gestion de vos comptes bancaires et la tenue de registres de vos dépenses.",
+      "Vous pouvez tenir ces registres vous-même ou faire appel à Dilytics pour vous aider."
+     ]
+    },
+    {
+     "t": "Les assurances sociales",
+     "p": [
+      "Les propriétaires de raisons individuelles doivent s'inscrire auprès de l'assurance sociale suisse. Cette inscription est obligatoire pour tous les travailleurs indépendants en Suisse.",
+      "Elle vous donne accès à des prestations telles que l'assurance maladie et l'assurance accident, et permet de gérer vos cotisations de retraite."
+     ]
+    },
+    {
+     "t": "La responsabilité personnelle",
+     "p": [
+      "Vous êtes responsable de toutes les dettes et obligations de votre entreprise. Votre responsabilité est illimitée et vous pouvez être tenu personnellement responsable des dettes de votre entreprise en cas de faillite ou de difficultés financières."
+     ]
+    },
+    {
+     "t": "Les différences avec la Sàrl et la SA",
+     "p": [
+      "Une personne morale telle qu'une SA ou une Sàrl est une entité juridique distincte de ses propriétaires. Ceux-ci ne sont pas personnellement responsables des dettes et des obligations de l'entreprise au-delà de leur investissement initial.",
+      "La raison individuelle est simple à créer et à gérer, mais elle offre peu de protection juridique au propriétaire. Il est important de bien comprendre ces différences avant de décider laquelle convient le mieux à votre situation."
+     ]
+    }
+   ]
+  },
+  "/creer-une-sarl-en-suisse-facile/": {
+   "tagline": "Créer une Sàrl en Suisse avec des bases solides.",
+   "intro": "La société à responsabilité limitée vous permet de développer vos activités, d'embaucher du personnel et d'obtenir des financements. En Suisse, la Sàrl est la structure par excellence : elle reste meilleur marché que la société anonyme et offre plusieurs avantages par rapport à la raison individuelle.",
+   "benefits": [
+    {
+     "ico": "shield",
+     "t": "Responsabilité limitée",
+     "d": "Les associés répondent des dettes à hauteur de leurs apports, pas au-delà."
+    },
+    {
+     "ico": "tag",
+     "t": "Tarif toutes charges comprises",
+     "d": "Aucune prestation supplémentaire n'est facturée en cours de procédure."
+    },
+    {
+     "ico": "users",
+     "t": "Nos propres conseillers",
+     "d": "Nous n'avons pas d'intermédiaires et fonctionnons avec nos propres conseillers."
+    }
+   ],
+   "sections": [
+    {
+     "t": "Responsabilité limitée des associés",
+     "p": [
+      "Contrairement à la raison individuelle, les associés d'une Sàrl ont une responsabilité limitée aux montants de leurs apports respectifs. En cas de faillite, ils ne sont pas personnellement responsables des dettes de la société.",
+      "En cas de situation financière difficile, l'entrepreneur a la flexibilité de rebondir sans que son porte-monnaie personnel soit impacté directement."
+     ]
+    },
+    {
+     "t": "Crédibilité envers les parties prenantes",
+     "p": [
+      "Créer une Sàrl peut donner une image de professionnalisme et de crédibilité aux yeux des partenaires commerciaux, des clients et des fournisseurs.",
+      "La constitution d'un capital ainsi que l'exploitation d'une société avec un nom personnalisé sont attirantes et gage de confiance."
+     ]
+    },
+    {
+     "t": "Facilité de transmission de l'entreprise",
+     "p": [
+      "En cas de vente, il est plus facile de transmettre une Sàrl qu'une entreprise individuelle, car les parts sociales peuvent être cédées à un tiers.",
+      "La transmission d'une entreprise individuelle nécessite la conclusion d'un contrat de vente de l'ensemble des actifs et passifs, et peut demander des frais très élevés pour évaluer la situation avant et après la vente."
+     ]
+    },
+    {
+     "t": "Un nom commercial protégé",
+     "p": [
+      "Créer une Sàrl permet d'enregistrer le nom commercial de l'entreprise auprès de l'Institut fédéral de la propriété intellectuelle, ce qui offre une protection contre l'utilisation non autorisée du nom, du logo ou d'un autre support.",
+      "Pensez à garder une exclusivité totale sur votre image de marque, en Suisse, en Europe ou dans le monde. Nos experts vous renseignent sur cette possibilité."
+     ]
+    },
+    {
+     "t": "Une meilleure organisation opérationnelle",
+     "p": [
+      "La Sàrl est gérée par un ou plusieurs associés, qui peuvent être des personnes physiques ou morales. Cette structure facilite la gestion et l'organisation de l'entreprise, et permet de mieux séparer les décisions commerciales des décisions personnelles.",
+      "Elle permet également de diversifier vos profils clés au sein de l'entreprise et de viser de plus grands marchés."
+     ]
+    },
+    {
+     "t": "Ce que coûte réellement la constitution",
+     "p": [
+      "La création d'une Sàrl implique des coûts plus élevés que celle d'une entreprise individuelle, notamment en termes de capital social minimum et de frais de constitution. Les avantages ci-dessus peuvent justifier ces coûts, selon les objectifs de chaque entrepreneur.",
+      "Dilytics vous propose un tarif toutes charges comprises et peut s'occuper de toute la procédure de création, sans vous facturer aucune prestation supplémentaire."
+     ]
+    }
+   ]
+  },
+  "/creation-de-societe-anonyme/": {
+   "tagline": "Démarrez une entreprise ambitieuse.",
+   "intro": "La société anonyme vous permet d'obtenir des financements et de développer une entreprise avec des objectifs de croissance ambitieux. Bien que la SA et la Sàrl présentent des similitudes, la première offre certains avantages.",
+   "benefits": [
+    {
+     "ico": "chart",
+     "t": "Capacité de financement",
+     "d": "La SA peut émettre des actions et des obligations pour lever des fonds."
+    },
+    {
+     "ico": "doc",
+     "t": "Transfert simplifié",
+     "d": "Les actions se transfèrent sans publication officielle au registre du commerce."
+    },
+    {
+     "ico": "shield",
+     "t": "Crédibilité renforcée",
+     "d": "La SA est souvent perçue comme plus établie et plus transparente."
+    }
+   ],
+   "sections": [
+    {
+     "t": "Une plus grande capacité de financement",
+     "p": [
+      "La SA lève des fonds plus facilement que la Sàrl. Elle peut émettre des actions et des obligations, ce qui est particulièrement utile pour financer des projets à grande échelle ou procéder à des acquisitions.",
+      "La Sàrl, elle, n'a pas la capacité d'émettre des actions et ne peut lever des fonds que par emprunt ou par contributions en capital de ses associés."
+     ]
+    },
+    {
+     "t": "Un transfert de propriété facilité",
+     "p": [
+      "Les actions peuvent être vendues ou transférées sans qu'il soit nécessaire d'obtenir l'accord des autres actionnaires, et sans publication officielle au registre du commerce.",
+      "Dans une Sàrl, le transfert de propriété est plus compliqué : il faut souvent l'accord des autres associés et le recours à un notaire."
+     ]
+    },
+    {
+     "t": "La crédibilité auprès des partenaires",
+     "p": [
+      "La SA est souvent associée à des entreprises plus grandes et plus établies, ce qui peut inspirer confiance à ses partenaires commerciaux.",
+      "Elle est également considérée comme plus transparente, car elle publie des informations financières régulières, surtout si elle procède au contrôle restreint ou ordinaire des comptes."
+     ]
+    },
+    {
+     "t": "La rémunération des administrateurs",
+     "p": [
+      "Les administrateurs de la SA peuvent être rémunérés pour leur travail, ce qui peut attirer des personnes hautement qualifiées aux postes de direction.",
+      "Les gérants de la Sàrl, en revanche, ne peuvent pas être rémunérés, sauf s'ils sont également associés."
+     ]
+    },
+    {
+     "t": "Faut-il commencer par une SA ?",
+     "p": [
+      "La forme juridique la plus appropriée dépend des besoins spécifiques de l'entreprise et de ses propriétaires, ainsi que de ses objectifs à long terme.",
+      "La SA demandant un plus grand investissement initial, il peut être pertinent de démarrer avec une Sàrl en cas de budget restreint."
+     ]
+    }
+   ]
+  },
+  "/cfo-externalise/": {
+   "tagline": "Une direction financière pour éclairer vos décisions.",
+   "intro": "Vos chiffres contiennent déjà l'essentiel. Nous les transformons en visibilité sur votre trésorerie, vos marges et vos prochains mois, pour que chaque décision importante s'appuie sur des données claires.",
+   "benefits": [
+    {
+     "ico": "clock",
+     "t": "Anticiper votre trésorerie",
+     "d": "Nous projetons votre trésorerie sur douze mois et anticipons vos besoins de financement."
+    },
+    {
+     "ico": "chart",
+     "t": "Piloter vos marges",
+     "d": "Nous calculons votre marge réelle par client, mandat ou activité."
+    },
+    {
+     "ico": "talk",
+     "t": "Décider, accompagné",
+     "d": "Des points de pilotage réguliers transforment vos données financières en recommandations concrètes et directement exploitables."
+    }
+   ],
+   "sections": [
+    {
+     "t": "Une vision financière claire pour piloter et développer votre PME",
+     "p": [
+      "Une direction financière vous apporte une lecture claire et régulière de votre situation et de sa trajectoire. Vous disposez ainsi de la visibilité nécessaire pour anticiper les prochaines étapes et prendre vos décisions au bon moment.",
+      "En anticipant votre trésorerie et vos besoins de financement, en suivant votre rentabilité, vos marges et vos indicateurs clés, vous disposez d'une vision plus claire pour mesurer l'impact de vos projets et piloter le développement de votre entreprise.",
+      "Des chiffres qui ne décrivent plus seulement le passé, mais éclairent les mois à venir."
+     ]
+    },
+    {
+     "t": "Direction financière externalisée pour PME",
+     "p": [
+      "Un CFO externalisé est un directeur financier qui exerce la direction financière d'une entreprise en temps partagé, sans en être salarié. Il pilote la trésorerie, les budgets, le reporting et l'analyse de rentabilité, et accompagne le dirigeant dans ses décisions.",
+      "Vous accédez à cette expertise selon les besoins de votre entreprise, avec un accompagnement qui évolue à mesure que votre activité se développe."
+     ]
+    },
+    {
+     "t": "Des données financières au service de vos décisions",
+     "p": [
+      "Un directeur financier externalisé se juge à la qualité des décisions qu'il permet de prendre. Nous chiffrons l'impact d'un recrutement, modélisons un investissement, préparons les projections nécessaires à un financement et anticipons les effets de votre croissance sur votre trésorerie et vos ressources.",
+      "L'objectif est de vous permettre d'engager votre entreprise avec une vision financière claire. Des points de pilotage réguliers transforment vos données financières en recommandations concrètes et directement exploitables."
+     ]
+    }
+   ],
+   "list": {
+    "t": "L'accompagnement",
+    "items": [
+     {
+      "t": "Gestion et prévision de trésorerie",
+      "d": "Nous projetons votre trésorerie sur douze mois et anticipons vos besoins de financement. Vous engagez vos dépenses au bon moment et sécurisez un financement avant qu'il ne devienne urgent."
+     },
+     {
+      "t": "Budget prévisionnel et forecast",
+      "d": "Nous construisons un budget mensualisé par activité et suivons l'écart avec le réel. Vous corrigez votre trajectoire en cours d'année, au lieu de la constater au bouclement."
+     },
+     {
+      "t": "Reporting et tableaux de bord financiers",
+      "d": "Nous réunissons vos indicateurs décisionnels dans un tableau de bord lisible en quelques minutes. Vous savez chaque mois si votre entreprise tient sa trajectoire."
+     },
+     {
+      "t": "Rentabilité et analyse des marges",
+      "d": "Nous mettons en place une comptabilité analytique et calculons votre marge réelle par client, mandat ou activité. Vous savez quoi développer, quoi retarifer et quoi arrêter."
+     },
+     {
+      "t": "Contrôle de gestion externalisé",
+      "d": "Nous analysons votre structure de coûts et suivons vos postes de charges dans le temps. Vous agissez sur les bons postes, sans fragiliser votre production ni vos équipes."
+     },
+     {
+      "t": "Financement et investissements",
+      "d": "Nous préparons vos dossiers de financement et modélisons chaque scénario d'investissement avant décision. Vous présentez un dossier solide et financez vos projets dans de bonnes conditions."
+     }
+    ]
+   },
+   "cta": {
+    "title": [
+     "Donnez à vos décisions",
+     "la visibilité financière",
+     "qu'elles méritent."
+    ],
+    "text": "En trente minutes, nous faisons le point sur vos objectifs financiers et sur la manière dont une direction financière externalisée peut soutenir votre développement."
+   }
+  },
+  "/comptabilite-geneve-experts-fiduciaire/": {
+   "tagline": "Solutions comptables digitales, experts humains.",
+   "intro": "Notre équipe prend en charge la comptabilité de votre entreprise ou de votre activité d'indépendant, et nos conseillers s'adaptent à vos besoins. La comptabilité est notre cœur de métier depuis 1999.",
+   "benefits": [
+    {
+     "ico": "tag",
+     "t": "Prix transparents",
+     "d": "Bénéficiez de prix compétitifs. Nous respectons le montant des devis que nous vous envoyons."
+    },
+    {
+     "ico": "screen",
+     "t": "Fiduciaire digitale",
+     "d": "Vous aurez l'opportunité de suivre en temps réel les écritures comptables de votre entreprise."
+    },
+    {
+     "ico": "talk",
+     "t": "Conseil sur mesure",
+     "d": "Vous avez la possibilité de déléguer complètement ou partiellement vos tâches comptables."
+    }
+   ],
+   "sections": [
+    {
+     "t": "Pourquoi une bonne tenue comptable compte",
+     "p": [
+      "Une bonne tenue comptable est essentielle pour la santé financière de votre entreprise. Elle vous permet de mieux comprendre vos revenus, vos dépenses et votre situation financière globale.",
+      "Une tenue précise facilite la gestion de votre entreprise et vous permet de prendre des décisions éclairées. Elle vous aide aussi à respecter les exigences fiscales et légales, et en cas d'audit, à éviter des pénalités et des sanctions."
+     ]
+    },
+    {
+     "t": "L'analytique comme force de vente",
+     "p": [
+      "La comptabilité analytique consiste à suivre et à analyser les coûts et les dépenses d'une entreprise de manière détaillée. Cela permet de mieux comprendre comment l'entreprise utilise ses ressources et de prendre des décisions éclairées en matière de planification et de budgétisation.",
+      "Elle aide à identifier les domaines où des économies peuvent être réalisées, et à mieux comprendre la rentabilité des différents produits ou services proposés, ce qui éclaire ensuite les décisions de tarification et de marketing."
+     ]
+    },
+    {
+     "t": "Ce que dit le Code des obligations",
+     "p": [
+      "Les états financiers se dressent obligatoirement en suivant les dispositions du Code des obligations suisse. La démarche consiste à catégoriser les charges et les produits afin d'obtenir une comptabilité claire, composée au minimum d'un bilan et d'un compte de résultat.",
+      "Dit simplement, la comptabilité vous permet de visualiser votre patrimoine avec précision. Nos comptables la tiennent selon les normes en vigueur, que votre société soit petite, moyenne ou grande, cotée en bourse ou non."
+     ]
+    }
+   ],
+   "offer": {
+    "t": "Nous analysons votre comptabilité gratuitement",
+    "d": "Profitez d'une analyse de vos comptes, gratuite et sans engagement. Vous pourrez identifier vos charges les plus coûteuses et vérifier si vous êtes en règle avec les normes comptables en vigueur.",
+    "cta": "Profiter de l'offre"
+   }
+  },
+  "/domiciliation-a-geneve/": {
+   "tagline": "L'alternative au paiement d'un loyer.",
+   "intro": "Grâce à une adresse fiscale de confiance dans le canton de Genève, vous pourrez rapidement démarrer vos activités en Suisse. L'adresse privilégiée de notre fiduciaire est à votre disposition sur la commune de Lancy.",
+   "benefits": [
+    {
+     "ico": "coin",
+     "t": "Économies",
+     "d": "Évitez de payer un loyer de plusieurs milliers de francs par mois."
+    },
+    {
+     "ico": "doc",
+     "t": "Simplicité",
+     "d": "Recevez vos courriers par courriel ou venez les chercher à notre bureau, sans frais supplémentaires."
+    },
+    {
+     "ico": "shield",
+     "t": "Crédibilité",
+     "d": "Une adresse professionnelle physique qui vous valorise auprès de vos potentiels partenaires."
+    }
+   ],
+   "sections": [
+    {
+     "t": "Pourquoi Lancy",
+     "p": [
+      "Lancy est située à proximité immédiate de Genève, offrant un accès facile aux principaux centres économiques de la région. La commune est bien desservie par les transports en commun, ce qui facilite les déplacements professionnels.",
+      "Elle propose une fiscalité avantageuse pour les entreprises, avec des taux d'imposition compétitifs, et connaît une forte dynamique économique portée par de nombreuses entreprises et start-ups implantées sur place."
+     ]
+    },
+    {
+     "t": "Une obligation avant d'être un confort",
+     "p": [
+      "Pour s'inscrire au registre du commerce, une domiciliation est obligatoire : votre société doit avoir une adresse professionnelle en Suisse.",
+      "Vous n'avez pas de local fixe en Suisse pour vos activités commerciales ? Dans l'attente de trouver le bureau de vos rêves, démarrez vos activités chez nous."
+     ]
+    },
+    {
+     "t": "Une équipe comptable sur place",
+     "p": [
+      "En optant pour ce service, vous évitez les coûts liés à l'installation et à l'entretien d'un bureau physique, ainsi que ceux liés au recrutement d'une équipe pour gérer l'administratif et la correspondance de votre siège social.",
+      "Notre équipe est composée de professionnels expérimentés ayant une connaissance approfondie de la fiscalité suisse et internationale. Concentrez-vous sur votre cœur de métier et laissez-nous scanner votre courrier gratuitement."
+     ]
+    }
+   ],
+   "list": {
+    "t": "Pourquoi une domiciliation chez Dilytics",
+    "items": [
+     "Économie sur les coûts liés à la location d'un local commercial",
+     "Facilité d’accès avec les transports publics",
+     "Gain de temps dans la gestion du courrier",
+     "Mise à disposition d'une adresse professionnelle physique qui vous valorise auprès de vos partenaires",
+     "Domiciliation obligatoire pour s’inscrire au registre du commerce"
+    ]
+   }
+  },
+  "/payroll-et-administration-rh/": {
+   "tagline": "Optimisez votre temps dans la gestion des salaires de votre équipe.",
+   "intro": "Gérer des salaires peut vous faire perdre du temps et de l'argent. Nos prestations incluent, entre autres, le décompte annuel des salaires, les démarches d'affiliation aux caisses de compensation et l'élaboration des fiches de paie.",
+   "benefits": [
+    {
+     "ico": "shield",
+     "t": "Salaires en règle",
+     "d": "Vous n'aurez plus à vous soucier de la conformité des salaires de vos employés."
+    },
+    {
+     "ico": "clock",
+     "t": "Gain de temps",
+     "d": "Concentrez-vous sur les activités amenant de la croissance à votre société."
+    },
+    {
+     "ico": "users",
+     "t": "Liberté",
+     "d": "Gardez la main sur votre politique salariale, vos recrutements et vos licenciements."
+    }
+   ],
+   "sections": [
+    {
+     "t": "Un domaine qui demande de la rigueur",
+     "p": [
+      "Il est indispensable d'avoir de la rigueur et des connaissances solides en comptabilité et en droit du travail pour gérer les salaires d'une entreprise.",
+      "Toute erreur dans la déclaration annuelle des salaires peut jouer en votre défaveur et mettre en péril la santé financière de votre société."
+     ]
+    },
+    {
+     "t": "Un service que vous délimitez",
+     "p": [
+      "En souscrivant à un service chez Dilytics, vous choisissez les tâches que vous souhaitez déléguer à nos spécialistes.",
+      "Nos spécialistes s'adaptent aux exigences de vos caisses, au droit du travail et aux conventions collectives de votre secteur."
+     ]
+    }
+   ],
+   "list": {
+    "t": "Les prestations comprises",
+    "items": [
+     "La déclaration annuelle des salaires",
+     "La rédaction des contrats de travail pour votre personnel",
+     "L'élaboration des fiches de paie",
+     "L'inscription aux assurances sociales",
+     "La déclaration des accidents et des maladies",
+     "Les démarches obligatoires dans le cas d'une embauche ou d'un licenciement"
+    ]
+   }
+  },
+  "/tva-suisse/": {
+   "tagline": "Une gestion fiscale saine.",
+   "intro": "Faites confiance à nos experts pour établir vos décomptes TVA ou vous inscrire auprès des autorités de taxation. L'assujettissement à la taxe sur la valeur ajoutée et son décompte ne sont pas des actions simples à effectuer.",
+   "benefits": [
+    {
+     "ico": "chart",
+     "t": "Trois taux à distinguer",
+     "d": "8,1 % en taux normal, 2,6 % en taux réduit, 3,8 % pour l'hôtellerie."
+    },
+    {
+     "ico": "clock",
+     "t": "Trente jours pour s’annoncer",
+     "d": "Une fois le seuil atteint, l'immatriculation auprès de l'AFC doit suivre."
+    },
+    {
+     "ico": "shield",
+     "t": "Un risque financier réel",
+     "d": "Un non-assujettissement peut mener à un paiement d'office avec intérêts moratoires, ou à des amendes."
+    }
+   ],
+   "sections": [
+    {
+     "t": "Les taux en vigueur",
+     "p": [
+      "En Suisse, le taux varie en fonction du secteur d'activité : 8,1 % est le taux normal pour la majorité des biens et des services, 2,6 % le taux réduit pour les biens de première nécessité tels que les aliments et les médicaments, et 3,8 % le taux spécial applicable au secteur de l'hôtellerie.",
+      "Certaines activités comme la formation et la santé sont exonérées de TVA."
+     ]
+    },
+    {
+     "t": "Suis-je assujetti ?",
+     "p": [
+      "Toute société qui dépasse un chiffre d'affaires annuel de 100 000 francs est assujettie à la TVA. Cette règle s'applique également aux entreprises individuelles. Les associations à but non lucratif doivent l'appliquer si leur chiffre d'affaires dépasse 150 000 francs.",
+      "Les personnes morales et physiques assujetties doivent s'annoncer auprès de l'Administration fédérale des contributions."
+     ]
+    },
+    {
+     "t": "Quand dois-je m’assujettir ?",
+     "p": [
+      "Il est obligatoire d'annoncer votre assujettissement à partir du moment où vos projections indiquent que vous allez atteindre 100 000 francs de chiffre d'affaires au cours de l'année fiscale en cours. Une fois ce chiffre atteint, vous avez 30 jours pour obtenir votre numéro d'immatriculation.",
+      "Si vous venez de commencer votre activité et n'avez pas encore atteint ce seuil, un assujettissement volontaire peut être une bonne stratégie fiscale : cette démarche proactive vous permet de récupérer la taxe sur les produits et services achetés lors du lancement de vos activités."
+     ]
+    }
+   ],
+   "list": {
+    "t": "Ce que notre équipe peut prendre en charge",
+    "items": [
+     "Analyse de votre situation vis-à-vis de l'assujettissement à la taxe sur la valeur ajoutée",
+     "Annonce et inscription auprès des autorités de taxation",
+     "Établissement des décomptes",
+     "Conseil en matière d'impôt sur les sociétés"
+    ]
+   }
+  },
+  "/mandat-de-gerant-et-administrateur-en-suisse/": {
+   "tagline": "Menez vos activités en Suisse.",
+   "intro": "Une personne de notre direction peut être nommée gérant ou administrateur de votre société en Suisse. Son rôle est de représenter la société auprès des autorités du pays.",
+   "benefits": [
+    {
+     "ico": "pin",
+     "t": "Une exigence légale",
+     "d": "Au moins un gérant ou administrateur vivant en Suisse doit figurer au registre du commerce."
+    },
+    {
+     "ico": "users",
+     "t": "Sàrl comme SA",
+     "d": "L'administrateur est à la SA ce que le gérant est à la Sàrl."
+    },
+    {
+     "ico": "talk",
+     "t": "Un avis avant de décider",
+     "d": "Utile aussi aux dirigeants qui veulent l'avis d'un expert avant une décision."
+    }
+   ],
+   "sections": [
+    {
+     "t": "Qu'est-ce qu'un mandat de gérant",
+     "p": [
+      "Un gérant est un individu siégeant dans le conseil d'administration d'une société dont le siège social est en Suisse. Son rôle est de représenter la société auprès des autorités du pays.",
+      "Mandater un administrateur qui réside en Suisse est essentiel pour toute Sàrl établie sur le territoire. Les gérants font partie de ce que l'on peut appeler la « haute surveillance » de l'entreprise : le conseil d'administration décide notamment des choix financiers de la société."
+     ]
+    },
+    {
+     "t": "Le mandat d'administrateur pour une SA",
+     "p": [
+      "Les principes du mandat de gérant pour une Sàrl s'appliquent également à la société anonyme.",
+      "Au moins un administrateur ou un directeur vivant en Suisse doit être mentionné au registre du commerce."
+     ]
+    }
+   ],
+   "list": {
+    "t": "Ce que notre expérience couvre",
+    "items": [
+     "Les problématiques fiscales : TVA, taxes professionnelles, impôts",
+     "La communication avec les instituts bancaires et les administrations",
+     "L'élaboration de budgets et de business plans",
+     "La mise en place de logiciels de gestion et de comptabilité analytique",
+     "Le conseil financier ou la direction financière de l'entreprise"
+    ]
+   }
+  },
+  "/audit-des-comptes/": {
+   "tagline": "Un service d’audit proche des PME.",
+   "intro": "L'audit annuel des comptes consiste à vérifier la conformité des comptes d'une entreprise avec les normes comptables en vigueur. Un tel exercice permet de vérifier si la comptabilité reflète parfaitement sa situation financière.",
+   "benefits": [
+    {
+     "ico": "doc",
+     "t": "Un organe agréé",
+     "d": "L'organe de révision est composé d'auditeurs agréés externes, nommés par l'exécutif de la société."
+    },
+    {
+     "ico": "chart",
+     "t": "Deux formes de contrôle",
+     "d": "Le contrôle restreint et le contrôle ordinaire, selon la taille et le chiffre d’affaires."
+    },
+    {
+     "ico": "users",
+     "t": "Un réseau de réviseurs",
+     "d": "Notre réseau d'expert-réviseurs agréés couvre différents secteurs d'activité."
+    }
+   ],
+   "sections": [
+    {
+     "t": "Le contrôle restreint",
+     "p": [
+      "Il s'agit du contrôle le moins restrictif. Il s'applique à toutes les entreprises qui comptent au minimum 10 employés.",
+      "Une telle démarche de vérification des comptes peut également être mise en place si un ou plusieurs associés en font la demande."
+     ]
+    },
+    {
+     "t": "Le contrôle ordinaire",
+     "p": [
+      "Votre entreprise doit obligatoirement passer un audit ordinaire si deux des trois critères suivants sont remplis : un effectif de plus de 250 employés, un bilan affichant une valeur d'au moins 20 millions de francs, ou un chiffre d'affaires annuel d'au moins 40 millions.",
+      "Les associations, les fondations et les sociétés coopératives peuvent également être assujetties à un audit des comptes sous certaines conditions spécifiques."
+     ]
+    }
+   ],
+   "list": {
+    "t": "Les prestations dont vous bénéficiez",
+    "items": [
+     "Révision et contrôle des comptes",
+     "Vérification des procédures de contrôle interne",
+     "Conseils et propositions d'amélioration",
+     "Autres prestations sur demande : comptabilité analytique, analyse de rentabilité"
+    ]
+   }
+  },
+  "/controle-restreint/": {
+   "tagline": "Remplissez vos obligations et renforcez votre crédibilité.",
+   "intro": "Le contrôle restreint est un audit financier limité, effectué par un réviseur agréé en Suisse, pour donner une opinion sur les comptes annuels d'une entreprise. Il ne fait pas partie de la clôture des comptes mais est exigé en cas d'opting-in.",
+   "benefits": [
+    {
+     "ico": "doc",
+     "t": "Un réviseur agréé ASR",
+     "d": "L'examen aboutit à une opinion sur la conformité aux principes comptables suisses."
+    },
+    {
+     "ico": "shield",
+     "t": "Une portée limitée",
+     "d": "Pas de tests exhaustifs ni d'évaluation approfondie des systèmes de l'entreprise."
+    },
+    {
+     "ico": "users",
+     "t": "Une crédibilité renforcée",
+     "d": "Une opinion professionnelle renforce la confiance des actionnaires, créanciers et fournisseurs."
+    }
+   ],
+   "sections": [
+    {
+     "t": "Qu'est-ce que le contrôle restreint",
+     "p": [
+      "Cette mission consiste à effectuer une analyse limitée des comptes annuels d'une entreprise et à fournir une opinion sur la conformité des états financiers aux principes comptables suisses.",
+      "Le contrôle restreint diffère d'un audit complet en ce qu'il est plus limité dans sa portée : le réviseur examine les documents comptables et financiers, mais ne conduit ni tests exhaustifs ni évaluation approfondie des systèmes et des processus."
+     ]
+    },
+    {
+     "t": "Pourquoi il compte pour votre entreprise",
+     "p": [
+      "Il fournit une opinion professionnelle sur la conformité des comptes annuels, ce qui aide à identifier les erreurs et les problèmes potentiels dans vos états financiers et à prendre des mesures pour les corriger.",
+      "Il améliore votre transparence et votre crédibilité auprès des parties prenantes, et aide à vous conformer aux exigences légales en matière de déclaration financière."
+     ]
+    },
+    {
+     "t": "La différence avec le contrôle ordinaire",
+     "p": [
+      "Le contrôle ordinaire est une mission plus exhaustive, qui implique une évaluation approfondie des systèmes et des processus, des tests substantifs et des procédures de vérification étendues. Son but est de donner une assurance raisonnable que les comptes annuels sont exempts d'anomalies significatives.",
+      "Le contrôle restreint, lui, est limité à la vérification des états financiers et à une attestation de garantie à fournir aux parties prenantes. Par ailleurs, en cas de difficulté financière ou d'engagement de plus de 10 employés à plein temps, la révision devient une obligation."
+     ]
+    }
+   ]
+  },
+  "/gestion-de-ppe/": {
+   "tagline": "Confiez la gestion de votre PPE à des experts.",
+   "intro": "Les propriétés par étage sont de plus en plus courantes en Suisse et nécessitent une gestion et une administration efficaces. Nous offrons une gamme complète de services de gestion immobilière, y compris la gestion financière, la maintenance de la propriété et la résolution des conflits.",
+   "benefits": [
+    {
+     "ico": "clock",
+     "t": "Gain de temps",
+     "d": "Notre équipe s'occupe des démarches fiscales et administratives."
+    },
+    {
+     "ico": "talk",
+     "t": "Œil externe",
+     "d": "Notre équipe peut recommander des solutions avec un regard impartial."
+    },
+    {
+     "ico": "shield",
+     "t": "Confidentialité",
+     "d": "Notre équipe traite les dossiers des copropriétaires en toute confidentialité."
+    }
+   ],
+   "sections": [
+    {
+     "t": "La gestion financière de la PPE",
+     "p": [
+      "La gestion des finances comprend la collecte des frais de copropriété, la gestion des dépenses, la budgétisation et la préparation des états financiers.",
+      "Nos experts en gestion immobilière peuvent vous aider à maintenir un budget sain, à réduire les coûts et à garantir que toutes les transactions financières sont effectuées en temps voulu."
+     ]
+    },
+    {
+     "t": "Une fiduciaire immobilière",
+     "p": [
+      "Nous sommes une fiduciaire immobilière expérimentée, spécialisée dans la gestion et l'administration de PPE en Suisse.",
+      "Notre service implique la gestion des finances, la maintenance de la propriété et la résolution des conflits, pour assurer une expérience agréable aux propriétaires comme aux locataires."
+     ]
+    }
+   ],
+   "offer": {
+    "t": "Analyse et devis gratuits",
+    "d": "Si vous souhaitez nous transmettre la gestion financière de votre PPE, nous procédons à l'analyse et au devis gratuitement avec vous.",
+    "cta": "Me faire accompagner"
+   }
+  },
+  "/declaration-dimpots/": {
+   "tagline": "Notre équipe vous fait gagner du temps et de l’argent.",
+   "intro": "Notre équipe réalise votre déclaration de revenus auprès de l'Administration fiscale cantonale. Quelle que soit votre situation professionnelle et personnelle, notre équipe est là pour vous aider.",
+   "benefits": [
+    {
+     "ico": "users",
+     "t": "Vérification à quatre yeux",
+     "d": "Chaque déclaration est vérifiée par deux comptables-fiscalistes."
+    },
+    {
+     "ico": "coin",
+     "t": "Déductions",
+     "d": "Nous appliquons toutes les déductions fiscales auxquelles vous avez droit."
+    },
+    {
+     "ico": "shield",
+     "t": "Confidentialité",
+     "d": "Notre équipe traite votre dossier en toute confidentialité."
+    }
+   ],
+   "sections": [
+    {
+     "t": "La déclaration fiscale en Suisse",
+     "p": [
+      "Si vous habitez en Suisse, vous avez l'obligation de déclarer vos revenus à l'Administration fiscale cantonale, quelle que soit votre situation professionnelle.",
+      "L'échéance est habituellement fixée au dernier jour du mois de mars de l'année qui suit la période fiscale. N'oubliez pas que vous pouvez demander une prolongation : si vous avez besoin d'aide, notre équipe peut réaliser cette demande."
+     ]
+    },
+    {
+     "t": "Ce que nous vous demandons",
+     "p": [
+      "La seule chose que vous devrez faire sera de nous envoyer les documents justificatifs, tels que vos certificats de salaire et vos attestations d'assurance maladie.",
+      "Dilytics traite votre dossier en toute confidentialité."
+     ]
+    }
+   ],
+   "list": {
+    "t": "Documents à nous transmettre",
+    "items": [
+     "Documents liés aux revenus et extraits bancaires",
+     "Vos frais d’assurance concernant la maladie et les accidents",
+     "Vos justificatifs liés à une pension ou à des enfants à charge"
+    ]
+   }
+  },
+  "/particuliers-impot-a-la-source/": {
+   "tagline": "Récupérez une partie de votre contribution fiscale.",
+   "intro": "Vous êtes frontalier ou titulaire d'un permis B ? Si c'est le cas, vous êtes soumis à l'impôt à la source. Dilytics effectue les démarches pour rectifier le montant que vous avez payé.",
+   "benefits": [
+    {
+     "ico": "users",
+     "t": "Vérification à quatre yeux",
+     "d": "Chaque demande est vérifiée par deux comptables-fiscalistes."
+    },
+    {
+     "ico": "coin",
+     "t": "Déductions maximisées",
+     "d": "Nous appliquons toutes les déductions fiscales auxquelles vous avez droit."
+    },
+    {
+     "ico": "shield",
+     "t": "Confidentialité garantie",
+     "d": "Notre équipe traite votre dossier en toute confidentialité."
+    }
+   ],
+   "sections": [
+    {
+     "t": "La rectification, en pratique",
+     "p": [
+      "En tant que résident temporaire ou travailleur frontalier, vous êtes soumis à l'impôt à la source. Le montant prélevé ne prend pas en compte certaines déductions auxquelles vous avez droit.",
+      "Pour y remédier, vous pouvez effectuer une demande de rectification. Grâce à cette démarche, il est probable que vous récupériez l'argent que vous avez payé en trop."
+     ]
+    },
+    {
+     "t": "Ce que nous vous demandons",
+     "p": [
+      "Notre équipe est disponible pour réaliser votre demande de rectification d'impôt à la source.",
+      "La seule chose que vous devrez faire sera de nous envoyer les documents justificatifs, tels que vos certificats de salaire et vos attestations d'assurance maladie."
+     ]
+    }
+   ]
+  },
+  "/conseil-fiscal/": {
+   "tagline": "Améliorez votre situation fiscale.",
+   "intro": "Nos comptables-fiscalistes sont disponibles pour étudier votre situation et vous proposer des actions d'optimisation fiscale. Experts depuis 1999, notre cabinet est spécialisé dans l'imposition des personnes physiques et des entreprises.",
+   "benefits": [
+    {
+     "ico": "chart",
+     "t": "Un service personnalisé",
+     "d": "Nous évaluons les impacts que certains éléments peuvent avoir sur vos impôts."
+    },
+    {
+     "ico": "doc",
+     "t": "Au-delà du simple conseil",
+     "d": "Nos experts vous proposent un montage fiscal et les meilleurs plans d’action."
+    },
+    {
+     "ico": "talk",
+     "t": "Une réponse à l’administration",
+     "d": "Nous répondons aux demandes à votre place, afin d'éviter la taxation d'office."
+    }
+   ],
+   "sections": [
+    {
+     "t": "Des conseils fiscaux personnalisés",
+     "p": [
+      "Notre équipe de fiscalistes vous assure un service haut de gamme, personnalisé et innovant, en évaluant les impacts que peuvent avoir certains éléments sur vos impôts.",
+      "Nos experts-fiscaux sont disponibles pour vous proposer un montage fiscal et vous montrer les meilleurs plans d'action pour préserver vos finances."
+     ]
+    },
+    {
+     "t": "Optimiser votre déclaration de revenus",
+     "p": [
+      "Nos fiscalistes se chargent de répondre aux demandes à votre place afin d'éviter la taxation d'office.",
+      "Nos experts peuvent également vous montrer les démarches à entreprendre pour mentionner un don ou une succession sur votre déclaration d'impôt."
+     ]
+    },
+    {
+     "t": "Un système à trois niveaux",
+     "p": [
+      "Le système fiscal en Suisse se subdivise en trois niveaux : fédéral, cantonal et communal. Les impôts cantonaux et communaux peuvent grandement varier.",
+      "Comprendre les dispositions fiscales en vigueur, quelle que soit votre situation, requiert de solides compétences fiscales."
+     ]
+    }
+   ]
+  },
+  "/declaration-de-succession/": {
+   "tagline": "Un service qui comprend tous les aspects de la gestion d’une succession.",
+   "intro": "La gestion de la succession est une problématique qui se pose après le décès d'un proche. Il s'agit d'une obligation qui doit s'effectuer dans un contexte délicat pour la famille.",
+   "benefits": [
+    {
+     "ico": "talk",
+     "t": "Une équipe à votre écoute",
+     "d": "Un questionnement sur un héritage, la taxation d'un legs ou une déclaration : nous sommes disponibles."
+    },
+    {
+     "ico": "doc",
+     "t": "La déclaration déposée",
+     "d": "Nous établissons la déclaration auprès de l'Administration fiscale cantonale."
+    },
+    {
+     "ico": "shield",
+     "t": "Un mandataire possible",
+     "d": "Sous forme de procuration, nous vous libérons des obligations administratives et financières."
+    }
+   ],
+   "sections": [
+    {
+     "t": "En l'absence de testament",
+     "p": [
+      "Lorsqu'aucun acte juridique comme un testament ou un pacte successoral n'a été conclu, le droit suisse des successions s'applique : le conjoint survivant a droit à 50 % de la succession en concurrence avec les descendants directs.",
+      "Le conjoint a droit à 75 % de la succession si le défunt n'a pas de descendants directs, à condition qu'au moins un de ses parents ou un de ses frères et sœurs soit encore en vie. Dans les autres situations, le conjoint hérite de 100 % des actifs et des passifs."
+     ]
+    },
+    {
+     "t": "Vos droits en tant qu'héritier",
+     "p": [
+      "En tant qu'héritier en Suisse, vous pouvez accepter la succession avec ou sans bénéfice d'inventaire, la faire liquider officiellement en mandatant une fiduciaire, ou en demander la répudiation.",
+      "Dilytics propose également d'être mandataire pour vous libérer de toutes les obligations administratives et financières sous forme d'une procuration. Nous vous faisons alors un compte rendu de la situation et défendons vos intérêts en cas de complications ou de flou administratif."
+     ]
+    }
+   ],
+   "list": {
+    "t": "Les documents essentiels à réunir",
+    "items": [
+     "Le certificat de décès",
+     "Le certificat d’héritier",
+     "L’inventaire des biens à transmettre",
+     "Le code pour la déclaration fiscale feue"
+    ]
+   }
+  },
+  "/prevoyance-3eme-pilier-geneve/": {
+   "tagline": "Améliorez votre retraite et faites baisser votre pression fiscale.",
+   "intro": "En Suisse, l'octroi de la rente de retraite se base sur la cotisation des trois piliers. Le 3e pilier, prévoyance individuelle facultative, a pour but de maintenir le niveau de vie des anciens actifs devenus retraités.",
+   "benefits": [
+    {
+     "ico": "coin",
+     "t": "Une déduction fiscale",
+     "d": "Avec un pilier 3a, vous pouvez déduire jusqu'à 6 883 francs par an de vos impôts."
+    },
+    {
+     "ico": "chart",
+     "t": "Un niveau de vie maintenu",
+     "d": "Environ 40 % de votre salaire actuel ne sera pas assuré par vos 1er et 2e piliers."
+    },
+    {
+     "ico": "pin",
+     "t": "Un achat immobilier facilité",
+     "d": "L'argent cotisé facilite le paiement de l'apport minimum de 25 % du prix du bien."
+    }
+   ],
+   "sections": [
+    {
+     "t": "Le pilier 3a et le pilier 3b",
+     "p": [
+      "Le pilier 3a permet d'épargner un montant déductible des impôts. Celui-ci peut être retiré au moment du départ à la retraite ou lors de certains événements comme l'achat d'une résidence principale.",
+      "Le pilier 3b permet d'épargner un montant qui n'a pas de limite. Contrairement au 3a, ce montant cotisé n'est pas déductible des impôts, mais il peut être retiré à tout moment."
+     ]
+    },
+    {
+     "t": "Faire baisser le montant de vos impôts",
+     "p": [
+      "En optant pour un pilier 3a, vous pouvez déduire de vos impôts jusqu'à 6 883 francs par an.",
+      "Ce montant peut même aller jusqu'à 34 416 francs si vous êtes indépendant et non affilié à une caisse de pension."
+     ]
+    },
+    {
+     "t": "Comment choisir le bon plan",
+     "p": [
+      "En Suisse, il existe plusieurs fonds de pension, banques et assurances qui proposent des plans d'épargne 3a et 3b. Les taux de rendement peuvent varier d'une option à l'autre, et il est difficile de s'y retrouver quand on ne connaît pas le marché de la prévoyance.",
+      "En faisant appel à une fiduciaire indépendante, vous comparez toutes les options existantes et bénéficiez de conseils fiscaux personnalisés."
+     ]
+    }
+   ],
+   "list": {
+    "t": "Ce dont vous bénéficiez",
+    "items": [
+     "Trouver le plan d'épargne le mieux adapté à votre situation",
+     "Comparer toutes les options qui existent en Suisse",
+     "Bénéficier de conseils fiscaux personnalisés",
+     "Accéder à des simulations fiscales pour mieux évaluer vos futures décisions"
+    ]
+   }
+  },
+  "/gestion-administrative/": {
+   "tagline": "Respirez et profitez de la vie.",
+   "intro": "Nos experts vous aident dans toutes vos tâches administratives, sur une base ponctuelle ou régulière. Il peut s'agir de démarches vis-à-vis de vos assurances, de paiements de factures ou de la gestion de vos courriers.",
+   "benefits": [
+    {
+     "ico": "users",
+     "t": "Vérification à quatre yeux",
+     "d": "Chaque document est vérifié par deux experts de notre équipe."
+    },
+    {
+     "ico": "clock",
+     "t": "Réactivité",
+     "d": "Nous répondons à vos demandes en moins de 24 h les jours ouvrables."
+    },
+    {
+     "ico": "shield",
+     "t": "Confidentialité",
+     "d": "Notre équipe traite vos dossiers en toute confidentialité."
+    }
+   ],
+   "sections": [
+    {
+     "t": "Ponctuel ou régulier, à votre main",
+     "p": [
+      "Pour obtenir une aide ponctuelle, il suffit de nous soumettre votre demande et nous la réglerons dans les plus brefs délais.",
+      "Vous pouvez également obtenir une assistance administrative régulière. Dans ce cas, nous définissons avec vous les tâches que vous souhaitez déléguer à notre équipe. Ce service peut être facturé sous forme d'abonnement mensuel."
+     ]
+    },
+    {
+     "t": "Une approche globale",
+     "p": [
+      "En plus de notre service de gestion administrative, nous proposons du conseil fiscal, de la gestion de successions et de la déclaration d'impôts.",
+      "Vous bénéficiez d'une équipe ayant de l'expérience dans la gestion administrative, la comptabilité et le droit des assurances."
+     ]
+    }
+   ],
+   "list": {
+    "t": "Les démarches que nous prenons en charge",
+    "items": [
+     "Rédaction de courriers",
+     "Démarches vis-à-vis des assurances",
+     "Demande de remboursement des frais médicaux",
+     "Changement et demande de statut de résidence",
+     "Contestation et renégociation de poursuites",
+     "Établissement de l’état des lieux de votre résidence",
+     "Ouverture de comptes bancaires",
+     "Gestion des factures et résiliation de contrats"
+    ]
+   }
+  },
+  "/fiscalite-immobiliere/": {
+   "tagline": "Un accompagnement sur mesure.",
+   "intro": "La fiscalité immobilière en Suisse peut avoir un impact significatif sur vos investissements. Les réglementations pèsent sur les investissements immobiliers, les ventes de biens et les revenus locatifs.",
+   "benefits": [
+    {
+     "ico": "pin",
+     "t": "Fiscalité immobilière",
+     "d": "Une équipe connaissant la fiscalité immobilière en Suisse."
+    },
+    {
+     "ico": "coin",
+     "t": "Optimisation",
+     "d": "Bénéficiez de conseils pour alléger votre charge fiscale immobilière."
+    },
+    {
+     "ico": "shield",
+     "t": "Confidentialité",
+     "d": "Notre équipe traite votre dossier en toute confidentialité."
+    }
+   ],
+   "sections": [
+    {
+     "t": "Les impôts fonciers",
+     "p": [
+      "Les impôts fonciers sont un impôt local prélevé sur la propriété immobilière en Suisse. Les taux varient selon les cantons et les communes, et sont basés sur la valeur locative du bien, calculée par les autorités fiscales d'après sa taille et sa situation géographique.",
+      "En général, les impôts fonciers sont déductibles des impôts sur le revenu, ce qui peut réduire le fardeau fiscal. Les propriétaires doivent toutefois rester attentifs aux réglementations locales et aux échéances de paiement pour éviter les sanctions."
+     ]
+    },
+    {
+     "t": "Les impôts sur les gains en capital",
+     "p": [
+      "Les gains réalisés sur la vente de biens immobiliers en Suisse y sont soumis. Les taux varient selon la durée de possession et la résidence fiscale du vendeur : les non-résidents sont soumis à une retenue à la source sur le montant de la vente.",
+      "Les gains sur les biens détenus depuis plus de cinq ans sont exempts d'impôt en Suisse. Les coûts liés à la vente (frais de courtage, d'avocat, de notaire) peuvent par ailleurs être déduits de la base d'imposition."
+     ]
+    },
+    {
+     "t": "Les revenus locatifs",
+     "p": [
+      "Les propriétaires de biens locatifs sont soumis à l'impôt sur les revenus locatifs. Les taux varient selon les cantons et les communes et sont basés sur le revenu locatif brut.",
+      "Les frais de gestion, de maintenance et d'assurance se déduisent du revenu brut pour déterminer le revenu locatif net. En général, les propriétaires ne sont pas soumis à la TVA sur les revenus locatifs, mais peuvent la récupérer sur les coûts de maintenance et d'investissement."
+     ]
+    }
+   ],
+   "list": {
+    "t": "Nos conseils pour minimiser l'impact fiscal",
+    "items": [
+     "Évitez de revendre trop souvent",
+     "Calculez la valeur locative",
+     "Contactez un fiscaliste"
+    ]
+   }
+  }
+ },
+ "categories": [
+  {
+   "key": "crea",
+   "slug": "/creation-dentreprise/",
+   "nav": "Création d'entreprise",
+   "title": "Création d'entreprise",
+   "pitch": "Donnons vie à votre projet.",
+   "lede": "En Suisse, les trois formes juridiques les plus utilisées sont la raison individuelle, la Sàrl et la société anonyme. Nos conseillers vous aident à choisir celle qui est la mieux adaptée à votre projet, puis effectuent toutes les démarches administratives.",
+   "img": "crea",
+   "promise": "Ce que comprend un accompagnement",
+   "bullets": [
+    "S'entretenir avec un spécialiste pour définir la structure adéquate",
+    "Démarches administratives et auprès des banques",
+    "Ouverture du compte de consignation, sur demande",
+    "Signature des statuts par notre notaire partenaire",
+    "Inscription au registre du commerce du canton correspondant"
+   ],
+   "facts": [
+    {
+     "v": "Inclus",
+     "k": "Frais de notaire, aux tarifs que nous avons négociés"
+    },
+    {
+     "v": "Zéro",
+     "k": "Frais avant la création : nous ne facturons qu'à la réussite"
+    },
+    {
+     "v": "Aucun",
+     "k": "Frais caché : nous respectons les devis envoyés"
+    }
+   ],
+   "aside": {
+    "t": "Pas de prestataire externe",
+    "d": "Vous n'aurez pas à contacter de notaire ni de prestataire externe. Nous offrons un service complet qui va du conseil juridique à l'inscription de votre société au registre du commerce."
+   }
+  },
+  {
+   "key": "entreprises",
+   "slug": "/entreprises/",
+   "nav": "Entreprises",
+   "title": "Services pour entreprises",
+   "pitch": "Un seul cabinet pour la compta, les salaires, la TVA et la révision.",
+   "lede": "Nos services pour entreprises vous libèrent de vos obligations fiscales et administratives. Nous vous aidons également à obtenir une adresse fiscale si vous souhaitez démarrer vos activités à Genève et en Suisse.",
+   "img": "entr",
+   "promise": "Ce que nous tenons pour vous",
+   "bullets": [
+    "Suivi comptable sur mesure, complet ou partiel",
+    "Décomptes TVA et déclarations fiscales",
+    "Salaires, assurances sociales et administration RH",
+    "Contrôle restreint ou contrôle ordinaire de vos comptes",
+    "Adresse fiscale dans le canton de Genève"
+   ],
+   "facts": [
+    {
+     "v": "1999",
+     "k": "La comptabilité est notre cœur de métier depuis"
+    },
+    {
+     "v": "Platine",
+     "k": "Partenaire du logiciel bexio"
+    },
+    {
+     "v": "21",
+     "k": "Secteurs d'activité, de la restauration à la gestion de fortune"
+    }
+   ],
+   "aside": {
+    "t": "Des prestations personnalisables",
+    "d": "Nous sommes une fiduciaire 360 : si vous avez des demandes particulières, nos prestations sont entièrement personnalisables. Pourquoi ne pas en discuter avec l'un de nos conseillers ?"
+   }
+  },
+  {
+   "key": "particuliers",
+   "slug": "/particuliers/",
+   "nav": "Particuliers",
+   "title": "Services pour particuliers",
+   "pitch": "Vos impôts et votre patrimoine, expliqués en français clair.",
+   "lede": "Notre équipe vous aide à déclarer vos impôts et à améliorer votre situation fiscale. Nos services s'adressent aux personnes qui résident en Suisse comme à celles qui habitent en France et à l'étranger.",
+   "img": "part",
+   "promise": "Ce que nous prenons en charge",
+   "bullets": [
+    "Déclaration de revenus auprès de l'Administration fiscale cantonale",
+    "Rectification de l'impôt à la source pour frontaliers et permis B",
+    "Conseil fiscal et solutions d’optimisation",
+    "Déclaration de succession et obligations liées à un décès",
+    "Prévoyance, 3e pilier et fiscalité immobilière"
+   ],
+   "facts": [
+    {
+     "v": "Fin mars",
+     "k": "Échéance ordinaire de la déclaration, prolongation possible"
+    },
+    {
+     "v": "6 883.–",
+     "k": "Déduction annuelle maximale du pilier 3a"
+    },
+    {
+     "v": "4 yeux",
+     "k": "Chaque déclaration est vérifiée par deux comptables-fiscalistes"
+    }
+   ],
+   "aside": {
+    "t": "Une approche globale",
+    "d": "Au-delà de la déclaration, nous proposons du conseil fiscal, de la gestion de successions et de la gestion administrative. Dit simplement : nous vous libérons de vos obligations administratives et fiscales."
+   }
+  }
+ ],
+ "menu": [
+  {
+   "label": "Entreprises",
+   "to": "/entreprises/",
+   "img": "entr",
+   "items": [
+    {
+     "to": "/cfo-externalise/",
+     "label": "CFO externalisé"
+    },
+    {
+     "to": "/comptabilite-geneve-experts-fiduciaire/",
+     "label": "Comptabilité"
+    },
+    {
+     "to": "/payroll-et-administration-rh/",
+     "label": "Payroll et administration RH"
+    },
+    {
+     "to": "/tva-suisse/",
+     "label": "TVA"
+    },
+    {
+     "to": "/audit-des-comptes/",
+     "label": "Audit des comptes"
+    },
+    {
+     "to": "/controle-restreint/",
+     "label": "Contrôle restreint"
+    },
+    {
+     "to": "/mandat-de-gerant-et-administrateur-en-suisse/",
+     "label": "Mandat de gérant"
+    },
+    {
+     "to": "/domiciliation-a-geneve/",
+     "label": "Domiciliation"
+    },
+    {
+     "to": "/gestion-de-ppe/",
+     "label": "Gestion de PPE"
+    }
+   ],
+   "blurb": "Nos services pour entreprises vous libèrent de vos obligations fiscales et administratives."
+  },
+  {
+   "label": "Création d'entreprise",
+   "to": "/creation-dentreprise/",
+   "img": "crea",
+   "items": [
+    {
+     "to": "/creer-une-sarl-en-suisse-facile/",
+     "label": "Création de Sàrl"
+    },
+    {
+     "to": "/creation-de-societe-anonyme/",
+     "label": "Création de SA"
+    },
+    {
+     "to": "/creation-de-raison-individuelle/",
+     "label": "Création de RI"
+    }
+   ],
+   "blurb": "Dilytics effectue toutes les démarches administratives pour concrétiser votre projet d'entreprise."
+  },
+  {
+   "label": "Particuliers",
+   "to": "/particuliers/",
+   "img": "part",
+   "items": [
+    {
+     "to": "/conseil-fiscal/",
+     "label": "Conseil fiscal"
+    },
+    {
+     "to": "/fiscalite-immobiliere/",
+     "label": "Fiscalité immobilière"
+    },
+    {
+     "to": "/declaration-de-succession/",
+     "label": "Déclaration de succession"
+    },
+    {
+     "to": "/prevoyance-3eme-pilier-geneve/",
+     "label": "Prévoyance 3e pilier"
+    },
+    {
+     "to": "/gestion-administrative/",
+     "label": "Gestion administrative"
+    },
+    {
+     "to": "/particuliers-impot-a-la-source/",
+     "label": "Impôt à la source"
+    },
+    {
+     "to": "/declaration-dimpots/",
+     "label": "Déclaration d'impôts"
+    }
+   ],
+   "blurb": "Notre équipe vous aide à déclarer vos impôts et à améliorer votre situation fiscale."
+  },
+  {
+   "label": "Carrière",
+   "to": "/offres-demploi/",
+   "img": "duo",
+   "blurb": "Une équipe passionnée, innovante et résolument tournée vers l’avenir.",
+   "items": [
+    {
+     "to": "/offres-demploi/",
+     "label": "Offres d'emploi"
+    },
+    {
+     "to": "/offres-demploi/",
+     "label": "Candidature spontanée"
+    }
+   ]
+  },
+  {
+   "label": "À propos",
+   "to": "/a-propos/",
+   "img": "apropos",
+   "blurb": "Bien plus qu’une fiduciaire : un partenaire qui comprend vos défis.",
+   "items": [
+    {
+     "to": "/a-propos/",
+     "label": "À propos de Dilytics"
+    },
+    {
+     "to": "/articles/",
+     "label": "Articles"
+    }
+   ]
+  }
+ ],
+ "photos": {
+  "NOTES": true,
+  "PHOTOS": {
+   "meet": {
+    "prio": 1,
+    "brief": "L'équipe au complet dans les locaux, en discussion. Format très large, personnes dans la moitié droite : le titre se pose à gauche.",
+    "where": [
+     "Accueil, image de fond du haut de page",
+     "Pages Entreprises, Création d'entreprise et Particuliers, bloc rendez-vous",
+     "Page CFO externalisé, haut de page"
+    ]
+   },
+   "cta": {
+    "prio": 1,
+    "brief": "Un membre de l'équipe à son poste, dans les bureaux.",
+    "where": [
+     "Bloc de contact en bas de chaque page"
+    ]
+   },
+   "duo": {
+    "prio": 1,
+    "brief": "Deux ou trois collaborateurs qui travaillent ensemble sur un dossier, ambiance naturelle.",
+    "where": [
+     "Carrière, haut de page",
+     "Menu Carrière"
+    ]
+   },
+   "entr": {
+    "prio": 1,
+    "brief": "Un associé en rendez-vous avec un dirigeant de PME, au cabinet.",
+    "where": [
+     "Page Entreprises, haut de page",
+     "Menu Entreprises",
+     "Prestations entreprises, image au fil du texte",
+     "Cartes « Vous cherchiez autre chose ? »"
+    ]
+   },
+   "payroll": {
+    "prio": 2,
+    "brief": "Un collaborateur qui prépare les salaires à son poste, écran visible.",
+    "where": [
+     "Page Payroll et administration RH"
+    ]
+   },
+   "tva": {
+    "prio": 2,
+    "brief": "Un fiscaliste de l'équipe au travail sur un décompte, au bureau.",
+    "where": [
+     "Page TVA"
+    ]
+   },
+   "mandat": {
+    "prio": 2,
+    "brief": "Un associé en rendez-vous avec un client, en salle de réunion.",
+    "where": [
+     "Page Mandat de gérant et d'administrateur"
+    ]
+   },
+   "ppe": {
+    "prio": 2,
+    "brief": "Deux collaborateurs à leur poste, dans les bureaux.",
+    "where": [
+     "Page Gestion de PPE"
+    ]
+   },
+   "conseilfisc": {
+    "prio": 2,
+    "brief": "Un conseiller fiscal en entretien avec un client, au cabinet.",
+    "where": [
+     "Page Conseil fiscal"
+    ]
+   }
+  },
+  "EXPECTED": [
+   {
+    "id": "locaux-equipe",
+    "brief": "L'équipe au complet, photo de groupe dans les locaux.",
+    "where": [
+     "À propos, « Nos locaux »"
+    ]
+   },
+   {
+    "id": "locaux-reunion",
+    "brief": "Un rendez-vous client en salle de réunion.",
+    "where": [
+     "À propos, « Nos locaux »"
+    ]
+   },
+   {
+    "id": "locaux-bureaux",
+    "brief": "Les bureaux, avec les collaborateurs au travail.",
+    "where": [
+     "À propos, « Nos locaux »"
+    ]
+   }
+  ]
+ },
+ "components": {
+  "homeOpen": {
+   "strip": [
+    {
+     "v": "27 ans",
+     "l": "D'expérience en finance et comptabilité"
+    },
+    {
+     "v": "+80",
+     "l": "Sociétés créées avec Dilytics"
+    },
+    {
+     "v": "15 min",
+     "l": "Entretien de découverte, gratuit"
+    }
+   ]
+  },
+  "homeDemand": {
+   "rows": [
+    {
+     "t": "CFO externalisé",
+     "d": "Une direction financière pour éclairer vos décisions.",
+     "to": "/cfo-externalise/"
+    },
+    {
+     "t": "Comptabilité",
+     "d": "Notre équipe de spécialistes est disponible pour effectuer un suivi, complet ou partiel, de votre comptabilité.",
+     "to": "/comptabilite-geneve-experts-fiduciaire/"
+    },
+    {
+     "t": "Payroll et administration RH",
+     "d": "Déléguez-nous la gestion de vos salaires et optimisez votre temps dans la gestion de votre équipe.",
+     "to": "/payroll-et-administration-rh/"
+    },
+    {
+     "t": "TVA",
+     "d": "Notre équipe d'experts s'occupe de vos décomptes TVA et de vos déclarations fiscales.",
+     "to": "/tva-suisse/"
+    },
+    {
+     "t": "Audit des comptes",
+     "d": "Respectez vos obligations fiscales grâce à un contrôle de vos comptes.",
+     "to": "/audit-des-comptes/"
+    },
+    {
+     "t": "Mandat de gérant et d'administrateur",
+     "d": "Dirigez votre société en Suisse depuis l'étranger.",
+     "to": "/mandat-de-gerant-et-administrateur-en-suisse/"
+    },
+    {
+     "t": "Création d'entreprise",
+     "d": "Nous remplissons toutes les formalités pour ouvrir votre société à Genève.",
+     "to": "/creation-dentreprise/"
+    }
+   ]
+  },
+  "homeBenefits": {
+   "items": [
+    {
+     "ico": "clock",
+     "t": "Gain de temps",
+     "d": "Nous vous libérons de vos obligations fiscales, juridiques et administratives. Concentrez-vous sur les activités qui font croître votre société."
+    },
+    {
+     "ico": "shield",
+     "t": "Sécurisation",
+     "d": "Une tenue comptable précise vous aide à respecter les exigences fiscales et légales, et à éviter pénalités et sanctions."
+    },
+    {
+     "ico": "chart",
+     "t": "Optimisation",
+     "d": "Nos comptables-fiscalistes étudient votre situation et vous proposent des actions d'optimisation fiscale. La comptabilité analytique montre où réduire les coûts."
+    },
+    {
+     "ico": "talk",
+     "t": "Accompagnement décisionnel",
+     "d": "Des outils de comptabilité analytique et de contrôle des coûts pour prendre des décisions éclairées : budget, planification, tarification."
+    }
+   ]
+  },
+  "homeSplit": {
+   "points": [
+    {
+     "t": "Des interlocuteurs qui prennent le temps",
+     "d": "Nos conseillers prennent le temps de comprendre votre situation afin de vous proposer des solutions personnalisées."
+    },
+    {
+     "t": "Un esprit entrepreneurial",
+     "d": "Nous réunissons des experts passés par différents secteurs, capables de proposer des solutions innovantes à une clientèle exigeante."
+    },
+    {
+     "t": "L'automatisation au service du conseil",
+     "d": "Partenaire Platine de bexio, nous allions rigueur comptable et innovation, notamment grâce à l'automatisation et à l'intelligence artificielle."
+    },
+    {
+     "t": "Une fiduciaire 360",
+     "d": "Comptabilité, fiscalité, salaires, révision, création : si vous avez des demandes particulières, nos prestations sont entièrement personnalisables."
+    }
+   ]
+  },
+  "homeStart": {
+   "steps": [
+    {
+     "t": "Quinze minutes, gratuites",
+     "d": "Par téléphone ou en visioconférence. Vous nous dites où vous en êtes, nous vous disons si nous pouvons vous aider."
+    },
+    {
+     "t": "Un conseiller qui prend le temps",
+     "d": "Nos conseillers prennent le temps de comprendre votre situation avant de proposer quoi que ce soit."
+    },
+    {
+     "t": "Adaptée à votre domaine",
+     "d": "Chaque dossier est unique. Nos conseils s'adaptent à votre activité et à votre situation, pas l'inverse."
+    },
+    {
+     "t": "Nous anticipons vos défis",
+     "d": "Un accompagnement qui va au-delà de la simple assistance et qui anticipe vos défis à venir."
+    }
+   ]
+  },
+  "about": {
+   "marks": [
+    {
+     "v": "1999",
+     "t": "Année de fondation",
+     "d": "Au service des particuliers et des entreprises depuis lors."
+    },
+    {
+     "v": "21",
+     "t": "Secteurs d'activité",
+     "d": "Nos clients vont de la restauration à la gestion de fortune."
+    },
+    {
+     "v": "6",
+     "t": "Langues maîtrisées",
+     "d": "Allemand, anglais, arabe, espagnol, français et portugais."
+    }
+   ],
+   "eras": [
+    {
+     "y": "1999",
+     "t": "La fondation",
+     "p": [
+      "Denis Perret fonde la société fiduciaire à Genève, après avoir exercé pendant quinze ans en tant qu'indépendant à Neuchâtel. Dilytics est le fruit de sa longue expérience dans les chiffres.",
+      "Au fil du temps, l'entreprise se bâtit une réputation de partenaire fiable auprès des particuliers, des indépendants et des entreprises de la région. En 2002, le cabinet s'installe à Chêne-Bougeries, sur la rive gauche du canton."
+     ]
+    },
+    {
+     "y": "2022",
+     "t": "La reprise",
+     "p": [
+      "Laureano Rodrigues, économiste d'entreprise HES et spécialiste en fiscalité, reprend Dilytics avec l'intention de moderniser la fiduciaire tout en maintenant l'esprit d'excellence des premières années.",
+      "La société s'installe au Petit-Lancy pour être plus proche de ses clients. Le passage au numérique lui permet de mieux les accompagner et de leur proposer des outils de comptabilité analytique et de contrôle des coûts."
+     ]
+    }
+   ],
+   "values": [
+    {
+     "t": "Anticipation",
+     "d": "Nos conseillers anticipent toujours vos défis à venir."
+    },
+    {
+     "t": "Individualisation",
+     "d": "Chaque dossier est unique. Nous nous adaptons à votre situation."
+    },
+    {
+     "t": "Excellence",
+     "d": "Notre équipe est minutieuse et fera tout pour exceller dans son travail."
+    },
+    {
+     "t": "Simplification",
+     "d": "Nous mettons en place des outils qui simplifient votre quotidien."
+    }
+   ]
+  },
+  "jobs": {
+   "offers": [
+    {
+     "t": "Comptable confirmé·e",
+     "p": "80 à 100 %",
+     "l": "Petit-Lancy, Genève",
+     "d": "Portefeuille de mandats PME, de la saisie au bouclement. Vous êtes autonome sur un cycle complet et vous aimez le contact client."
+    },
+    {
+     "t": "Fiscaliste",
+     "p": "60 à 100 %",
+     "l": "Petit-Lancy, Genève",
+     "d": "Déclarations de personnes physiques et morales, réclamations, conseil ponctuel. Une bonne connaissance du droit genevois est attendue."
+    },
+    {
+     "t": "Apprenti·e employé·e de commerce",
+     "p": "100 %",
+     "l": "Petit-Lancy, Genève",
+     "d": "Formation complète en fiduciaire, encadrée par l'équipe. Rentrée en août."
+    }
+   ],
+   "perks": [
+    {
+     "t": "Formation continue",
+     "d": "Nous prenons en charge vos formations pour vous permettre d’évoluer et de grandir avec nous."
+    },
+    {
+     "t": "Horaires flexibles",
+     "d": "Adaptés à vos besoins, pour un meilleur équilibre entre vie professionnelle et personnelle."
+    },
+    {
+     "t": "Autonomie et responsabilité",
+     "d": "Prenez en main vos projets et contribuez activement au succès de l’entreprise."
+    },
+    {
+     "t": "Équipe pluridisciplinaire",
+     "d": "Collaborez avec des experts de divers domaines pour enrichir vos compétences."
+    },
+    {
+     "t": "Environnement digitalisé",
+     "d": "Travaillez avec une diversité de logiciels comptables pour vous familiariser avec les outils de demain."
+    },
+    {
+     "t": "Confort au travail",
+     "d": "Profitez de boissons gratuites au bureau et d’un cadre agréable."
+    },
+    {
+     "t": "Événements d’entreprise",
+     "d": "Participez à des moments de convivialité et de partage avec toute l’équipe."
+    }
+   ]
+  },
+  "contact": {
+   "subjects": [
+    "Comptabilité",
+    "Fiscalité des entreprises",
+    "Salaires et RH",
+    "Création d'entreprise",
+    "Impôts des particuliers",
+    "Autre sujet"
+   ]
+  }
+ }
+}
