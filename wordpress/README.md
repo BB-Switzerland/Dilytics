@@ -129,6 +129,23 @@ Montants : le prix publié, TVA de 8,1 % comprise quand il est donné hors TVA
 (RI 990.–, Sàrl 2'810.60, SA 3'243.–). Un changement de prix se fait dans
 Stripe (nouveau prix, nouveau lien) puis dans `offers.js`.
 
+Après un paiement, Stripe appelle le webhook du site
+(`/wp-json/dilytics/v1/stripe`, `includes/stripe.php`), qui envoie la
+confirmation au client (`templates/mail-paid.php`) et l'avis à Dilytics
+(`templates/mail-notify.php`). Réglages dans `wp-config.php` du serveur, jamais
+dans le dépôt :
+
+```php
+define( 'DL_STRIPE_WEBHOOK_SECRET', 'whsec_…' );   // secret de signature du webhook Stripe
+define( 'DL_SMTP_HOST', 'smtp.office365.com' );    // dilytics.ch n'autorise que Microsoft 365 (SPF -all)
+define( 'DL_SMTP_USER', 'contact@dilytics.ch' );
+define( 'DL_SMTP_PASS', '…' );
+define( 'DL_PAY_NOTIFY', 'contact@dilytics.ch' );  // facultatif : destinataire de l'avis
+```
+
+Sans SMTP, aucun e-mail ne part (le paiement est noté dans le journal PHP).
+Au passage sur dilytics.ch, changer l'URL du webhook dans Stripe.
+
 ## Différences voulues avec Nuxt
 
 - Les formulaires ouvrent la messagerie du visiteur, comme sur Nuxt ; le HTML a
