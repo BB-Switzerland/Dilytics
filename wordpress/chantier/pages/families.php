@@ -10,7 +10,6 @@ $fam_c = dlb_content();
 
 foreach ( $fam_c['categories'] as $fam ) {
 	$fam_id = dlb_page( trim( $fam['slug'], '/' ) );
-	dlb_meta( $fam_id, $fam['title'] . ' · Dilytics, fiduciaire à Genève', mb_substr( $fam['lede'], 0, 155 ) );
 	dlb_start( $fam_id );
 	dlb_scope( 'v-category-page' );
 

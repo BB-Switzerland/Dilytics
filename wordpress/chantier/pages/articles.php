@@ -10,7 +10,6 @@ $c    = dlb_content();
 $arts = $c['site']['ARTICLES'];
 $lead = $arts[0];
 $id   = dlb_page( 'articles' );
-dlb_meta( $id, 'Articles · Dilytics, fiduciaire à Genève' );
 dlb_start( $id );
 dlb_scope( 'v-articles' );
 

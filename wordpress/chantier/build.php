@@ -5,8 +5,9 @@
  *   wp eval-file ~/chantier/dilytics/build.php setup contact … --user=1
  *   wp eval-file ~/chantier/dilytics/build.php all --user=1
  *
- * "setup" prepares the site, each other name rebuilds one page script from
- * pages/, "all" runs setup then every page.
+ * "setup" prepares the site, "metas" sets every page's title, description
+ * and share image (metas.php), each other name rebuilds one page script from
+ * pages/, "all" runs setup, every page, then metas.
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -19,11 +20,11 @@ require_once __DIR__ . '/build-helpers.php';
 
 $steps = isset( $args ) && $args ? $args : array( 'all' );
 if ( in_array( 'all', $steps, true ) ) {
-	$steps = array_merge( array( 'setup' ), array_map( fn( $f ) => basename( $f, '.php' ), glob( __DIR__ . '/pages/*.php' ) ) );
+	$steps = array_merge( array( 'setup' ), array_map( fn( $f ) => basename( $f, '.php' ), glob( __DIR__ . '/pages/*.php' ) ), array( 'metas' ) );
 }
 
 foreach ( $steps as $step ) {
-	$file = 'setup' === $step ? __DIR__ . '/setup.php' : __DIR__ . '/pages/' . $step . '.php';
+	$file = in_array( $step, array( 'setup', 'metas' ), true ) ? __DIR__ . '/' . $step . '.php' : __DIR__ . '/pages/' . $step . '.php';
 	if ( ! file_exists( $file ) ) {
 		WP_CLI::error( "No build step named {$step}" );
 	}

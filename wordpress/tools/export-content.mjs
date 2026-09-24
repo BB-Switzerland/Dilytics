@@ -84,3 +84,8 @@ const data = {
 mkdirSync(dirname(out), { recursive: true })
 writeFileSync(out, JSON.stringify(data, null, 1))
 console.log(`content.json: ${data.services.length} services, ${Object.keys(data.bodies).length} bodies, ${data.menu.length} menu families`)
+
+// /llms.txt, the same file as on Nuxt; the plugin puts the site's URL in {site}.
+const { llmsTxt } = await load('llms.js')
+writeFileSync(resolve(root, 'wordpress/dilytics-modules/assets/llms.txt'), llmsTxt('{site}'))
+console.log('llms.txt: written')

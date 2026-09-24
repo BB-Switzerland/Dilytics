@@ -45,7 +45,6 @@ defined( 'ABSPATH' ) || exit;
 		$secs    = $b['sections'] ?? array();
 
 		$id = dlb_page( trim( $slug, '/' ), $heading );
-		dlb_meta( $id, $heading . ' · Dilytics, fiduciaire à Genève', mb_substr( $tagline, 0, 155 ) );
 		dlb_start( $id );
 		dlb_scope( 'v-slug' );
 

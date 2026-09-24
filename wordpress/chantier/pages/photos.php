@@ -7,7 +7,6 @@
 defined( 'ABSPATH' ) || exit;
 
 $id = dlb_page( 'photos-a-fournir' );
-dlb_meta( $id, 'Photos à fournir · Dilytics', '', true );
 dlb_start( $id );
 
 dlb_add(

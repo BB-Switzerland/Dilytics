@@ -23,6 +23,7 @@ site `~/sites/dilytics.businessbooster.agency`, WP-CLI `php ~/bin/wp`.
 wordpress/deploy.sh                        # envoi seul
 wordpress/deploy.sh setup                  # réglages, images, pages, menu, en-tête, pied de page
 wordpress/deploy.sh contact home           # reconstruit ces pages (chantier/pages/<nom>.php)
+wordpress/deploy.sh metas                  # titres, descriptions et images de partage, sans toucher aux pages
 wordpress/deploy.sh all                    # tout
 node wordpress/tools/compare.mjs /contact/ # 0 ligne différente attendue
 node wordpress/tools/compare.mjs --all
@@ -66,9 +67,32 @@ copies minifiées des feuilles du plugin.
 
 ## Scripts de page
 
-`chantier/pages/<page>.php` : `dlb_page()`, `dlb_meta()` (titre du `useHead`),
-`dlb_start()`, un `dlb_add( 'dl-…', $settings )` par section dans l'ordre de la
-page, `dlb_finish()`. Sections partagées : `dlb_cta( $overrides )`, `dlb_ask()`.
+`chantier/pages/<page>.php` : `dlb_page()`, `dlb_start()`, un
+`dlb_add( 'dl-…', $settings )` par section dans l'ordre de la page,
+`dlb_finish()`. Sections partagées : `dlb_cta( $overrides )`, `dlb_ask()`.
+
+## Métas
+
+`chantier/metas.php` (`deploy.sh metas`) est le seul endroit où se règlent le
+titre, la description et l'image de partage de chaque page. Il ne touche pas
+aux mises en page : une page retouchée dans Beaver Builder garde ses
+retouches.
+
+- Titre : 60 caractères au plus (`dlb_title()`), sinon suffixe court.
+- Description : des phrases entières du texte de la page, 160 caractères au
+  plus (`dlb_desc()`) ; les exceptions sont listées dans `$descs`.
+- Image de partage : la photo d'ouverture de la page.
+- Le plugin imprime `description`, Open Graph et `twitter:card`. La page
+  « Photos à fournir » reste en `noindex`, sans balise de partage.
+- JSON-LD (`includes/schema.php`) : le cabinet (`AccountingService`, avec
+  adresse, téléphone, horaires, équipe et catalogue des prestations), le
+  site, la page et son fil d'Ariane ; sur une page de prestation, le
+  `Service` et ses questions (`FAQPage`), lues dans le module FAQ de la page.
+  `metas.php` enregistre la partie fixe (option `dl_org`, méta `_dl_ld`), le
+  plugin résout les URL à l'affichage. Jamais d'adresse e-mail, donc pas non
+  plus le lien Bookings ; pas de note Google (interdit par Google quand les
+  avis sont recueillis ailleurs) ; pas de `JobPosting` tant que les offres
+  sont des exemples.
 
 ## Ce que WordPress ajoute, et comment c'est neutralisé
 
@@ -86,6 +110,14 @@ page, `dlb_finish()`. Sections partagées : `dlb_cta( $overrides )`, `dlb_ask()`
 - **Portée CSS** : une règle ne descend pas dans les composants enfants ni sur
   les racines des composants à plusieurs racines, comme dans Vue
   (voir `tools/compile-css.mjs`).
+
+## llms.txt
+
+`/llms.txt` (format llmstxt.org) est construit par `app/content/llms.js` à
+partir des contenus du site. Nuxt le sert par `server/routes/llms.txt.get.js` ;
+`export-content.mjs` l'écrit dans `dilytics-modules/assets/llms.txt`, que le
+plugin sert avec l'URL du site dans les liens. Le plugin répond dès son
+chargement, avant Squirrly SEO, dont le `/llms.txt` est au format robots.txt.
 
 ## Différences voulues avec Nuxt
 

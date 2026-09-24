@@ -81,11 +81,45 @@ function dlb_photo( $key, $name ) {
 	);
 }
 
-/** Title, description and indexing of a page, read by the plugin's <head>. */
-function dlb_meta( $post_id, $title, $desc = '', $noindex = false ) {
+/**
+ * Title, description, share image (a Nuxt picture name) and indexing of a
+ * page, read by the plugin's <head>. Set by metas.php only.
+ */
+function dlb_meta( $post_id, $title, $desc = '', $noindex = false, $img = '' ) {
 	update_post_meta( $post_id, '_dl_title', $title );
 	$desc ? update_post_meta( $post_id, '_dl_description', $desc ) : delete_post_meta( $post_id, '_dl_description' );
 	$noindex ? update_post_meta( $post_id, '_dl_noindex', 1 ) : delete_post_meta( $post_id, '_dl_noindex' );
+	$img ? update_post_meta( $post_id, '_dl_image', dlb_media( $img )['id'] ) : delete_post_meta( $post_id, '_dl_image' );
+}
+
+/**
+ * A page title of 60 characters at most, what Google shows before cutting:
+ * the long form of the site's titles, or a shorter suffix for a long heading.
+ */
+function dlb_title( $heading ) {
+	$full = $heading . ' · Dilytics, fiduciaire à Genève';
+	return mb_strlen( $full ) <= 60 ? $full : $heading . ' · Dilytics Genève';
+}
+
+/**
+ * A meta description: whole sentences of the page's own text, 160
+ * characters at most, never cut in the middle of a sentence. A first
+ * sentence longer than that is kept whole and reported.
+ */
+function dlb_desc( $text, $max = 160 ) {
+	$text = trim( preg_replace( '/\s+/u', ' ', wp_strip_all_tags( $text ) ) );
+	$out  = '';
+	foreach ( preg_split( '/(?<=[.!?])\s+/u', $text ) as $sentence ) {
+		$next = '' === $out ? $sentence : $out . ' ' . $sentence;
+		if ( '' !== $out && mb_strlen( $next ) > $max ) {
+			break;
+		}
+		$out = $next;
+	}
+	if ( mb_strlen( $out ) > $max ) {
+		dlb_log( '  ! description of ' . mb_strlen( $out ) . ' characters: ' . $out );
+	}
+	return $out;
 }
 
 /**

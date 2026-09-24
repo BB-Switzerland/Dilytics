@@ -10,7 +10,6 @@ defined( 'ABSPATH' ) || exit;
 $c    = dlb_content();
 $jobs = $c['components']['jobs'];
 $id   = dlb_page( 'offres-demploi' );
-dlb_meta( $id, "Offres d'emploi · Dilytics, fiduciaire à Genève" );
 dlb_start( $id );
 dlb_scope( 'v-offres-demploi' );
 

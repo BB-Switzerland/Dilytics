@@ -1,0 +1,70 @@
+# Dilytics
+
+> Fiduciaire genevoise depuis 1999. Comptabilité, fiscalité, salaires et création d'entreprise, pour les PME et les particuliers.
+
+Depuis 1999, notre fiduciaire à Genève vous libère de vos obligations fiscales, juridiques et administratives, à travers un accompagnement personnalisé ou une aide ponctuelle. Notre équipe intervient dans toute la Suisse romande et à l'étranger.
+
+- Adresse : Chemin Louis-Hubert 2, 6e étage, 1213 Petit-Lancy, Genève (Lancy Small City, aile 1)
+- Téléphone : +41 22 525 40 80
+- E-mail : contact@dilytics.ch
+- Horaires : Lundi au vendredi, 9h – 12h et 13h – 18h
+- Rendez-vous : un entretien de quinze minutes, gratuit, par téléphone ou en visioconférence, à réserver sur https://outlook.office365.com/owa/calendar/ExpertDilytics@dilytics.ch/bookings/
+- 4,6 / 5 de note moyenne, sur 66 avis Google
+- 21 secteurs d'activité, de la restauration à la gestion de fortune
+- 6 langues parlées au cabinet
+- Partenaire du logiciel bexio : Platine
+- Label Swiss Made
+- Label de l'État de Genève en faveur de l'emploi : 1+ pour tous
+
+Équipe :
+
+- Laureano Rodrigues, Membre de direction et partner, CEO
+- Nervan Omerovic, Membre de direction et partner, COO et digitalisation
+- Walid Berkaoui, Expert-comptable diplômé, responsable de mandats PME
+- Henrique Santos, Responsable de mandats PME
+
+## Entreprises
+
+- [Services pour entreprises]({site}/entreprises/): Nos services pour entreprises vous libèrent de vos obligations fiscales et administratives. Nous vous aidons également à obtenir une adresse fiscale si vous souhaitez démarrer vos activités à Genève et en Suisse.
+- [CFO externalisé]({site}/cfo-externalise/): Un CFO externalisé est un directeur financier qui exerce la direction financière d'une entreprise en temps partagé, sans en être salarié. Il pilote la trésorerie, les budgets, le reporting et l'analyse de rentabilité, et accompagne le dirigeant dans ses décisions.
+- [Comptabilité]({site}/comptabilite-geneve-experts-fiduciaire/): Notre équipe prend en charge la comptabilité de votre entreprise ou de votre activité d'indépendant. La comptabilité est notre cœur de métier depuis 1999.
+- [Payroll et administration RH]({site}/payroll-et-administration-rh/): Gérer des salaires peut vous faire perdre du temps et de l'argent. Nos spécialistes s'adaptent aux exigences de vos caisses, au droit du travail et aux conventions collectives de votre secteur.
+- [TVA]({site}/tva-suisse/): Notre équipe d'experts établit vos décomptes TVA et vous inscrit auprès des autorités de taxation. Une omission ou une erreur peut ouvrir la porte à des risques financiers.
+- [Audit des comptes]({site}/audit-des-comptes/): Dilytics propose un service d'audit des comptes adapté aux besoins des PME et des jeunes entreprises en phase de croissance.
+- [Contrôle restreint]({site}/controle-restreint/): Votre entreprise doit effectuer un contrôle restreint ? Il s'agit d'une mission d'examen limitée, effectuée par un réviseur agréé, qui donne une opinion sur vos comptes annuels.
+- [Mandat de gérant et d'administrateur]({site}/mandat-de-gerant-et-administrateur-en-suisse/): Une personne de notre direction peut être nommée gérant ou administrateur de votre société en Suisse, que vous habitiez ici ou ailleurs.
+- [Domiciliation à Genève]({site}/domiciliation-a-geneve/): Grâce à une adresse fiscale de confiance dans le canton de Genève, vous pourrez rapidement démarrer vos activités en Suisse. C'est l'alternative au paiement d'un loyer.
+- [Gestion de PPE]({site}/gestion-de-ppe/): Notre équipe réalise toutes les démarches administratives et fiscales nécessaires à la bonne gestion de votre propriété par étage.
+
+## Création d'entreprise
+
+- [Création d'entreprise]({site}/creation-dentreprise/): En Suisse, les trois formes juridiques les plus utilisées sont la raison individuelle, la Sàrl et la société anonyme. Nos conseillers vous aident à choisir celle qui est la mieux adaptée à votre projet, puis effectuent toutes les démarches administratives.
+- [Société à responsabilité limitée]({site}/creer-une-sarl-en-suisse-facile/): La société à responsabilité limitée vous permet de développer vos activités, d'embaucher du personnel et d'obtenir des financements. En Suisse, elle reste meilleur marché que la société anonyme.
+- [Société anonyme]({site}/creation-de-societe-anonyme/): La société anonyme vous permet d'obtenir des financements et de développer une entreprise avec des objectifs de croissance ambitieux.
+- [Raison individuelle]({site}/creation-de-raison-individuelle/): Une raison individuelle est une entreprise exploitée par une seule personne, qui obtient le statut d'indépendant à l'égard des entités publiques et privées. C'est la façon la plus simple et la moins coûteuse d'être son propre patron.
+
+## Particuliers
+
+- [Services pour particuliers]({site}/particuliers/): Notre équipe vous aide à déclarer vos impôts et à améliorer votre situation fiscale. Nos services s'adressent aux personnes qui résident en Suisse comme à celles qui habitent en France et à l'étranger.
+- [Conseil fiscal]({site}/conseil-fiscal/): Nos comptables-fiscalistes étudient votre situation et vous proposent des actions d'optimisation fiscale. Experts depuis 1999, notre cabinet est spécialisé dans l'imposition des personnes physiques et des entreprises.
+- [Fiscalité immobilière]({site}/fiscalite-immobiliere/): Les réglementations fiscales suisses pèsent sur les investissements immobiliers, les ventes de biens et les revenus locatifs. Notre équipe vous accompagne dans vos obligations fiscales.
+- [Déclaration de succession]({site}/declaration-de-succession/): La gestion d'une succession est une obligation qui doit s'effectuer dans un contexte délicat pour la famille. Notre équipe vous accompagne dans toutes les étapes administratives et fiscales.
+- [Prévoyance et 3e pilier]({site}/prevoyance-3eme-pilier-geneve/): Nos experts vous aident à choisir le meilleur plan d'épargne pour votre retraite et vos projets d'investissement, et à faire baisser votre pression fiscale.
+- [Gestion administrative]({site}/gestion-administrative/): Nos experts vous aident dans toutes vos tâches administratives, sur une base ponctuelle ou régulière : assurances, paiements de factures, gestion du courrier.
+- [Impôt à la source]({site}/particuliers-impot-a-la-source/): Vous êtes frontalier ou titulaire d'un permis B ? Le montant prélevé à la source ne tient pas compte de certaines déductions auxquelles vous avez droit. Nous effectuons la demande de rectification.
+- [Déclaration d'impôts]({site}/declaration-dimpots/): Notre équipe réalise votre déclaration de revenus auprès de l'Administration fiscale cantonale, quelle que soit votre situation professionnelle et personnelle.
+
+## Le cabinet
+
+- [À propos de Dilytics]({site}/a-propos/): Bien plus qu’une fiduciaire : un partenaire qui comprend vos défis.
+- [Contact]({site}/contact/): Écrivez-nous pour nous communiquer vos besoins ou vos questions. Notre équipe répond à tous les messages.
+- [Offres d'emploi]({site}/offres-demploi/): Une équipe passionnée, innovante et résolument tournée vers l’avenir.
+- [Articles]({site}/articles/): Dilytics propose une série d'articles en lien avec la création d'entreprise et la fiscalité en Suisse.
+
+## Optional
+
+- [LinkedIn](https://www.linkedin.com/company/dilytics-gen%C3%A8ve/)
+- [Instagram](https://www.instagram.com/dilytics.ch/)
+- [Facebook](https://www.facebook.com/people/Dilytics-Fiduciaire-%C3%A0-Gen%C3%A8ve/100086762722430/)
+- [Conditions générales de vente](https://dilytics.ch/conditions-generales-de-vente/)
+- [Protection des données](https://dilytics.ch/declaration-sur-la-protection-des-donnees/)

@@ -8,7 +8,6 @@ defined( 'ABSPATH' ) || exit;
 $c     = dlb_content();
 $about = $c['components']['about'];
 $id    = dlb_page( 'a-propos' );
-dlb_meta( $id, 'À propos · Dilytics, fiduciaire à Genève' );
 dlb_start( $id );
 dlb_scope( 'v-a-propos' );
 

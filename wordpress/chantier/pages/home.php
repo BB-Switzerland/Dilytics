@@ -9,7 +9,6 @@ $c  = dlb_content();
 $s  = $c['site'];
 $k  = $c['components'];
 $id = dlb_page( 'accueil' );
-dlb_meta( $id, 'Dilytics, votre fiduciaire à Genève depuis 1999' );
 dlb_start( $id );
 
 // HomeOpen: the years are counted at render time from the founding
