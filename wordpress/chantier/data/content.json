@@ -1034,7 +1034,8 @@
    "unit": "CHF",
    "terms": "Toutes taxes comprises",
    "detail": "N'hésitez pas à nous contacter si vous avez pour projet de créer votre raison individuelle. Dilytics s'adapte à votre situation professionnelle et personnelle.",
-   "cta": "Créer ma RI"
+   "cta": "Créer ma RI",
+   "pay": "https://buy.stripe.com/14AeVd0iBenq51f8qa1sQ00"
   },
   "/creer-une-sarl-en-suisse-facile/": {
    "lead": "Créer une Sàrl en Suisse, au meilleur prix, en ligne ou sur place",
@@ -1042,7 +1043,8 @@
    "unit": "CHF",
    "terms": "Frais de notaire et registre du commerce inclus, hors TVA",
    "detail": "N'hésitez pas à nous contacter si vous avez pour projet de créer votre Sàrl. Dilytics s'adapte à votre situation professionnelle et personnelle.",
-   "cta": "Créer ma Sàrl"
+   "cta": "Créer ma Sàrl",
+   "pay": "https://buy.stripe.com/5kQ9AT2qJ3IM9hv0XI1sQ01"
   },
   "/creation-de-societe-anonyme/": {
    "lead": "Création de SA, frais de notaire et de registre inclus",
@@ -1050,7 +1052,8 @@
    "unit": "CHF",
    "terms": "Frais de notaire et registre du commerce inclus, hors TVA",
    "detail": "N'hésitez pas à nous contacter si vous avez pour projet de créer votre société anonyme. Dilytics s'adapte à votre situation professionnelle et personnelle.",
-   "cta": "Créer ma société anonyme"
+   "cta": "Créer ma société anonyme",
+   "pay": "https://buy.stripe.com/fZubJ12qJ2EIgJXdKu1sQ02"
   },
   "/comptabilite-geneve-experts-fiduciaire/": {
    "lead": "Service de comptabilité à partir de",
@@ -2104,10 +2107,6 @@
     {
      "v": "Inclus",
      "k": "Frais de notaire, aux tarifs que nous avons négociés"
-    },
-    {
-     "v": "Zéro",
-     "k": "Frais avant la création : nous ne facturons qu'à la réussite"
     },
     {
      "v": "Aucun",

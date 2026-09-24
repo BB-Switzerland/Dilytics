@@ -29,6 +29,9 @@ $raw = (string) dl_s( $settings, 'amount' );
 
 				<div class="acts">
 					<a href="<?php echo esc_url( dl_url( '/contact/' ) ); ?>" class="cta cta-red" data-mag><span><?php echo dl_t( dl_s( $settings, 'cta' ) ); ?></span><?php echo $ar; ?></a>
+					<?php if ( dl_s( $settings, 'pay' ) ) : ?>
+						<a href="<?php echo esc_url( dl_s( $settings, 'pay' ) ); ?>" class="cta cta-ink" data-mag><span><?php echo dl_t( dl_s( $settings, 'pay_label', 'Payer en ligne' ) ); ?></span><?php echo $ar; ?></a>
+					<?php endif; ?>
 					<a href="<?php echo esc_attr( $c['phoneHref'] ?? '' ); ?>" class="ph"><?php echo esc_html( $c['phone'] ?? '' ); ?></a>
 				</div>
 			</div>

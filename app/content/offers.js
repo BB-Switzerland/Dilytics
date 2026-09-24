@@ -45,7 +45,9 @@ export const H1 = {
   '/prevoyance-3eme-pilier-geneve/': 'Prévoyance et 3e pilier',
 }
 
-// Published prices only.
+// Published prices only. `pay` is the Stripe payment link of the company
+// creation services (live, account Dilytics Sàrl): the published price, VAT
+// of 8.1 % included where the price is given before VAT.
 export const PRICE = {
   '/creation-de-raison-individuelle/': {
     lead: 'Création de RI à partir de',
@@ -55,6 +57,7 @@ export const PRICE = {
     detail:
       "N'hésitez pas à nous contacter si vous avez pour projet de créer votre raison individuelle. Dilytics s'adapte à votre situation professionnelle et personnelle.",
     cta: 'Créer ma RI',
+    pay: 'https://buy.stripe.com/14AeVd0iBenq51f8qa1sQ00',
   },
   '/creer-une-sarl-en-suisse-facile/': {
     lead: 'Créer une Sàrl en Suisse, au meilleur prix, en ligne ou sur place',
@@ -64,6 +67,7 @@ export const PRICE = {
     detail:
       "N'hésitez pas à nous contacter si vous avez pour projet de créer votre Sàrl. Dilytics s'adapte à votre situation professionnelle et personnelle.",
     cta: 'Créer ma Sàrl',
+    pay: 'https://buy.stripe.com/5kQ9AT2qJ3IM9hv0XI1sQ01',
   },
   '/creation-de-societe-anonyme/': {
     lead: 'Création de SA, frais de notaire et de registre inclus',
@@ -73,6 +77,7 @@ export const PRICE = {
     detail:
       "N'hésitez pas à nous contacter si vous avez pour projet de créer votre société anonyme. Dilytics s'adapte à votre situation professionnelle et personnelle.",
     cta: 'Créer ma société anonyme',
+    pay: 'https://buy.stripe.com/fZubJ12qJ2EIgJXdKu1sQ02',
   },
   '/comptabilite-geneve-experts-fiduciaire/': {
     lead: 'Service de comptabilité à partir de',

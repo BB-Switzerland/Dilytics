@@ -3,10 +3,12 @@
 // from the same content as the pages, word for word, so it never drifts from
 // the site. `site` is the origin the links are written against: the request's
 // origin on Nuxt, '{site}' for WordPress, which puts its home URL there.
-import { byGroup } from './services'
-import { CAT_BY_KEY } from './categories'
-import { MENU } from './nav'
-import { CONTACT, SOCIAL, LEGAL, STATS, DISTINCTIONS, TEAM } from './site'
+// Full file names: the server route loads these modules with Node's own
+// resolver, which does not guess extensions.
+import { byGroup } from './services.js'
+import { CAT_BY_KEY } from './categories.js'
+import { MENU } from './nav.js'
+import { CONTACT, SOCIAL, LEGAL, STATS, DISTINCTIONS, TEAM } from './site.js'
 
 const blurb = (to) => MENU.find((m) => m.to === to)?.blurb
 

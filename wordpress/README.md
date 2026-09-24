@@ -119,6 +119,16 @@ partir des contenus du site. Nuxt le sert par `server/routes/llms.txt.get.js` ;
 plugin sert avec l'URL du site dans les liens. Le plugin répond dès son
 chargement, avant Squirrly SEO, dont le `/llms.txt` est au format robots.txt.
 
+## Paiement en ligne (Stripe)
+
+Les trois créations d'entreprise (RI, Sàrl, SA) se paient en ligne par un lien
+de paiement Stripe, compte live « Dilytics Sàrl ». Le lien est le champ `pay`
+de `PRICE` dans `app/content/offers.js` ; le bloc prix (Nuxt `PriceBlock.vue`,
+module `dl-price`) affiche alors « Payer en ligne » à côté du bouton Contact.
+Montants : le prix publié, TVA de 8,1 % comprise quand il est donné hors TVA
+(RI 990.–, Sàrl 2'810.60, SA 3'243.–). Un changement de prix se fait dans
+Stripe (nouveau prix, nouveau lien) puis dans `offers.js`.
+
 ## Différences voulues avec Nuxt
 
 - Les formulaires ouvrent la messagerie du visiteur, comme sur Nuxt ; le HTML a

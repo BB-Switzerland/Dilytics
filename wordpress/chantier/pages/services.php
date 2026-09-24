@@ -142,6 +142,8 @@ defined( 'ABSPATH' ) || exit;
 					'terms'     => $price['terms'] ?? '',
 					'detail'    => $price['detail'] ?? '',
 					'cta'       => $price['cta'] ?? '',
+					'pay'       => $price['pay'] ?? '',
+					'pay_label' => ( $price['pay'] ?? '' ) ? 'Payer en ligne' : '',
 					'offer_t'   => $offer['t'] ?? '',
 					'offer_d'   => $offer['d'] ?? '',
 					'offer_cta' => $offer['cta'] ?? '',

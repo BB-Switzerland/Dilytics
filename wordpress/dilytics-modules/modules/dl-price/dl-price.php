@@ -40,6 +40,8 @@ FLBuilder::register_module(
 						'terms'  => dl_f_text( 'Conditions', 'Facultatif.' ),
 						'detail' => dl_f_area( 'Texte' ),
 						'cta'    => dl_f_text( 'Bouton', 'Mène à la page Contact.' ),
+						'pay'    => dl_f_link( 'Lien de paiement', 'Facultatif : le lien de paiement Stripe. Rempli, il ajoute un bouton de paiement à côté du bouton Contact.' ),
+						'pay_label' => dl_f_text( 'Bouton de paiement' ),
 					),
 				),
 			),

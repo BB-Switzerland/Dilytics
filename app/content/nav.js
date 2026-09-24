@@ -1,5 +1,5 @@
-import { byGroup } from './services'
-import { CAT_BY_KEY } from './categories'
+import { byGroup } from './services.js'
+import { CAT_BY_KEY } from './categories.js'
 
 const cols = (g) => byGroup(g).map((s) => ({ to: s.slug, label: s.nav }))
 

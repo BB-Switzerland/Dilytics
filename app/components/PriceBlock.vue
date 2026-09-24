@@ -60,6 +60,7 @@ useGsap(({ gsap }) => {
 
           <div class="acts">
             <NuxtLink to="/contact" class="cta cta-red" v-mag><span>{{ price.cta }}</span><Ar /></NuxtLink>
+            <a v-if="price.pay" :href="price.pay" class="cta cta-ink" v-mag><span>Payer en ligne</span><Ar /></a>
             <a :href="CONTACT.phoneHref" class="ph">{{ CONTACT.phone }}</a>
           </div>
         </div>
