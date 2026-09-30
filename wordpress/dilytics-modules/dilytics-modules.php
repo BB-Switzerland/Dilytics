@@ -21,6 +21,7 @@ require DL_DIR . 'includes/assets.php';
 require DL_DIR . 'includes/menus.php';
 require DL_DIR . 'includes/schema.php';
 require DL_DIR . 'includes/stripe.php';
+require DL_DIR . 'includes/contact.php';
 
 // Modules load once Beaver Builder has loaded its own, on init at priority 2
 // (FLBuilderModel::load_modules): 2.11 no longer fires fl_builder_loaded.

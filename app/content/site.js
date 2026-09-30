@@ -18,11 +18,11 @@ export const SOCIAL = [
   { label: 'Facebook', href: 'https://www.facebook.com/people/Dilytics-Fiduciaire-%C3%A0-Gen%C3%A8ve/100086762722430/' },
 ]
 
-// Both pages still live on the current dilytics.ch; they have to be carried
-// over before the new site takes the domain.
+// Carried over from the current dilytics.ch, same addresses (WordPress:
+// wordpress/chantier/pages/legal.php, texts in chantier/data/legal/).
 export const LEGAL = [
-  { label: 'Conditions générales de vente', href: 'https://dilytics.ch/conditions-generales-de-vente/' },
-  { label: 'Protection des données', href: 'https://dilytics.ch/declaration-sur-la-protection-des-donnees/' },
+  { label: 'Conditions générales de vente', href: '/conditions-generales-de-vente/' },
+  { label: 'Protection des données', href: '/declaration-sur-la-protection-des-donnees/' },
 ]
 
 // Proof for the home page. Dilytics asked for satisfaction first, and for
@@ -48,8 +48,67 @@ export const REVIEWS = [
     role: 'Co-fondateur et associé',
     company: 'Auxanõ Team Sàrl, Genève',
   },
+  // Dilytics' selection (Word file from Nervan Omerovic, 25.09.2026), word for
+  // word but for obvious typos; Hervé Roch's letter without its salutation.
+  // Four to a slide, the first of each four in the large tile: the order
+  // puts the longest quotes there.
+  {
+    quote:
+      "Dilytics est bien plus qu'une fiduciaire, c'est un véritable partenaire de confiance ! Mon interlocuteur dédié comprend mes enjeux, sait rassurer et challenger avec justesse. Grâce à leur accompagnement, j'ai gagné un temps précieux dans la gestion et le développement de mon entreprise. Une équipe professionnelle, humaine et dynamique que je recommande à 100 % !",
+    name: 'Lauren Herren',
+  },
+  { quote: 'Fiduciaire très professionnelle et réactive !', name: 'Patrick Brechtbühl' },
+  {
+    quote:
+      'Équipe très professionnelle, réactive et toujours à l’écoute. Les conseils sont clairs et pertinents, et le suivi est impeccable. Je recommande vivement.',
+    name: 'Antoine Olivier',
+  },
+  {
+    quote:
+      "Je tiens à vous adresser mes plus sincères remerciements pour l'excellent travail que vous avez accompli ces derniers mois. Votre professionnalisme, votre rigueur et votre réactivité ont véritablement fait la différence, et je suis particulièrement reconnaissant de pouvoir compter sur une équipe aussi compétente et dévouée. Votre gestion précise et vos précieux conseils ont largement contribué à la bonne santé de mes affaires, et c'est avec une grande confiance que je continue de collaborer avec vous.",
+    name: 'Hervé Roch',
+  },
+  {
+    quote:
+      'Nous travaillons ensemble depuis un an et demi et sommes très satisfaits du service et des conseils apportés. Équipe professionnelle et à l’écoute ! Nous recommandons leurs services.',
+    name: 'Adrian Le Moa',
+  },
+  { quote: 'Merci à Dilytics pour sa réactivité et son professionnalisme. Je recommande !', name: 'Micheyle Gaillard' },
+  { quote: 'Déjà un an que notre compta est au top avec Dilytics. Toujours de bon conseil.', name: 'Agence Web Igeneve' },
+  {
+    quote:
+      "Laureano, encore merci pour votre efficacité, votre humanité, vos précieux conseils et votre accompagnement. Souvent on se dit qu'une fiduciaire, ce n'est pas très humain, ni ceux qui vont nous aider ni le mieux nous conseiller pour nos intérêts : eh bien sachez que c'est faux. Je vous recommande vivement Dilytics si vous avez besoin de conseils et de vous sentir en confiance et compris, c'est la meilleure fiduciaire que je puisse vous recommander les yeux fermés. Merci encore.",
+    name: 'Sofia Nunes',
+  },
+  {
+    quote:
+      "Équipe formidable : professionnalisme, rigueur, réactivité immédiate et des qualités humaines exceptionnelles. Un grand merci à toute l'équipe Dilytics. Un choix que je ne regrette pas pour ma société. Bravo !",
+    name: 'BMA Haus',
+  },
+  {
+    quote:
+      "Nous collaborons avec Dilytics depuis environ un mois et nous n'avons rencontré aucun problème. Nos demandes ont été traitées rapidement et efficacement ; nous sommes pleinement satisfaits !",
+    name: 'Reto Vock',
+    role: 'Responsable du service Suisse',
+  },
 ]
-export const REVIEW_SLOTS = 2
+
+// Partners Dilytics may show (Word file, 25.09.2026). NORM construction sent
+// no logo: its name stands in until the file comes.
+export const PARTNERS = [
+  { name: 'Somatra SA', img: 'pt_somatra' },
+  { name: "Goldhand'co SARL", img: 'pt_goldhandco' },
+  { name: 'Videlio Suisse SA', img: 'pt_videlio' },
+  { name: 'Roch Sécurité SARL', img: 'pt_roch' },
+  { name: 'Meyrin FC', img: 'pt_meyrinfc' },
+  { name: 'Stratsha SARL', img: 'pt_stratsha' },
+  { name: 'Swiss Institute of Technology and Entrepreneurship SA', img: 'pt_sitecentrepreneurship' },
+  { name: 'NORM construction Sàrl' },
+  { name: 'Leman Aviation SA', img: 'pt_lemanaviation' },
+  { name: 'SeedD Sàrl', img: 'pt_seedd' },
+  { name: 'IGENEVE SARL', img: 'pt_igeneve' },
+  { name: 'Rex Change Sàrl', img: 'pt_rexchange' },
+]
 
 // Third-party marks the cabinet can point to.
 export const DISTINCTIONS = [

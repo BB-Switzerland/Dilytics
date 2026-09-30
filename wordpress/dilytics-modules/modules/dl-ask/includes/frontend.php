@@ -15,26 +15,28 @@ $ar = dl_ar();
 		</div>
 
 		<div class="fw surf"<?php echo dl_rv( 'up', 8 ); ?>>
-			<form data-mailto="ask" data-to="<?php echo esc_attr( $c['mail'] ?? '' ); ?>">
+			<form<?php echo dl_form_attrs( 'question' ); ?>>
 				<div class="row">
 					<div class="fld">
-						<input id="ab-n" name="name" type="text" placeholder=" " required>
+						<input id="ab-n" name="your-name" type="text" autocomplete="name" placeholder=" " required>
 						<label for="ab-n">Nom et prénom</label>
 					</div>
 					<div class="fld">
-						<input id="ab-e" name="mail" type="email" placeholder=" " required>
+						<input id="ab-e" name="your-email" type="email" autocomplete="email" placeholder=" " required>
 						<label for="ab-e">E-mail</label>
 					</div>
 				</div>
 				<div class="fld">
-					<input id="ab-p" name="phone" type="tel" placeholder=" ">
+					<input id="ab-p" name="your-phone" type="tel" autocomplete="tel" placeholder=" ">
 					<label for="ab-p">Téléphone</label>
 				</div>
 				<div class="fld">
-					<textarea id="ab-m" name="msg" rows="4" placeholder=" " required></textarea>
+					<textarea id="ab-m" name="your-message" rows="4" placeholder=" " required></textarea>
 					<label for="ab-m">Message</label>
 				</div>
+				<div style="display:none;"><input type="text" name="hp-website" tabindex="-1" autocomplete="off" aria-hidden="true"><input type="hidden" name="hp-t" value=""></div>
 				<button type="submit" class="cta cta-red" disabled><span><?php echo dl_t( dl_s( $settings, 'button' ) ); ?></span><?php echo $ar; ?></button>
+				<p class="xs err" role="alert" style="display:none;"></p>
 			</form>
 
 			<div class="done" style="display:none;">

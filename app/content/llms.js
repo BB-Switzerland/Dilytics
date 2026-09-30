@@ -61,7 +61,7 @@ export function llmsTxt(site) {
     '## Optional',
     '',
     ...SOCIAL.map((s) => `- [${s.label}](${s.href})`),
-    ...LEGAL.map((l) => `- [${l.label}](${l.href})`),
+    ...LEGAL.map((l) => link(l.label, l.href)),
     '',
   ].join('\n')
 }

@@ -143,6 +143,10 @@ $set(
 );
 
 $set( 'photos-a-fournir', 'Photos à fournir · Dilytics', '', '', array(), true );
+$set( 'paiement-confirme', 'Paiement reçu · Dilytics', '', '', array(), true );
+$set( 'politique-de-cookies', 'Politique de cookies · Dilytics', '', '', array(), true );
+$set( 'declaration-sur-la-protection-des-donnees', 'Protection des données · Dilytics', '', '', array(), true );
+$set( 'conditions-generales-de-vente', 'Conditions générales de vente · Dilytics', '', '', array(), true );
 
 /*
  * The cabinet, for the JSON-LD of every page: what the site says of it and

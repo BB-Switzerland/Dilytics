@@ -66,5 +66,5 @@ Depuis 1999, notre fiduciaire à Genève vous libère de vos obligations fiscale
 - [LinkedIn](https://www.linkedin.com/company/dilytics-gen%C3%A8ve/)
 - [Instagram](https://www.instagram.com/dilytics.ch/)
 - [Facebook](https://www.facebook.com/people/Dilytics-Fiduciaire-%C3%A0-Gen%C3%A8ve/100086762722430/)
-- [Conditions générales de vente](https://dilytics.ch/conditions-generales-de-vente/)
-- [Protection des données](https://dilytics.ch/declaration-sur-la-protection-des-donnees/)
+- [Conditions générales de vente]({site}/conditions-generales-de-vente/)
+- [Protection des données]({site}/declaration-sur-la-protection-des-donnees/)

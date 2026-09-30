@@ -31,7 +31,14 @@ add_action(
 		wp_enqueue_script( 'dl-gsap', DL_URL . 'assets/js/vendor/gsap.min.js', array(), '3.15.0', $footer );
 		wp_enqueue_script( 'dl-scrolltrigger', DL_URL . 'assets/js/vendor/ScrollTrigger.min.js', array( 'dl-gsap' ), '3.15.0', $footer );
 		wp_enqueue_script( 'dl-lenis', DL_URL . 'assets/js/vendor/lenis.min.js', array(), '1.3.26', $footer );
-		wp_enqueue_script( 'dl-site', DL_URL . 'assets/js/site.js', array( 'dl-gsap', 'dl-scrolltrigger', 'dl-lenis' ), $ver( 'assets/js/site.js' ), $footer );
+		// tracking first, never in the editor: site.js reports the forms through it
+		$deps = array( 'dl-gsap', 'dl-scrolltrigger', 'dl-lenis' );
+		if ( ! dl_editing() ) {
+			wp_enqueue_script( 'dl-track', DL_URL . 'assets/js/track.js', array(), $ver( 'assets/js/track.js' ), $footer );
+			wp_add_inline_script( 'dl-track', 'window.DLPay=' . wp_json_encode( array_values( (array) get_option( 'dl_pay', array() ) ) ) . ';', 'before' );
+			$deps[] = 'dl-track';
+		}
+		wp_enqueue_script( 'dl-site', DL_URL . 'assets/js/site.js', $deps, $ver( 'assets/js/site.js' ), $footer );
 
 		// In the editor the page must stay still and whole: no smooth scroll,
 		// no entrances, every section visible as it is rendered.
@@ -55,7 +62,8 @@ add_action(
 		}
 		$theme = array( 'fl-automator-skin', 'base', 'base-4', 'bootstrap', 'bootstrap-4', 'child-style', 'wp-block-library', 'wp-block-library-theme', 'classic-theme-styles', 'global-styles', 'core-block-supports', 'wp-img-auto-sizes-contain', 'jquery-magnificpopup' );
 		foreach ( wp_styles()->queue as $handle ) {
-			$ours = 0 === strpos( $handle, 'dl-' ) || 0 === strpos( $handle, 'fl-builder' ) || 0 === strpos( $handle, 'fl-theme-builder' ) || in_array( $handle, array( 'admin-bar', 'dashicons' ), true );
+			// kept too: Complianz's cookie banner and legal documents
+			$ours = 0 === strpos( $handle, 'dl-' ) || 0 === strpos( $handle, 'fl-builder' ) || 0 === strpos( $handle, 'fl-theme-builder' ) || 0 === strpos( $handle, 'cmplz' ) || in_array( $handle, array( 'admin-bar', 'dashicons' ), true );
 			if ( $ours ) {
 				continue;
 			}
@@ -90,6 +98,9 @@ add_action(
 			return;
 		}
 		echo "<script>var d=document.documentElement;d.classList.add('mo');setTimeout(function(){d.classList.remove('mo')},2200)</script>\n";
+		// Complianz moves the focus into its banner as it opens, which makes the
+		// browser scroll the page to its end: the same focus, without the scroll.
+		echo "<script>(function(f){HTMLElement.prototype.focus=function(o){if(this.closest&&this.closest('.cmplz-cookiebanner')){o=Object.assign({},o,{preventScroll:true})}return f.call(this,o)}})(HTMLElement.prototype.focus)</script>\n";
 	},
 	1
 );
@@ -164,6 +175,11 @@ add_filter(
 	function ( $template ) {
 		if ( is_page() && ! is_page_template() && class_exists( 'FLBuilderModel' ) && FLBuilderModel::is_builder_enabled() ) {
 			return DL_DIR . 'templates/page.php';
+		}
+		// a page of plain content (the legal documents, the cookie policy
+		// Complianz writes) in the site's own frame
+		if ( is_page() && ! is_page_template() ) {
+			return DL_DIR . 'templates/document.php';
 		}
 		return $template;
 	},

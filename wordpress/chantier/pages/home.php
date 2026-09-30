@@ -108,14 +108,18 @@ dlb_add(
 	)
 );
 
-// HomeReviews: REVIEWS, REVIEW_SLOTS, DISTINCTIONS
+// HomeReviews: REVIEWS, PARTNERS, DISTINCTIONS
+$partners = array();
+foreach ( $s['PARTNERS'] as $p ) {
+	$partners[] = array_merge( array( 'name' => $p['name'] ), ! empty( $p['img'] ) ? dlb_photo( 'img', $p['img'] ) : array() );
+}
 $reviews = array();
 foreach ( $s['REVIEWS'] as $r ) {
 	$reviews[] = array(
 		'quote'   => $r['quote'],
 		'name'    => $r['name'],
-		'role'    => $r['role'],
-		'company' => $r['company'],
+		'role'    => $r['role'] ?? '',
+		'company' => $r['company'] ?? '',
 	);
 }
 $marks = array();
@@ -134,9 +138,8 @@ dlb_add(
 	array(
 		'title'      => 'Ce que disent nos clients.',
 		'reviews'    => $reviews,
-		'slots'      => (string) $s['REVIEW_SLOTS'],
-		'slot_label' => 'Avis client à fournir',
-		'slot_hint'  => "Une citation courte, avec le nom, la fonction et l'entreprise du client, et son accord pour la publier.",
+		'pt_title'   => 'Nos partenaires.',
+		'partners'   => $partners,
 		'marks'      => $marks,
 	)
 );

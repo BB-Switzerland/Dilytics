@@ -1,37 +1,51 @@
 <?php
-$slots = max( 0, (int) dl_s( $settings, 'slots', 0 ) );
+// four reviews to a slide, the first of the four large (HomeReviews.vue)
+$slides = array_chunk( dl_items( dl_s( $settings, 'reviews', array() ) ), 4 );
+$ar     = dl_ar();
 ?>
 <section<?php dl_root( $module, array( 'band', 'v-home-reviews' ) ); ?>>
 	<div class="band-lead">
-		<h2 class="d2 hd"<?php echo dl_rv( 'mask' ); ?>><?php echo dl_t( dl_s( $settings, 'title' ) ); ?></h2>
-
-		<div class="g">
-			<?php foreach ( dl_items( dl_s( $settings, 'reviews', array() ) ) as $r ) : ?>
-				<figure class="rv surf"<?php echo dl_rv( 'up' ); ?>>
-					<blockquote><?php echo dl_t( dl_s( $r, 'quote' ) ); ?></blockquote>
-					<figcaption>
-						<span class="t2"><?php echo dl_t( dl_s( $r, 'name' ) ); ?></span>
-						<span class="sm"><?php echo dl_t( dl_s( $r, 'role' ) . ', ' . dl_s( $r, 'company' ) ); ?></span>
-					</figcaption>
-				</figure>
-			<?php endforeach; ?>
-
-			<div class="slots">
-				<?php
-				for ( $n = 1; $n <= $slots; $n++ ) {
-					echo dl_pending(
-						dl_s( $settings, 'slot_label' ),
-						dl_s( $settings, 'slot_hint' ),
-						array(),
-						array(
-							'data-rv'  => 'up',
-							'data-rvd' => (string) ( $n * 6 ),
-						)
-					);
-				}
-				?>
+		<div class="top-r">
+			<h2 class="d2"<?php echo dl_rv( 'mask' ); ?>><?php echo dl_t( dl_s( $settings, 'title' ) ); ?></h2>
+			<div class="ctl">
+				<button type="button" class="prev" aria-label="Avis précédents" disabled><?php echo $ar; ?></button>
+				<span class="sm ct" aria-live="polite">1 / <?php echo count( $slides ); ?></span>
+				<button type="button" class="next" aria-label="Avis suivants"<?php echo count( $slides ) > 1 ? '' : ' disabled'; ?>><?php echo $ar; ?></button>
 			</div>
 		</div>
+
+		<div class="track" tabindex="0" aria-label="Avis clients"<?php echo dl_rv( 'up' ); ?>>
+			<?php foreach ( $slides as $s ) : ?>
+				<div class="slide n<?php echo count( $s ); ?>">
+					<?php foreach ( $s as $i => $r ) : ?>
+						<?php $sub = implode( ', ', array_filter( array( dl_s( $r, 'role' ), dl_s( $r, 'company' ) ) ) ); ?>
+						<figure class="rv surf<?php echo $i ? '' : ' big'; ?>">
+							<blockquote><?php echo dl_t( dl_s( $r, 'quote' ) ); ?></blockquote>
+							<figcaption>
+								<span class="t2"><?php echo dl_t( dl_s( $r, 'name' ) ); ?></span>
+								<?php if ( $sub ) : ?>
+									<span class="sm"><?php echo dl_t( $sub ); ?></span>
+								<?php endif; ?>
+							</figcaption>
+						</figure>
+					<?php endforeach; ?>
+				</div>
+			<?php endforeach; ?>
+		</div>
+
+		<h3 class="d3 pth"<?php echo dl_rv( 'mask' ); ?>><?php echo dl_t( dl_s( $settings, 'pt_title' ) ); ?></h3>
+		<ul class="logos" data-stagger>
+			<?php foreach ( dl_items( dl_s( $settings, 'partners', array() ) ) as $p ) : ?>
+				<?php $src = dl_photo( $p, 'img' ); ?>
+				<li class="surf">
+					<?php if ( $src ) : ?>
+						<img src="<?php echo esc_url( $src ); ?>" alt="<?php echo esc_attr( dl_s( $p, 'name' ) ); ?>" loading="lazy">
+					<?php else : ?>
+						<span class="t2"><?php echo dl_t( dl_s( $p, 'name' ) ); ?></span>
+					<?php endif; ?>
+				</li>
+			<?php endforeach; ?>
+		</ul>
 
 		<ul class="marks" data-stagger>
 			<?php foreach ( dl_items( dl_s( $settings, 'marks', array() ) ) as $d ) : ?>

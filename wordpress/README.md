@@ -146,6 +146,68 @@ define( 'DL_PAY_NOTIFY', 'contact@dilytics.ch' );  // facultatif : destinataire 
 Sans SMTP, aucun e-mail ne part (le paiement est noté dans le journal PHP).
 Au passage sur dilytics.ch, changer l'URL du webhook dans Stripe.
 
+## Formulaires
+
+Les deux formulaires (Contact, et « Des questions ? » des pages de
+prestation et de catégorie) gardent leur balisage ; Contact Form 7 les reçoit
+(`includes/contact.php`), les envoie à contact@dilytics.ch et Flamingo les
+archive (admin > Flamingo > Messages reçus). `setup.php` crée les deux
+formulaires CF7 (option `dl_forms`) ; `site.js` les poste à l'API REST de CF7.
+Anti-spam sans service tiers : un champ piège invisible et un délai minimal
+de trois secondes (un envoi refusé reste visible dans Flamingo, comme spam).
+
+Expéditeur provisoire : `noreply@businessbooster.agency` (le SPF de ce
+domaine autorise Infomaniak). Au lancement : FluentSMTP avec le Microsoft 365
+de Dilytics, puis l'expéditeur dans `setup.php`.
+
+## Suivi des conversions
+
+Un seul script pousse les événements dans `window.dataLayer`
+(`assets/js/track.js`, jamais dans l'éditeur) ; GTM4WP charge le conteneur
+Google Tag Manager, où vivent toutes les balises. Chaque événement part d'un
+seul endroit, et les conversions portent l'identifiant que GA4 et Google Ads
+dédoublonnent.
+
+| Événement | Quand | Paramètres |
+|---|---|---|
+| `form_start` | premier champ touché d'un formulaire | `form_name` (contact, question) |
+| `form_error` | envoi refusé par le serveur | `form_name`, `error_type` |
+| `generate_lead` | message envoyé, une fois | `form_name`, `form_id`, `lead_id`, `subject` |
+| `click_phone` / `click_email` | lien `tel:` / `mailto:` | `link_location` (section) |
+| `booking_click` | lien vers la prise de rendez-vous | `booking_provider`, `link_location` |
+| `book_appointment` | rendez-vous réservé dans un widget Calendly, une fois | `booking_provider` |
+| `begin_checkout` | bouton « Payer en ligne » | `ecommerce` (CHF, prix HT, TVA) |
+| `purchase` | retour de Stripe sur `/paiement-confirme/`, une fois par paiement | `ecommerce` + `transaction_id` |
+
+Stripe renvoie après paiement vers
+`/paiement-confirme/?item=<slug>&session_id={CHECKOUT_SESSION_ID}` (réglé sur
+les trois liens de paiement). Les prix viennent de l'option `dl_pay`
+(`setup.php`, depuis `offers.js`).
+
+Consentement : Complianz Premium (réglé par `setup.php`, bandeau aux couleurs
+du site) charge lui-même le conteneur GTM avec Google Consent Mode v2 : tout
+refusé par défaut, accordé catégorie par catégorie. GTM4WP ne place donc pas
+le conteneur (placement « Off ») et ne fait que remplir le dataLayer, sans
+données personnelles ni événements à lui. Un correctif dans l'en-tête
+(`includes/assets.php`) empêche le focus du bandeau de faire défiler la page.
+
+Mise en place côté GTM : mettre l'ID du conteneur dans `$gtm` en tête de la
+section Complianz de `setup.php` puis `deploy.sh setup` ; importer
+`tracking/gtm-dilytics.json` dans le conteneur (Admin > Importer, fusionner),
+remplir les variables constantes (ID de mesure GA4, ID et libellés de
+conversion Google Ads) et réactiver les balises Ads (en pause dans le
+fichier). Dans GA4 : `generate_lead`, `purchase` et `book_appointment` en
+événements clés ; `buy.stripe.com` et `checkout.stripe.com` en sites
+référents indésirables.
+
+## Pages légales
+
+`chantier/pages/legal.php` : la déclaration de protection des données et les
+conditions générales de vente, reprises de dilytics.ch à l'identique (mêmes
+adresses, textes dans `chantier/data/legal/`), et la politique de cookies que
+Complianz rédige (`/politique-de-cookies/`). Pages WordPress ordinaires,
+présentées par `templates/document.php` (typographie `.dl-doc` dans `wp.css`).
+
 ## Différences voulues avec Nuxt
 
 - Les formulaires ouvrent la messagerie du visiteur, comme sur Nuxt ; le HTML a

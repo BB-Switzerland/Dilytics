@@ -53,11 +53,11 @@ export const PRICE = {
     lead: 'Création de RI à partir de',
     amount: '990',
     unit: 'CHF',
-    terms: 'Toutes taxes comprises',
+    terms: 'Hors TVA',
     detail:
       "N'hésitez pas à nous contacter si vous avez pour projet de créer votre raison individuelle. Dilytics s'adapte à votre situation professionnelle et personnelle.",
     cta: 'Créer ma RI',
-    pay: 'https://buy.stripe.com/14AeVd0iBenq51f8qa1sQ00',
+    pay: 'https://buy.stripe.com/6oUcN55CV0wA8dr49U1sQ03',
   },
   '/creer-une-sarl-en-suisse-facile/': {
     lead: 'Créer une Sàrl en Suisse, au meilleur prix, en ligne ou sur place',

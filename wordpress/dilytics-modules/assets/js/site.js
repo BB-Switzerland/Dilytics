@@ -356,6 +356,59 @@
     })
   }
 
+  // HomeReviews: native scroll snapping moves the slides; the arrows scroll to
+  // the previous or next snap point. On a phone each review is a snap point
+  // (the slides are display: contents there).
+  function reviewSliders() {
+    $$('.v-home-reviews .track').forEach(function (track) {
+      var box = track.parentElement
+      var prev = $('.ctl .prev', box)
+      var next = $('.ctl .next', box)
+      var ct = $('.ctl .ct', box)
+      var at = 0
+      var goal = null
+      var stops = function () {
+        var s = $$('.slide', track)
+        return s.length && getComputedStyle(s[0]).display === 'contents' ? $$('.rv', track) : s
+      }
+      // a stop's scroll position; the last ones may sit past the end of the track
+      var max = function () { return track.scrollWidth - track.clientWidth }
+      var pos = function (el) { return Math.min(el.offsetLeft, max()) }
+      var sync = function () {
+        var s = stops()
+        // during an arrow's glide the target stands, so a second click goes one further
+        if (goal !== null && Math.abs(track.scrollLeft - goal) > 2) return
+        goal = null
+        var best = 0
+        s.forEach(function (el, i) {
+          if (Math.abs(pos(el) - track.scrollLeft) < Math.abs(pos(s[best]) - track.scrollLeft)) best = i
+        })
+        at = track.scrollLeft >= max() - 2 ? s.length - 1 : best
+        paint(s.length)
+      }
+      var paint = function (n) {
+        ct.textContent = (at + 1) + ' / ' + n
+        prev.disabled = at === 0
+        next.disabled = at >= n - 1
+      }
+      var go = function (d) {
+        var s = stops()
+        at = Math.min(s.length - 1, Math.max(0, at + d))
+        goal = pos(s[at])
+        paint(s.length)
+        track.scrollTo({ left: goal, behavior: 'smooth' })
+        // some browsers skip the smooth glide on a snapping track: land anyway
+        var g = goal
+        setTimeout(function () { if (goal === g && Math.abs(track.scrollLeft - g) > 2) track.scrollLeft = g }, 700)
+      }
+      prev.addEventListener('click', function () { go(-1) })
+      next.addEventListener('click', function () { go(1) })
+      track.addEventListener('scroll', sync, { passive: true })
+      window.addEventListener('resize', sync)
+      sync()
+    })
+  }
+
   // ServiceList: the row under the pointer fills, the others dim
   function serviceLists() {
     $$('.stage.v-service-list').forEach(function (stage) {
@@ -479,42 +532,81 @@
     onScroll(paint)
   }
 
-  // Forms: no mail server behind the site, so a form opens the visitor's own
-  // mail client with the message addressed to the cabinet, ready to go.
+  // Forms: posted to Contact Form 7's REST endpoint (includes/contact.php),
+  // which validates, mails and files them. Tracking (track.js): form_start at
+  // the first field touched, generate_lead once per message sent, form_error
+  // when the server refuses it.
+  var loaded = Date.now()
+  var track = function (event, params) { if (window.dlTrack) window.dlTrack(event, params) }
   function forms() {
-    $$('form[data-mailto]').forEach(function (form) {
+    $$('form[data-cf7]').forEach(function (form) {
       var box = form.parentElement
       var done = box.querySelector('.done')
+      var err = form.querySelector('.err')
       var btn = form.querySelector('button[type="submit"]')
-      var val = function (n) { var f = form.elements[n]; return f ? f.value : '' }
-      var trimmed = form.dataset.mailto === 'ask'
+      var name = form.dataset.form
+      var busy = false
+      var started = false
+      var val = function (n) { var f = form.elements[n]; return f ? f.value.trim() : '' }
       var valid = function () {
-        var name = val('name'), mail = val('mail'), msg = val('msg')
-        return trimmed
-          ? !!(name.trim() && mail.indexOf('@') > -1 && msg.trim().length > 8)
-          : !!(name && mail.indexOf('@') > -1 && msg.length > 8)
+        return !!(val('your-name') && val('your-email').indexOf('@') > -1 && val('your-message').length > 8)
       }
-      var sync = function () { btn.disabled = !valid() }
+      var sync = function () { btn.disabled = busy || !valid() }
+      var fail = function (type, message) {
+        track('form_error', { form_name: name, error_type: type })
+        err.textContent = message || err.dataset.fallback
+        err.style.display = ''
+      }
+      err.dataset.fallback = "L'envoi n'a pas abouti. Réessayez dans un instant, ou écrivez-nous directement."
+      // the first field touched: focus, or typing when the focus event is missed
+      var start = function () {
+        if (started) return
+        started = true
+        track('form_start', { form_name: name })
+      }
+      form.addEventListener('focusin', start)
+      form.addEventListener('input', start)
       form.addEventListener('input', sync)
       form.addEventListener('change', sync)
       sync()
       form.addEventListener('submit', function (e) {
         e.preventDefault()
-        if (!valid()) return
-        var name = val('name')
-        var subject = trimmed
-          ? 'Question · ' + name.trim()
-          : (val('subject') || 'Demande de contact') + ' · ' + name
-        var sign = [name, val('mail'), val('phone')].map(function (v) { return v.trim() }).filter(Boolean).join('\n')
-        var body = val('msg').trim() + '\n\n' + sign
-        window.location.href = 'mailto:' + form.dataset.to + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body)
-        form.style.display = 'none'
-        if (done) done.style.display = ''
+        if (busy || !valid()) return
+        busy = true
+        sync()
+        err.style.display = 'none'
+        var data = new FormData(form)
+        data.set('hp-t', String(Math.round((Date.now() - loaded) / 1000)))
+        data.set('_wpcf7', form.dataset.cf7)
+        data.set('_wpcf7_unit_tag', 'wpcf7-f' + form.dataset.cf7 + '-o1')
+        data.set('_wpcf7_container_post', form.dataset.post || '0')
+        data.set('_wpcf7_locale', 'fr_FR')
+        fetch(form.dataset.endpoint, { method: 'POST', body: data, credentials: 'omit' })
+          .then(function (r) { return r.json() })
+          .then(function (res) {
+            if (res.status === 'mail_sent') {
+              track('generate_lead', {
+                form_name: name,
+                form_id: form.dataset.cf7,
+                lead_id: res.posted_data_hash || '',
+                subject: val('your-subject') || undefined
+              })
+              form.style.display = 'none'
+              if (done) done.style.display = ''
+            } else if (res.status === 'validation_failed' && res.invalid_fields && res.invalid_fields[0]) {
+              fail('validation', res.invalid_fields[0].message)
+            } else {
+              fail(res.status || 'unknown')
+            }
+          })
+          .catch(function () { fail('network') })
+          .then(function () { busy = false; sync() })
       })
       if (done) {
         var again = done.querySelector('button')
         if (again) again.addEventListener('click', function () {
           form.reset()
+          started = false
           sync()
           done.style.display = 'none'
           form.style.display = ''
@@ -529,6 +621,7 @@
     scrollBar()
     nav()
     faqs()
+    reviewSliders()
     serviceLists()
     jumpLinks()
     forms()

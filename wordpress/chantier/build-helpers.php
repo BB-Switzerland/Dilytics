@@ -256,7 +256,7 @@ function dlb_ask() {
 			'hours'  => 'Nous sommes aussi joignables au téléphone du lundi au vendredi, de 9h à 12h et de 13h à 18h.',
 			'button' => 'Envoyer',
 			'done_t' => 'Merci',
-			'done_d' => "Votre messagerie s'est ouverte avec le message adressé à {mail} : il ne reste qu'à l'envoyer.",
+			'done_d' => 'Nous avons bien reçu votre message : notre équipe répond à tous les messages.',
 			'again'  => 'Écrire un autre message',
 		)
 	);

@@ -101,7 +101,15 @@ function dl_pay_data( array $s ) {
 			$cd['address']['country'] ?? '',
 		)
 	);
+	// the optional field of the payment page: the name planned for the company
+	$planned = '';
+	foreach ( $s['custom_fields'] ?? array() as $f ) {
+		if ( 'nomsociete' === ( $f['key'] ?? '' ) ) {
+			$planned = (string) ( $f['text']['value'] ?? '' );
+		}
+	}
 	return array(
+		'planned' => $planned,
 		'service' => $page ? get_post_field( 'post_title', $page->ID, 'raw' ) : (string) $s['metadata']['page'],
 		'amount'  => dl_pay_amount( (int) ( $s['amount_total'] ?? 0 ), (string) ( $s['currency'] ?? 'chf' ) ),
 		'name'    => (string) ( $cd['name'] ?? '' ),
@@ -169,10 +177,16 @@ function dl_pay_send( array $d ) {
 }
 
 // Every mail of the site leaves through the Microsoft 365 SMTP once it is set.
+// Until then the server's own mailer sends it, with the envelope sender set to
+// the From address so the domain's SPF check applies to it (form notices go
+// from noreply@businessbooster.agency, whose SPF lists Infomaniak).
 add_action(
 	'phpmailer_init',
 	function ( $mailer ) {
 		if ( ! dl_mail_ready() ) {
+			if ( ! $mailer->Sender ) {
+				$mailer->Sender = $mailer->From;
+			}
 			return;
 		}
 		$mailer->isSMTP();

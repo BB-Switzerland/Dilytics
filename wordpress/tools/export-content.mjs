@@ -55,7 +55,7 @@ const data = {
     LEGAL: site.LEGAL,
     STATS: site.STATS,
     REVIEWS: site.REVIEWS,
-    REVIEW_SLOTS: site.REVIEW_SLOTS,
+    PARTNERS: site.PARTNERS,
     DISTINCTIONS: site.DISTINCTIONS,
     TEAM: site.TEAM,
     ARTICLES: site.ARTICLES,

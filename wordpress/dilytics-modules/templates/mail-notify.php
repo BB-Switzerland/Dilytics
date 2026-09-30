@@ -11,6 +11,7 @@ $muted = 'rgba(0,25,52,.66)';
 $font  = "'Archivo', Arial, Helvetica, sans-serif";
 $rows  = array(
 	'Prestation'            => esc_html( $d['service'] ),
+	'Nom envisagé'          => esc_html( $d['planned'] ?? '' ),
 	'Montant'               => esc_html( $d['amount'] ) . ', TVA 8,1 % comprise',
 	'Client'                => esc_html( $d['name'] ),
 	'E-mail'                => $d['email'] ? '<a href="mailto:' . esc_attr( $d['email'] ) . '" style="color:' . $ink . ';">' . esc_html( $d['email'] ) . '</a>' : '',
