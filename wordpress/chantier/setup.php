@@ -49,29 +49,40 @@ update_option( 'dl_contact', $c['site']['CONTACT'] );
 update_option( 'dl_photos', $c['photos'] );
 dlb_log( 'Options: contact details and photo registry' );
 
-// The services paid online (PRICE[…].pay in app/content/offers.js), for the
-// begin_checkout and purchase events of track.js: price before VAT.
-$pay = array();
-foreach ( $c['price'] as $slug => $p ) {
+// Every service, as an ecommerce item, for the view_item, begin_checkout and
+// purchase events of track.js: the item id is the page's slug; price before
+// VAT and payment link only for the services paid online (PRICE[…].pay in
+// app/content/offers.js).
+$items = array();
+foreach ( $c['services'] as $s ) {
+	$p    = $c['price'][ $s['slug'] ] ?? array();
+	$item = array(
+		'id'       => trim( $s['slug'], '/' ),
+		'name'     => $s['title'],
+		'category' => $c['groups'][ $s['group'] ]['label'],
+	);
 	if ( ! empty( $p['pay'] ) ) {
-		$pay[] = array(
-			'id'    => trim( $slug, '/' ),
-			'name'  => $c['h1'][ $slug ] ?? trim( $slug, '/' ),
-			'price' => (float) preg_replace( '/[^\d.]/', '', (string) $p['amount'] ),
-			'url'   => $p['pay'],
-		);
+		$item['price'] = (float) preg_replace( '/[^\d.]/', '', (string) $p['amount'] );
+		$item['url']   = $p['pay'];
 	}
+	$items[] = $item;
 }
-update_option( 'dl_pay', $pay );
-dlb_log( 'Online payment: ' . count( $pay ) . ' services' );
+update_option( 'dl_items', $items );
+delete_option( 'dl_pay' );
+dlb_log( 'Tracking items: ' . count( $items ) . ' services, ' . count( array_filter( array_column( $items, 'url' ) ) ) . ' paid online' );
 
 /* ------------------------------------------ consent (Complianz Premium)
-   Complianz loads Google Tag Manager itself, with Google Consent Mode v2:
-   everything denied by default, granted category by category when the
-   visitor accepts. So GTM4WP never prints the container (placement off
-   below) and only fills the dataLayer. The container ID goes here; empty,
-   no container is loaded at all. */
-$gtm = ''; // GTM-XXXXXXX, from Hanae
+   Complianz shows the banner and records the choice. GTM4WP prints the
+   container (below): with GTM4WP active, Complianz drops its own GTM and
+   Consent Mode settings, so the Consent Mode v2 signal comes from the
+   plugin's head script (includes/assets.php), which follows Complianz's
+   cookies and events. Everything denied until the visitor accepts.
+
+   The container is the new site's own (account "Dilytics Tag"): the old site
+   keeps GTM-TJQ35MG, untouched, until the launch. Google Ads, Meta and
+   LinkedIn only send from dilytics.ch, GA4 from dilytics.ch and from GTM's
+   preview (variable "Site · envoi"): the staging pollutes nothing. */
+$gtm = 'GTM-NQ96WBF2';
 if ( function_exists( 'cmplz_update_option' ) ) {
 	$cmplz = array(
 		// one opt-in banner for every visitor, the GDPR one (Swiss law and
@@ -87,15 +98,8 @@ if ( function_exists( 'cmplz_update_option' ) ) {
 		'privacy-statement'            => 'url',
 		'impressum'                    => 'none',
 		'disclaimer'                   => 'none',
-		// Google Tag Manager for statistics, Google Ads for marketing
+		// Google Tag Manager (through GTM4WP) for statistics
 		'compile_statistics'           => 'google-tag-manager',
-		'configuration_by_complianz'   => $gtm ? 'yes' : 'no',
-		'gtm_code'                     => $gtm,
-		'consent-mode'                 => 'yes',
-		'gtag-basic-consent-mode'      => 'no',
-		'cmplz-tm-template'            => 'no',
-		'cmplz-gtag-urlpassthrough'    => 'no',
-		'cmplz-gtag-ads_data_redaction' => 'yes',
 		'uses_ad_cookies'              => 'yes',
 		// no IAB TCF: Dilytics advertises, it shows no ads; Consent Mode is enough
 		'uses_ad_cookies_personalized' => 'no',
@@ -148,7 +152,7 @@ if ( function_exists( 'cmplz_update_option' ) ) {
 	$banner->colorpalette_button_settings = array( 'background' => '#ffffff', 'border' => '#d8d6cf', 'text' => '#001934' );
 	$banner->buttons_border_radius        = array( 'top' => 999, 'right' => 999, 'bottom' => 999, 'left' => 999, 'type' => 'px' );
 	$banner->save();
-	dlb_log( 'Consent: Complianz set' . ( $gtm ? ", GTM {$gtm} with Consent Mode v2" : ', GTM container ID still to add' ) );
+	dlb_log( 'Consent: Complianz set' );
 }
 
 /* ------------------------------------------- Google Tag Manager (GTM4WP)
@@ -163,8 +167,11 @@ update_option(
 	array_merge(
 		(array) get_option( 'gtm4wp-options', array() ),
 		array(
-			// Complianz prints the container, behind consent: GTM4WP never does
-			'gtm-code-placement'        => 3,
+			// the container in the head, its noscript frame right after <body>;
+			// GTM4WP 2.x reads the container rows, gtm-code is its 1.x mirror
+			'gtm-containers'            => array( array( 'id' => $gtm, 'gtm_auth' => '', 'gtm_preview' => '', 'domain' => '', 'path' => '' ) ),
+			'gtm-code'                  => $gtm,
+			'gtm-code-placement'        => 2,
 			// the site's own staff browse without being measured
 			'gtm-no-gtm-for-logged-in'  => 'administrator,editor,author',
 			'gtm-no-console-log'        => true,
@@ -195,7 +202,7 @@ update_option(
 		)
 	)
 );
-dlb_log( 'Google Tag Manager: GTM4WP set (container ID still to add)' );
+dlb_log( "Google Tag Manager: GTM4WP loads {$gtm}" );
 
 /* ------------------------------------------------------- forms (Contact Form 7)
    The back end of the site's two forms (includes/contact.php): the fields

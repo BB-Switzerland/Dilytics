@@ -163,42 +163,81 @@ de Dilytics, puis l'expéditeur dans `setup.php`.
 ## Suivi des conversions
 
 Un seul script pousse les événements dans `window.dataLayer`
-(`assets/js/track.js`, jamais dans l'éditeur) ; GTM4WP charge le conteneur
-Google Tag Manager, où vivent toutes les balises. Chaque événement part d'un
-seul endroit, et les conversions portent l'identifiant que GA4 et Google Ads
-dédoublonnent.
+(`assets/js/track.js`, et `site.js` pour les formulaires ; jamais dans
+l'éditeur) ; GTM4WP charge le conteneur Google Tag Manager, où vivent toutes
+les balises. Chaque événement part d'un seul endroit. Noms : ceux de GA4 quand
+GA4 en a un (événements recommandés), sinon `verbe_objet` en snake_case ;
+`form_start` et `form_submit` sont réservés par la mesure améliorée de GA4.
 
 | Événement | Quand | Paramètres |
 |---|---|---|
-| `form_start` | premier champ touché d'un formulaire | `form_name` (contact, question) |
-| `form_error` | envoi refusé par le serveur | `form_name`, `error_type` |
-| `generate_lead` | message envoyé, une fois | `form_name`, `form_id`, `lead_id`, `subject` |
-| `click_phone` / `click_email` | lien `tel:` / `mailto:` | `link_location` (section) |
-| `booking_click` | lien vers la prise de rendez-vous | `booking_provider`, `link_location` |
+| `lead_form_start` | premier champ touché d'un formulaire | `form_id`, `form_name` (contact, question) |
+| `lead_form_error` | envoi refusé par le serveur | `form_id`, `form_name`, `error_type` |
+| `generate_lead` | message envoyé, une fois | `form_id`, `form_name`, `lead_source` (contact_form, question_form), `lead_id` (aléatoire), `subject`, `user_data` (Ads et Meta seulement) |
+| `click_phone` / `click_email` | lien `tel:` / `mailto:` | `link_url`, `link_location` (section) |
+| `click_booking` | lien vers la prise de rendez-vous | `link_url`, `link_location`, `booking_provider` |
+| `click_contact` | lien vers `/contact/` | `link_url`, `link_location` |
+| `click_social` | lien LinkedIn, Instagram, Facebook | `link_url`, `link_location`, `social_network` |
 | `book_appointment` | rendez-vous réservé dans un widget Calendly, une fois | `booking_provider` |
-| `begin_checkout` | bouton « Payer en ligne » | `ecommerce` (CHF, prix HT, TVA) |
+| `view_item` | page d'un service | `ecommerce` (le service ; prix HT et CHF s'il se paie en ligne) |
+| `begin_checkout` | bouton « Payer en ligne » | `ecommerce` |
 | `purchase` | retour de Stripe sur `/paiement-confirme/`, une fois par paiement | `ecommerce` + `transaction_id` |
 
-Stripe renvoie après paiement vers
-`/paiement-confirme/?item=<slug>&session_id={CHECKOUT_SESSION_ID}` (réglé sur
-les trois liens de paiement). Les prix viennent de l'option `dl_pay`
-(`setup.php`, depuis `offers.js`).
+Les services (option `dl_items`, `setup.php`) : identifiant = slug de la page,
+catégorie = famille ; prix HT et lien de paiement pour les trois services
+payables en ligne. Stripe renvoie vers
+`/paiement-confirme/?item=<slug>&session_id={CHECKOUT_SESSION_ID}`.
 
 Consentement : Complianz Premium (réglé par `setup.php`, bandeau aux couleurs
-du site) charge lui-même le conteneur GTM avec Google Consent Mode v2 : tout
-refusé par défaut, accordé catégorie par catégorie. GTM4WP ne place donc pas
-le conteneur (placement « Off ») et ne fait que remplir le dataLayer, sans
-données personnelles ni événements à lui. Un correctif dans l'en-tête
-(`includes/assets.php`) empêche le focus du bandeau de faire défiler la page.
+du site) affiche le bandeau et garde le choix. GTM4WP charge le conteneur
+(Complianz, quand GTM4WP est actif, retire ses propres réglages GTM et Consent
+Mode) ; le signal Google Consent Mode v2 vient donc du script d'en-tête de
+`includes/assets.php` : tout refusé par défaut, puis mis à jour depuis les
+cookies et les événements de Complianz, suivi à chaque fois d'un événement
+`dl_consent` (`consent_marketing`) qu'attendent Meta et LinkedIn ; le pixel
+Meta est aussi averti d'un retrait (`fbq('consent')`).
 
-Mise en place côté GTM : mettre l'ID du conteneur dans `$gtm` en tête de la
-section Complianz de `setup.php` puis `deploy.sh setup` ; importer
-`tracking/gtm-dilytics.json` dans le conteneur (Admin > Importer, fusionner),
-remplir les variables constantes (ID de mesure GA4, ID et libellés de
-conversion Google Ads) et réactiver les balises Ads (en pause dans le
-fichier). Dans GA4 : `generate_lead`, `purchase` et `book_appointment` en
-événements clés ; `buy.stripe.com` et `checkout.stripe.com` en sites
-référents indésirables.
+Conteneur **GTM-NQ96WBF2** (« Dilytics 2026 », compte « Dilytics Tag »),
+propre au nouveau site ; l'ancien site garde GTM-TJQ35MG, non modifié.
+`CJS - Send mode` vaut `prod` sur dilytics.ch, `preview` en mode Aperçu GTM,
+`off` ailleurs ; deux déclencheurs d'exception bloquent GA4 hors prod et
+aperçu, Google Ads, Meta et LinkedIn hors prod : le staging n'envoie rien.
+
+- GA4 `G-LD77B0HR8Z` (propriété « dilytics.ch - GA4 », celle de l'ancien
+  site) : balise Google (page vue) et une balise par événement du tableau.
+- Google Ads `AW-10930930121` : balise Google (remarketing, gclid) et les
+  actions de conversion existantes, un libellé par action ; demande envoyée
+  avec conversions améliorées (variable UPD, mode Code) et ID de transaction
+  = `lead_id`.
+- Meta, pixel 206194998936004, modèle officiel « Meta Pixel » : PageView,
+  Lead (« Prospect »), Contact, Schedule, ViewContent, InitiateCheckout,
+  Purchase ; eventID (`lead_id`, session Stripe), correspondance avancée
+  (e-mail, téléphone) sur Lead. LinkedIn Insight (4978218), modèle officiel.
+  Après consentement marketing seulement.
+
+Convention de nommage : balises `<Plateforme> - <Type> - <détail>` (`GA4 -
+Event - generate_lead`, `GAds - Conversion - click_phone`, `Meta - Event -
+Lead`, `Google Tag - GA4 - G-…`) ; déclencheurs `CE - <événement>`, `PV - …`,
+`Block - …` ; variables `Const - …`, `DLV - <clé>`, `CJS - …`, `LT - …`,
+`UPD - …` ; dossiers GA4, Google Ads, Meta, LinkedIn, Utilities. Le
+conteneur entier est décrit dans `tracking/gtm_spec.py` (qui écrit
+`tracking/gtm-spec.json`) : la référence pour le reconstruire à l'identique
+par l'API GTM.
+
+Reste à faire à la main (pas d'accès en écriture par API) :
+- GA4 : `generate_lead` et `book_appointment` en événements clés ; flux
+  web > mesure améliorée > désactiver « Interactions avec les formulaires »
+  (le site envoie les siens) ; dimensions personnalisées `form_name`,
+  `lead_source`, `link_location`, `booking_provider`, `error_type`,
+  `social_network` ; `buy.stripe.com` et `checkout.stripe.com` en sites
+  référents indésirables.
+- Google Ads : une action de conversion pour les paiements en ligne (sa
+  balise se branche sur `CE - purchase`) ; compter « une » conversion par
+  clic pour les demandes.
+- LinkedIn : créer les conversions dans Campaign Manager (source « Tag
+  manager ») et une balise par ID de conversion.
+- Meta : décider de l'intégration Conversions API proposée par Meta (des
+  conditions à accepter par Dilytics).
 
 ## Pages légales
 

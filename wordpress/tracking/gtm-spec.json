@@ -1,0 +1,4060 @@
+{
+ "folders": [
+  "GA4",
+  "Google Ads",
+  "Meta",
+  "LinkedIn",
+  "Utilities"
+ ],
+ "builtins": [
+  "pageUrl",
+  "pageHostname",
+  "pagePath",
+  "referrer",
+  "event",
+  "debugMode"
+ ],
+ "variables": [
+  {
+   "name": "Const - GA4 Measurement ID",
+   "type": "c",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "value",
+     "value": "G-LD77B0HR8Z"
+    }
+   ],
+   "@folder": "Utilities",
+   "notes": "GA4 property « dilytics.ch - GA4 » (371110963), the old site's: history continues."
+  },
+  {
+   "name": "Const - GAds Conversion ID",
+   "type": "c",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "value",
+     "value": "10930930121"
+    }
+   ],
+   "@folder": "Utilities",
+   "notes": "Google Ads account Dilytics Sàrl (507-524-3982)."
+  },
+  {
+   "name": "Const - Meta Pixel ID",
+   "type": "c",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "value",
+     "value": "206194998936004"
+    }
+   ],
+   "@folder": "Utilities",
+   "notes": "The old site's Meta pixel."
+  },
+  {
+   "name": "Const - LinkedIn Partner ID",
+   "type": "c",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "value",
+     "value": "4978218"
+    }
+   ],
+   "@folder": "Utilities",
+   "notes": "The old site's LinkedIn Insight Tag partner ID."
+  },
+  {
+   "name": "CJS - Send mode",
+   "type": "jsm",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "javascript",
+     "value": "function () {\n  if (/(^|\\.)dilytics\\.ch$/.test({{Page Hostname}})) return 'prod';\n  return {{Debug Mode}} ? 'preview' : 'off';\n}"
+    }
+   ],
+   "@folder": "Utilities",
+   "notes": "prod on dilytics.ch; preview in GTM preview mode; off anywhere else (the staging outside preview). GA4 sends in prod and preview; Google Ads, Meta, LinkedIn in prod only (blocking triggers)."
+  },
+  {
+   "name": "DLV - form_id",
+   "type": "v",
+   "parameter": [
+    {
+     "type": "integer",
+     "key": "dataLayerVersion",
+     "value": "2"
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "name",
+     "value": "form_id"
+    }
+   ],
+   "@folder": "Utilities"
+  },
+  {
+   "name": "DLV - form_name",
+   "type": "v",
+   "parameter": [
+    {
+     "type": "integer",
+     "key": "dataLayerVersion",
+     "value": "2"
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "name",
+     "value": "form_name"
+    }
+   ],
+   "@folder": "Utilities"
+  },
+  {
+   "name": "DLV - lead_source",
+   "type": "v",
+   "parameter": [
+    {
+     "type": "integer",
+     "key": "dataLayerVersion",
+     "value": "2"
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "name",
+     "value": "lead_source"
+    }
+   ],
+   "@folder": "Utilities"
+  },
+  {
+   "name": "DLV - lead_id",
+   "type": "v",
+   "parameter": [
+    {
+     "type": "integer",
+     "key": "dataLayerVersion",
+     "value": "2"
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "name",
+     "value": "lead_id"
+    }
+   ],
+   "@folder": "Utilities"
+  },
+  {
+   "name": "DLV - subject",
+   "type": "v",
+   "parameter": [
+    {
+     "type": "integer",
+     "key": "dataLayerVersion",
+     "value": "2"
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "name",
+     "value": "subject"
+    }
+   ],
+   "@folder": "Utilities"
+  },
+  {
+   "name": "DLV - error_type",
+   "type": "v",
+   "parameter": [
+    {
+     "type": "integer",
+     "key": "dataLayerVersion",
+     "value": "2"
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "name",
+     "value": "error_type"
+    }
+   ],
+   "@folder": "Utilities"
+  },
+  {
+   "name": "DLV - link_url",
+   "type": "v",
+   "parameter": [
+    {
+     "type": "integer",
+     "key": "dataLayerVersion",
+     "value": "2"
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "name",
+     "value": "link_url"
+    }
+   ],
+   "@folder": "Utilities"
+  },
+  {
+   "name": "DLV - link_location",
+   "type": "v",
+   "parameter": [
+    {
+     "type": "integer",
+     "key": "dataLayerVersion",
+     "value": "2"
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "name",
+     "value": "link_location"
+    }
+   ],
+   "@folder": "Utilities"
+  },
+  {
+   "name": "DLV - booking_provider",
+   "type": "v",
+   "parameter": [
+    {
+     "type": "integer",
+     "key": "dataLayerVersion",
+     "value": "2"
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "name",
+     "value": "booking_provider"
+    }
+   ],
+   "@folder": "Utilities"
+  },
+  {
+   "name": "DLV - social_network",
+   "type": "v",
+   "parameter": [
+    {
+     "type": "integer",
+     "key": "dataLayerVersion",
+     "value": "2"
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "name",
+     "value": "social_network"
+    }
+   ],
+   "@folder": "Utilities"
+  },
+  {
+   "name": "DLV - ecommerce",
+   "type": "v",
+   "parameter": [
+    {
+     "type": "integer",
+     "key": "dataLayerVersion",
+     "value": "2"
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "name",
+     "value": "ecommerce"
+    }
+   ],
+   "@folder": "Utilities"
+  },
+  {
+   "name": "DLV - user_data.email",
+   "type": "v",
+   "parameter": [
+    {
+     "type": "integer",
+     "key": "dataLayerVersion",
+     "value": "2"
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "name",
+     "value": "user_data.email"
+    }
+   ],
+   "@folder": "Utilities"
+  },
+  {
+   "name": "DLV - user_data.phone_number",
+   "type": "v",
+   "parameter": [
+    {
+     "type": "integer",
+     "key": "dataLayerVersion",
+     "value": "2"
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "name",
+     "value": "user_data.phone_number"
+    }
+   ],
+   "@folder": "Utilities"
+  },
+  {
+   "name": "DLV - consent_marketing",
+   "type": "v",
+   "parameter": [
+    {
+     "type": "integer",
+     "key": "dataLayerVersion",
+     "value": "2"
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "name",
+     "value": "consent_marketing"
+    }
+   ],
+   "@folder": "Utilities"
+  },
+  {
+   "name": "DLV - user_data",
+   "type": "v",
+   "parameter": [
+    {
+     "type": "integer",
+     "key": "dataLayerVersion",
+     "value": "2"
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "name",
+     "value": "user_data"
+    }
+   ],
+   "@folder": "Utilities",
+   "notes": "{email, phone_number (E.164)} pushed with generate_lead: Google Ads enhanced conversions and Meta advanced matching only, never sent to GA4."
+  },
+  {
+   "name": "UPD - user_data",
+   "type": "awec",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "mode",
+     "value": "CODE"
+    },
+    {
+     "type": "template",
+     "key": "dataSource",
+     "value": "{{DLV - user_data}}"
+    }
+   ],
+   "@folder": "Google Ads",
+   "notes": "User-provided data, Code mode: the dataLayer's user_data object ({email, phone_number}), hashed by the Google tag, under ad_user_data consent."
+  },
+  {
+   "name": "CJS - GAds label - click_booking",
+   "type": "jsm",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "javascript",
+     "value": "function () {\n  if ({{DLV - link_location}} === 'site-nav') return 'v0wrCMOYkqAYEMmDo9wo';\n  if ({{Page Path}} === '/') return 'dgbPCOqYkqAYEMmDo9wo';\n  return 'kVpUCMCYkqAYEMmDo9wo';\n}"
+    }
+   ],
+   "@folder": "Google Ads",
+   "notes": "Existing Ads actions: « Clic | Prendre rendez-vous - Bouton Header » (header), « Clic | Réserver mon entretien - Home Page » (home), « Clic | Réserver mon entretien - Microsoft Bookings » (elsewhere)."
+  },
+  {
+   "name": "CJS - GAds label - click_phone",
+   "type": "jsm",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "javascript",
+     "value": "function () {\n  return {{DLV - link_location}} === 'site-nav' ? 'n0o1CMmYkqAYEMmDo9wo' : 'K-UkCPCYkqAYEMmDo9wo';\n}"
+    }
+   ],
+   "@folder": "Google Ads",
+   "notes": "Existing Ads actions: « Clic | N° de Téléphone Barre Supérieure » (header), « Clic | N° de Téléphone - Footer » (elsewhere)."
+  },
+  {
+   "name": "CJS - GAds label - click_email",
+   "type": "jsm",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "javascript",
+     "value": "function () {\n  return {{DLV - link_location}} === 'site-nav' ? 'wPWkCNWYkqAYEMmDo9wo' : 'eulVCPaYkqAYEMmDo9wo';\n}"
+    }
+   ],
+   "@folder": "Google Ads",
+   "notes": "Existing Ads actions: « Clic | Mailto - Barre Supérieure » (header), « Clic | Mailto - Footer bas » (elsewhere)."
+  },
+  {
+   "name": "LT - GAds label - page_view",
+   "type": "smm",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "input",
+     "value": "{{Page Path}}"
+    },
+    {
+     "type": "list",
+     "key": "map",
+     "list": [
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/creation-dentreprise/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "r2Y3CIOXkqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/creation-de-raison-individuelle/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "hIcyCIaXkqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/creer-une-sarl-en-suisse-facile/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "mtOnCImXkqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/creation-de-societe-anonyme/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "NMdCCIyXkqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/entreprises/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "g-9NCI-XkqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/comptabilite-geneve-experts-fiduciaire/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "apf_CIqYkqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/domiciliation-a-geneve/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "B-juCI2YkqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/payroll-et-administration-rh/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "-sOPCJCYkqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/tva-suisse/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "kyfMCJOYkqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/mandat-de-gerant-et-administrateur-en-suisse/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "mB4nCJaYkqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/audit-des-comptes/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "rqeGCJmYkqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/gestion-de-ppe/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "FZX7CJyYkqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/particuliers/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "WEq6CJ-YkqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/declaration-dimpots/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "nx3vCKKYkqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/particuliers-impot-a-la-source/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "m7JaCKWYkqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/conseil-fiscal/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "suYfCKiYkqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/declaration-de-succession/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "2jF3CKuYkqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/prevoyance-3eme-pilier-geneve/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "dWpyCK6YkqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/gestion-administrative/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "0VoOCLGYkqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/fiscalite-immobiliere/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "XxkSCLSYkqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/a-propos/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "k83ACLeYkqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/articles/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "Icl_CLqYkqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/contact/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "RipgCL2YkqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/controle-restreint/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "2jNoCL_shKYYEMmDo9wo"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "true"
+    },
+    {
+     "type": "template",
+     "key": "defaultValue",
+     "value": ""
+    }
+   ],
+   "@folder": "Google Ads",
+   "notes": "Existing secondary Ads actions « Page Vue | … », one per page; empty elsewhere (no conversion)."
+  },
+  {
+   "name": "LT - GAds label - click_contact",
+   "type": "smm",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "input",
+     "value": "{{Page Path}}"
+    },
+    {
+     "type": "list",
+     "key": "map",
+     "list": [
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "bLfSCOeYkqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/controle-restreint/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "bYxYCJS0gKgYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/gestion-de-ppe/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "Ak0eCJuakqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/creation-dentreprise/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "N3QlCIXD7qYYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/creation-de-raison-individuelle/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "kB3vCPqZkqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/creer-une-sarl-en-suisse-facile/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "-S6ECP2ZkqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/creation-de-societe-anonyme/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "wXDMCIOakqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/comptabilite-geneve-experts-fiduciaire/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "Zyd7CIaakqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/domiciliation-a-geneve/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "wUWKCIyakqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/payroll-et-administration-rh/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "NbV6CI-akqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/tva-suisse/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "GxcUCJKakqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/mandat-de-gerant-et-administrateur-en-suisse/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "EkS2CJWakqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/audit-des-comptes/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "F01mCJiakqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/declaration-dimpots/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "A-8GCJ6akqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/particuliers-impot-a-la-source/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "FgfCCKGakqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/conseil-fiscal/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "rBDJCKeakqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/declaration-de-succession/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "PjUhCKqakqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/prevoyance-3eme-pilier-geneve/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "kngxCK2akqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/gestion-administrative/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "-mlHCLCakqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "/fiscalite-immobiliere/"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "GhEuCLOakqAYEMmDo9wo"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "true"
+    },
+    {
+     "type": "template",
+     "key": "defaultValue",
+     "value": ""
+    }
+   ],
+   "@folder": "Google Ads",
+   "notes": "Existing Ads actions « Clic | Nous contacter - Page … » and « Clic | Prendre contact - Home Page »; empty elsewhere (no conversion)."
+  },
+  {
+   "name": "LT - GAds label - click_social",
+   "type": "smm",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "input",
+     "value": "{{DLV - social_network}}"
+    },
+    {
+     "type": "list",
+     "key": "map",
+     "list": [
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "linkedin"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "_YgZCPyYkqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "instagram"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "90r0CPmYkqAYEMmDo9wo"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "key",
+         "value": "facebook"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "keelCP-YkqAYEMmDo9wo"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "true"
+    },
+    {
+     "type": "template",
+     "key": "defaultValue",
+     "value": ""
+    }
+   ],
+   "@folder": "Google Ads",
+   "notes": "Existing Ads actions « Clic | Linkedin footer », « Clic | Instagram - Footer », « Clic | Facebook - Footer »."
+  },
+  {
+   "name": "CJS - Meta properties - ecommerce",
+   "type": "jsm",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "javascript",
+     "value": "function () {\n  var e = {{DLV - ecommerce}} || {};\n  var items = e.items || [];\n  var o = {\n    content_type: 'product',\n    content_ids: items.map(function (i) { return i.item_id; }),\n    contents: items.map(function (i) { return { id: i.item_id, quantity: i.quantity || 1 }; }),\n    num_items: items.length\n  };\n  if (items[0]) { o.content_name = items[0].item_name; o.content_category = items[0].item_category; }\n  if (e.value !== undefined) { o.value = e.value; o.currency = e.currency; }\n  return o;\n}"
+    }
+   ],
+   "@folder": "Meta",
+   "notes": "Meta object properties from the GA4 ecommerce object (view_item, begin_checkout, purchase): content_ids, contents, content_type, content_name, content_category, num_items, value, currency."
+  },
+  {
+   "name": "CJS - Meta ph - user_data.phone_number",
+   "type": "jsm",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "javascript",
+     "value": "function () {\n  var p = {{DLV - user_data.phone_number}};\n  return p ? String(p).replace(/\\D/g, '') : undefined;\n}"
+    }
+   ],
+   "@folder": "Meta",
+   "notes": "Meta advanced matching wants the phone as digits only, country code included."
+  },
+  {
+   "name": "CVT - Unique Event ID",
+   "type": "@template:Unique Event ID",
+   "parameter": [],
+   "@folder": "Utilities",
+   "notes": "Official stape-io template: one id per dataLayer event, the same in every tag of that event. Sent as event_id to GA4 and as eventID to Meta: a browser event and its future server copy (Conversions API through the server container) deduplicate on it."
+  }
+ ],
+ "triggers": [
+  {
+   "name": "CE - lead_form_start",
+   "type": "customEvent",
+   "customEventFilter": [
+    {
+     "type": "equals",
+     "parameter": [
+      {
+       "type": "template",
+       "key": "arg0",
+       "value": "{{_event}}"
+      },
+      {
+       "type": "template",
+       "key": "arg1",
+       "value": "lead_form_start"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "CE - lead_form_error",
+   "type": "customEvent",
+   "customEventFilter": [
+    {
+     "type": "equals",
+     "parameter": [
+      {
+       "type": "template",
+       "key": "arg0",
+       "value": "{{_event}}"
+      },
+      {
+       "type": "template",
+       "key": "arg1",
+       "value": "lead_form_error"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "CE - generate_lead",
+   "type": "customEvent",
+   "customEventFilter": [
+    {
+     "type": "equals",
+     "parameter": [
+      {
+       "type": "template",
+       "key": "arg0",
+       "value": "{{_event}}"
+      },
+      {
+       "type": "template",
+       "key": "arg1",
+       "value": "generate_lead"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "CE - click_phone",
+   "type": "customEvent",
+   "customEventFilter": [
+    {
+     "type": "equals",
+     "parameter": [
+      {
+       "type": "template",
+       "key": "arg0",
+       "value": "{{_event}}"
+      },
+      {
+       "type": "template",
+       "key": "arg1",
+       "value": "click_phone"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "CE - click_email",
+   "type": "customEvent",
+   "customEventFilter": [
+    {
+     "type": "equals",
+     "parameter": [
+      {
+       "type": "template",
+       "key": "arg0",
+       "value": "{{_event}}"
+      },
+      {
+       "type": "template",
+       "key": "arg1",
+       "value": "click_email"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "CE - click_booking",
+   "type": "customEvent",
+   "customEventFilter": [
+    {
+     "type": "equals",
+     "parameter": [
+      {
+       "type": "template",
+       "key": "arg0",
+       "value": "{{_event}}"
+      },
+      {
+       "type": "template",
+       "key": "arg1",
+       "value": "click_booking"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "CE - click_contact",
+   "type": "customEvent",
+   "customEventFilter": [
+    {
+     "type": "equals",
+     "parameter": [
+      {
+       "type": "template",
+       "key": "arg0",
+       "value": "{{_event}}"
+      },
+      {
+       "type": "template",
+       "key": "arg1",
+       "value": "click_contact"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "CE - click_social",
+   "type": "customEvent",
+   "customEventFilter": [
+    {
+     "type": "equals",
+     "parameter": [
+      {
+       "type": "template",
+       "key": "arg0",
+       "value": "{{_event}}"
+      },
+      {
+       "type": "template",
+       "key": "arg1",
+       "value": "click_social"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "CE - book_appointment",
+   "type": "customEvent",
+   "customEventFilter": [
+    {
+     "type": "equals",
+     "parameter": [
+      {
+       "type": "template",
+       "key": "arg0",
+       "value": "{{_event}}"
+      },
+      {
+       "type": "template",
+       "key": "arg1",
+       "value": "book_appointment"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "CE - view_item",
+   "type": "customEvent",
+   "customEventFilter": [
+    {
+     "type": "equals",
+     "parameter": [
+      {
+       "type": "template",
+       "key": "arg0",
+       "value": "{{_event}}"
+      },
+      {
+       "type": "template",
+       "key": "arg1",
+       "value": "view_item"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "CE - begin_checkout",
+   "type": "customEvent",
+   "customEventFilter": [
+    {
+     "type": "equals",
+     "parameter": [
+      {
+       "type": "template",
+       "key": "arg0",
+       "value": "{{_event}}"
+      },
+      {
+       "type": "template",
+       "key": "arg1",
+       "value": "begin_checkout"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "CE - purchase",
+   "type": "customEvent",
+   "customEventFilter": [
+    {
+     "type": "equals",
+     "parameter": [
+      {
+       "type": "template",
+       "key": "arg0",
+       "value": "{{_event}}"
+      },
+      {
+       "type": "template",
+       "key": "arg1",
+       "value": "purchase"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "CE - click_booking - microsoft_bookings",
+   "type": "customEvent",
+   "customEventFilter": [
+    {
+     "type": "equals",
+     "parameter": [
+      {
+       "type": "template",
+       "key": "arg0",
+       "value": "{{_event}}"
+      },
+      {
+       "type": "template",
+       "key": "arg1",
+       "value": "click_booking"
+      }
+     ]
+    }
+   ],
+   "filter": [
+    {
+     "type": "equals",
+     "parameter": [
+      {
+       "type": "template",
+       "key": "arg0",
+       "value": "{{DLV - booking_provider}}"
+      },
+      {
+       "type": "template",
+       "key": "arg1",
+       "value": "microsoft_bookings"
+      }
+     ]
+    }
+   ],
+   "notes": "A click to Microsoft Bookings: the booking happens there, unseen, so the click stands for it (Meta Schedule). Calendly bookings come as book_appointment."
+  },
+  {
+   "name": "CE - click_contact - GAds page",
+   "type": "customEvent",
+   "customEventFilter": [
+    {
+     "type": "equals",
+     "parameter": [
+      {
+       "type": "template",
+       "key": "arg0",
+       "value": "{{_event}}"
+      },
+      {
+       "type": "template",
+       "key": "arg1",
+       "value": "click_contact"
+      }
+     ]
+    }
+   ],
+   "filter": [
+    {
+     "type": "matchRegex",
+     "parameter": [
+      {
+       "type": "template",
+       "key": "arg0",
+       "value": "{{LT - GAds label - click_contact}}"
+      },
+      {
+       "type": "template",
+       "key": "arg1",
+       "value": "."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "CE - click_social - site-foot",
+   "type": "customEvent",
+   "customEventFilter": [
+    {
+     "type": "equals",
+     "parameter": [
+      {
+       "type": "template",
+       "key": "arg0",
+       "value": "{{_event}}"
+      },
+      {
+       "type": "template",
+       "key": "arg1",
+       "value": "click_social"
+      }
+     ]
+    }
+   ],
+   "filter": [
+    {
+     "type": "equals",
+     "parameter": [
+      {
+       "type": "template",
+       "key": "arg0",
+       "value": "{{DLV - link_location}}"
+      },
+      {
+       "type": "template",
+       "key": "arg1",
+       "value": "site-foot"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "CE - dl_consent - marketing granted",
+   "type": "customEvent",
+   "customEventFilter": [
+    {
+     "type": "equals",
+     "parameter": [
+      {
+       "type": "template",
+       "key": "arg0",
+       "value": "{{_event}}"
+      },
+      {
+       "type": "template",
+       "key": "arg1",
+       "value": "dl_consent"
+      }
+     ]
+    }
+   ],
+   "filter": [
+    {
+     "type": "equals",
+     "parameter": [
+      {
+       "type": "template",
+       "key": "arg0",
+       "value": "{{DLV - consent_marketing}}"
+      },
+      {
+       "type": "template",
+       "key": "arg1",
+       "value": "granted"
+      }
+     ]
+    }
+   ],
+   "notes": "dl_consent is pushed by the site right after each Consent Mode update (Complianz choice, and on each page when consent exists). For non-Google tags (Meta, LinkedIn); they fire once per page."
+  },
+  {
+   "name": "PV - GAds page_view pages",
+   "type": "pageview",
+   "filter": [
+    {
+     "type": "matchRegex",
+     "parameter": [
+      {
+       "type": "template",
+       "key": "arg0",
+       "value": "{{LT - GAds label - page_view}}"
+      },
+      {
+       "type": "template",
+       "key": "arg1",
+       "value": "."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Block - Send mode not prod",
+   "type": "customEvent",
+   "customEventFilter": [
+    {
+     "type": "matchRegex",
+     "parameter": [
+      {
+       "type": "template",
+       "key": "arg0",
+       "value": "{{_event}}"
+      },
+      {
+       "type": "template",
+       "key": "arg1",
+       "value": ".*"
+      }
+     ]
+    }
+   ],
+   "filter": [
+    {
+     "type": "equals",
+     "parameter": [
+      {
+       "type": "template",
+       "key": "arg0",
+       "value": "{{CJS - Send mode}}"
+      },
+      {
+       "type": "template",
+       "key": "arg1",
+       "value": "prod"
+      },
+      {
+       "type": "boolean",
+       "key": "negate",
+       "value": "true"
+      }
+     ]
+    }
+   ],
+   "notes": "Exception for Google Ads, Meta and LinkedIn: nothing leaves outside dilytics.ch."
+  },
+  {
+   "name": "Block - Send mode off",
+   "type": "customEvent",
+   "customEventFilter": [
+    {
+     "type": "matchRegex",
+     "parameter": [
+      {
+       "type": "template",
+       "key": "arg0",
+       "value": "{{_event}}"
+      },
+      {
+       "type": "template",
+       "key": "arg1",
+       "value": ".*"
+      }
+     ]
+    }
+   ],
+   "filter": [
+    {
+     "type": "equals",
+     "parameter": [
+      {
+       "type": "template",
+       "key": "arg0",
+       "value": "{{CJS - Send mode}}"
+      },
+      {
+       "type": "template",
+       "key": "arg1",
+       "value": "off"
+      }
+     ]
+    }
+   ],
+   "notes": "Exception for GA4: nothing leaves from the staging outside GTM preview."
+  }
+ ],
+ "tags": [
+  {
+   "name": "Google Tag - GA4 - G-LD77B0HR8Z",
+   "type": "googtag",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "tagId",
+     "value": "{{Const - GA4 Measurement ID}}"
+    }
+   ],
+   "@fire": [
+    "@builtin:2147479573"
+   ],
+   "@block": [
+    "Block - Send mode off"
+   ],
+   "@folder": "GA4",
+   "tagFiringOption": "oncePerLoad",
+   "notes": "GA4 page_view included. Consent Mode v2 from the site's head script (denied until Complianz consent): cookieless pings until then."
+  },
+  {
+   "name": "GA4 - Event - lead_form_start",
+   "type": "gaawe",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "eventName",
+     "value": "lead_form_start"
+    },
+    {
+     "type": "template",
+     "key": "measurementIdOverride",
+     "value": "{{Const - GA4 Measurement ID}}"
+    },
+    {
+     "type": "list",
+     "key": "eventSettingsTable",
+     "list": [
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "form_id"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - form_id}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "form_name"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - form_name}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "event_id"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{CVT - Unique Event ID}}"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "boolean",
+     "key": "sendEcommerceData",
+     "value": "false"
+    }
+   ],
+   "@fire": [
+    "CE - lead_form_start"
+   ],
+   "@block": [
+    "Block - Send mode off"
+   ],
+   "@folder": "GA4",
+   "tagFiringOption": "oncePerEvent"
+  },
+  {
+   "name": "GA4 - Event - lead_form_error",
+   "type": "gaawe",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "eventName",
+     "value": "lead_form_error"
+    },
+    {
+     "type": "template",
+     "key": "measurementIdOverride",
+     "value": "{{Const - GA4 Measurement ID}}"
+    },
+    {
+     "type": "list",
+     "key": "eventSettingsTable",
+     "list": [
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "form_id"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - form_id}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "form_name"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - form_name}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "error_type"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - error_type}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "event_id"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{CVT - Unique Event ID}}"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "boolean",
+     "key": "sendEcommerceData",
+     "value": "false"
+    }
+   ],
+   "@fire": [
+    "CE - lead_form_error"
+   ],
+   "@block": [
+    "Block - Send mode off"
+   ],
+   "@folder": "GA4",
+   "tagFiringOption": "oncePerEvent"
+  },
+  {
+   "name": "GA4 - Event - generate_lead",
+   "type": "gaawe",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "eventName",
+     "value": "generate_lead"
+    },
+    {
+     "type": "template",
+     "key": "measurementIdOverride",
+     "value": "{{Const - GA4 Measurement ID}}"
+    },
+    {
+     "type": "list",
+     "key": "eventSettingsTable",
+     "list": [
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "form_id"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - form_id}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "form_name"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - form_name}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "lead_source"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - lead_source}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "lead_id"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - lead_id}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "subject"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - subject}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "event_id"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{CVT - Unique Event ID}}"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "boolean",
+     "key": "sendEcommerceData",
+     "value": "false"
+    }
+   ],
+   "@fire": [
+    "CE - generate_lead"
+   ],
+   "@block": [
+    "Block - Send mode off"
+   ],
+   "@folder": "GA4",
+   "tagFiringOption": "oncePerEvent"
+  },
+  {
+   "name": "GA4 - Event - click_phone",
+   "type": "gaawe",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "eventName",
+     "value": "click_phone"
+    },
+    {
+     "type": "template",
+     "key": "measurementIdOverride",
+     "value": "{{Const - GA4 Measurement ID}}"
+    },
+    {
+     "type": "list",
+     "key": "eventSettingsTable",
+     "list": [
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "link_url"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - link_url}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "link_location"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - link_location}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "event_id"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{CVT - Unique Event ID}}"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "boolean",
+     "key": "sendEcommerceData",
+     "value": "false"
+    }
+   ],
+   "@fire": [
+    "CE - click_phone"
+   ],
+   "@block": [
+    "Block - Send mode off"
+   ],
+   "@folder": "GA4",
+   "tagFiringOption": "oncePerEvent"
+  },
+  {
+   "name": "GA4 - Event - click_email",
+   "type": "gaawe",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "eventName",
+     "value": "click_email"
+    },
+    {
+     "type": "template",
+     "key": "measurementIdOverride",
+     "value": "{{Const - GA4 Measurement ID}}"
+    },
+    {
+     "type": "list",
+     "key": "eventSettingsTable",
+     "list": [
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "link_url"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - link_url}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "link_location"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - link_location}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "event_id"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{CVT - Unique Event ID}}"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "boolean",
+     "key": "sendEcommerceData",
+     "value": "false"
+    }
+   ],
+   "@fire": [
+    "CE - click_email"
+   ],
+   "@block": [
+    "Block - Send mode off"
+   ],
+   "@folder": "GA4",
+   "tagFiringOption": "oncePerEvent"
+  },
+  {
+   "name": "GA4 - Event - click_booking",
+   "type": "gaawe",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "eventName",
+     "value": "click_booking"
+    },
+    {
+     "type": "template",
+     "key": "measurementIdOverride",
+     "value": "{{Const - GA4 Measurement ID}}"
+    },
+    {
+     "type": "list",
+     "key": "eventSettingsTable",
+     "list": [
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "link_url"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - link_url}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "link_location"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - link_location}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "booking_provider"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - booking_provider}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "event_id"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{CVT - Unique Event ID}}"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "boolean",
+     "key": "sendEcommerceData",
+     "value": "false"
+    }
+   ],
+   "@fire": [
+    "CE - click_booking"
+   ],
+   "@block": [
+    "Block - Send mode off"
+   ],
+   "@folder": "GA4",
+   "tagFiringOption": "oncePerEvent"
+  },
+  {
+   "name": "GA4 - Event - click_contact",
+   "type": "gaawe",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "eventName",
+     "value": "click_contact"
+    },
+    {
+     "type": "template",
+     "key": "measurementIdOverride",
+     "value": "{{Const - GA4 Measurement ID}}"
+    },
+    {
+     "type": "list",
+     "key": "eventSettingsTable",
+     "list": [
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "link_url"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - link_url}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "link_location"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - link_location}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "event_id"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{CVT - Unique Event ID}}"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "boolean",
+     "key": "sendEcommerceData",
+     "value": "false"
+    }
+   ],
+   "@fire": [
+    "CE - click_contact"
+   ],
+   "@block": [
+    "Block - Send mode off"
+   ],
+   "@folder": "GA4",
+   "tagFiringOption": "oncePerEvent"
+  },
+  {
+   "name": "GA4 - Event - click_social",
+   "type": "gaawe",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "eventName",
+     "value": "click_social"
+    },
+    {
+     "type": "template",
+     "key": "measurementIdOverride",
+     "value": "{{Const - GA4 Measurement ID}}"
+    },
+    {
+     "type": "list",
+     "key": "eventSettingsTable",
+     "list": [
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "link_url"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - link_url}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "link_location"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - link_location}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "social_network"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - social_network}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "event_id"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{CVT - Unique Event ID}}"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "boolean",
+     "key": "sendEcommerceData",
+     "value": "false"
+    }
+   ],
+   "@fire": [
+    "CE - click_social"
+   ],
+   "@block": [
+    "Block - Send mode off"
+   ],
+   "@folder": "GA4",
+   "tagFiringOption": "oncePerEvent"
+  },
+  {
+   "name": "GA4 - Event - book_appointment",
+   "type": "gaawe",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "eventName",
+     "value": "book_appointment"
+    },
+    {
+     "type": "template",
+     "key": "measurementIdOverride",
+     "value": "{{Const - GA4 Measurement ID}}"
+    },
+    {
+     "type": "list",
+     "key": "eventSettingsTable",
+     "list": [
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "booking_provider"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - booking_provider}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "event_id"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{CVT - Unique Event ID}}"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "boolean",
+     "key": "sendEcommerceData",
+     "value": "false"
+    }
+   ],
+   "@fire": [
+    "CE - book_appointment"
+   ],
+   "@block": [
+    "Block - Send mode off"
+   ],
+   "@folder": "GA4",
+   "tagFiringOption": "oncePerEvent"
+  },
+  {
+   "name": "GA4 - Event - view_item",
+   "type": "gaawe",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "eventName",
+     "value": "view_item"
+    },
+    {
+     "type": "template",
+     "key": "measurementIdOverride",
+     "value": "{{Const - GA4 Measurement ID}}"
+    },
+    {
+     "type": "list",
+     "key": "eventSettingsTable",
+     "list": [
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "event_id"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{CVT - Unique Event ID}}"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "boolean",
+     "key": "sendEcommerceData",
+     "value": "true"
+    },
+    {
+     "type": "template",
+     "key": "getEcommerceDataFrom",
+     "value": "dataLayer"
+    }
+   ],
+   "@fire": [
+    "CE - view_item"
+   ],
+   "@block": [
+    "Block - Send mode off"
+   ],
+   "@folder": "GA4",
+   "tagFiringOption": "oncePerEvent"
+  },
+  {
+   "name": "GA4 - Event - begin_checkout",
+   "type": "gaawe",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "eventName",
+     "value": "begin_checkout"
+    },
+    {
+     "type": "template",
+     "key": "measurementIdOverride",
+     "value": "{{Const - GA4 Measurement ID}}"
+    },
+    {
+     "type": "list",
+     "key": "eventSettingsTable",
+     "list": [
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "event_id"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{CVT - Unique Event ID}}"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "boolean",
+     "key": "sendEcommerceData",
+     "value": "true"
+    },
+    {
+     "type": "template",
+     "key": "getEcommerceDataFrom",
+     "value": "dataLayer"
+    }
+   ],
+   "@fire": [
+    "CE - begin_checkout"
+   ],
+   "@block": [
+    "Block - Send mode off"
+   ],
+   "@folder": "GA4",
+   "tagFiringOption": "oncePerEvent"
+  },
+  {
+   "name": "GA4 - Event - purchase",
+   "type": "gaawe",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "eventName",
+     "value": "purchase"
+    },
+    {
+     "type": "template",
+     "key": "measurementIdOverride",
+     "value": "{{Const - GA4 Measurement ID}}"
+    },
+    {
+     "type": "list",
+     "key": "eventSettingsTable",
+     "list": [
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "event_id"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{CVT - Unique Event ID}}"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "boolean",
+     "key": "sendEcommerceData",
+     "value": "true"
+    },
+    {
+     "type": "template",
+     "key": "getEcommerceDataFrom",
+     "value": "dataLayer"
+    }
+   ],
+   "@fire": [
+    "CE - purchase"
+   ],
+   "@block": [
+    "Block - Send mode off"
+   ],
+   "@folder": "GA4",
+   "tagFiringOption": "oncePerEvent"
+  },
+  {
+   "name": "Google Tag - Google Ads - AW-10930930121",
+   "type": "googtag",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "tagId",
+     "value": "AW-{{Const - GAds Conversion ID}}"
+    }
+   ],
+   "@fire": [
+    "@builtin:2147479573"
+   ],
+   "@block": [
+    "Block - Send mode not prod"
+   ],
+   "@folder": "Google Ads",
+   "tagFiringOption": "oncePerLoad",
+   "notes": "Google tag for Ads on every page of dilytics.ch: remarketing audiences, and the gclid kept (so no separate conversion linker, per Google)."
+  },
+  {
+   "name": "GAds - Conversion - generate_lead",
+   "type": "awct",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "conversionId",
+     "value": "{{Const - GAds Conversion ID}}"
+    },
+    {
+     "type": "template",
+     "key": "conversionLabel",
+     "value": "ZtWqCO2YkqAYEMmDo9wo"
+    },
+    {
+     "type": "boolean",
+     "key": "enableConversionLinker",
+     "value": "true"
+    },
+    {
+     "type": "template",
+     "key": "conversionCookiePrefix",
+     "value": "_gcl"
+    },
+    {
+     "type": "boolean",
+     "key": "enableProductReporting",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enableNewCustomerReporting",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enableShippingData",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "rdp",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "orderId",
+     "value": "{{DLV - lead_id}}"
+    },
+    {
+     "type": "boolean",
+     "key": "enableEnhancedConversion",
+     "value": "true"
+    },
+    {
+     "type": "template",
+     "key": "cssProvidedEnhancedConversionValue",
+     "value": "{{UPD - user_data}}"
+    }
+   ],
+   "@fire": [
+    "CE - generate_lead"
+   ],
+   "@block": [
+    "Block - Send mode not prod"
+   ],
+   "@folder": "Google Ads",
+   "tagFiringOption": "oncePerEvent",
+   "notes": "Existing action « Formulaires_envoyés | Tout le Site Web ». Transaction ID = lead_id (random, one per message). Enhanced conversions: UPD - user_data."
+  },
+  {
+   "name": "GAds - Conversion - click_booking",
+   "type": "awct",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "conversionId",
+     "value": "{{Const - GAds Conversion ID}}"
+    },
+    {
+     "type": "template",
+     "key": "conversionLabel",
+     "value": "{{CJS - GAds label - click_booking}}"
+    },
+    {
+     "type": "boolean",
+     "key": "enableConversionLinker",
+     "value": "true"
+    },
+    {
+     "type": "template",
+     "key": "conversionCookiePrefix",
+     "value": "_gcl"
+    },
+    {
+     "type": "boolean",
+     "key": "enableProductReporting",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enableNewCustomerReporting",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enableShippingData",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "rdp",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enableEnhancedConversion",
+     "value": "false"
+    }
+   ],
+   "@fire": [
+    "CE - click_booking"
+   ],
+   "@block": [
+    "Block - Send mode not prod"
+   ],
+   "@folder": "Google Ads",
+   "tagFiringOption": "oncePerEvent",
+   "notes": "Label per location: CJS - GAds label - click_booking."
+  },
+  {
+   "name": "GAds - Conversion - click_phone",
+   "type": "awct",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "conversionId",
+     "value": "{{Const - GAds Conversion ID}}"
+    },
+    {
+     "type": "template",
+     "key": "conversionLabel",
+     "value": "{{CJS - GAds label - click_phone}}"
+    },
+    {
+     "type": "boolean",
+     "key": "enableConversionLinker",
+     "value": "true"
+    },
+    {
+     "type": "template",
+     "key": "conversionCookiePrefix",
+     "value": "_gcl"
+    },
+    {
+     "type": "boolean",
+     "key": "enableProductReporting",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enableNewCustomerReporting",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enableShippingData",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "rdp",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enableEnhancedConversion",
+     "value": "false"
+    }
+   ],
+   "@fire": [
+    "CE - click_phone"
+   ],
+   "@block": [
+    "Block - Send mode not prod"
+   ],
+   "@folder": "Google Ads",
+   "tagFiringOption": "oncePerEvent",
+   "notes": "Label per location: CJS - GAds label - click_phone."
+  },
+  {
+   "name": "GAds - Conversion - click_email",
+   "type": "awct",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "conversionId",
+     "value": "{{Const - GAds Conversion ID}}"
+    },
+    {
+     "type": "template",
+     "key": "conversionLabel",
+     "value": "{{CJS - GAds label - click_email}}"
+    },
+    {
+     "type": "boolean",
+     "key": "enableConversionLinker",
+     "value": "true"
+    },
+    {
+     "type": "template",
+     "key": "conversionCookiePrefix",
+     "value": "_gcl"
+    },
+    {
+     "type": "boolean",
+     "key": "enableProductReporting",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enableNewCustomerReporting",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enableShippingData",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "rdp",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enableEnhancedConversion",
+     "value": "false"
+    }
+   ],
+   "@fire": [
+    "CE - click_email"
+   ],
+   "@block": [
+    "Block - Send mode not prod"
+   ],
+   "@folder": "Google Ads",
+   "tagFiringOption": "oncePerEvent",
+   "notes": "Label per location: CJS - GAds label - click_email."
+  },
+  {
+   "name": "GAds - Conversion - click_contact",
+   "type": "awct",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "conversionId",
+     "value": "{{Const - GAds Conversion ID}}"
+    },
+    {
+     "type": "template",
+     "key": "conversionLabel",
+     "value": "{{LT - GAds label - click_contact}}"
+    },
+    {
+     "type": "boolean",
+     "key": "enableConversionLinker",
+     "value": "true"
+    },
+    {
+     "type": "template",
+     "key": "conversionCookiePrefix",
+     "value": "_gcl"
+    },
+    {
+     "type": "boolean",
+     "key": "enableProductReporting",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enableNewCustomerReporting",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enableShippingData",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "rdp",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enableEnhancedConversion",
+     "value": "false"
+    }
+   ],
+   "@fire": [
+    "CE - click_contact - GAds page"
+   ],
+   "@block": [
+    "Block - Send mode not prod"
+   ],
+   "@folder": "Google Ads",
+   "tagFiringOption": "oncePerEvent",
+   "notes": "Label per page: LT - GAds label - click_contact."
+  },
+  {
+   "name": "GAds - Conversion - click_social",
+   "type": "awct",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "conversionId",
+     "value": "{{Const - GAds Conversion ID}}"
+    },
+    {
+     "type": "template",
+     "key": "conversionLabel",
+     "value": "{{LT - GAds label - click_social}}"
+    },
+    {
+     "type": "boolean",
+     "key": "enableConversionLinker",
+     "value": "true"
+    },
+    {
+     "type": "template",
+     "key": "conversionCookiePrefix",
+     "value": "_gcl"
+    },
+    {
+     "type": "boolean",
+     "key": "enableProductReporting",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enableNewCustomerReporting",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enableShippingData",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "rdp",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enableEnhancedConversion",
+     "value": "false"
+    }
+   ],
+   "@fire": [
+    "CE - click_social - site-foot"
+   ],
+   "@block": [
+    "Block - Send mode not prod"
+   ],
+   "@folder": "Google Ads",
+   "tagFiringOption": "oncePerEvent",
+   "notes": "Label per network: LT - GAds label - click_social."
+  },
+  {
+   "name": "GAds - Conversion - page_view",
+   "type": "awct",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "conversionId",
+     "value": "{{Const - GAds Conversion ID}}"
+    },
+    {
+     "type": "template",
+     "key": "conversionLabel",
+     "value": "{{LT - GAds label - page_view}}"
+    },
+    {
+     "type": "boolean",
+     "key": "enableConversionLinker",
+     "value": "true"
+    },
+    {
+     "type": "template",
+     "key": "conversionCookiePrefix",
+     "value": "_gcl"
+    },
+    {
+     "type": "boolean",
+     "key": "enableProductReporting",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enableNewCustomerReporting",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enableShippingData",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "rdp",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enableEnhancedConversion",
+     "value": "false"
+    }
+   ],
+   "@fire": [
+    "PV - GAds page_view pages"
+   ],
+   "@block": [
+    "Block - Send mode not prod"
+   ],
+   "@folder": "Google Ads",
+   "tagFiringOption": "oncePerEvent",
+   "notes": "Secondary actions « Page Vue | … » (interest signal, not bidding). Label per page: LT - GAds label - page_view."
+  },
+  {
+   "name": "Meta - Base - PageView",
+   "type": "@template:Meta Pixel",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "pixelId",
+     "value": "{{Const - Meta Pixel ID}}"
+    },
+    {
+     "type": "template",
+     "key": "eventName",
+     "value": "standard"
+    },
+    {
+     "type": "template",
+     "key": "standardEventName",
+     "value": "PageView"
+    },
+    {
+     "type": "boolean",
+     "key": "consent",
+     "value": "true"
+    },
+    {
+     "type": "boolean",
+     "key": "optInMetaCAPI",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "disableAutoConfig",
+     "value": "true"
+    },
+    {
+     "type": "boolean",
+     "key": "disablePushState",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enhancedEcommerce",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "useGA4Ecommerce",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "dpoLDU",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "objectPropertiesFromVariable",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "eventId",
+     "value": "{{CVT - Unique Event ID}}"
+    },
+    {
+     "type": "boolean",
+     "key": "advancedMatching",
+     "value": "false"
+    }
+   ],
+   "@fire": [
+    "CE - dl_consent - marketing granted"
+   ],
+   "@block": [
+    "Block - Send mode not prod"
+   ],
+   "@folder": "Meta",
+   "tagFiringOption": "oncePerLoad",
+   "notes": "Official Meta Pixel template. After marketing consent only, once per page. Automatic configuration off (no automatic clicks: one event source). Meta-enabled Conversions API opt-in left off: Meta terms for Dilytics to accept themselves.",
+   "consentSettings": {
+    "consentStatus": "needed",
+    "consentType": {
+     "type": "list",
+     "list": [
+      {
+       "type": "template",
+       "value": "ad_storage"
+      },
+      {
+       "type": "template",
+       "value": "ad_user_data"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "Meta - Event - Lead",
+   "type": "@template:Meta Pixel",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "pixelId",
+     "value": "{{Const - Meta Pixel ID}}"
+    },
+    {
+     "type": "template",
+     "key": "eventName",
+     "value": "standard"
+    },
+    {
+     "type": "template",
+     "key": "standardEventName",
+     "value": "Lead"
+    },
+    {
+     "type": "boolean",
+     "key": "consent",
+     "value": "true"
+    },
+    {
+     "type": "boolean",
+     "key": "optInMetaCAPI",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "disableAutoConfig",
+     "value": "true"
+    },
+    {
+     "type": "boolean",
+     "key": "disablePushState",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enhancedEcommerce",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "useGA4Ecommerce",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "dpoLDU",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "objectPropertiesFromVariable",
+     "value": "false"
+    },
+    {
+     "type": "list",
+     "key": "objectPropertyList",
+     "list": [
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "name",
+         "value": "content_name"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "{{DLV - lead_source}}"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "template",
+     "key": "eventId",
+     "value": "{{CVT - Unique Event ID}}"
+    },
+    {
+     "type": "boolean",
+     "key": "advancedMatching",
+     "value": "true"
+    },
+    {
+     "type": "list",
+     "key": "advancedMatchingList",
+     "list": [
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "name",
+         "value": "em"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "{{DLV - user_data.email}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "name",
+         "value": "ph"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "{{CJS - Meta ph - user_data.phone_number}}"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "@fire": [
+    "CE - generate_lead"
+   ],
+   "@block": [
+    "Block - Send mode not prod"
+   ],
+   "@folder": "Meta",
+   "tagFiringOption": "oncePerEvent",
+   "notes": "Lead (« Prospect ») on each message sent. Advanced matching: e-mail and phone, hashed by the pixel.",
+   "consentSettings": {
+    "consentStatus": "needed",
+    "consentType": {
+     "type": "list",
+     "list": [
+      {
+       "type": "template",
+       "value": "ad_storage"
+      },
+      {
+       "type": "template",
+       "value": "ad_user_data"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "Meta - Event - Contact",
+   "type": "@template:Meta Pixel",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "pixelId",
+     "value": "{{Const - Meta Pixel ID}}"
+    },
+    {
+     "type": "template",
+     "key": "eventName",
+     "value": "standard"
+    },
+    {
+     "type": "template",
+     "key": "standardEventName",
+     "value": "Contact"
+    },
+    {
+     "type": "boolean",
+     "key": "consent",
+     "value": "true"
+    },
+    {
+     "type": "boolean",
+     "key": "optInMetaCAPI",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "disableAutoConfig",
+     "value": "true"
+    },
+    {
+     "type": "boolean",
+     "key": "disablePushState",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enhancedEcommerce",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "useGA4Ecommerce",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "dpoLDU",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "objectPropertiesFromVariable",
+     "value": "false"
+    },
+    {
+     "type": "list",
+     "key": "objectPropertyList",
+     "list": [
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "name",
+         "value": "content_name"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "{{Event}}"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "template",
+     "key": "eventId",
+     "value": "{{CVT - Unique Event ID}}"
+    },
+    {
+     "type": "boolean",
+     "key": "advancedMatching",
+     "value": "false"
+    }
+   ],
+   "@fire": [
+    "CE - click_phone",
+    "CE - click_email"
+   ],
+   "@block": [
+    "Block - Send mode not prod"
+   ],
+   "@folder": "Meta",
+   "tagFiringOption": "oncePerEvent",
+   "notes": "Contact: a tel: or mailto: link clicked.",
+   "consentSettings": {
+    "consentStatus": "needed",
+    "consentType": {
+     "type": "list",
+     "list": [
+      {
+       "type": "template",
+       "value": "ad_storage"
+      },
+      {
+       "type": "template",
+       "value": "ad_user_data"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "Meta - Event - Schedule",
+   "type": "@template:Meta Pixel",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "pixelId",
+     "value": "{{Const - Meta Pixel ID}}"
+    },
+    {
+     "type": "template",
+     "key": "eventName",
+     "value": "standard"
+    },
+    {
+     "type": "template",
+     "key": "standardEventName",
+     "value": "Schedule"
+    },
+    {
+     "type": "boolean",
+     "key": "consent",
+     "value": "true"
+    },
+    {
+     "type": "boolean",
+     "key": "optInMetaCAPI",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "disableAutoConfig",
+     "value": "true"
+    },
+    {
+     "type": "boolean",
+     "key": "disablePushState",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enhancedEcommerce",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "useGA4Ecommerce",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "dpoLDU",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "objectPropertiesFromVariable",
+     "value": "false"
+    },
+    {
+     "type": "list",
+     "key": "objectPropertyList",
+     "list": [
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "name",
+         "value": "content_name"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "{{DLV - booking_provider}}"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "template",
+     "key": "eventId",
+     "value": "{{CVT - Unique Event ID}}"
+    },
+    {
+     "type": "boolean",
+     "key": "advancedMatching",
+     "value": "false"
+    }
+   ],
+   "@fire": [
+    "CE - book_appointment",
+    "CE - click_booking - microsoft_bookings"
+   ],
+   "@block": [
+    "Block - Send mode not prod"
+   ],
+   "@folder": "Meta",
+   "tagFiringOption": "oncePerEvent",
+   "notes": "Schedule: an appointment booked in Calendly, or a click to Microsoft Bookings (where the booking itself can't be seen).",
+   "consentSettings": {
+    "consentStatus": "needed",
+    "consentType": {
+     "type": "list",
+     "list": [
+      {
+       "type": "template",
+       "value": "ad_storage"
+      },
+      {
+       "type": "template",
+       "value": "ad_user_data"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "Meta - Event - ViewContent",
+   "type": "@template:Meta Pixel",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "pixelId",
+     "value": "{{Const - Meta Pixel ID}}"
+    },
+    {
+     "type": "template",
+     "key": "eventName",
+     "value": "standard"
+    },
+    {
+     "type": "template",
+     "key": "standardEventName",
+     "value": "ViewContent"
+    },
+    {
+     "type": "boolean",
+     "key": "consent",
+     "value": "true"
+    },
+    {
+     "type": "boolean",
+     "key": "optInMetaCAPI",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "disableAutoConfig",
+     "value": "true"
+    },
+    {
+     "type": "boolean",
+     "key": "disablePushState",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enhancedEcommerce",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "useGA4Ecommerce",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "dpoLDU",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "objectPropertiesFromVariable",
+     "value": "{{CJS - Meta properties - ecommerce}}"
+    },
+    {
+     "type": "template",
+     "key": "eventId",
+     "value": "{{CVT - Unique Event ID}}"
+    },
+    {
+     "type": "boolean",
+     "key": "advancedMatching",
+     "value": "false"
+    }
+   ],
+   "@fire": [
+    "CE - view_item"
+   ],
+   "@block": [
+    "Block - Send mode not prod"
+   ],
+   "@folder": "Meta",
+   "tagFiringOption": "oncePerEvent",
+   "notes": "ViewContent on each service page (view_item).",
+   "consentSettings": {
+    "consentStatus": "needed",
+    "consentType": {
+     "type": "list",
+     "list": [
+      {
+       "type": "template",
+       "value": "ad_storage"
+      },
+      {
+       "type": "template",
+       "value": "ad_user_data"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "Meta - Event - InitiateCheckout",
+   "type": "@template:Meta Pixel",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "pixelId",
+     "value": "{{Const - Meta Pixel ID}}"
+    },
+    {
+     "type": "template",
+     "key": "eventName",
+     "value": "standard"
+    },
+    {
+     "type": "template",
+     "key": "standardEventName",
+     "value": "InitiateCheckout"
+    },
+    {
+     "type": "boolean",
+     "key": "consent",
+     "value": "true"
+    },
+    {
+     "type": "boolean",
+     "key": "optInMetaCAPI",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "disableAutoConfig",
+     "value": "true"
+    },
+    {
+     "type": "boolean",
+     "key": "disablePushState",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enhancedEcommerce",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "useGA4Ecommerce",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "dpoLDU",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "objectPropertiesFromVariable",
+     "value": "{{CJS - Meta properties - ecommerce}}"
+    },
+    {
+     "type": "template",
+     "key": "eventId",
+     "value": "{{CVT - Unique Event ID}}"
+    },
+    {
+     "type": "boolean",
+     "key": "advancedMatching",
+     "value": "false"
+    }
+   ],
+   "@fire": [
+    "CE - begin_checkout"
+   ],
+   "@block": [
+    "Block - Send mode not prod"
+   ],
+   "@folder": "Meta",
+   "tagFiringOption": "oncePerEvent",
+   "notes": "InitiateCheckout: a « Payer en ligne » button.",
+   "consentSettings": {
+    "consentStatus": "needed",
+    "consentType": {
+     "type": "list",
+     "list": [
+      {
+       "type": "template",
+       "value": "ad_storage"
+      },
+      {
+       "type": "template",
+       "value": "ad_user_data"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "Meta - Event - Purchase",
+   "type": "@template:Meta Pixel",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "pixelId",
+     "value": "{{Const - Meta Pixel ID}}"
+    },
+    {
+     "type": "template",
+     "key": "eventName",
+     "value": "standard"
+    },
+    {
+     "type": "template",
+     "key": "standardEventName",
+     "value": "Purchase"
+    },
+    {
+     "type": "boolean",
+     "key": "consent",
+     "value": "true"
+    },
+    {
+     "type": "boolean",
+     "key": "optInMetaCAPI",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "disableAutoConfig",
+     "value": "true"
+    },
+    {
+     "type": "boolean",
+     "key": "disablePushState",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enhancedEcommerce",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "useGA4Ecommerce",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "dpoLDU",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "objectPropertiesFromVariable",
+     "value": "{{CJS - Meta properties - ecommerce}}"
+    },
+    {
+     "type": "template",
+     "key": "eventId",
+     "value": "{{CVT - Unique Event ID}}"
+    },
+    {
+     "type": "boolean",
+     "key": "advancedMatching",
+     "value": "false"
+    }
+   ],
+   "@fire": [
+    "CE - purchase"
+   ],
+   "@block": [
+    "Block - Send mode not prod"
+   ],
+   "@folder": "Meta",
+   "tagFiringOption": "oncePerEvent",
+   "notes": "Purchase on Stripe's return (value before VAT, CHF).",
+   "consentSettings": {
+    "consentStatus": "needed",
+    "consentType": {
+     "type": "list",
+     "list": [
+      {
+       "type": "template",
+       "value": "ad_storage"
+      },
+      {
+       "type": "template",
+       "value": "ad_user_data"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "LinkedIn - Base - Insight Tag",
+   "type": "@template:LinkedIn InsightTag 2.0",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "partnerId",
+     "value": "{{Const - LinkedIn Partner ID}}"
+    },
+    {
+     "type": "template",
+     "key": "conversionId",
+     "value": ""
+    },
+    {
+     "type": "template",
+     "key": "customUrl",
+     "value": ""
+    }
+   ],
+   "@fire": [
+    "CE - dl_consent - marketing granted"
+   ],
+   "@block": [
+    "Block - Send mode not prod"
+   ],
+   "@folder": "LinkedIn",
+   "tagFiringOption": "oncePerLoad",
+   "notes": "Official LinkedIn template. After marketing consent only, once per page. Conversions: add a tag per LinkedIn conversion ID (Campaign Manager) with its Conversion ID.",
+   "consentSettings": {
+    "consentStatus": "needed",
+    "consentType": {
+     "type": "list",
+     "list": [
+      {
+       "type": "template",
+       "value": "ad_storage"
+      },
+      {
+       "type": "template",
+       "value": "ad_user_data"
+      }
+     ]
+    }
+   }
+  }
+ ]
+}

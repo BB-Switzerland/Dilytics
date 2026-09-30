@@ -35,7 +35,7 @@ add_action(
 		$deps = array( 'dl-gsap', 'dl-scrolltrigger', 'dl-lenis' );
 		if ( ! dl_editing() ) {
 			wp_enqueue_script( 'dl-track', DL_URL . 'assets/js/track.js', array(), $ver( 'assets/js/track.js' ), $footer );
-			wp_add_inline_script( 'dl-track', 'window.DLPay=' . wp_json_encode( array_values( (array) get_option( 'dl_pay', array() ) ) ) . ';', 'before' );
+			wp_add_inline_script( 'dl-track', 'window.DLItems=' . wp_json_encode( array_values( (array) get_option( 'dl_items', array() ) ) ) . ';', 'before' );
 			$deps[] = 'dl-track';
 		}
 		wp_enqueue_script( 'dl-site', DL_URL . 'assets/js/site.js', $deps, $ver( 'assets/js/site.js' ), $footer );
@@ -103,6 +103,38 @@ add_action(
 		echo "<script>(function(f){HTMLElement.prototype.focus=function(o){if(this.closest&&this.closest('.cmplz-cookiebanner')){o=Object.assign({},o,{preventScroll:true})}return f.call(this,o)}})(HTMLElement.prototype.focus)</script>\n";
 	},
 	1
+);
+
+// Google Consent Mode v2, before GTM4WP prints the container (priority 1 and
+// 10). With GTM4WP active, Complianz leaves Google tags to it and prints no
+// consent signal of its own: this does it, from Complianz's cookies at load,
+// then from its events (cmplz_status_change when the visitor chooses, before
+// Complianz pushes cmplz_event_<category>; cmplz_fire_categories on each page
+// with consent; cmplz_revoke). Everything denied until the visitor accepts.
+// Each update is followed by a dl_consent event: Complianz's own
+// cmplz_event_marketing comes before the update, too early for the
+// container's non-Google tags (Meta, LinkedIn), which wait for dl_consent.
+// The Meta pixel, once loaded, is told of a withdrawal too (fbq consent).
+add_action(
+	'wp_head',
+	function () {
+		if ( dl_editing() ) {
+			return;
+		}
+		echo "<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}(function(){"
+			. "function s(m,a,p){return{ad_storage:m,ad_user_data:m,ad_personalization:m,analytics_storage:a,personalization_storage:p}}"
+			. "function c(n){var v=document.cookie.match('(?:^|; )cmplz_'+n+'=([^;]*)');return v&&v[1]==='allow'?'granted':'denied'}"
+			. "var d=s(c('marketing'),c('statistics'),c('preferences'));d.functionality_storage='granted';d.security_storage='granted';d.wait_for_update=500;"
+			. "gtag('consent','default',d);gtag('set','ads_data_redaction',d.ad_storage==='denied');"
+			. "function u(e){var k=(e.detail&&e.detail.categories)||[],g=function(x){return k.indexOf(x)>-1?'granted':'denied'};"
+			. "gtag('consent','update',s(g('marketing'),g('statistics'),g('preferences')));gtag('set','ads_data_redaction',g('marketing')==='denied');"
+			. "if(window.fbq)fbq('consent',g('marketing')==='granted'?'grant':'revoke');"
+			. "dataLayer.push({event:'dl_consent',consent_marketing:g('marketing'),consent_statistics:g('statistics')})}"
+			. "document.addEventListener('cmplz_status_change',u);document.addEventListener('cmplz_fire_categories',u);"
+			. "document.addEventListener('cmplz_revoke',function(){gtag('consent','update',s('denied','denied','denied'));if(window.fbq)fbq('consent','revoke')})"
+			. "})()</script>\n";
+	},
+	0
 );
 
 add_action(

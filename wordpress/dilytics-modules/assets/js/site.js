@@ -557,9 +557,10 @@
   }
 
   // Forms: posted to Contact Form 7's REST endpoint (includes/contact.php),
-  // which validates, mails and files them. Tracking (track.js): form_start at
-  // the first field touched, generate_lead once per message sent, form_error
-  // when the server refuses it.
+  // which validates, mails and files them. Tracking (track.js): lead_form_start
+  // at the first field touched, generate_lead once per message sent,
+  // lead_form_error when the server refuses it. (form_start and form_submit
+  // are GA4's reserved enhanced-measurement names.)
   var loaded = Date.now()
   var track = function (event, params) { if (window.dlTrack) window.dlTrack(event, params) }
   function forms() {
@@ -577,7 +578,7 @@
       }
       var sync = function () { btn.disabled = busy || !valid() }
       var fail = function (type, message) {
-        track('form_error', { form_name: name, error_type: type })
+        track('lead_form_error', { form_id: form.dataset.cf7, form_name: name, error_type: type })
         err.textContent = message || err.dataset.fallback
         err.style.display = ''
       }
@@ -586,7 +587,7 @@
       var start = function () {
         if (started) return
         started = true
-        track('form_start', { form_name: name })
+        track('lead_form_start', { form_id: form.dataset.cf7, form_name: name })
       }
       form.addEventListener('focusin', start)
       form.addEventListener('input', start)
@@ -609,11 +610,19 @@
           .then(function (r) { return r.json() })
           .then(function (res) {
             if (res.status === 'mail_sent') {
+              // lead_id: a random id, the order id Google Ads and Meta
+              // deduplicate on (never derived from what the visitor typed).
+              // user_data (E.164 phone) feeds Google Ads' enhanced conversions
+              // and Meta's advanced matching only, hashed by their tags under
+              // consent; no GA4 event carries it.
+              var tel = (val('your-phone') || '').replace(/[^\d+]/g, '').replace(/^00/, '+').replace(/^0/, '+41')
               track('generate_lead', {
-                form_name: name,
                 form_id: form.dataset.cf7,
-                lead_id: res.posted_data_hash || '',
-                subject: val('your-subject') || undefined
+                form_name: name,
+                lead_source: name + '_form',
+                lead_id: 'L' + Date.now().toString(36) + Math.random().toString(36).slice(2, 8),
+                subject: val('your-subject') || undefined,
+                user_data: { email: val('your-email').toLowerCase() || undefined, phone_number: tel.length > 8 ? tel : undefined }
               })
               form.style.display = 'none'
               if (done) done.style.display = ''
