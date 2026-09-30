@@ -133,9 +133,55 @@ add_action(
 			. "document.addEventListener('cmplz_status_change',u);document.addEventListener('cmplz_fire_categories',u);"
 			. "document.addEventListener('cmplz_revoke',function(){gtag('consent','update',s('denied','denied','denied'));if(window.fbq)fbq('consent','revoke')})"
 			. "})()</script>\n";
+		// the page's context, before GTM's first event, so that page_view and
+		// every later event carry it (the container shares it with all GA4
+		// events): the page type; the service, that of the page or, on any
+		// other page, the last one seen in the visit (on /contact/: the
+		// service the visitor writes about); and the visit so far: its entry
+		// page, the pages viewed, the services viewed
+		echo '<script>(function(c){try{var k="dl_service",s,'
+			. 'j=JSON.parse(sessionStorage.getItem("dl_journey")||"null")||{landing_page:location.pathname,pages_viewed:0,services:[]};'
+			. 'j.pages_viewed++;if(c.service_id&&j.services.indexOf(c.service_id)<0)j.services.push(c.service_id);'
+			. 'sessionStorage.setItem("dl_journey",JSON.stringify(j));'
+			. 'c.landing_page=j.landing_page;c.pages_viewed=j.pages_viewed;c.services_viewed=j.services.join(",").slice(0,100);'
+			. 'if(c.service_id){sessionStorage.setItem(k,JSON.stringify({service_id:c.service_id,service_name:c.service_name,service_category:c.service_category}))}'
+			. 'else if((s=JSON.parse(sessionStorage.getItem(k)||"null"))){for(var x in s)c[x]=s[x]}}catch(e){}dataLayer.push(c)})('
+			. wp_json_encode( dl_page_context() ) . ')</script>' . "\n";
 	},
 	0
 );
+
+/** The page's type for tracking, and its service when it is one (option dl_items). */
+function dl_page_context() {
+	if ( is_front_page() ) {
+		return array( 'page_type' => 'home' );
+	}
+	$slug = is_page() ? get_post_field( 'post_name', get_queried_object_id() ) : '';
+	foreach ( (array) get_option( 'dl_items', array() ) as $it ) {
+		if ( $slug && $it['id'] === $slug ) {
+			return array(
+				'page_type'        => 'service',
+				'service_id'       => $it['id'],
+				'service_name'     => $it['name'],
+				'service_category' => $it['category'],
+			);
+		}
+	}
+	$types = array(
+		'entreprises'                               => 'category',
+		'particuliers'                              => 'category',
+		'creation-dentreprise'                      => 'category',
+		'contact'                                   => 'contact',
+		'a-propos'                                  => 'about',
+		'articles'                                  => 'articles',
+		'offres-demploi'                            => 'jobs',
+		'paiement-confirme'                         => 'payment',
+		'conditions-generales-de-vente'             => 'legal',
+		'declaration-sur-la-protection-des-donnees' => 'legal',
+		'politique-de-cookies'                      => 'legal',
+	);
+	return array( 'page_type' => $types[ $slug ] ?? ( is_404() ? 'not_found' : 'page' ) );
+}
 
 add_action(
 	'wp_head',

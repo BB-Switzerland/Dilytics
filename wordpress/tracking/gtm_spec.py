@@ -29,7 +29,11 @@ var("Const - Meta Pixel ID","c",[T("value","206194998936004")],"The old site's M
 var("Const - LinkedIn Partner ID","c",[T("value","4978218")],"The old site's LinkedIn Insight Tag partner ID.")
 var("CJS - Send mode","jsm",[T("javascript","function () {\n  if (/(^|\\.)dilytics\\.ch$/.test({{Page Hostname}})) return 'prod';\n  return {{Debug Mode}} ? 'preview' : 'off';\n}")],
     "prod on dilytics.ch; preview in GTM preview mode; off anywhere else (the staging outside preview). GA4 sends in prod and preview; Google Ads, Meta, LinkedIn in prod only (blocking triggers).")
-for k in ["form_id","form_name","lead_source","lead_id","subject","error_type","link_url","link_location","booking_provider","social_network","ecommerce","user_data.email","user_data.phone_number","consent_marketing"]:
+var("GTES - Page context","gtes",[L("eventSettingsTable",[{"type":"map","map":[T("parameter",p),T("parameterValue","{{DLV - %s}}"%p)]} for p in ["page_type","service_id","service_name","service_category","landing_page","pages_viewed","services_viewed"]])],
+    "Shared GA4 event parameters, on every event (page_view included): the page type; the service (the page's, or elsewhere the last one seen in the visit); the visit so far (entry page, pages viewed, services viewed). Pushed in the head before GTM (includes/assets.php).",folder="GA4")
+var("CJS - Content group","jsm",[T("javascript","function () {\n  var t = {{DLV - page_type}};\n  if (t === 'service') return 'Services - ' + {{DLV - service_category}};\n  return {home: 'Accueil', category: 'Catégories', contact: 'Contact', about: 'À propos', articles: 'Articles', jobs: 'Emploi', payment: 'Paiement', legal: 'Pages légales', not_found: 'Page introuvable'}[t] || 'Autres pages';\n}")],
+    "GA4 content group: services by category, the other pages by type.",folder="GA4")
+for k in ["page_type","service_id","service_name","service_category","landing_page","pages_viewed","services_viewed","form_id","form_name","lead_source","lead_id","subject","error_type","link_url","link_location","booking_provider","social_network","ecommerce","user_data.email","user_data.phone_number","consent_marketing"]:
     dlv(k)
 dlv("user_data","{email, phone_number (E.164)} pushed with generate_lead: Google Ads enhanced conversions and Meta advanced matching only, never sent to GA4.")
 var("UPD - user_data","awec",[T("mode","CODE"),T("dataSource","{{DLV - user_data}}")],
@@ -62,7 +66,7 @@ def trig(name,type_,custom=None,filters=None,notes=None):
     if filters: d["filter"]=filters
     if notes: d["notes"]=notes
     R.append(d)
-EV=["lead_form_start","lead_form_error","generate_lead","click_phone","click_email","click_booking","click_contact","click_social","book_appointment","view_item","begin_checkout","purchase"]
+EV=["lead_form_view","lead_form_start","lead_form_submit","lead_form_error","generate_lead","click_phone","click_email","click_booking","click_contact","click_social","book_appointment","view_item","begin_checkout","purchase"]
 for e in EV: trig(f"CE - {e}","customEvent",[eq("{{_event}}",e)])
 trig("CE - click_booking - microsoft_bookings","customEvent",[eq("{{_event}}","click_booking")],[eq("{{DLV - booking_provider}}","microsoft_bookings")],"A click to Microsoft Bookings: the booking happens there, unseen, so the click stands for it (Meta Schedule). Calendly bookings come as book_appointment.")
 trig("CE - click_contact - GAds page","customEvent",[eq("{{_event}}","click_contact")],[rx("{{LT - GAds label - click_contact}}",".")])
@@ -80,12 +84,12 @@ def tag(name,type_,params,fire,block,folder,notes=None,opt="oncePerEvent",consen
     if consent: d["consentSettings"]={"consentStatus":"needed","consentType":{"type":"list","list":[{"type":"template","value":c} for c in consent]}}
     Tg.append(d)
 GA_BLOCK=["Block - Send mode off"]; MK_BLOCK=["Block - Send mode not prod"]
-tag("Google Tag - GA4 - G-LD77B0HR8Z","googtag",[T("tagId","{{Const - GA4 Measurement ID}}")],["@builtin:"+INIT],GA_BLOCK,"GA4","GA4 page_view included. Consent Mode v2 from the site's head script (denied until Complianz consent): cookieless pings until then.",opt="oncePerLoad")
-gp={"lead_form_start":["form_id","form_name"],"lead_form_error":["form_id","form_name","error_type"],"generate_lead":["form_id","form_name","lead_source","lead_id","subject"],
+tag("Google Tag - GA4 - G-LD77B0HR8Z","googtag",[T("tagId","{{Const - GA4 Measurement ID}}"),L("configSettingsTable",[{"type":"map","map":[T("parameter","content_group"),T("parameterValue","{{CJS - Content group}}")]}]),T("eventSettingsVariable","{{GTES - Page context}}")],["@builtin:"+INIT],GA_BLOCK,"GA4","GA4 page_view included. Consent Mode v2 from the site's head script (denied until Complianz consent): cookieless pings until then.",opt="oncePerLoad")
+gp={"lead_form_view":["form_id","form_name"],"lead_form_submit":["form_id","form_name"],"lead_form_start":["form_id","form_name"],"lead_form_error":["form_id","form_name","error_type"],"generate_lead":["form_id","form_name","lead_source","lead_id","subject"],
     "click_phone":["link_url","link_location"],"click_email":["link_url","link_location"],"click_booking":["link_url","link_location","booking_provider"],
     "click_contact":["link_url","link_location"],"click_social":["link_url","link_location","social_network"],"book_appointment":["booking_provider"]}
 for e in EV:
-    params=[T("eventName",e),T("measurementIdOverride","{{Const - GA4 Measurement ID}}")]
+    params=[T("eventName",e),T("measurementIdOverride","{{Const - GA4 Measurement ID}}"),T("eventSettingsVariable","{{GTES - Page context}}")]
     rows=[{"type":"map","map":[T("parameter",p),T("parameterValue","{{DLV - %s}}"%p)]} for p in gp.get(e,[])]
     rows.append({"type":"map","map":[T("parameter","event_id"),T("parameterValue","{{CVT - Unique Event ID}}")]})
     params.append(L("eventSettingsTable",rows))
@@ -119,9 +123,9 @@ def meta(name,std,fire,props=None,prop_var=None,event_id="{{CVT - Unique Event I
     else: p.append(B("advancedMatching",False))
     tag(name,"@template:Meta Pixel",p,fire,MK_BLOCK,"Meta",notes,opt=opt,consent=MKT)
 meta("Meta - Base - PageView","PageView",["CE - dl_consent - marketing granted"],opt="oncePerLoad",notes="Official Meta Pixel template. After marketing consent only, once per page. Automatic configuration off (no automatic clicks: one event source). Meta-enabled Conversions API opt-in left off: Meta terms for Dilytics to accept themselves.")
-meta("Meta - Event - Lead","Lead",["CE - generate_lead"],props=[("content_name","{{DLV - lead_source}}")],am=[("em","{{DLV - user_data.email}}"),("ph","{{CJS - Meta ph - user_data.phone_number}}")],notes="Lead (« Prospect ») on each message sent. Advanced matching: e-mail and phone, hashed by the pixel.")
-meta("Meta - Event - Contact","Contact",["CE - click_phone","CE - click_email"],props=[("content_name","{{Event}}")],notes="Contact: a tel: or mailto: link clicked.")
-meta("Meta - Event - Schedule","Schedule",["CE - book_appointment","CE - click_booking - microsoft_bookings"],props=[("content_name","{{DLV - booking_provider}}")],notes="Schedule: an appointment booked in Calendly, or a click to Microsoft Bookings (where the booking itself can't be seen).")
+meta("Meta - Event - Lead","Lead",["CE - generate_lead"],props=[("content_name","{{DLV - lead_source}}"),("content_category","{{DLV - service_name}}")],am=[("em","{{DLV - user_data.email}}"),("ph","{{CJS - Meta ph - user_data.phone_number}}")],notes="Lead (« Prospect ») on each message sent. Advanced matching: e-mail and phone, hashed by the pixel.")
+meta("Meta - Event - Contact","Contact",["CE - click_phone","CE - click_email"],props=[("content_name","{{Event}}"),("content_category","{{DLV - service_name}}")],notes="Contact: a tel: or mailto: link clicked.")
+meta("Meta - Event - Schedule","Schedule",["CE - book_appointment","CE - click_booking - microsoft_bookings"],props=[("content_name","{{DLV - booking_provider}}"),("content_category","{{DLV - service_name}}")],notes="Schedule: an appointment booked in Calendly, or a click to Microsoft Bookings (where the booking itself can't be seen).")
 meta("Meta - Event - ViewContent","ViewContent",["CE - view_item"],prop_var="{{CJS - Meta properties - ecommerce}}",notes="ViewContent on each service page (view_item).")
 meta("Meta - Event - InitiateCheckout","InitiateCheckout",["CE - begin_checkout"],prop_var="{{CJS - Meta properties - ecommerce}}",notes="InitiateCheckout: a « Payer en ligne » button.")
 meta("Meta - Event - Purchase","Purchase",["CE - purchase"],prop_var="{{CJS - Meta properties - ecommerce}}",notes="Purchase on Stripe's return (value before VAT, CHF).")

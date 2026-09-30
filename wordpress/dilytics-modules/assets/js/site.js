@@ -557,10 +557,13 @@
   }
 
   // Forms: posted to Contact Form 7's REST endpoint (includes/contact.php),
-  // which validates, mails and files them. Tracking (track.js): lead_form_start
-  // at the first field touched, generate_lead once per message sent,
-  // lead_form_error when the server refuses it. (form_start and form_submit
-  // are GA4's reserved enhanced-measurement names.)
+  // which validates, mails and files them. Tracking (track.js), the form's
+  // funnel: lead_form_view once half of it is on screen, lead_form_start at
+  // the first field touched, lead_form_submit at each attempt, then
+  // generate_lead once per message sent or lead_form_error when the server
+  // refuses it. The page's context (page_type, service) is already in the
+  // dataLayer (includes/assets.php). (form_start and form_submit are GA4's
+  // reserved enhanced-measurement names.)
   var loaded = Date.now()
   var track = function (event, params) { if (window.dlTrack) window.dlTrack(event, params) }
   function forms() {
@@ -572,13 +575,15 @@
       var name = form.dataset.form
       var busy = false
       var started = false
+      var ids = { form_id: form.dataset.cf7, form_name: name }
+      var with_ = function (o) { for (var k in ids) o[k] = ids[k]; return o }
       var val = function (n) { var f = form.elements[n]; return f ? f.value.trim() : '' }
       var valid = function () {
         return !!(val('your-name') && val('your-email').indexOf('@') > -1 && val('your-message').length > 8)
       }
       var sync = function () { btn.disabled = busy || !valid() }
       var fail = function (type, message) {
-        track('lead_form_error', { form_id: form.dataset.cf7, form_name: name, error_type: type })
+        track('lead_form_error', with_({ error_type: type }))
         err.textContent = message || err.dataset.fallback
         err.style.display = ''
       }
@@ -587,7 +592,16 @@
       var start = function () {
         if (started) return
         started = true
-        track('lead_form_start', { form_id: form.dataset.cf7, form_name: name })
+        track('lead_form_start', with_({}))
+      }
+      // seen: once half of the form is on screen, once per page
+      if ('IntersectionObserver' in window) {
+        var seen = new IntersectionObserver(function (entries) {
+          if (!entries[0].isIntersecting) return
+          seen.disconnect()
+          track('lead_form_view', with_({}))
+        }, { threshold: 0.5 })
+        seen.observe(form)
       }
       form.addEventListener('focusin', start)
       form.addEventListener('input', start)
@@ -599,6 +613,7 @@
         if (busy || !valid()) return
         busy = true
         sync()
+        track('lead_form_submit', with_({}))
         err.style.display = 'none'
         var data = new FormData(form)
         data.set('hp-t', String(Math.round((Date.now() - loaded) / 1000)))
@@ -617,7 +632,7 @@
               // consent; no GA4 event carries it.
               var tel = (val('your-phone') || '').replace(/[^\d+]/g, '').replace(/^00/, '+').replace(/^0/, '+41')
               track('generate_lead', {
-                form_id: form.dataset.cf7,
+                form_id: ids.form_id,
                 form_name: name,
                 lead_source: name + '_form',
                 lead_id: 'L' + Date.now().toString(36) + Math.random().toString(36).slice(2, 8),

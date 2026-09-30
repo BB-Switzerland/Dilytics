@@ -3,11 +3,13 @@
  * Google Tag Manager (GTM4WP) reads window.dataLayer; every tag lives in GTM
  * (container "Dilytics 2026"). Each event is pushed from a single place, so
  * nothing is counted twice. Names are GA4's where GA4 has one (generate_lead,
- * view_item, begin_checkout, purchase; form_start with enhanced measurement's
- * parameters), verb_object snake_case otherwise.
+ * view_item, begin_checkout, purchase), verb_object snake_case otherwise;
+ * form_start and form_submit are GA4-reserved, hence lead_form_*.
  *
- *   form_start       first field touched in a form           form_id, form_name
- *   form_error       a form the server refused               form_id, form_name, error_type
+ *   lead_form_view   half of a form on screen, once          form_id, form_name
+ *   lead_form_start  first field touched in a form           form_id, form_name
+ *   lead_form_submit a send attempt                          form_id, form_name
+ *   lead_form_error  a form the server refused               form_id, form_name, error_type
  *   generate_lead    a message sent (site.js, once each)     form_id, form_name, lead_source, lead_id,
  *                                                            subject, user_data (Ads and Meta matching)
  *   click_phone      a tel: link                             link_url, link_location
@@ -20,10 +22,16 @@
  *   begin_checkout   a "Payer en ligne" button (Stripe)      ecommerce
  *   purchase         the page Stripe sends back to, once per payment   ecommerce (+ transaction_id)
  *
+ * Every event also carries the page's context, pushed in the head before GTM
+ * (includes/assets.php): page_type, and service_id, service_name,
+ * service_category, those of the page or, on any other page, of the last
+ * service seen in the visit (on /contact/: the service the visitor writes
+ * about). The form events (lead_form_*, generate_lead) come from site.js.
+ *
  * link_location is the section the link sits in (its scope class: site-nav
- * for the header, site-foot for the footer…). lead_id (CF7's hash of the
- * message) and transaction_id (Stripe's Checkout session) are the ids GA4,
- * Google Ads and Meta deduplicate on. The services (window.DLItems: id = page
+ * for the header, site-foot for the footer…). lead_id (random, one per message
+ * sent) is Google Ads' transaction id; transaction_id (Stripe's Checkout
+ * session) is GA4's purchase id. The services (window.DLItems: id = page
  * slug, price and payment link for those paid online) come from
  * includes/assets.php. */
 (function () {

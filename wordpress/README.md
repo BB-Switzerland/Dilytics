@@ -171,7 +171,9 @@ GA4 en a un (événements recommandés), sinon `verbe_objet` en snake_case ;
 
 | Événement | Quand | Paramètres |
 |---|---|---|
-| `lead_form_start` | premier champ touché d'un formulaire | `form_id`, `form_name` (contact, question) |
+| `lead_form_view` | la moitié d'un formulaire à l'écran, une fois | `form_id`, `form_name` (contact, question) |
+| `lead_form_start` | premier champ touché d'un formulaire | `form_id`, `form_name` |
+| `lead_form_submit` | tentative d'envoi | `form_id`, `form_name` |
 | `lead_form_error` | envoi refusé par le serveur | `form_id`, `form_name`, `error_type` |
 | `generate_lead` | message envoyé, une fois | `form_id`, `form_name`, `lead_source` (contact_form, question_form), `lead_id` (aléatoire), `subject`, `user_data` (Ads et Meta seulement) |
 | `click_phone` / `click_email` | lien `tel:` / `mailto:` | `link_url`, `link_location` (section) |
@@ -182,6 +184,19 @@ GA4 en a un (événements recommandés), sinon `verbe_objet` en snake_case ;
 | `view_item` | page d'un service | `ecommerce` (le service ; prix HT et CHF s'il se paie en ligne) |
 | `begin_checkout` | bouton « Payer en ligne » | `ecommerce` |
 | `purchase` | retour de Stripe sur `/paiement-confirme/`, une fois par paiement | `ecommerce` + `transaction_id` |
+
+Chaque événement, `page_view` compris, porte aussi le contexte de la page,
+poussé dans l'en-tête avant GTM (`dl_page_context()`, `includes/assets.php`) :
+`page_type` (home, service, category, contact, about, articles, jobs,
+payment, legal, page) et `service_id`, `service_name`, `service_category` :
+ceux de la page, ou ailleurs ceux du dernier service vu dans la visite (sur
+`/contact/` : le service pour lequel la personne écrit), et le parcours de
+la visite : `landing_page` (page d'entrée), `pages_viewed` (pages vues
+jusque-là), `services_viewed` (services vus). GA4 les reçoit sur
+tous les événements (variable `GTES - Page context`) et groupe les pages par
+`content_group`. Entonnoir d'un formulaire : `lead_form_view` →
+`lead_form_start` → `lead_form_submit` → `generate_lead` ou `lead_form_error`,
+par service et par formulaire.
 
 Les services (option `dl_items`, `setup.php`) : identifiant = slug de la page,
 catégorie = famille ; prix HT et lien de paiement pour les trois services
@@ -227,7 +242,9 @@ par l'API GTM.
 Reste à faire à la main (pas d'accès en écriture par API) :
 - GA4 : `generate_lead` et `book_appointment` en événements clés ; flux
   web > mesure améliorée > désactiver « Interactions avec les formulaires »
-  (le site envoie les siens) ; dimensions personnalisées `form_name`,
+  (le site envoie les siens) ; dimensions personnalisées `page_type`,
+  `service_id`, `service_name`, `service_category`, `landing_page`,
+  `services_viewed` (et `pages_viewed` en métrique personnalisée), `form_name`,
   `lead_source`, `link_location`, `booking_provider`, `error_type`,
   `social_network` ; `buy.stripe.com` et `checkout.stripe.com` en sites
   référents indésirables.

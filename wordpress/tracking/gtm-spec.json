@@ -81,6 +81,292 @@
    "notes": "prod on dilytics.ch; preview in GTM preview mode; off anywhere else (the staging outside preview). GA4 sends in prod and preview; Google Ads, Meta, LinkedIn in prod only (blocking triggers)."
   },
   {
+   "name": "GTES - Page context",
+   "type": "gtes",
+   "parameter": [
+    {
+     "type": "list",
+     "key": "eventSettingsTable",
+     "list": [
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "page_type"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - page_type}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "service_id"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - service_id}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "service_name"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - service_name}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "service_category"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - service_category}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "landing_page"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - landing_page}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "pages_viewed"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - pages_viewed}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "services_viewed"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - services_viewed}}"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "@folder": "GA4",
+   "notes": "Shared GA4 event parameters, on every event (page_view included): the page type; the service (the page's, or elsewhere the last one seen in the visit); the visit so far (entry page, pages viewed, services viewed). Pushed in the head before GTM (includes/assets.php)."
+  },
+  {
+   "name": "CJS - Content group",
+   "type": "jsm",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "javascript",
+     "value": "function () {\n  var t = {{DLV - page_type}};\n  if (t === 'service') return 'Services - ' + {{DLV - service_category}};\n  return {home: 'Accueil', category: 'Catégories', contact: 'Contact', about: 'À propos', articles: 'Articles', jobs: 'Emploi', payment: 'Paiement', legal: 'Pages légales', not_found: 'Page introuvable'}[t] || 'Autres pages';\n}"
+    }
+   ],
+   "@folder": "GA4",
+   "notes": "GA4 content group: services by category, the other pages by type."
+  },
+  {
+   "name": "DLV - page_type",
+   "type": "v",
+   "parameter": [
+    {
+     "type": "integer",
+     "key": "dataLayerVersion",
+     "value": "2"
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "name",
+     "value": "page_type"
+    }
+   ],
+   "@folder": "Utilities"
+  },
+  {
+   "name": "DLV - service_id",
+   "type": "v",
+   "parameter": [
+    {
+     "type": "integer",
+     "key": "dataLayerVersion",
+     "value": "2"
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "name",
+     "value": "service_id"
+    }
+   ],
+   "@folder": "Utilities"
+  },
+  {
+   "name": "DLV - service_name",
+   "type": "v",
+   "parameter": [
+    {
+     "type": "integer",
+     "key": "dataLayerVersion",
+     "value": "2"
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "name",
+     "value": "service_name"
+    }
+   ],
+   "@folder": "Utilities"
+  },
+  {
+   "name": "DLV - service_category",
+   "type": "v",
+   "parameter": [
+    {
+     "type": "integer",
+     "key": "dataLayerVersion",
+     "value": "2"
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "name",
+     "value": "service_category"
+    }
+   ],
+   "@folder": "Utilities"
+  },
+  {
+   "name": "DLV - landing_page",
+   "type": "v",
+   "parameter": [
+    {
+     "type": "integer",
+     "key": "dataLayerVersion",
+     "value": "2"
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "name",
+     "value": "landing_page"
+    }
+   ],
+   "@folder": "Utilities"
+  },
+  {
+   "name": "DLV - pages_viewed",
+   "type": "v",
+   "parameter": [
+    {
+     "type": "integer",
+     "key": "dataLayerVersion",
+     "value": "2"
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "name",
+     "value": "pages_viewed"
+    }
+   ],
+   "@folder": "Utilities"
+  },
+  {
+   "name": "DLV - services_viewed",
+   "type": "v",
+   "parameter": [
+    {
+     "type": "integer",
+     "key": "dataLayerVersion",
+     "value": "2"
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "name",
+     "value": "services_viewed"
+    }
+   ],
+   "@folder": "Utilities"
+  },
+  {
    "name": "DLV - form_id",
    "type": "v",
    "parameter": [
@@ -1296,6 +1582,27 @@
  ],
  "triggers": [
   {
+   "name": "CE - lead_form_view",
+   "type": "customEvent",
+   "customEventFilter": [
+    {
+     "type": "equals",
+     "parameter": [
+      {
+       "type": "template",
+       "key": "arg0",
+       "value": "{{_event}}"
+      },
+      {
+       "type": "template",
+       "key": "arg1",
+       "value": "lead_form_view"
+      }
+     ]
+    }
+   ]
+  },
+  {
    "name": "CE - lead_form_start",
    "type": "customEvent",
    "customEventFilter": [
@@ -1311,6 +1618,27 @@
        "type": "template",
        "key": "arg1",
        "value": "lead_form_start"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "CE - lead_form_submit",
+   "type": "customEvent",
+   "customEventFilter": [
+    {
+     "type": "equals",
+     "parameter": [
+      {
+       "type": "template",
+       "key": "arg0",
+       "value": "{{_event}}"
+      },
+      {
+       "type": "template",
+       "key": "arg1",
+       "value": "lead_form_submit"
       }
      ]
     }
@@ -1815,6 +2143,32 @@
      "type": "template",
      "key": "tagId",
      "value": "{{Const - GA4 Measurement ID}}"
+    },
+    {
+     "type": "list",
+     "key": "configSettingsTable",
+     "list": [
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "content_group"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{CJS - Content group}}"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "template",
+     "key": "eventSettingsVariable",
+     "value": "{{GTES - Page context}}"
     }
    ],
    "@fire": [
@@ -1826,6 +2180,91 @@
    "@folder": "GA4",
    "tagFiringOption": "oncePerLoad",
    "notes": "GA4 page_view included. Consent Mode v2 from the site's head script (denied until Complianz consent): cookieless pings until then."
+  },
+  {
+   "name": "GA4 - Event - lead_form_view",
+   "type": "gaawe",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "eventName",
+     "value": "lead_form_view"
+    },
+    {
+     "type": "template",
+     "key": "measurementIdOverride",
+     "value": "{{Const - GA4 Measurement ID}}"
+    },
+    {
+     "type": "template",
+     "key": "eventSettingsVariable",
+     "value": "{{GTES - Page context}}"
+    },
+    {
+     "type": "list",
+     "key": "eventSettingsTable",
+     "list": [
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "form_id"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - form_id}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "form_name"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - form_name}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "event_id"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{CVT - Unique Event ID}}"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "boolean",
+     "key": "sendEcommerceData",
+     "value": "false"
+    }
+   ],
+   "@fire": [
+    "CE - lead_form_view"
+   ],
+   "@block": [
+    "Block - Send mode off"
+   ],
+   "@folder": "GA4",
+   "tagFiringOption": "oncePerEvent"
   },
   {
    "name": "GA4 - Event - lead_form_start",
@@ -1840,6 +2279,11 @@
      "type": "template",
      "key": "measurementIdOverride",
      "value": "{{Const - GA4 Measurement ID}}"
+    },
+    {
+     "type": "template",
+     "key": "eventSettingsVariable",
+     "value": "{{GTES - Page context}}"
     },
     {
      "type": "list",
@@ -1908,6 +2352,91 @@
    "tagFiringOption": "oncePerEvent"
   },
   {
+   "name": "GA4 - Event - lead_form_submit",
+   "type": "gaawe",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "eventName",
+     "value": "lead_form_submit"
+    },
+    {
+     "type": "template",
+     "key": "measurementIdOverride",
+     "value": "{{Const - GA4 Measurement ID}}"
+    },
+    {
+     "type": "template",
+     "key": "eventSettingsVariable",
+     "value": "{{GTES - Page context}}"
+    },
+    {
+     "type": "list",
+     "key": "eventSettingsTable",
+     "list": [
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "form_id"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - form_id}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "form_name"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - form_name}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "event_id"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{CVT - Unique Event ID}}"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "boolean",
+     "key": "sendEcommerceData",
+     "value": "false"
+    }
+   ],
+   "@fire": [
+    "CE - lead_form_submit"
+   ],
+   "@block": [
+    "Block - Send mode off"
+   ],
+   "@folder": "GA4",
+   "tagFiringOption": "oncePerEvent"
+  },
+  {
    "name": "GA4 - Event - lead_form_error",
    "type": "gaawe",
    "parameter": [
@@ -1920,6 +2449,11 @@
      "type": "template",
      "key": "measurementIdOverride",
      "value": "{{Const - GA4 Measurement ID}}"
+    },
+    {
+     "type": "template",
+     "key": "eventSettingsVariable",
+     "value": "{{GTES - Page context}}"
     },
     {
      "type": "list",
@@ -2015,6 +2549,11 @@
      "type": "template",
      "key": "measurementIdOverride",
      "value": "{{Const - GA4 Measurement ID}}"
+    },
+    {
+     "type": "template",
+     "key": "eventSettingsVariable",
+     "value": "{{GTES - Page context}}"
     },
     {
      "type": "list",
@@ -2142,6 +2681,11 @@
      "value": "{{Const - GA4 Measurement ID}}"
     },
     {
+     "type": "template",
+     "key": "eventSettingsVariable",
+     "value": "{{GTES - Page context}}"
+    },
+    {
      "type": "list",
      "key": "eventSettingsTable",
      "list": [
@@ -2222,6 +2766,11 @@
      "value": "{{Const - GA4 Measurement ID}}"
     },
     {
+     "type": "template",
+     "key": "eventSettingsVariable",
+     "value": "{{GTES - Page context}}"
+    },
+    {
      "type": "list",
      "key": "eventSettingsTable",
      "list": [
@@ -2300,6 +2849,11 @@
      "type": "template",
      "key": "measurementIdOverride",
      "value": "{{Const - GA4 Measurement ID}}"
+    },
+    {
+     "type": "template",
+     "key": "eventSettingsVariable",
+     "value": "{{GTES - Page context}}"
     },
     {
      "type": "list",
@@ -2397,6 +2951,11 @@
      "value": "{{Const - GA4 Measurement ID}}"
     },
     {
+     "type": "template",
+     "key": "eventSettingsVariable",
+     "value": "{{GTES - Page context}}"
+    },
+    {
      "type": "list",
      "key": "eventSettingsTable",
      "list": [
@@ -2475,6 +3034,11 @@
      "type": "template",
      "key": "measurementIdOverride",
      "value": "{{Const - GA4 Measurement ID}}"
+    },
+    {
+     "type": "template",
+     "key": "eventSettingsVariable",
+     "value": "{{GTES - Page context}}"
     },
     {
      "type": "list",
@@ -2572,6 +3136,11 @@
      "value": "{{Const - GA4 Measurement ID}}"
     },
     {
+     "type": "template",
+     "key": "eventSettingsVariable",
+     "value": "{{GTES - Page context}}"
+    },
+    {
      "type": "list",
      "key": "eventSettingsTable",
      "list": [
@@ -2637,6 +3206,11 @@
      "value": "{{Const - GA4 Measurement ID}}"
     },
     {
+     "type": "template",
+     "key": "eventSettingsVariable",
+     "value": "{{GTES - Page context}}"
+    },
+    {
      "type": "list",
      "key": "eventSettingsTable",
      "list": [
@@ -2692,6 +3266,11 @@
      "value": "{{Const - GA4 Measurement ID}}"
     },
     {
+     "type": "template",
+     "key": "eventSettingsVariable",
+     "value": "{{GTES - Page context}}"
+    },
+    {
      "type": "list",
      "key": "eventSettingsTable",
      "list": [
@@ -2745,6 +3324,11 @@
      "type": "template",
      "key": "measurementIdOverride",
      "value": "{{Const - GA4 Measurement ID}}"
+    },
+    {
+     "type": "template",
+     "key": "eventSettingsVariable",
+     "value": "{{GTES - Page context}}"
     },
     {
      "type": "list",
@@ -3410,6 +3994,21 @@
          "value": "{{DLV - lead_source}}"
         }
        ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "name",
+         "value": "content_category"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "{{DLV - service_name}}"
+        }
+       ]
       }
      ]
     },
@@ -3563,6 +4162,21 @@
          "value": "{{Event}}"
         }
        ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "name",
+         "value": "content_category"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "{{DLV - service_name}}"
+        }
+       ]
       }
      ]
     },
@@ -3679,6 +4293,21 @@
          "type": "template",
          "key": "value",
          "value": "{{DLV - booking_provider}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "name",
+         "value": "content_category"
+        },
+        {
+         "type": "template",
+         "key": "value",
+         "value": "{{DLV - service_name}}"
         }
        ]
       }
