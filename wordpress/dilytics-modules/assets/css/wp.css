@@ -70,3 +70,18 @@ body.admin-bar .drw { top: calc(var(--nav-h) + 32px) }
 .cmplz-cookiebanner, .cmplz-manage-consent { font-family: inherit !important }
 .cmplz-cookiebanner .cmplz-title { font-weight: 760; letter-spacing: -.02em }
 .cmplz-cookiebanner .cmplz-btn, .cmplz-manage-consent { font-weight: 640 !important; letter-spacing: -.01em }
+
+/* The payment confirmation (/paiement-confirme/), in the document frame: a
+   sentence, the booking button and the phone. */
+.dl-doc--done { display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding-top: calc(var(--nav-h) + clamp(56px, 8vw, 128px)); padding-bottom: clamp(80px, 10vw, 160px) }
+.dl-doc--done .dl-check { color: var(--red); margin-bottom: clamp(20px, 2.4vw, 32px) }
+.dl-doc--done .d1 { max-width: 16ch }
+.dl-doc--done .dl-doc-body .body { margin-inline: auto }
+.dl-doc--done .dl-doc-body .acts { justify-content: center }
+.dl-doc-body .body { font-size: 1.12rem; line-height: 1.55; max-width: 52ch; color: var(--muted) }
+.dl-doc-body .acts { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; margin-top: 28px }
+.dl-doc-body .acts a { text-decoration: none }
+.dl-doc-body .acts .cta { color: #fff }
+.dl-doc-body .acts .ph { color: var(--ink); font-size: 1.02rem; font-weight: 760; letter-spacing: -.03em }
+.dl-doc-body .acts .ph:hover { color: var(--red) }
