@@ -49,6 +49,11 @@ update_option( 'dl_contact', $c['site']['CONTACT'] );
 update_option( 'dl_photos', $c['photos'] );
 dlb_log( 'Options: contact details and photo registry' );
 
+// Geneva time and French dates ("30 septembre 2026 à 16h01"), for the mails too
+update_option( 'timezone_string', 'Europe/Zurich' );
+update_option( 'date_format', 'j F Y' );
+update_option( 'time_format', 'G\hi' );
+
 // Every service, as an ecommerce item, for the view_item, begin_checkout and
 // purchase events of track.js: the item id is the page's slug; price before
 // VAT and payment link only for the services paid online (PRICE[…].pay in
@@ -226,10 +231,11 @@ if ( class_exists( 'WPCF7_ContactForm' ) ) {
 		return "[text* your-name]\n[email* your-email]\n[tel your-phone]\n" . ( $subject ? "[text your-subject]\n" : '' )
 			. "[textarea* your-message minlength:9]\n[text hp-website]\n[hidden hp-t]";
 	};
+	// the notice to the cabinet, in HTML like the payment mails
 	$body     = function ( $subject ) {
-		return "[your-message]\n\n--\n[your-name]\n[your-email]\n[your-phone]\n\n"
-			. ( $subject ? "Sujet : [your-subject]\n" : '' )
-			. "Page : [_post_title], [_post_url]\nEnvoyé le [_date] à [_time]";
+		ob_start();
+		include DL_DIR . 'templates/mail-lead.php';
+		return (string) ob_get_clean();
 	};
 	$defs     = array(
 		'contact'  => array( 'Dilytics · Contact', '[your-subject] · [your-name]', true ),
@@ -260,7 +266,7 @@ if ( class_exists( 'WPCF7_ContactForm' ) ) {
 					'body'               => $body( $d[2] ),
 					'additional_headers' => 'Reply-To: [your-name] <[your-email]>',
 					'attachments'        => '',
-					'use_html'           => false,
+					'use_html'           => true,
 					'exclude_blank'      => true,
 				),
 				'mail_2'              => array( 'active' => false ),

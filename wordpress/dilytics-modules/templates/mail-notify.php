@@ -33,6 +33,11 @@ $rows  = array(
 		<td align="center" style="padding:40px 16px;">
 			<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;">
 				<tr>
+					<td style="padding:0 0 24px 4px;">
+						<img src="<?php echo esc_url( set_url_scheme( DL_URL . 'assets/img/mail-logo.png', 'https' ) ); ?>" width="112" height="41" alt="Dilytics" style="display:block;border:0;">
+					</td>
+				</tr>
+				<tr>
 					<td style="background:#ffffff;border-radius:14px;padding:36px;font-family:<?php echo $font; ?>;color:<?php echo $ink; ?>;">
 						<h1 style="margin:0 0 8px;font-size:22px;line-height:1.25;font-weight:700;">Paiement en ligne reçu</h1>
 						<p style="margin:0 0 24px;font-size:15px;line-height:1.55;color:<?php echo $muted; ?>;">Un client a payé sur le site. Il a reçu la confirmation et le reçu de Stripe ; répondre à cet e-mail lui écrit directement.</p>

@@ -26,7 +26,7 @@ $hours = lcfirst( (string) ( $c['hours'] ?? '' ) );
 			<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;">
 				<tr>
 					<td style="padding:0 0 24px 4px;">
-						<img src="<?php echo esc_url( DL_URL . 'assets/img/mail-logo.png' ); ?>" width="112" height="41" alt="Dilytics" style="display:block;border:0;">
+						<img src="<?php echo esc_url( set_url_scheme( DL_URL . 'assets/img/mail-logo.png', 'https' ) ); ?>" width="112" height="41" alt="Dilytics" style="display:block;border:0;">
 					</td>
 				</tr>
 				<tr>
