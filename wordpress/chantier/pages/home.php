@@ -115,11 +115,15 @@ foreach ( $s['PARTNERS'] as $p ) {
 }
 $reviews = array();
 foreach ( $s['REVIEWS'] as $r ) {
-	$reviews[] = array(
-		'quote'   => $r['quote'],
-		'name'    => $r['name'],
-		'role'    => $r['role'] ?? '',
-		'company' => $r['company'] ?? '',
+	$reviews[] = array_merge(
+		array(
+			'quote'    => $r['quote'],
+			'name'     => $r['name'],
+			'role'     => $r['role'] ?? '',
+			'company'  => $r['company'] ?? '',
+			'logo_alt' => $r['org'] ?? '',
+		),
+		! empty( $r['logo'] ) ? dlb_photo( 'logo', $r['logo'] ) : array()
 	);
 }
 $marks = array();

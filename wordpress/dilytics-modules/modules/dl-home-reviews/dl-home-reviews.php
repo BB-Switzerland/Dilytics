@@ -17,10 +17,12 @@ FLBuilder::register_settings_form(
 		'title' => 'Avis',
 		'tabs'  => dl_form(
 			array(
-				'quote'   => dl_f_area( 'Citation', '', 5 ),
-				'name'    => dl_f_text( 'Nom' ),
-				'role'    => dl_f_text( 'Fonction', 'Facultatif.' ),
-				'company' => dl_f_text( 'Entreprise', 'Facultatif.' ),
+				'quote'    => dl_f_area( 'Citation', '', 5 ),
+				'name'     => dl_f_text( 'Nom' ),
+				'role'     => dl_f_text( 'Fonction', 'Facultatif.' ),
+				'company'  => dl_f_text( 'Entreprise', 'Facultatif.' ),
+				'logo'     => dl_f_photo( 'Logo de l’entreprise' ),
+				'logo_alt' => dl_f_text( 'Nom de l’entreprise', 'Texte alternatif du logo.' ),
 			)
 		),
 	)

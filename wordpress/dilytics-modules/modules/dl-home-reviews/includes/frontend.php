@@ -14,17 +14,25 @@ $ar     = dl_ar();
 			</div>
 		</div>
 
-		<div class="track" tabindex="0" aria-label="Avis clients"<?php echo dl_rv( 'up' ); ?>>
+		<div class="track" tabindex="0" aria-label="Avis clients" data-lenis-prevent-horizontal<?php echo dl_rv( 'up' ); ?>>
 			<?php foreach ( $slides as $s ) : ?>
 				<div class="slide n<?php echo count( $s ); ?>">
 					<?php foreach ( $s as $i => $r ) : ?>
-						<?php $sub = implode( ', ', array_filter( array( dl_s( $r, 'role' ), dl_s( $r, 'company' ) ) ) ); ?>
+						<?php
+						$sub  = implode( ', ', array_filter( array( dl_s( $r, 'role' ), dl_s( $r, 'company' ) ) ) );
+						$logo = dl_photo( $r, 'logo' );
+						?>
 						<figure class="rv surf<?php echo $i ? '' : ' big'; ?>">
 							<blockquote><?php echo dl_t( dl_s( $r, 'quote' ) ); ?></blockquote>
 							<figcaption>
-								<span class="t2"><?php echo dl_t( dl_s( $r, 'name' ) ); ?></span>
-								<?php if ( $sub ) : ?>
-									<span class="sm"><?php echo dl_t( $sub ); ?></span>
+								<span class="who">
+									<span class="t2"><?php echo dl_t( dl_s( $r, 'name' ) ); ?></span>
+									<?php if ( $sub ) : ?>
+										<span class="sm"><?php echo dl_t( $sub ); ?></span>
+									<?php endif; ?>
+								</span>
+								<?php if ( $logo ) : ?>
+									<img src="<?php echo esc_url( $logo ); ?>" alt="<?php echo esc_attr( dl_s( $r, 'logo_alt' ) ); ?>" class="org" loading="lazy">
 								<?php endif; ?>
 							</figcaption>
 						</figure>
@@ -37,7 +45,7 @@ $ar     = dl_ar();
 		<ul class="logos" data-stagger>
 			<?php foreach ( dl_items( dl_s( $settings, 'partners', array() ) ) as $p ) : ?>
 				<?php $src = dl_photo( $p, 'img' ); ?>
-				<li class="surf">
+				<li>
 					<?php if ( $src ) : ?>
 						<img src="<?php echo esc_url( $src ); ?>" alt="<?php echo esc_attr( dl_s( $p, 'name' ) ); ?>" loading="lazy">
 					<?php else : ?>

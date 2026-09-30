@@ -933,21 +933,30 @@ blockquote:is(.v-home-reviews,.v-home-reviews *)::before { content: '«\00a0'; c
 }
 blockquote:is(.v-home-reviews,.v-home-reviews *)::after { content: '\00a0»'; color: var(--red)
 }
-figcaption:is(.v-home-reviews,.v-home-reviews *) { display: flex; flex-direction: column; gap: 3px; padding-top: 16px; border-top: 1px solid var(--line)
+figcaption:is(.v-home-reviews,.v-home-reviews *) { display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding-top: 16px; border-top: 1px solid var(--line)
+}
+.who:is(.v-home-reviews,.v-home-reviews *) { display: flex; flex-direction: column; gap: 3px; min-width: 0
+}
+/* the company's logo in the partners' register: grey, white dropped */
+.org:is(.v-home-reviews,.v-home-reviews *) { flex: none; width: auto; height: 44px; max-width: 120px; object-fit: contain; object-position: right center;
+  filter: grayscale(1); mix-blend-mode: multiply
 }
 .pth:is(.v-home-reviews,.v-home-reviews *) { margin: clamp(30px, 3.4vw, 52px) 0 clamp(18px, 2vw, 28px)
 }
-.logos:is(.v-home-reviews,.v-home-reviews *) { list-style: none; margin: 0; padding: 0;
-  display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: clamp(10px, 1.2vw, 18px)
+/* the partners stay in the background: no tiles, small and faded, full on hover */
+.logos:is(.v-home-reviews,.v-home-reviews *) { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: clamp(22px, 2.6vw, 40px) clamp(20px, 3vw, 52px); align-items: center
 }
-.logos li:is(.v-home-reviews,.v-home-reviews *) { display: flex; align-items: center; justify-content: center; height: clamp(76px, 7vw, 104px);
-  padding: 14px 18px; border-radius: var(--r)
+.logos li:is(.v-home-reviews,.v-home-reviews *) { display: flex; align-items: center; justify-content: center; height: clamp(36px, 3.2vw, 48px)
 }
 /* one register for logos drawn in every colour: grey, and white backgrounds dropped */
-.logos img:is(.v-home-reviews,.v-home-reviews *) { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;
-  filter: grayscale(1); mix-blend-mode: multiply
+.logos img:is(.v-home-reviews,.v-home-reviews *) { max-width: min(100%, 124px); max-height: 100%; width: auto; height: auto; object-fit: contain;
+  filter: grayscale(1); mix-blend-mode: multiply; opacity: .5; transition: opacity .3s
 }
-.logos .t2:is(.v-home-reviews,.v-home-reviews *) { text-align: center; font-size: .92rem; line-height: 1.2
+.logos li:hover img:is(.v-home-reviews,.v-home-reviews *) { opacity: .9
+}
+.logos .t2:is(.v-home-reviews,.v-home-reviews *) { text-align: center; font-size: .82rem; line-height: 1.2; opacity: .5
 }
 .marks:is(.v-home-reviews,.v-home-reviews *) { list-style: none; margin: clamp(30px, 3.4vw, 52px) 0 0; padding: clamp(22px, 2.4vw, 32px) 0 0;
   border-top: 1px solid var(--line);
@@ -980,7 +989,7 @@ figcaption:is(.v-home-reviews,.v-home-reviews *) { display: flex; flex-direction
 }
 .rv:is(.v-home-reviews,.v-home-reviews *) { flex: 0 0 86%; scroll-snap-align: start
 }
-.logos:is(.v-home-reviews,.v-home-reviews *) { grid-template-columns: repeat(2, minmax(0, 1fr))
+.logos:is(.v-home-reviews,.v-home-reviews *) { grid-template-columns: repeat(3, minmax(0, 1fr))
 }
 .marks:is(.v-home-reviews,.v-home-reviews *) { grid-template-columns: 1fr
 }

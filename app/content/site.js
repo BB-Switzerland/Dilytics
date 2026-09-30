@@ -47,17 +47,20 @@ export const REVIEWS = [
     name: 'Nicola Balestrini',
     role: 'Co-fondateur et associé',
     company: 'Auxanõ Team Sàrl, Genève',
+    logo: 'rv_auxano',
+    org: 'Auxanõ Team',
   },
   // Dilytics' selection (Word file from Nervan Omerovic, 25.09.2026), word for
   // word but for obvious typos; Hervé Roch's letter without its salutation.
   // Four to a slide, the first of each four in the large tile: the order
-  // puts the longest quotes there.
+  // puts the longest quotes there. `logo` signs a review with the reviewer's
+  // company (`org`, its alt), where the company is known.
   {
     quote:
       "Dilytics est bien plus qu'une fiduciaire, c'est un véritable partenaire de confiance ! Mon interlocuteur dédié comprend mes enjeux, sait rassurer et challenger avec justesse. Grâce à leur accompagnement, j'ai gagné un temps précieux dans la gestion et le développement de mon entreprise. Une équipe professionnelle, humaine et dynamique que je recommande à 100 % !",
     name: 'Lauren Herren',
   },
-  { quote: 'Fiduciaire très professionnelle et réactive !', name: 'Patrick Brechtbühl' },
+  { quote: 'Fiduciaire très professionnelle et réactive !', name: 'Patrick Brechtbühl', logo: 'pt_somatra', org: 'Somatra SA' },
   {
     quote:
       'Équipe très professionnelle, réactive et toujours à l’écoute. Les conseils sont clairs et pertinents, et le suivi est impeccable. Je recommande vivement.',
@@ -67,14 +70,18 @@ export const REVIEWS = [
     quote:
       "Je tiens à vous adresser mes plus sincères remerciements pour l'excellent travail que vous avez accompli ces derniers mois. Votre professionnalisme, votre rigueur et votre réactivité ont véritablement fait la différence, et je suis particulièrement reconnaissant de pouvoir compter sur une équipe aussi compétente et dévouée. Votre gestion précise et vos précieux conseils ont largement contribué à la bonne santé de mes affaires, et c'est avec une grande confiance que je continue de collaborer avec vous.",
     name: 'Hervé Roch',
+    logo: 'pt_roch',
+    org: 'Roch Sécurité SARL',
   },
   {
     quote:
       'Nous travaillons ensemble depuis un an et demi et sommes très satisfaits du service et des conseils apportés. Équipe professionnelle et à l’écoute ! Nous recommandons leurs services.',
     name: 'Adrian Le Moa',
+    logo: 'pt_seedd',
+    org: 'SeedD Sàrl',
   },
   { quote: 'Merci à Dilytics pour sa réactivité et son professionnalisme. Je recommande !', name: 'Micheyle Gaillard' },
-  { quote: 'Déjà un an que notre compta est au top avec Dilytics. Toujours de bon conseil.', name: 'Agence Web Igeneve' },
+  { quote: 'Déjà un an que notre compta est au top avec Dilytics. Toujours de bon conseil.', name: 'Agence Web Igeneve', logo: 'pt_igeneve', org: 'IGENEVE SARL' },
   {
     quote:
       "Laureano, encore merci pour votre efficacité, votre humanité, vos précieux conseils et votre accompagnement. Souvent on se dit qu'une fiduciaire, ce n'est pas très humain, ni ceux qui vont nous aider ni le mieux nous conseiller pour nos intérêts : eh bien sachez que c'est faux. Je vous recommande vivement Dilytics si vous avez besoin de conseils et de vous sentir en confiance et compris, c'est la meilleure fiduciaire que je puisse vous recommander les yeux fermés. Merci encore.",

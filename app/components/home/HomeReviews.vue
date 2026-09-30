@@ -9,6 +9,8 @@ for (let i = 0; i < REVIEWS.length; i += 4) slides.push(REVIEWS.slice(i, i + 4))
 // Native scroll snapping moves the slides (swipe, trackpad, keyboard); the
 // arrows only scroll to the previous or next snap point. On a phone each
 // review is its own snap point (the slides are display: contents there).
+// data-lenis-prevent-horizontal on the track leaves a sideways trackpad
+// swipe to the browser: Lenis would otherwise take it for the page.
 const track = ref(null)
 const at = ref(0)
 const count = ref(slides.length)
@@ -20,29 +22,50 @@ const stops = () => {
 // a stop's scroll position; the last ones may sit past the end of the track
 const max = () => track.value.scrollWidth - track.value.clientWidth
 const pos = (el) => Math.min(el.offsetLeft, max())
-let goal = null
+let raf = 0
 const sync = () => {
+  // an arrow's glide holds the target, so a second click goes one further
+  if (raf) return
   const t = track.value
   const s = stops()
   count.value = s.length
-  // during an arrow's glide the target stands, so a second click goes one further
-  if (goal !== null && Math.abs(t.scrollLeft - goal) > 2) return
-  goal = null
   let best = 0
   s.forEach((el, i) => { if (Math.abs(pos(el) - t.scrollLeft) < Math.abs(pos(s[best]) - t.scrollLeft)) best = i })
   at.value = t.scrollLeft >= max() - 2 ? s.length - 1 : best
 }
+// The arrows glide on their own clock, snapping off for the ride: a snapping
+// track catches every frame of a scripted scroll, and the browsers' own
+// smooth scroll stutters or jumps there.
+const halt = () => {
+  if (!raf) return
+  cancelAnimationFrame(raf)
+  raf = 0
+  track.value.style.scrollSnapType = ''
+}
+const glide = (to) => {
+  const t = track.value
+  halt()
+  const from = t.scrollLeft
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { t.scrollLeft = to; return }
+  const t0 = performance.now()
+  t.style.scrollSnapType = 'none'
+  const step = (now) => {
+    const k = Math.min(1, (now - t0) / 800)
+    t.scrollLeft = from + (to - from) * (1 - (1 - k) ** 4)
+    if (k < 1) raf = requestAnimationFrame(step)
+    else { halt(); sync() }
+  }
+  raf = requestAnimationFrame(step)
+}
 const go = (d) => {
   const s = stops()
   at.value = Math.min(s.length - 1, Math.max(0, at.value + d))
-  goal = pos(s[at.value])
-  track.value.scrollTo({ left: goal, behavior: 'smooth' })
-  // some browsers skip the smooth glide on a snapping track: land anyway
-  const g = goal
-  setTimeout(() => { if (goal === g && Math.abs(track.value.scrollLeft - g) > 2) track.value.scrollLeft = g }, 700)
+  glide(pos(s[at.value]))
 }
+// a hand on the track takes over from a glide
+const grab = (e) => { if (e.type === 'touchstart' || Math.abs(e.deltaX) > Math.abs(e.deltaY)) { halt(); sync() } }
 onMounted(() => { sync(); window.addEventListener('resize', sync) })
-onBeforeUnmount(() => window.removeEventListener('resize', sync))
+onBeforeUnmount(() => { halt(); window.removeEventListener('resize', sync) })
 </script>
 
 <template>
@@ -57,13 +80,17 @@ onBeforeUnmount(() => window.removeEventListener('resize', sync))
         </div>
       </div>
 
-      <div ref="track" class="track" tabindex="0" aria-label="Avis clients" v-rv="'up'" @scroll.passive="sync">
+      <div ref="track" class="track" tabindex="0" aria-label="Avis clients" data-lenis-prevent-horizontal v-rv="'up'"
+        @scroll.passive="sync" @wheel.passive="grab" @touchstart.passive="grab">
         <div v-for="(s, k) in slides" :key="k" class="slide" :class="'n' + s.length">
           <figure v-for="(r, i) in s" :key="r.name" class="rv surf" :class="{ big: !i }">
             <blockquote>{{ r.quote }}</blockquote>
             <figcaption>
-              <span class="t2">{{ r.name }}</span>
-              <span v-if="r.role || r.company" class="sm">{{ [r.role, r.company].filter(Boolean).join(', ') }}</span>
+              <span class="who">
+                <span class="t2">{{ r.name }}</span>
+                <span v-if="r.role || r.company" class="sm">{{ [r.role, r.company].filter(Boolean).join(', ') }}</span>
+              </span>
+              <img v-if="r.logo" :src="img(r.logo)" :alt="r.org" class="org" loading="lazy" />
             </figcaption>
           </figure>
         </div>
@@ -71,7 +98,7 @@ onBeforeUnmount(() => window.removeEventListener('resize', sync))
 
       <h3 class="d3 pth" v-rv="'mask'">Nos partenaires.</h3>
       <ul class="logos" v-stagger>
-        <li v-for="p in PARTNERS" :key="p.name" class="surf">
+        <li v-for="p in PARTNERS" :key="p.name">
           <img v-if="p.img" :src="img(p.img)" :alt="p.name" loading="lazy" />
           <span v-else class="t2">{{ p.name }}</span>
         </li>
@@ -116,17 +143,23 @@ blockquote { margin: 0; font-size: 1rem; font-weight: 500; line-height: 1.5; tex
 .big blockquote { font-size: clamp(1.08rem, 1.4vw, 1.3rem); font-weight: 600; line-height: 1.42; letter-spacing: -.018em }
 blockquote::before { content: '«\00a0'; color: var(--red) }
 blockquote::after { content: '\00a0»'; color: var(--red) }
-figcaption { display: flex; flex-direction: column; gap: 3px; padding-top: 16px; border-top: 1px solid var(--line) }
+figcaption { display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding-top: 16px; border-top: 1px solid var(--line) }
+.who { display: flex; flex-direction: column; gap: 3px; min-width: 0 }
+/* the company's logo in the partners' register: grey, white dropped */
+.org { flex: none; width: auto; height: 44px; max-width: 120px; object-fit: contain; object-position: right center;
+  filter: grayscale(1); mix-blend-mode: multiply }
 
 .pth { margin: clamp(30px, 3.4vw, 52px) 0 clamp(18px, 2vw, 28px) }
-.logos { list-style: none; margin: 0; padding: 0;
-  display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: clamp(10px, 1.2vw, 18px) }
-.logos li { display: flex; align-items: center; justify-content: center; height: clamp(76px, 7vw, 104px);
-  padding: 14px 18px; border-radius: var(--r) }
+/* the partners stay in the background: no tiles, small and faded, full on hover */
+.logos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: clamp(22px, 2.6vw, 40px) clamp(20px, 3vw, 52px); align-items: center }
+.logos li { display: flex; align-items: center; justify-content: center; height: clamp(36px, 3.2vw, 48px) }
 /* one register for logos drawn in every colour: grey, and white backgrounds dropped */
-.logos img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;
-  filter: grayscale(1); mix-blend-mode: multiply }
-.logos .t2 { text-align: center; font-size: .92rem; line-height: 1.2 }
+.logos img { max-width: min(100%, 124px); max-height: 100%; width: auto; height: auto; object-fit: contain;
+  filter: grayscale(1); mix-blend-mode: multiply; opacity: .5; transition: opacity .3s }
+.logos li:hover img { opacity: .9 }
+.logos .t2 { text-align: center; font-size: .82rem; line-height: 1.2; opacity: .5 }
 
 .marks { list-style: none; margin: clamp(30px, 3.4vw, 52px) 0 0; padding: clamp(22px, 2.4vw, 32px) 0 0;
   border-top: 1px solid var(--line);
@@ -148,7 +181,7 @@ figcaption { display: flex; flex-direction: column; gap: 3px; padding-top: 16px;
   .track { align-items: flex-start }
   .slide { display: contents }
   .rv { flex: 0 0 86%; scroll-snap-align: start }
-  .logos { grid-template-columns: repeat(2, minmax(0, 1fr)) }
+  .logos { grid-template-columns: repeat(3, minmax(0, 1fr)) }
   .marks { grid-template-columns: 1fr }
 }
 </style>

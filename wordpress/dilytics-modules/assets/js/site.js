@@ -366,7 +366,7 @@
       var next = $('.ctl .next', box)
       var ct = $('.ctl .ct', box)
       var at = 0
-      var goal = null
+      var raf = 0
       var stops = function () {
         var s = $$('.slide', track)
         return s.length && getComputedStyle(s[0]).display === 'contents' ? $$('.rv', track) : s
@@ -375,10 +375,9 @@
       var max = function () { return track.scrollWidth - track.clientWidth }
       var pos = function (el) { return Math.min(el.offsetLeft, max()) }
       var sync = function () {
+        // an arrow's glide holds the target, so a second click goes one further
+        if (raf) return
         var s = stops()
-        // during an arrow's glide the target stands, so a second click goes one further
-        if (goal !== null && Math.abs(track.scrollLeft - goal) > 2) return
-        goal = null
         var best = 0
         s.forEach(function (el, i) {
           if (Math.abs(pos(el) - track.scrollLeft) < Math.abs(pos(s[best]) - track.scrollLeft)) best = i
@@ -391,18 +390,43 @@
         prev.disabled = at === 0
         next.disabled = at >= n - 1
       }
+      // The arrows glide on their own clock, snapping off for the ride: a
+      // snapping track catches every frame of a scripted scroll, and the
+      // browsers' own smooth scroll stutters or jumps there.
+      var halt = function () {
+        if (!raf) return
+        cancelAnimationFrame(raf)
+        raf = 0
+        track.style.scrollSnapType = ''
+      }
+      var glide = function (to) {
+        halt()
+        var from = track.scrollLeft
+        if (reduce) { track.scrollLeft = to; return }
+        var t0 = performance.now()
+        track.style.scrollSnapType = 'none'
+        var step = function (now) {
+          var k = Math.min(1, (now - t0) / 800)
+          track.scrollLeft = from + (to - from) * (1 - Math.pow(1 - k, 4))
+          if (k < 1) raf = requestAnimationFrame(step)
+          else { halt(); sync() }
+        }
+        raf = requestAnimationFrame(step)
+      }
       var go = function (d) {
         var s = stops()
         at = Math.min(s.length - 1, Math.max(0, at + d))
-        goal = pos(s[at])
         paint(s.length)
-        track.scrollTo({ left: goal, behavior: 'smooth' })
-        // some browsers skip the smooth glide on a snapping track: land anyway
-        var g = goal
-        setTimeout(function () { if (goal === g && Math.abs(track.scrollLeft - g) > 2) track.scrollLeft = g }, 700)
+        glide(pos(s[at]))
+      }
+      // a hand on the track takes over from a glide
+      var grab = function (e) {
+        if (e.type === 'touchstart' || Math.abs(e.deltaX) > Math.abs(e.deltaY)) { halt(); sync() }
       }
       prev.addEventListener('click', function () { go(-1) })
       next.addEventListener('click', function () { go(1) })
+      track.addEventListener('wheel', grab, { passive: true })
+      track.addEventListener('touchstart', grab, { passive: true })
       track.addEventListener('scroll', sync, { passive: true })
       window.addEventListener('resize', sync)
       sync()
