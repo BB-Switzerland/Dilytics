@@ -609,6 +609,72 @@
    "@folder": "Utilities"
   },
   {
+   "name": "DLV - ecommerce.value",
+   "type": "v",
+   "parameter": [
+    {
+     "type": "integer",
+     "key": "dataLayerVersion",
+     "value": "2"
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "name",
+     "value": "ecommerce.value"
+    }
+   ],
+   "@folder": "Utilities"
+  },
+  {
+   "name": "DLV - ecommerce.currency",
+   "type": "v",
+   "parameter": [
+    {
+     "type": "integer",
+     "key": "dataLayerVersion",
+     "value": "2"
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "name",
+     "value": "ecommerce.currency"
+    }
+   ],
+   "@folder": "Utilities"
+  },
+  {
+   "name": "DLV - ecommerce.transaction_id",
+   "type": "v",
+   "parameter": [
+    {
+     "type": "integer",
+     "key": "dataLayerVersion",
+     "value": "2"
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "name",
+     "value": "ecommerce.transaction_id"
+    }
+   ],
+   "@folder": "Utilities"
+  },
+  {
    "name": "DLV - user_data.email",
    "type": "v",
    "parameter": [
@@ -3460,6 +3526,81 @@
    "@folder": "Google Ads",
    "tagFiringOption": "oncePerEvent",
    "notes": "Existing action « Formulaires_envoyés | Tout le Site Web ». Transaction ID = lead_id (random, one per message). Enhanced conversions: UPD - user_data."
+  },
+  {
+   "name": "GAds - Conversion - purchase",
+   "type": "awct",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "conversionId",
+     "value": "{{Const - GAds Conversion ID}}"
+    },
+    {
+     "type": "template",
+     "key": "conversionLabel",
+     "value": "HtZ_CKbU6osdEMmDo9wo"
+    },
+    {
+     "type": "boolean",
+     "key": "enableConversionLinker",
+     "value": "true"
+    },
+    {
+     "type": "template",
+     "key": "conversionCookiePrefix",
+     "value": "_gcl"
+    },
+    {
+     "type": "boolean",
+     "key": "enableProductReporting",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enableNewCustomerReporting",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enableShippingData",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "rdp",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "conversionValue",
+     "value": "{{DLV - ecommerce.value}}"
+    },
+    {
+     "type": "template",
+     "key": "currencyCode",
+     "value": "{{DLV - ecommerce.currency}}"
+    },
+    {
+     "type": "template",
+     "key": "orderId",
+     "value": "{{DLV - ecommerce.transaction_id}}"
+    },
+    {
+     "type": "boolean",
+     "key": "enableEnhancedConversion",
+     "value": "false"
+    }
+   ],
+   "@fire": [
+    "CE - purchase"
+   ],
+   "@block": [
+    "Block - Send mode not prod"
+   ],
+   "@folder": "Google Ads",
+   "tagFiringOption": "oncePerEvent",
+   "notes": "Action « Achat | Paiement en ligne » (goal Achat, primary), created 2026-09-30. Value before VAT in CHF, as GA4's; transaction ID = Stripe's Checkout session, one per payment."
   },
   {
    "name": "GAds - Conversion - click_booking",

@@ -233,7 +233,9 @@ aperçu, Google Ads, Meta et LinkedIn hors prod : le staging n'envoie rien.
 - Google Ads `AW-10930930121` : balise Google (remarketing, gclid) et les
   actions de conversion existantes, un libellé par action ; demande envoyée
   avec conversions améliorées (variable UPD, mode Code) et ID de transaction
-  = `lead_id`.
+  = `lead_id` ; paiement en ligne : action « Achat | Paiement en ligne »
+  (objectif Achat, principale), valeur hors TVA en CHF, ID de transaction =
+  session Stripe.
 - Meta, pixel 206194998936004, modèle officiel « Meta Pixel » : PageView,
   Lead (« Prospect »), Contact, Schedule, ViewContent, InitiateCheckout,
   Purchase ; eventID (`lead_id`, session Stripe), correspondance avancée
@@ -249,18 +251,17 @@ conteneur entier est décrit dans `tracking/gtm_spec.py` (qui écrit
 `tracking/gtm-spec.json`) : la référence pour le reconstruire à l'identique
 par l'API GTM.
 
+Fait dans GA4 (propriété 330693779) : dimensions personnalisées `page_type`,
+`service_id`, `service_name`, `service_category`, `landing_page`,
+`services_viewed`, `form_name`, `lead_source`, `link_location`,
+`booking_provider`, `error_type`, `social_network`, métrique `pages_viewed` ;
+« Interactions avec les formulaires » désactivé ; référents contenant
+`stripe.com` ignorés.
+
 Reste à faire à la main (pas d'accès en écriture par API) :
-- GA4 : `generate_lead` et `book_appointment` en événements clés ; flux
-  web > mesure améliorée > désactiver « Interactions avec les formulaires »
-  (le site envoie les siens) ; dimensions personnalisées `page_type`,
-  `service_id`, `service_name`, `service_category`, `landing_page`,
-  `services_viewed` (et `pages_viewed` en métrique personnalisée), `form_name`,
-  `lead_source`, `link_location`, `booking_provider`, `error_type`,
-  `social_network` ; `buy.stripe.com` et `checkout.stripe.com` en sites
-  référents indésirables.
-- Google Ads : une action de conversion pour les paiements en ligne (sa
-  balise se branche sur `CE - purchase`) ; compter « une » conversion par
-  clic pour les demandes.
+- GA4 : `generate_lead` et `book_appointment` en événements clés, une fois
+  reçus.
+- Google Ads : compter « une » conversion par clic pour les demandes.
 - LinkedIn : créer les conversions dans Campaign Manager (source « Tag
   manager ») et une balise par ID de conversion.
 - Meta : décider de l'intégration Conversions API proposée par Meta (des

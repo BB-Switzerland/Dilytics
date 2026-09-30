@@ -33,7 +33,7 @@ var("GTES - Page context","gtes",[L("eventSettingsTable",[{"type":"map","map":[T
     "Shared GA4 event parameters, on every event (page_view included): the page type; the service (the page's, or elsewhere the last one seen in the visit); the visit so far (entry page, pages viewed, services viewed). Pushed in the head before GTM (includes/assets.php).",folder="GA4")
 var("CJS - Content group","jsm",[T("javascript","function () {\n  var t = {{DLV - page_type}};\n  if (t === 'service') return 'Services - ' + {{DLV - service_category}};\n  return {home: 'Accueil', category: 'Catégories', contact: 'Contact', about: 'À propos', articles: 'Articles', jobs: 'Emploi', payment: 'Paiement', legal: 'Pages légales', not_found: 'Page introuvable'}[t] || 'Autres pages';\n}")],
     "GA4 content group: services by category, the other pages by type.",folder="GA4")
-for k in ["page_type","service_id","service_name","service_category","landing_page","pages_viewed","services_viewed","form_id","form_name","lead_source","lead_id","subject","error_type","link_url","link_location","booking_provider","social_network","ecommerce","user_data.email","user_data.phone_number","consent_marketing"]:
+for k in ["page_type","service_id","service_name","service_category","landing_page","pages_viewed","services_viewed","form_id","form_name","lead_source","lead_id","subject","error_type","link_url","link_location","booking_provider","social_network","ecommerce","ecommerce.value","ecommerce.currency","ecommerce.transaction_id","user_data.email","user_data.phone_number","consent_marketing"]:
     dlv(k)
 dlv("user_data","{email, phone_number (E.164)} pushed with generate_lead: Google Ads enhanced conversions and Meta advanced matching only, never sent to GA4.")
 var("UPD - user_data","awec",[T("mode","CODE"),T("dataSource","{{DLV - user_data}}")],
@@ -105,6 +105,8 @@ def ads(name,label,fire,notes,extra=()):
     tag(name,"awct",p,fire,MK_BLOCK,"Google Ads",notes)
 ads("GAds - Conversion - generate_lead","ZtWqCO2YkqAYEMmDo9wo",["CE - generate_lead"],"Existing action « Formulaires_envoyés | Tout le Site Web ». Transaction ID = lead_id (random, one per message). Enhanced conversions: UPD - user_data.",
     extra=(T("orderId","{{DLV - lead_id}}"),B("enableEnhancedConversion",True),T("cssProvidedEnhancedConversionValue","{{UPD - user_data}}")))
+ads("GAds - Conversion - purchase","HtZ_CKbU6osdEMmDo9wo",["CE - purchase"],"Action « Achat | Paiement en ligne » (goal Achat, primary), created 2026-09-30. Value before VAT in CHF, as GA4's; transaction ID = Stripe's Checkout session, one per payment.",
+    extra=(T("conversionValue","{{DLV - ecommerce.value}}"),T("currencyCode","{{DLV - ecommerce.currency}}"),T("orderId","{{DLV - ecommerce.transaction_id}}"),B("enableEnhancedConversion",False)))
 ads("GAds - Conversion - click_booking","{{CJS - GAds label - click_booking}}",["CE - click_booking"],"Label per location: CJS - GAds label - click_booking.")
 ads("GAds - Conversion - click_phone","{{CJS - GAds label - click_phone}}",["CE - click_phone"],"Label per location: CJS - GAds label - click_phone.")
 ads("GAds - Conversion - click_email","{{CJS - GAds label - click_email}}",["CE - click_email"],"Label per location: CJS - GAds label - click_email.")

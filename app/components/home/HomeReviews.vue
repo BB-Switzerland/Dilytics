@@ -19,9 +19,10 @@ const stops = () => {
   const s = [...t.children]
   return s.length && getComputedStyle(s[0]).display === 'contents' ? [...t.querySelectorAll('.rv')] : s
 }
-// a stop's scroll position; the last ones may sit past the end of the track
+// a stop's scroll position (the track's padding holds the shadows); the last
+// ones may sit past the end of the track
 const max = () => track.value.scrollWidth - track.value.clientWidth
-const pos = (el) => Math.min(el.offsetLeft, max())
+const pos = (el) => Math.min(el.offsetLeft - parseFloat(getComputedStyle(track.value).paddingLeft), max())
 let raf = 0
 const sync = () => {
   // an arrow's glide holds the target, so a second click goes one further
@@ -128,7 +129,10 @@ onBeforeUnmount(() => { halt(); window.removeEventListener('resize', sync) })
 .prev :deep(.ar) { transform: rotate(180deg) }
 .ct { min-width: 3.2em; text-align: center; font-variant-numeric: tabular-nums }
 
-.track { position: relative; display: flex; gap: clamp(14px, 1.6vw, 24px); overflow-x: auto;
+/* the scroller clips what overflows it, the cards' shadow too: room for it,
+   taken back by the margin; sideways as wide as the gap, so no neighbour peeks */
+.track { --g: clamp(14px, 1.6vw, 24px); position: relative; display: flex; gap: var(--g); overflow-x: auto;
+  padding: 0 var(--g) 44px; margin: 0 calc(var(--g) * -1) -44px; scroll-padding-inline: var(--g);
   scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain }
 .track::-webkit-scrollbar { display: none }
 .slide { flex: 0 0 100%; scroll-snap-align: start; display: grid;
@@ -150,10 +154,10 @@ figcaption { display: flex; align-items: center; justify-content: space-between;
 .org { flex: none; width: auto; height: 44px; max-width: 120px; object-fit: contain; object-position: right center;
   filter: grayscale(1); mix-blend-mode: multiply }
 
-.pth { margin: clamp(30px, 3.4vw, 52px) 0 clamp(18px, 2vw, 28px) }
+.pth { margin: clamp(56px, 6vw, 100px) 0 clamp(26px, 2.8vw, 42px) }
 /* the partners stay in the background: no tiles, small and faded, full on hover */
 .logos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: clamp(22px, 2.6vw, 40px) clamp(20px, 3vw, 52px); align-items: center }
+  gap: clamp(32px, 3.8vw, 60px) clamp(20px, 3vw, 52px); align-items: center }
 .logos li { display: flex; align-items: center; justify-content: center; height: clamp(36px, 3.2vw, 48px) }
 /* one register for logos drawn in every colour: grey, and white backgrounds dropped */
 .logos img { max-width: min(100%, 124px); max-height: 100%; width: auto; height: auto; object-fit: contain;
@@ -161,7 +165,7 @@ figcaption { display: flex; align-items: center; justify-content: space-between;
 .logos li:hover img { opacity: .9 }
 .logos .t2 { text-align: center; font-size: .82rem; line-height: 1.2; opacity: .5 }
 
-.marks { list-style: none; margin: clamp(30px, 3.4vw, 52px) 0 0; padding: clamp(22px, 2.4vw, 32px) 0 0;
+.marks { list-style: none; margin: clamp(52px, 5.6vw, 92px) 0 0; padding: clamp(34px, 3.6vw, 56px) 0 0;
   border-top: 1px solid var(--line);
   display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(18px, 2.4vw, 40px) }
 .marks li { display: flex; flex-direction: column; gap: 10px }

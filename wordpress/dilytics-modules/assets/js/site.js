@@ -371,9 +371,10 @@
         var s = $$('.slide', track)
         return s.length && getComputedStyle(s[0]).display === 'contents' ? $$('.rv', track) : s
       }
-      // a stop's scroll position; the last ones may sit past the end of the track
+      // a stop's scroll position (the track's padding holds the shadows); the
+      // last ones may sit past the end of the track
       var max = function () { return track.scrollWidth - track.clientWidth }
-      var pos = function (el) { return Math.min(el.offsetLeft, max()) }
+      var pos = function (el) { return Math.min(el.offsetLeft - parseFloat(getComputedStyle(track).paddingLeft), max()) }
       var sync = function () {
         // an arrow's glide holds the target, so a second click goes one further
         if (raf) return
