@@ -202,6 +202,13 @@ Les services (option `dl_items`, `setup.php`) : identifiant = slug de la page,
 catégorie = famille ; prix HT et lien de paiement pour les trois services
 payables en ligne. Stripe renvoie vers
 `/paiement-confirme/?item=<slug>&session_id={CHECKOUT_SESSION_ID}`.
+L'achat part aussi du serveur : au clic sur « Payer en ligne », `track.js`
+passe les identifiants GA4 du visiteur (cookies `_ga`, seulement s'il a
+accepté les statistiques) en `client_reference_id` ; le webhook Stripe
+(`dl_ga4_purchase()`, `includes/stripe.php`) envoie alors `purchase` à GA4
+par le Measurement Protocol, même `transaction_id` : GA4 n'en garde qu'un,
+et l'achat compte même si la page de retour ne s'affiche jamais. Clé :
+`DL_GA4_API_SECRET` dans `wp-config.php` (jamais dans le dépôt).
 
 Consentement : Complianz Premium (réglé par `setup.php`, bandeau aux couleurs
 du site) affiche le bandeau et garde le choix. GTM4WP charge le conteneur
@@ -218,8 +225,9 @@ propre au nouveau site ; l'ancien site garde GTM-TJQ35MG, non modifié.
 `off` ailleurs ; deux déclencheurs d'exception bloquent GA4 hors prod et
 aperçu, Google Ads, Meta et LinkedIn hors prod : le staging n'envoie rien.
 
-- GA4 `G-LD77B0HR8Z` (propriété « dilytics.ch - GA4 », celle de l'ancien
-  site) : balise Google (page vue) et une balise par événement du tableau.
+- GA4 `G-436C2QWD5K` (propriété « Dilytics.ch », 330693779 : celle où
+  arrivent les données de l'ancien site ; « dilytics.ch - GA4 »,
+  G-LD77B0HR8Z, ne reçoit rien depuis janvier 2025) : balise Google (page vue) et une balise par événement du tableau.
 - Google Ads `AW-10930930121` : balise Google (remarketing, gclid) et les
   actions de conversion existantes, un libellé par action ; demande envoyée
   avec conversions améliorées (variable UPD, mode Code) et ID de transaction
@@ -232,7 +240,7 @@ aperçu, Google Ads, Meta et LinkedIn hors prod : le staging n'envoie rien.
 
 Convention de nommage : balises `<Plateforme> - <Type> - <détail>` (`GA4 -
 Event - generate_lead`, `GAds - Conversion - click_phone`, `Meta - Event -
-Lead`, `Google Tag - GA4 - G-…`) ; déclencheurs `CE - <événement>`, `PV - …`,
+Lead`, `Google Tag - GA4 - G-436C2QWD5K`) ; déclencheurs `CE - <événement>`, `PV - …`,
 `Block - …` ; variables `Const - …`, `DLV - <clé>`, `CJS - …`, `LT - …`,
 `UPD - …` ; dossiers GA4, Google Ads, Meta, LinkedIn, Utilities. Le
 conteneur entier est décrit dans `tracking/gtm_spec.py` (qui écrit

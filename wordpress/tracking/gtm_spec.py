@@ -23,7 +23,7 @@ def var(name,type_,params,notes=None,folder="Utilities"):
     V.append(d)
 def dlv(key,notes=None): var(f"DLV - {key}","v",[{"type":"integer","key":"dataLayerVersion","value":"2"},B("setDefaultValue",False),T("name",key)],notes)
 
-var("Const - GA4 Measurement ID","c",[T("value","G-LD77B0HR8Z")],"GA4 property « dilytics.ch - GA4 » (371110963), the old site's: history continues.")
+var("Const - GA4 Measurement ID","c",[T("value","G-436C2QWD5K")],"GA4 property « Dilytics.ch » (330693779, stream « Mon site web »): the one the old site's data goes to (through its server container), in CHF and Zurich time. Not « dilytics.ch - GA4 » (371110963, G-LD77B0HR8Z), which has received nothing since January 2025.")
 var("Const - GAds Conversion ID","c",[T("value","10930930121")],"Google Ads account Dilytics Sàrl (507-524-3982).")
 var("Const - Meta Pixel ID","c",[T("value","206194998936004")],"The old site's Meta pixel.")
 var("Const - LinkedIn Partner ID","c",[T("value","4978218")],"The old site's LinkedIn Insight Tag partner ID.")
@@ -84,7 +84,7 @@ def tag(name,type_,params,fire,block,folder,notes=None,opt="oncePerEvent",consen
     if consent: d["consentSettings"]={"consentStatus":"needed","consentType":{"type":"list","list":[{"type":"template","value":c} for c in consent]}}
     Tg.append(d)
 GA_BLOCK=["Block - Send mode off"]; MK_BLOCK=["Block - Send mode not prod"]
-tag("Google Tag - GA4 - G-LD77B0HR8Z","googtag",[T("tagId","{{Const - GA4 Measurement ID}}"),L("configSettingsTable",[{"type":"map","map":[T("parameter","content_group"),T("parameterValue","{{CJS - Content group}}")]}]),T("eventSettingsVariable","{{GTES - Page context}}")],["@builtin:"+INIT],GA_BLOCK,"GA4","GA4 page_view included. Consent Mode v2 from the site's head script (denied until Complianz consent): cookieless pings until then.",opt="oncePerLoad")
+tag("Google Tag - GA4 - G-436C2QWD5K","googtag",[T("tagId","{{Const - GA4 Measurement ID}}"),L("configSettingsTable",[{"type":"map","map":[T("parameter","content_group"),T("parameterValue","{{CJS - Content group}}")]}]),T("eventSettingsVariable","{{GTES - Page context}}")],["@builtin:"+INIT],GA_BLOCK,"GA4","GA4 page_view included, property « Dilytics.ch » (330693779). Consent Mode v2 from the site's head script (denied until Complianz consent): cookieless pings until then.",opt="oncePerLoad")
 gp={"lead_form_view":["form_id","form_name"],"lead_form_submit":["form_id","form_name"],"lead_form_start":["form_id","form_name"],"lead_form_error":["form_id","form_name","error_type"],"generate_lead":["form_id","form_name","lead_source","lead_id","subject"],
     "click_phone":["link_url","link_location"],"click_email":["link_url","link_location"],"click_booking":["link_url","link_location","booking_provider"],
     "click_contact":["link_url","link_location"],"click_social":["link_url","link_location","social_network"],"book_appointment":["booking_provider"]}

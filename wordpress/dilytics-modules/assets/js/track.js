@@ -67,6 +67,18 @@
     return 'page'
   }
 
+  // GA4's client id (_ga) and session id (_ga_<stream>), as a Stripe
+  // client_reference_id (letters, digits, - and _ only): ga_<cid>_<sid>
+  var gaRef = function () {
+    var c = document.cookie
+    var cid = (c.match(/(?:^|; )_ga=GA\d\.\d\.(\d+\.\d+)/) || [])[1]
+    if (!cid) return ''
+    var s = (c.match(/(?:^|; )_ga_[A-Z0-9]+=([^;]+)/) || [])[1] || ''
+    // GS1.1.<sid>.… (older) or GS2.1.s<sid>$o…$g… (current)
+    var sid = (s.match(/^GS1\.\d\.(\d+)/) || s.match(/[.$]s(\d+)/) || [])[1]
+    return 'ga_' + cid.replace('.', '-') + (sid ? '_' + sid : '')
+  }
+
   var items = window.DLItems || []
   var itemFor = function (key) {
     for (var i = 0; i < items.length; i++) if (items[i].id === key || (items[i].url && items[i].url === key)) return items[i]
@@ -106,6 +118,11 @@
     } else if (/buy\.stripe\.com/.test(href)) {
       var it = itemFor(href.split('?')[0])
       if (it) shop('begin_checkout', ecommerce(it))
+      // Stripe carries the visitor's GA4 ids to the webhook, which sends the
+      // purchase from the server too (includes/stripe.php): only when GA's
+      // cookies exist, i.e. the visitor accepted statistics
+      var ref = gaRef()
+      if (ref) a.href = href.split('?')[0] + '?client_reference_id=' + ref
     }
   }, true)
 

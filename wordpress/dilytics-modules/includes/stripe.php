@@ -13,6 +13,10 @@
  * constants in wp-config.php): dilytics.ch only lets Microsoft send for it
  * (SPF -all), so a mail sent by this server in its name would land in spam.
  * Until the SMTP is set, nothing is sent and the payment is logged.
+ *
+ * The same webhook sends the purchase to GA4 from the server (dl_ga4_purchase,
+ * secret DL_GA4_API_SECRET in wp-config.php), for visitors who accepted
+ * statistics.
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -86,8 +90,79 @@ function dl_stripe_webhook( WP_REST_Request $request ) {
 	}
 	set_transient( $key, 1, 30 * DAY_IN_SECONDS );
 
+	$ga   = dl_ga4_purchase( $session );
 	$sent = dl_pay_send( dl_pay_data( $session ) );
-	return new WP_REST_Response( array( 'sent' => $sent ), 200 );
+	return new WP_REST_Response( array( 'sent' => $sent, 'ga4' => $ga ), 200 );
+}
+
+/**
+ * The purchase sent to GA4 from the server too (Measurement Protocol), so it
+ * counts even when the buyer never sees /paiement-confirme/. Same
+ * transaction_id as the browser's purchase (track.js): GA4 keeps one. Only
+ * for a visitor who accepted statistics: track.js then passes GA's client and
+ * session ids as the session's client_reference_id (ga_<cid>_<sid>).
+ * Secret: DL_GA4_API_SECRET in wp-config.php (GA4 property « Dilytics.ch »,
+ * G-436C2QWD5K > stream « Mon site web » > Measurement Protocol API secrets). Returns what happened, for the webhook's answer.
+ */
+function dl_ga4_purchase( array $s ) {
+	if ( ! defined( 'DL_GA4_API_SECRET' ) || ! preg_match( '/^ga_(\d+)-(\d+)(?:_(\d+))?$/', (string) ( $s['client_reference_id'] ?? '' ), $m ) ) {
+		return 'skipped';
+	}
+	$slug = trim( (string) $s['metadata']['page'], '/' );
+	$it   = null;
+	foreach ( (array) get_option( 'dl_items', array() ) as $i ) {
+		if ( $i['id'] === $slug ) {
+			$it = $i;
+		}
+	}
+	// the price before VAT, as the browser sends it; else the amount paid without its 8.1 %
+	$value = $it && ! empty( $it['price'] ) ? (float) $it['price'] : round( ( $s['amount_total'] ?? 0 ) / 100 / 1.081, 2 );
+	$line  = array(
+		'item_id'       => $slug,
+		'item_name'     => $it ? $it['name'] : $slug,
+		'item_category' => $it ? $it['category'] : '',
+		'price'         => $value,
+		'quantity'      => 1,
+	);
+	$params = array(
+		'transaction_id'       => $s['id'],
+		'currency'             => strtoupper( $s['currency'] ?? 'chf' ),
+		'value'                => $value,
+		'tax'                  => round( $value * 0.081, 2 ),
+		'items'                => array( $line ),
+		'page_type'            => 'payment',
+		'service_id'           => $slug,
+		'service_name'         => $line['item_name'],
+		'service_category'     => $line['item_category'],
+		'engagement_time_msec' => 1,
+	);
+	if ( ! empty( $m[3] ) ) {
+		$params['session_id'] = $m[3];
+	}
+	$res = wp_remote_post(
+		'https://www.google-analytics.com/mp/collect?measurement_id=G-436C2QWD5K&api_secret=' . rawurlencode( DL_GA4_API_SECRET ),
+		array(
+			'timeout' => 5,
+			'headers' => array( 'Content-Type' => 'application/json' ),
+			'body'    => wp_json_encode(
+				array(
+					'client_id' => $m[1] . '.' . $m[2],
+					// the server knows nothing of the visitor's advertising consent: none given
+					'consent'   => array(
+						'ad_user_data'       => 'DENIED',
+						'ad_personalization' => 'DENIED',
+					),
+					'events'    => array(
+						array(
+							'name'   => 'purchase',
+							'params' => $params,
+						),
+					),
+				)
+			),
+		)
+	);
+	return is_wp_error( $res ) ? 'error' : 'sent ' . wp_remote_retrieve_response_code( $res );
 }
 
 /** What the mails need, from a Checkout session. */
