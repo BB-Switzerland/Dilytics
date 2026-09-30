@@ -137,14 +137,15 @@ dans le dépôt :
 
 ```php
 define( 'DL_STRIPE_WEBHOOK_SECRET', 'whsec_…' );   // secret de signature du webhook Stripe
-define( 'DL_SMTP_HOST', 'smtp.office365.com' );    // dilytics.ch n'autorise que Microsoft 365 (SPF -all)
-define( 'DL_SMTP_USER', 'contact@dilytics.ch' );
-define( 'DL_SMTP_PASS', '…' );
 define( 'DL_PAY_NOTIFY', 'contact@dilytics.ch' );  // facultatif : destinataire de l'avis
 ```
 
-Sans SMTP, aucun e-mail ne part (le paiement est noté dans le journal PHP).
-Au passage sur dilytics.ch, changer l'URL du webhook dans Stripe.
+Les e-mails du site partent par WP Mail SMTP Pro (staging : SMTP Infomaniak ;
+au lancement : service « 365 / Outlook » avec une adresse @dilytics.ch, seul
+Microsoft est autorisé par le SPF de dilytics.ch). Sur le staging, tous les
+e-mails du site (formulaires, paiements) vont à l'e-mail d'administration,
+avec le vrai destinataire dans le sujet : rien n'arrive chez Dilytics ni chez
+un client. Au passage sur dilytics.ch, changer l'URL du webhook dans Stripe.
 
 ## Formulaires
 
@@ -156,9 +157,10 @@ formulaires CF7 (option `dl_forms`) ; `site.js` les poste à l'API REST de CF7.
 Anti-spam sans service tiers : un champ piège invisible et un délai minimal
 de trois secondes (un envoi refusé reste visible dans Flamingo, comme spam).
 
-Expéditeur provisoire : `noreply@businessbooster.agency` (le SPF de ce
-domaine autorise Infomaniak). Au lancement : FluentSMTP avec le Microsoft 365
-de Dilytics, puis l'expéditeur dans `setup.php`.
+L'envoi passe par WP Mail SMTP Pro, qui force son propre expéditeur (staging :
+web@businessbooster.agency par le SMTP Infomaniak). Au lancement : service
+« 365 / Outlook » de WP Mail SMTP avec une adresse @dilytics.ch. Sur le
+staging, les e-mails vont à l'e-mail d'administration (voir Paiement en ligne).
 
 ## Suivi des conversions
 

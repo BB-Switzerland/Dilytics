@@ -209,8 +209,8 @@ dlb_log( "Google Tag Manager: GTM4WP loads {$gtm}" );
    the markup posts, the mail to the cabinet and the messages. The markup
    stays the modules' own. */
 if ( class_exists( 'WPCF7_ContactForm' ) ) {
-	// ponytail: staging sender, allowed by businessbooster.agency's SPF; at launch
-	// a dilytics.ch address sent through Microsoft 365 (FluentSMTP)
+	// staging sender; WP Mail SMTP forces its own sender anyway (at launch a
+	// dilytics.ch address through its Microsoft 365 mailer)
 	$sender   = 'Site Dilytics <noreply@businessbooster.agency>';
 	$messages = array(
 		'mail_sent_ok'      => 'Merci, votre message a bien été envoyé.',

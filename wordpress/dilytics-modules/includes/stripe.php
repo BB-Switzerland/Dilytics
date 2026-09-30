@@ -9,10 +9,10 @@
  * in wp-config.php, DL_STRIPE_WEBHOOK_SECRET). Only the Checkout sessions of
  * the site's payment links are handled: they carry metadata.page.
  *
- * The mails leave through the SMTP of Dilytics' Microsoft 365 (DL_SMTP_*
- * constants in wp-config.php): dilytics.ch only lets Microsoft send for it
- * (SPF -all), so a mail sent by this server in its name would land in spam.
- * Until the SMTP is set, nothing is sent and the payment is logged.
+ * The mails leave through WP Mail SMTP (on dilytics.ch: its Microsoft 365
+ * mailer, as dilytics.ch only lets Microsoft send for it, SPF -all). On
+ * staging every mail of the site goes to the admin e-mail instead, so nothing
+ * reaches Dilytics or a client from there.
  *
  * The same webhook sends the purchase to GA4 from the server (dl_ga4_purchase,
  * secret DL_GA4_API_SECRET in wp-config.php), for visitors who accepted
@@ -218,16 +218,8 @@ function dl_pay_mail_html( $kind, array $d ) {
 	return (string) ob_get_clean();
 }
 
-function dl_mail_ready() {
-	return defined( 'DL_SMTP_HOST' ) && defined( 'DL_SMTP_USER' ) && defined( 'DL_SMTP_PASS' );
-}
-
-/** Both mails; nothing leaves before the SMTP is set. */
+/** Both mails. */
 function dl_pay_send( array $d ) {
-	if ( ! dl_mail_ready() ) {
-		error_log( 'Dilytics: paiement en ligne reçu, e-mails non envoyés (SMTP non configuré) : ' . wp_json_encode( $d ) );
-		return false;
-	}
 	$c      = dl_contact();
 	$html   = array( 'Content-Type: text/html; charset=UTF-8' );
 	$notify = defined( 'DL_PAY_NOTIFY' ) ? DL_PAY_NOTIFY : ( $c['mail'] ?? '' );
@@ -251,26 +243,15 @@ function dl_pay_send( array $d ) {
 	return $ok;
 }
 
-// Every mail of the site leaves through the Microsoft 365 SMTP once it is set.
-// Until then the server's own mailer sends it, with the envelope sender set to
-// the From address so the domain's SPF check applies to it (form notices go
-// from noreply@businessbooster.agency, whose SPF lists Infomaniak).
-add_action(
-	'phpmailer_init',
-	function ( $mailer ) {
-		if ( ! dl_mail_ready() ) {
-			if ( ! $mailer->Sender ) {
-				$mailer->Sender = $mailer->From;
-			}
-			return;
+// On staging (businessbooster.agency), every mail of the site goes to the admin
+// e-mail: form notices, payment confirmations and notices alike.
+add_filter(
+	'wp_mail',
+	function ( $args ) {
+		if ( str_ends_with( (string) wp_parse_url( home_url(), PHP_URL_HOST ), 'businessbooster.agency' ) ) {
+			$args['subject'] = '[staging, pour ' . implode( ', ', (array) $args['to'] ) . '] ' . $args['subject'];
+			$args['to']      = get_option( 'admin_email' );
 		}
-		$mailer->isSMTP();
-		$mailer->Host       = DL_SMTP_HOST;
-		$mailer->Port       = defined( 'DL_SMTP_PORT' ) ? (int) DL_SMTP_PORT : 587;
-		$mailer->SMTPSecure = 'tls';
-		$mailer->SMTPAuth   = true;
-		$mailer->Username   = DL_SMTP_USER;
-		$mailer->Password   = DL_SMTP_PASS;
-		$mailer->setFrom( defined( 'DL_SMTP_FROM' ) ? DL_SMTP_FROM : DL_SMTP_USER, 'Dilytics', false );
+		return $args;
 	}
 );
