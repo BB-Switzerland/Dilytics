@@ -631,15 +631,24 @@
               // user_data (E.164 phone) feeds Google Ads' enhanced conversions
               // and Meta's advanced matching only, hashed by their tags under
               // consent; no GA4 event carries it.
+              // user_hash: the same e-mail and phone as SHA-256, normalised the
+              // way Meta wants (e-mail trimmed and lowercased, phone as digits
+              // with the country code). Only these hashes travel to the server
+              // container, for Meta's Conversions API, and GTM sends them only
+              // under marketing consent; the server drops them before GA4.
               var tel = (val('your-phone') || '').replace(/[^\d+]/g, '').replace(/^00/, '+').replace(/^0/, '+41')
-              track('generate_lead', {
+              var mail = (val('your-email') || '').trim().toLowerCase()
+              var lead = {
                 form_id: ids.form_id,
                 form_name: name,
                 lead_source: name + '_form',
                 lead_id: 'L' + Date.now().toString(36) + Math.random().toString(36).slice(2, 8),
                 subject: val('your-subject') || undefined,
-                user_data: { email: val('your-email').toLowerCase() || undefined, phone_number: tel.length > 8 ? tel : undefined }
-              })
+                user_data: { email: mail || undefined, phone_number: tel.length > 8 ? tel : undefined }
+              }
+              Promise.all([sha256(mail), sha256(tel.length > 8 ? tel.replace(/\D/g, '') : '')])
+                .then(function (h) { lead.user_hash = { em: h[0], ph: h[1] } }, function () {})
+                .then(function () { track('generate_lead', lead) })
               form.style.display = 'none'
               if (done) done.style.display = ''
             } else if (res.status === 'validation_failed' && res.invalid_fields && res.invalid_fields[0]) {
@@ -661,6 +670,15 @@
           form.style.display = ''
         })
       }
+    })
+  }
+
+  // SHA-256 as lowercase hex, or undefined for an empty value or a browser
+  // without Web Crypto
+  function sha256(s) {
+    if (!s || !window.crypto || !window.crypto.subtle || !window.TextEncoder) return Promise.resolve(undefined)
+    return window.crypto.subtle.digest('SHA-256', new TextEncoder().encode(s)).then(function (b) {
+      return Array.prototype.map.call(new Uint8Array(b), function (x) { return ('0' + x.toString(16)).slice(-2) }).join('')
     })
   }
 

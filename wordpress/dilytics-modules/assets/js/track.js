@@ -11,7 +11,8 @@
  *   lead_form_submit a send attempt                          form_id, form_name
  *   lead_form_error  a form the server refused               form_id, form_name, error_type
  *   generate_lead    a message sent (site.js, once each)     form_id, form_name, lead_source, lead_id,
- *                                                            subject, user_data (Ads and Meta matching)
+ *                                                            subject, user_data (Ads and Meta matching),
+ *                                                            user_hash (SHA-256 em/ph, Meta CAPI only)
  *   click_phone      a tel: link                             link_url, link_location
  *   click_email      a mailto: link                          link_url, link_location
  *   click_booking    a link to the booking page              link_url, link_location, booking_provider

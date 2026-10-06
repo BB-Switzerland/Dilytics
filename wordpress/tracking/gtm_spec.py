@@ -33,7 +33,7 @@ var("GTES - Page context","gtes",[L("eventSettingsTable",[{"type":"map","map":[T
     "Shared GA4 event parameters, on every event (page_view included): the page type; the service (the page's, or elsewhere the last one seen in the visit); the visit so far (entry page, pages viewed, services viewed). Pushed in the head before GTM (includes/assets.php).",folder="GA4")
 var("CJS - Content group","jsm",[T("javascript","function () {\n  var t = {{DLV - page_type}};\n  if (t === 'service') return 'Services - ' + {{DLV - service_category}};\n  return {home: 'Accueil', category: 'Catégories', contact: 'Contact', about: 'À propos', articles: 'Articles', jobs: 'Emploi', payment: 'Paiement', legal: 'Pages légales', not_found: 'Page introuvable'}[t] || 'Autres pages';\n}")],
     "GA4 content group: services by category, the other pages by type.",folder="GA4")
-for k in ["page_type","service_id","service_name","service_category","landing_page","pages_viewed","services_viewed","form_id","form_name","lead_source","lead_id","subject","error_type","link_url","link_location","booking_provider","booking_id","social_network","ecommerce","ecommerce.value","ecommerce.currency","ecommerce.transaction_id","user_data.email","user_data.phone_number","consent_marketing"]:
+for k in ["page_type","service_id","service_name","service_category","landing_page","pages_viewed","services_viewed","form_id","form_name","lead_source","lead_id","subject","error_type","link_url","link_location","booking_provider","booking_id","social_network","ecommerce","ecommerce.value","ecommerce.currency","ecommerce.transaction_id","user_data.email","user_data.phone_number","user_hash.em","user_hash.ph","consent_marketing"]:
     dlv(k)
 dlv("user_data","{email, phone_number (E.164)} pushed with generate_lead: Google Ads enhanced conversions and Meta advanced matching only, never sent to GA4.")
 var("UPD - user_data","awec",[T("mode","CODE"),T("dataSource","{{DLV - user_data}}")],
@@ -54,6 +54,9 @@ lt("LT - GAds label - click_contact","{{Page Path}}",ct,"Existing Ads actions «
 lt("LT - GAds label - click_social","{{DLV - social_network}}",so,"Existing Ads actions « Clic | Linkedin footer », « Clic | Instagram - Footer », « Clic | Facebook - Footer ».")
 var("CJS - Meta properties - ecommerce","jsm",[T("javascript","function () {\n  var e = {{DLV - ecommerce}} || {};\n  var items = e.items || [];\n  var o = {\n    content_type: 'product',\n    content_ids: items.map(function (i) { return i.item_id; }),\n    contents: items.map(function (i) { return { id: i.item_id, quantity: i.quantity || 1 }; }),\n    num_items: items.length\n  };\n  if (items[0]) { o.content_name = items[0].item_name; o.content_category = items[0].item_category; }\n  if (e.value !== undefined) { o.value = e.value; o.currency = e.currency; }\n  return o;\n}")],
     "Meta object properties from the GA4 ecommerce object (view_item, begin_checkout, purchase): content_ids, contents, content_type, content_name, content_category, num_items, value, currency.",folder="Meta")
+for k,what in (("em","e-mail"),("ph","phone (digits with country code)")):
+    var(f"CJS - Meta CAPI {k}","jsm",[T("javascript","function () {\n  return {{DLV - consent_marketing}} === 'granted' ? {{DLV - user_hash.%s}} : undefined;\n}" % k)],
+        f"The SHA-256 {what}, normalised as Meta asks (site.js), only under marketing consent; otherwise nothing leaves. Sent on the GA4 generate_lead hit for the server container's Meta CAPI tag; the server excludes it from the GA4 tag.",folder="Meta")
 var("CJS - Meta ph - user_data.phone_number","jsm",[T("javascript","function () {\n  var p = {{DLV - user_data.phone_number}};\n  return p ? String(p).replace(/\\D/g, '') : undefined;\n}")],
     "Meta advanced matching wants the phone as digits only, country code included.",folder="Meta")
 var("CVT - Unique Event ID","@template:Unique Event ID",[],
@@ -92,6 +95,10 @@ for e in EV:
     params=[T("eventName",e),T("measurementIdOverride","{{Const - GA4 Measurement ID}}"),T("eventSettingsVariable","{{GTES - Page context}}")]
     rows=[{"type":"map","map":[T("parameter",p),T("parameterValue","{{DLV - %s}}"%p)]} for p in gp.get(e,[])]
     rows.append({"type":"map","map":[T("parameter","event_id"),T("parameterValue","{{CVT - Unique Event ID}}")]})
+    if e=="generate_lead":
+        # SHA-256 e-mail and phone for Meta CAPI only (server container): empty
+        # without marketing consent, removed before the server's GA4 tag
+        rows+=[{"type":"map","map":[T("parameter",f"meta_{k}"),T("parameterValue",f"{{{{CJS - Meta CAPI {k}}}}}")]} for k in ("em","ph")]
     params.append(L("eventSettingsTable",rows))
     if e in gp:
         params.append(B("sendEcommerceData",False))

@@ -213,6 +213,17 @@ par le Measurement Protocol, même `transaction_id` : GA4 n'en garde qu'un,
 et l'achat compte même si la page de retour ne s'affiche jamais. Clé :
 `DL_GA4_API_SECRET` dans `wp-config.php` (jamais dans le dépôt).
 
+Conteneur serveur : GA4 passe par GTM-NKRK5KWQ, hébergé chez Stape
+(`load.analytics.dilytics.ch`, `server_container_url` du Google tag). Il
+renvoie chaque hit à GA4 et envoie à Meta la copie serveur (Conversions API)
+des événements du Pixel, même `event_id` pour le dédoublonnage, seulement
+avec le consentement publicité et depuis dilytics.ch. Pour le Lead, `site.js`
+hache l'e-mail et le téléphone en SHA-256 dans le navigateur, normalisés comme
+Meta le demande (`user_hash`) ; GTM ne les envoie qu'avec le consentement
+marketing (`meta_em`, `meta_ph`), aucune donnée en clair ne quitte la page,
+et une transformation du conteneur serveur (« Exclude - Meta hashes from
+GA4 ») les retire avant la balise GA4 : GA4 ne les reçoit jamais.
+
 Consentement : Complianz Premium (réglé par `setup.php`, bandeau aux couleurs
 du site) affiche le bandeau et garde le choix. GTM4WP charge le conteneur
 (Complianz, quand GTM4WP est actif, retire ses propres réglages GTM et Consent
@@ -265,8 +276,10 @@ Reste à faire à la main (pas d'accès en écriture par API) :
 - Google Ads : compter « une » conversion par clic pour les demandes.
 - LinkedIn : créer les conversions dans Campaign Manager (source « Tag
   manager ») et une balise par ID de conversion.
-- Meta : décider de l'intégration Conversions API proposée par Meta (des
-  conditions à accepter par Dilytics).
+- Déclaration de protection des données : elle ne cite que Google ; y
+  ajouter Meta (Pixel et Conversions API, e-mail et téléphone hachés),
+  LinkedIn, Calendly, Stripe et Stape ; proposition dans
+  `tracking/protection-des-donnees-proposition.md`, à valider par Dilytics.
 
 ## Pages légales
 

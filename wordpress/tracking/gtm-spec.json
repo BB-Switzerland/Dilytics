@@ -741,6 +741,50 @@
    "@folder": "Utilities"
   },
   {
+   "name": "DLV - user_hash.em",
+   "type": "v",
+   "parameter": [
+    {
+     "type": "integer",
+     "key": "dataLayerVersion",
+     "value": "2"
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "name",
+     "value": "user_hash.em"
+    }
+   ],
+   "@folder": "Utilities"
+  },
+  {
+   "name": "DLV - user_hash.ph",
+   "type": "v",
+   "parameter": [
+    {
+     "type": "integer",
+     "key": "dataLayerVersion",
+     "value": "2"
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "name",
+     "value": "user_hash.ph"
+    }
+   ],
+   "@folder": "Utilities"
+  },
+  {
    "name": "DLV - consent_marketing",
    "type": "v",
    "parameter": [
@@ -1646,6 +1690,32 @@
    ],
    "@folder": "Meta",
    "notes": "Meta object properties from the GA4 ecommerce object (view_item, begin_checkout, purchase): content_ids, contents, content_type, content_name, content_category, num_items, value, currency."
+  },
+  {
+   "name": "CJS - Meta CAPI em",
+   "type": "jsm",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "javascript",
+     "value": "function () {\n  return {{DLV - consent_marketing}} === 'granted' ? {{DLV - user_hash.em}} : undefined;\n}"
+    }
+   ],
+   "@folder": "Meta",
+   "notes": "The SHA-256 e-mail, normalised as Meta asks (site.js), only under marketing consent; otherwise nothing leaves. Sent on the GA4 generate_lead hit for the server container's Meta CAPI tag; the server excludes it from the GA4 tag."
+  },
+  {
+   "name": "CJS - Meta CAPI ph",
+   "type": "jsm",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "javascript",
+     "value": "function () {\n  return {{DLV - consent_marketing}} === 'granted' ? {{DLV - user_hash.ph}} : undefined;\n}"
+    }
+   ],
+   "@folder": "Meta",
+   "notes": "The SHA-256 phone (digits with country code), normalised as Meta asks (site.js), only under marketing consent; otherwise nothing leaves. Sent on the GA4 generate_lead hit for the server container's Meta CAPI tag; the server excludes it from the GA4 tag."
   },
   {
    "name": "CJS - Meta ph - user_data.phone_number",
@@ -2770,6 +2840,36 @@
          "type": "template",
          "key": "parameterValue",
          "value": "{{CVT - Unique Event ID}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "meta_em"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{CJS - Meta CAPI em}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "meta_ph"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{CJS - Meta CAPI ph}}"
         }
        ]
       }

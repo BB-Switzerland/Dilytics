@@ -34,8 +34,10 @@ body.admin-bar .drw { top: calc(var(--nav-h) + 32px) }
   outline-offset: 3px;
 }
 
-/* bb-theme's skip link: hidden until focused, as the theme's own sheet did */
-.fl-screen-reader-text {
+/* bb-theme's skip link: hidden until focused, as the theme's own sheet did;
+   and WordPress's screen-reader-text, which Complianz puts in the label of
+   each consent toggle: read out, never shown */
+.fl-screen-reader-text, .screen-reader-text {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
   clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
 }
