@@ -33,7 +33,7 @@ var("GTES - Page context","gtes",[L("eventSettingsTable",[{"type":"map","map":[T
     "Shared GA4 event parameters, on every event (page_view included): the page type; the service (the page's, or elsewhere the last one seen in the visit); the visit so far (entry page, pages viewed, services viewed). Pushed in the head before GTM (includes/assets.php).",folder="GA4")
 var("CJS - Content group","jsm",[T("javascript","function () {\n  var t = {{DLV - page_type}};\n  if (t === 'service') return 'Services - ' + {{DLV - service_category}};\n  return {home: 'Accueil', category: 'Catégories', contact: 'Contact', about: 'À propos', articles: 'Articles', jobs: 'Emploi', payment: 'Paiement', legal: 'Pages légales', not_found: 'Page introuvable'}[t] || 'Autres pages';\n}")],
     "GA4 content group: services by category, the other pages by type.",folder="GA4")
-for k in ["page_type","service_id","service_name","service_category","landing_page","pages_viewed","services_viewed","form_id","form_name","lead_source","lead_id","subject","error_type","link_url","link_location","booking_provider","social_network","ecommerce","ecommerce.value","ecommerce.currency","ecommerce.transaction_id","user_data.email","user_data.phone_number","consent_marketing"]:
+for k in ["page_type","service_id","service_name","service_category","landing_page","pages_viewed","services_viewed","form_id","form_name","lead_source","lead_id","subject","error_type","link_url","link_location","booking_provider","booking_id","social_network","ecommerce","ecommerce.value","ecommerce.currency","ecommerce.transaction_id","user_data.email","user_data.phone_number","consent_marketing"]:
     dlv(k)
 dlv("user_data","{email, phone_number (E.164)} pushed with generate_lead: Google Ads enhanced conversions and Meta advanced matching only, never sent to GA4.")
 var("UPD - user_data","awec",[T("mode","CODE"),T("dataSource","{{DLV - user_data}}")],
@@ -66,7 +66,7 @@ def trig(name,type_,custom=None,filters=None,notes=None):
     if filters: d["filter"]=filters
     if notes: d["notes"]=notes
     R.append(d)
-EV=["lead_form_view","lead_form_start","lead_form_submit","lead_form_error","generate_lead","click_phone","click_email","click_booking","click_contact","click_social","book_appointment","view_item","begin_checkout","purchase"]
+EV=["lead_form_view","lead_form_start","lead_form_submit","lead_form_error","generate_lead","click_phone","click_email","click_booking","click_contact","click_social","select_booking_time","book_appointment","view_item","begin_checkout","purchase"]
 for e in EV: trig(f"CE - {e}","customEvent",[eq("{{_event}}",e)])
 trig("CE - click_booking - microsoft_bookings","customEvent",[eq("{{_event}}","click_booking")],[eq("{{DLV - booking_provider}}","microsoft_bookings")],"A click to Microsoft Bookings: the booking happens there, unseen, so the click stands for it (Meta Schedule). Calendly bookings come as book_appointment.")
 trig("CE - click_contact - GAds page","customEvent",[eq("{{_event}}","click_contact")],[rx("{{LT - GAds label - click_contact}}",".")])
@@ -84,10 +84,10 @@ def tag(name,type_,params,fire,block,folder,notes=None,opt="oncePerEvent",consen
     if consent: d["consentSettings"]={"consentStatus":"needed","consentType":{"type":"list","list":[{"type":"template","value":c} for c in consent]}}
     Tg.append(d)
 GA_BLOCK=["Block - Send mode off"]; MK_BLOCK=["Block - Send mode not prod"]
-tag("Google Tag - GA4 - G-436C2QWD5K","googtag",[T("tagId","{{Const - GA4 Measurement ID}}"),L("configSettingsTable",[{"type":"map","map":[T("parameter","content_group"),T("parameterValue","{{CJS - Content group}}")]}]),T("eventSettingsVariable","{{GTES - Page context}}")],["@builtin:"+INIT],GA_BLOCK,"GA4","GA4 page_view included, property « Dilytics.ch » (330693779). Consent Mode v2 from the site's head script (denied until Complianz consent): cookieless pings until then.",opt="oncePerLoad")
+tag("Google Tag - GA4 - G-436C2QWD5K","googtag",[T("tagId","{{Const - GA4 Measurement ID}}"),L("configSettingsTable",[{"type":"map","map":[T("parameter","content_group"),T("parameterValue","{{CJS - Content group}}")]},{"type":"map","map":[T("parameter","server_container_url"),T("parameterValue","https://load.analytics.dilytics.ch")]}]),T("eventSettingsVariable","{{GTES - Page context}}")],["@builtin:"+INIT],GA_BLOCK,"GA4","GA4 page_view included, property « Dilytics.ch » (330693779). Consent Mode v2 from the site's head script (denied until Complianz consent): cookieless pings until then. All GA4 hits go through the server container GTM-NKRK5KWQ (Stape, load.analytics.dilytics.ch), which forwards them to GA4 and sends the Meta Conversions API copies.",opt="oncePerLoad")
 gp={"lead_form_view":["form_id","form_name"],"lead_form_submit":["form_id","form_name"],"lead_form_start":["form_id","form_name"],"lead_form_error":["form_id","form_name","error_type"],"generate_lead":["form_id","form_name","lead_source","lead_id","subject"],
     "click_phone":["link_url","link_location"],"click_email":["link_url","link_location"],"click_booking":["link_url","link_location","booking_provider"],
-    "click_contact":["link_url","link_location"],"click_social":["link_url","link_location","social_network"],"book_appointment":["booking_provider"]}
+    "click_contact":["link_url","link_location"],"click_social":["link_url","link_location","social_network"],"select_booking_time":["booking_provider"],"book_appointment":["booking_provider"]}
 for e in EV:
     params=[T("eventName",e),T("measurementIdOverride","{{Const - GA4 Measurement ID}}"),T("eventSettingsVariable","{{GTES - Page context}}")]
     rows=[{"type":"map","map":[T("parameter",p),T("parameterValue","{{DLV - %s}}"%p)]} for p in gp.get(e,[])]
@@ -107,6 +107,8 @@ ads("GAds - Conversion - generate_lead","ZtWqCO2YkqAYEMmDo9wo",["CE - generate_l
     extra=(T("orderId","{{DLV - lead_id}}"),B("enableEnhancedConversion",True),T("cssProvidedEnhancedConversionValue","{{UPD - user_data}}")))
 ads("GAds - Conversion - purchase","HtZ_CKbU6osdEMmDo9wo",["CE - purchase"],"Action « Achat | Paiement en ligne » (goal Achat, primary), created 2026-09-30. Value before VAT in CHF, as GA4's; transaction ID = Stripe's Checkout session, one per payment.",
     extra=(T("conversionValue","{{DLV - ecommerce.value}}"),T("currencyCode","{{DLV - ecommerce.currency}}"),T("orderId","{{DLV - ecommerce.transaction_id}}"),B("enableEnhancedConversion",False)))
+ads("GAds - Conversion - book_appointment","pFC0CK3yiZMdEMmDo9wo",["CE - book_appointment"],"Action « Réservation | Calendly » (goal Prise de rendez-vous, primary, count one), created 2026-10-06: an appointment booked in the Calendly popup. Transaction ID = booking_id (the Calendly invitee id). At launch, set the « Clic | … rendez-vous / entretien » actions to secondary, so a booking is not counted twice with its click.",
+    extra=(T("orderId","{{DLV - booking_id}}"),B("enableEnhancedConversion",False)))
 ads("GAds - Conversion - click_booking","{{CJS - GAds label - click_booking}}",["CE - click_booking"],"Label per location: CJS - GAds label - click_booking.")
 ads("GAds - Conversion - click_phone","{{CJS - GAds label - click_phone}}",["CE - click_phone"],"Label per location: CJS - GAds label - click_phone.")
 ads("GAds - Conversion - click_email","{{CJS - GAds label - click_email}}",["CE - click_email"],"Label per location: CJS - GAds label - click_email.")

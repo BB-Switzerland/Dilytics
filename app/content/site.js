@@ -7,8 +7,9 @@ export const CONTACT = {
   building: 'Lancy Small City, aile 1',
   map: 'https://www.google.com/maps/place//data=!4m2!3m1!1s0x478c6ffddc2a1a31:0x788c84a4fdfefdce',
   hours: 'Lundi au vendredi, 9h – 12h et 13h – 18h',
-  // the cabinet's Microsoft Bookings page, as sent by Dilytics
-  booking: 'https://outlook.office365.com/owa/calendar/ExpertDilytics@dilytics.ch/bookings/',
+  // the cabinet's Calendly (organisation « Dilytics Fiduciaire »), replacing
+  // Microsoft Bookings; on WordPress it opens as a popup (site.js)
+  booking: 'https://calendly.com/contact-dilytics/30min',
   since: 1999,
 }
 

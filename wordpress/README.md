@@ -179,10 +179,11 @@ GA4 en a un (événements recommandés), sinon `verbe_objet` en snake_case ;
 | `lead_form_error` | envoi refusé par le serveur | `form_id`, `form_name`, `error_type` |
 | `generate_lead` | message envoyé, une fois | `form_id`, `form_name`, `lead_source` (contact_form, question_form), `lead_id` (aléatoire), `subject`, `user_data` (Ads et Meta seulement) |
 | `click_phone` / `click_email` | lien `tel:` / `mailto:` | `link_url`, `link_location` (section) |
-| `click_booking` | lien vers la prise de rendez-vous | `link_url`, `link_location`, `booking_provider` |
+| `click_booking` | lien vers la prise de rendez-vous (le Calendly de Dilytics, ouvert en pop-up par `site.js`) | `link_url`, `link_location`, `booking_provider` |
 | `click_contact` | lien vers `/contact/` | `link_url`, `link_location` |
 | `click_social` | lien LinkedIn, Instagram, Facebook | `link_url`, `link_location`, `social_network` |
-| `book_appointment` | rendez-vous réservé dans un widget Calendly, une fois | `booking_provider` |
+| `select_booking_time` | date et heure choisies dans Calendly, une fois par page (GA4 seulement) | `booking_provider` |
+| `book_appointment` | rendez-vous réservé dans un widget Calendly, une fois | `booking_provider`, `booking_id` (id Calendly de la personne : transaction Google Ads) |
 | `view_item` | page d'un service | `ecommerce` (le service ; prix HT et CHF s'il se paie en ligne) |
 | `begin_checkout` | bouton « Payer en ligne » | `ecommerce` |
 | `purchase` | retour de Stripe sur `/paiement-confirme/`, une fois par paiement | `ecommerce` + `transaction_id` |

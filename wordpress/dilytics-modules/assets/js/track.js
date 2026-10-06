@@ -17,7 +17,8 @@
  *   click_booking    a link to the booking page              link_url, link_location, booking_provider
  *   click_contact    a link to the contact page              link_url, link_location
  *   click_social     a link to a social network              link_url, link_location, social_network
- *   book_appointment an appointment booked in a Calendly embed, once per booking   booking_provider
+ *   select_booking_time  a date and time picked in a Calendly embed, once per page  booking_provider
+ *   book_appointment an appointment booked in a Calendly embed, once per booking   booking_provider, booking_id (Ads order id)
  *   view_item        a service page                          ecommerce
  *   begin_checkout   a "Payer en ligne" button (Stripe)      ecommerce
  *   purchase         the page Stripe sends back to, once per payment   ecommerce (+ transaction_id)
@@ -126,12 +127,21 @@
     }
   }, true)
 
-  // Calendly's embeds post their steps to the page: the booking itself counts
+  // Calendly's embeds post their steps to the page: the booking itself counts,
+  // and the slot picked before it shows where visitors give up (GA4 only)
+  var picked = false
   window.addEventListener('message', function (e) {
-    if (!/\.calendly\.com$/.test(String(e.origin).replace(/^https?:\/\//, '.')) || !e.data || e.data.event !== 'calendly.event_scheduled') return
+    if (!/\.calendly\.com$/.test(String(e.origin).replace(/^https?:\/\//, '.')) || !e.data) return
+    if (e.data.event === 'calendly.date_and_time_selected' && !picked) {
+      picked = true
+      push('select_booking_time', { booking_provider: 'calendly' })
+      return
+    }
+    if (e.data.event !== 'calendly.event_scheduled') return
     var uri = e.data.payload && e.data.payload.invitee && e.data.payload.invitee.uri
     if (uri && !once('dl_booked_' + uri)) return
-    push('book_appointment', { booking_provider: 'calendly' })
+    // booking_id: the invitee's id, the order id Google Ads deduplicates on
+    push('book_appointment', { booking_provider: 'calendly', booking_id: uri ? uri.split('/').pop() : undefined })
   })
 
   // a service page: the service seen

@@ -565,6 +565,28 @@
    "@folder": "Utilities"
   },
   {
+   "name": "DLV - booking_id",
+   "type": "v",
+   "parameter": [
+    {
+     "type": "integer",
+     "key": "dataLayerVersion",
+     "value": "2"
+    },
+    {
+     "type": "boolean",
+     "key": "setDefaultValue",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "name",
+     "value": "booking_id"
+    }
+   ],
+   "@folder": "Utilities"
+  },
+  {
    "name": "DLV - social_network",
    "type": "v",
    "parameter": [
@@ -1858,6 +1880,27 @@
    ]
   },
   {
+   "name": "CE - select_booking_time",
+   "type": "customEvent",
+   "customEventFilter": [
+    {
+     "type": "equals",
+     "parameter": [
+      {
+       "type": "template",
+       "key": "arg0",
+       "value": "{{_event}}"
+      },
+      {
+       "type": "template",
+       "key": "arg1",
+       "value": "select_booking_time"
+      }
+     ]
+    }
+   ]
+  },
+  {
    "name": "CE - book_appointment",
    "type": "customEvent",
    "customEventFilter": [
@@ -2228,6 +2271,21 @@
          "value": "{{CJS - Content group}}"
         }
        ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "server_container_url"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "https://load.analytics.dilytics.ch"
+        }
+       ]
       }
      ]
     },
@@ -2245,7 +2303,7 @@
    ],
    "@folder": "GA4",
    "tagFiringOption": "oncePerLoad",
-   "notes": "GA4 page_view included, property « Dilytics.ch » (330693779). Consent Mode v2 from the site's head script (denied until Complianz consent): cookieless pings until then."
+   "notes": "GA4 page_view included, property « Dilytics.ch » (330693779). Consent Mode v2 from the site's head script (denied until Complianz consent): cookieless pings until then. All GA4 hits go through the server container GTM-NKRK5KWQ (Stape, load.analytics.dilytics.ch), which forwards them to GA4 and sends the Meta Conversions API copies."
   },
   {
    "name": "GA4 - Event - lead_form_view",
@@ -3188,6 +3246,76 @@
    "tagFiringOption": "oncePerEvent"
   },
   {
+   "name": "GA4 - Event - select_booking_time",
+   "type": "gaawe",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "eventName",
+     "value": "select_booking_time"
+    },
+    {
+     "type": "template",
+     "key": "measurementIdOverride",
+     "value": "{{Const - GA4 Measurement ID}}"
+    },
+    {
+     "type": "template",
+     "key": "eventSettingsVariable",
+     "value": "{{GTES - Page context}}"
+    },
+    {
+     "type": "list",
+     "key": "eventSettingsTable",
+     "list": [
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "booking_provider"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{DLV - booking_provider}}"
+        }
+       ]
+      },
+      {
+       "type": "map",
+       "map": [
+        {
+         "type": "template",
+         "key": "parameter",
+         "value": "event_id"
+        },
+        {
+         "type": "template",
+         "key": "parameterValue",
+         "value": "{{CVT - Unique Event ID}}"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "boolean",
+     "key": "sendEcommerceData",
+     "value": "false"
+    }
+   ],
+   "@fire": [
+    "CE - select_booking_time"
+   ],
+   "@block": [
+    "Block - Send mode off"
+   ],
+   "@folder": "GA4",
+   "tagFiringOption": "oncePerEvent"
+  },
+  {
    "name": "GA4 - Event - book_appointment",
    "type": "gaawe",
    "parameter": [
@@ -3601,6 +3729,71 @@
    "@folder": "Google Ads",
    "tagFiringOption": "oncePerEvent",
    "notes": "Action « Achat | Paiement en ligne » (goal Achat, primary), created 2026-09-30. Value before VAT in CHF, as GA4's; transaction ID = Stripe's Checkout session, one per payment."
+  },
+  {
+   "name": "GAds - Conversion - book_appointment",
+   "type": "awct",
+   "parameter": [
+    {
+     "type": "template",
+     "key": "conversionId",
+     "value": "{{Const - GAds Conversion ID}}"
+    },
+    {
+     "type": "template",
+     "key": "conversionLabel",
+     "value": "pFC0CK3yiZMdEMmDo9wo"
+    },
+    {
+     "type": "boolean",
+     "key": "enableConversionLinker",
+     "value": "true"
+    },
+    {
+     "type": "template",
+     "key": "conversionCookiePrefix",
+     "value": "_gcl"
+    },
+    {
+     "type": "boolean",
+     "key": "enableProductReporting",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enableNewCustomerReporting",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "enableShippingData",
+     "value": "false"
+    },
+    {
+     "type": "boolean",
+     "key": "rdp",
+     "value": "false"
+    },
+    {
+     "type": "template",
+     "key": "orderId",
+     "value": "{{DLV - booking_id}}"
+    },
+    {
+     "type": "boolean",
+     "key": "enableEnhancedConversion",
+     "value": "false"
+    }
+   ],
+   "@fire": [
+    "CE - book_appointment"
+   ],
+   "@block": [
+    "Block - Send mode not prod"
+   ],
+   "@folder": "Google Ads",
+   "tagFiringOption": "oncePerEvent",
+   "notes": "Action « Réservation | Calendly » (goal Prise de rendez-vous, primary, count one), created 2026-10-06: an appointment booked in the Calendly popup. Transaction ID = booking_id (the Calendly invitee id). At launch, set the « Clic | … rendez-vous / entretien » actions to secondary, so a booking is not counted twice with its click."
   },
   {
    "name": "GAds - Conversion - click_booking",

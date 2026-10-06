@@ -664,6 +664,38 @@
     })
   }
 
+  // Calendly opens as a popup over the page: only its embed tells track.js
+  // that the appointment is booked, a tab on calendly.com never would. Its
+  // script loads on the first click; a modified click, or a script that does
+  // not load, keeps the plain link.
+  function bookings() {
+    var ready = null
+    var load = function () {
+      if (ready) return ready
+      var css = document.createElement('link')
+      css.rel = 'stylesheet'
+      css.href = 'https://assets.calendly.com/assets/external/widget.css'
+      document.head.appendChild(css)
+      ready = new Promise(function (ok, ko) {
+        var s = document.createElement('script')
+        s.src = 'https://assets.calendly.com/assets/external/widget.js'
+        s.onload = ok
+        s.onerror = ko
+        document.head.appendChild(s)
+      })
+      return ready
+    }
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('a[href^="https://calendly.com/"]') : null
+      if (!a || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
+      e.preventDefault()
+      load().then(
+        function () { window.Calendly.initPopupWidget({ url: a.href }) },
+        function () { ready = null; window.location.href = a.href }
+      )
+    })
+  }
+
   /* ------------------------------------------------------------------- boot */
   function boot() {
     // behaviours that do not need the engine
@@ -674,6 +706,7 @@
     serviceLists()
     jumpLinks()
     forms()
+    bookings()
 
     if (!hasMotion || reduce) {
       doc.classList.remove('mo')
