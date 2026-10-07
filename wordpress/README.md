@@ -271,15 +271,9 @@ Fait dans GA4 (propriété 330693779) : dimensions personnalisées `page_type`,
 `stripe.com` ignorés.
 
 Reste à faire à la main (pas d'accès en écriture par API) :
-- GA4 : `generate_lead` et `book_appointment` en événements clés, une fois
-  reçus.
 - Google Ads : compter « une » conversion par clic pour les demandes.
 - LinkedIn : créer les conversions dans Campaign Manager (source « Tag
   manager ») et une balise par ID de conversion.
-- Déclaration de protection des données : elle ne cite que Google ; y
-  ajouter Meta (Pixel et Conversions API, e-mail et téléphone hachés),
-  LinkedIn, Calendly, Stripe et Stape ; proposition dans
-  `tracking/protection-des-donnees-proposition.md`, à valider par Dilytics.
 
 ## Pages légales
 
