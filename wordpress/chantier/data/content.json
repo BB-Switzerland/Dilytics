@@ -69,9 +69,7 @@
    },
    {
     "quote": "Fiduciaire très professionnelle et réactive !",
-    "name": "Patrick Brechtbühl",
-    "logo": "pt_somatra",
-    "org": "Somatra SA"
+    "name": "Patrick Brechtbühl"
    },
    {
     "quote": "Équipe très professionnelle, réactive et toujours à l’écoute. Les conseils sont clairs et pertinents, et le suivi est impeccable. Je recommande vivement.",
@@ -96,7 +94,7 @@
    {
     "quote": "Déjà un an que notre compta est au top avec Dilytics. Toujours de bon conseil.",
     "name": "Agence Web Igeneve",
-    "logo": "pt_igeneve",
+    "logo": "pt_igeneve2",
     "org": "IGENEVE SARL"
    },
    {
@@ -115,10 +113,6 @@
   ],
   "PARTNERS": [
    {
-    "name": "Somatra SA",
-    "img": "pt_somatra"
-   },
-   {
     "name": "Goldhand'co SARL",
     "img": "pt_goldhandco"
    },
@@ -136,18 +130,11 @@
    },
    {
     "name": "Stratsha SARL",
-    "img": "pt_stratsha"
+    "img": "pt_stratsha2"
    },
    {
     "name": "Swiss Institute of Technology and Entrepreneurship SA",
     "img": "pt_sitecentrepreneurship"
-   },
-   {
-    "name": "NORM construction Sàrl"
-   },
-   {
-    "name": "Leman Aviation SA",
-    "img": "pt_lemanaviation"
    },
    {
     "name": "SeedD Sàrl",
@@ -155,11 +142,11 @@
    },
    {
     "name": "IGENEVE SARL",
-    "img": "pt_igeneve"
+    "img": "pt_igeneve2"
    },
    {
     "name": "Rex Change Sàrl",
-    "img": "pt_rexchange"
+    "img": "pt_rexchange2"
    }
   ],
   "DISTINCTIONS": [

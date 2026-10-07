@@ -61,7 +61,8 @@ export const REVIEWS = [
       "Dilytics est bien plus qu'une fiduciaire, c'est un véritable partenaire de confiance ! Mon interlocuteur dédié comprend mes enjeux, sait rassurer et challenger avec justesse. Grâce à leur accompagnement, j'ai gagné un temps précieux dans la gestion et le développement de mon entreprise. Une équipe professionnelle, humaine et dynamique que je recommande à 100 % !",
     name: 'Lauren Herren',
   },
-  { quote: 'Fiduciaire très professionnelle et réactive !', name: 'Patrick Brechtbühl', logo: 'pt_somatra', org: 'Somatra SA' },
+  // no Somatra logo until Somatra agrees (Dilytics, 07.10.2026)
+  { quote: 'Fiduciaire très professionnelle et réactive !', name: 'Patrick Brechtbühl' },
   {
     quote:
       'Équipe très professionnelle, réactive et toujours à l’écoute. Les conseils sont clairs et pertinents, et le suivi est impeccable. Je recommande vivement.',
@@ -82,7 +83,7 @@ export const REVIEWS = [
     org: 'SeedD Sàrl',
   },
   { quote: 'Merci à Dilytics pour sa réactivité et son professionnalisme. Je recommande !', name: 'Micheyle Gaillard' },
-  { quote: 'Déjà un an que notre compta est au top avec Dilytics. Toujours de bon conseil.', name: 'Agence Web Igeneve', logo: 'pt_igeneve', org: 'IGENEVE SARL' },
+  { quote: 'Déjà un an que notre compta est au top avec Dilytics. Toujours de bon conseil.', name: 'Agence Web Igeneve', logo: 'pt_igeneve2', org: 'IGENEVE SARL' },
   {
     quote:
       "Laureano, encore merci pour votre efficacité, votre humanité, vos précieux conseils et votre accompagnement. Souvent on se dit qu'une fiduciaire, ce n'est pas très humain, ni ceux qui vont nous aider ni le mieux nous conseiller pour nos intérêts : eh bien sachez que c'est faux. Je vous recommande vivement Dilytics si vous avez besoin de conseils et de vous sentir en confiance et compris, c'est la meilleure fiduciaire que je puisse vous recommander les yeux fermés. Merci encore.",
@@ -101,21 +102,19 @@ export const REVIEWS = [
   },
 ]
 
-// Partners Dilytics may show (Word file, 25.09.2026). NORM construction sent
-// no logo: its name stands in until the file comes.
+// The clients who agreed to be shown (Dilytics, 07.10.2026). Not yet:
+// Somatra SA and NORM construction Sàrl (no answer), Leman Aviation SA (not
+// on the list). iGeneve, Rex Change and Stratsha sent their logos as SVG.
 export const PARTNERS = [
-  { name: 'Somatra SA', img: 'pt_somatra' },
   { name: "Goldhand'co SARL", img: 'pt_goldhandco' },
   { name: 'Videlio Suisse SA', img: 'pt_videlio' },
   { name: 'Roch Sécurité SARL', img: 'pt_roch' },
   { name: 'Meyrin FC', img: 'pt_meyrinfc' },
-  { name: 'Stratsha SARL', img: 'pt_stratsha' },
+  { name: 'Stratsha SARL', img: 'pt_stratsha2' },
   { name: 'Swiss Institute of Technology and Entrepreneurship SA', img: 'pt_sitecentrepreneurship' },
-  { name: 'NORM construction Sàrl' },
-  { name: 'Leman Aviation SA', img: 'pt_lemanaviation' },
   { name: 'SeedD Sàrl', img: 'pt_seedd' },
-  { name: 'IGENEVE SARL', img: 'pt_igeneve' },
-  { name: 'Rex Change Sàrl', img: 'pt_rexchange' },
+  { name: 'IGENEVE SARL', img: 'pt_igeneve2' },
+  { name: 'Rex Change Sàrl', img: 'pt_rexchange2' },
 ]
 
 // Third-party marks the cabinet can point to.
